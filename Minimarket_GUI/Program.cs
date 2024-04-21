@@ -1,3 +1,4 @@
+using GesUni_GUI;
 using ProyVentas_GUI;
 
 namespace Minimarket_GUI
@@ -13,7 +14,7 @@ namespace Minimarket_GUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MDIPrincipal());
+            Application.Run(new frmLogin());
         }
     }
 }
