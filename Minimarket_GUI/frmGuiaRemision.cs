@@ -62,8 +62,7 @@ namespace ProyVentas_GUI
             }
             // Limpiamos el datagridview
             dtgFacturas.DataSource = null;
-            txtCod.SelectAll();
-            txtCod.Focus();
+          
         }
     }
 }

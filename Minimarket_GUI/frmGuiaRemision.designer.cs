@@ -28,379 +28,346 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpFecIni = new System.Windows.Forms.DateTimePicker();
-            this.dtpFecFin = new System.Windows.Forms.DateTimePicker();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.lblRegistros = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtgFacturas = new System.Windows.Forms.DataGridView();
-            this.Num_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_fac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fec_can = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCod = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblRazSoc = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblRuc = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblDir = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblTel = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblUbicacion = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblDeuda = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgFacturas)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 15);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Ingrese codigo del cliente:";
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            label2 = new Label();
+            label3 = new Label();
+            dtpFecIni = new DateTimePicker();
+            dtpFecFin = new DateTimePicker();
+            btnConsultar = new Button();
+            lblRegistros = new Label();
+            label4 = new Label();
+            dtgFacturas = new DataGridView();
+            Num_fac = new DataGridViewTextBoxColumn();
+            Fec_fac = new DataGridViewTextBoxColumn();
+            Fec_can = new DataGridViewTextBoxColumn();
+            Total = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
+            label5 = new Label();
+            lblRazSoc = new Label();
+            label6 = new Label();
+            lblRuc = new Label();
+            label8 = new Label();
+            lblDir = new Label();
+            label10 = new Label();
+            lblTel = new Label();
+            label12 = new Label();
+            lblUbicacion = new Label();
+            label14 = new Label();
+            lblEstado = new Label();
+            label7 = new Label();
+            lblDeuda = new Label();
+            ((System.ComponentModel.ISupportInitialize)dtgFacturas).BeginInit();
+            SuspendLayout();
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 196);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha de Inicio:";
+            label2.AutoSize = true;
+            label2.Location = new Point(29, 196);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Fecha de Inicio:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(358, 196);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Fecha de Fin:";
+            label3.AutoSize = true;
+            label3.Location = new Point(358, 196);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Fecha de Fin:";
             // 
             // dtpFecIni
             // 
-            this.dtpFecIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecIni.Location = new System.Drawing.Point(163, 196);
-            this.dtpFecIni.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dtpFecIni.Name = "dtpFecIni";
-            this.dtpFecIni.Size = new System.Drawing.Size(148, 23);
-            this.dtpFecIni.TabIndex = 3;
+            dtpFecIni.Format = DateTimePickerFormat.Short;
+            dtpFecIni.Location = new Point(163, 196);
+            dtpFecIni.Margin = new Padding(4, 3, 4, 3);
+            dtpFecIni.Name = "dtpFecIni";
+            dtpFecIni.Size = new Size(148, 23);
+            dtpFecIni.TabIndex = 3;
             // 
             // dtpFecFin
             // 
-            this.dtpFecFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecFin.Location = new System.Drawing.Point(470, 196);
-            this.dtpFecFin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dtpFecFin.Name = "dtpFecFin";
-            this.dtpFecFin.Size = new System.Drawing.Size(148, 23);
-            this.dtpFecFin.TabIndex = 5;
+            dtpFecFin.Format = DateTimePickerFormat.Short;
+            dtpFecFin.Location = new Point(470, 196);
+            dtpFecFin.Margin = new Padding(4, 3, 4, 3);
+            dtpFecFin.Name = "dtpFecFin";
+            dtpFecFin.Size = new Size(148, 23);
+            dtpFecFin.TabIndex = 5;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(680, 187);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(138, 42);
-            this.btnConsultar.TabIndex = 6;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            btnConsultar.Location = new Point(680, 187);
+            btnConsultar.Margin = new Padding(4, 3, 4, 3);
+            btnConsultar.Name = "btnConsultar";
+            btnConsultar.Size = new Size(138, 42);
+            btnConsultar.TabIndex = 6;
+            btnConsultar.Text = "Consultar";
+            btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // lblRegistros
             // 
-            this.lblRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRegistros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRegistros.Location = new System.Drawing.Point(848, 472);
-            this.lblRegistros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(57, 26);
-            this.lblRegistros.TabIndex = 9;
-            this.lblRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(848, 472);
+            lblRegistros.Margin = new Padding(4, 0, 4, 0);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(57, 26);
+            lblRegistros.TabIndex = 9;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(765, 472);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Registros:";
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(765, 472);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Registros:";
             // 
             // dtgFacturas
             // 
-            this.dtgFacturas.AllowUserToAddRows = false;
-            this.dtgFacturas.AllowUserToDeleteRows = false;
-            this.dtgFacturas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgFacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Num_fac,
-            this.Fec_fac,
-            this.Fec_can,
-            this.Total,
-            this.Estado});
-            this.dtgFacturas.Location = new System.Drawing.Point(27, 235);
-            this.dtgFacturas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dtgFacturas.Name = "dtgFacturas";
-            this.dtgFacturas.ReadOnly = true;
-            this.dtgFacturas.RowHeadersVisible = false;
-            this.dtgFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgFacturas.Size = new System.Drawing.Size(878, 228);
-            this.dtgFacturas.TabIndex = 7;
+            dtgFacturas.AllowUserToAddRows = false;
+            dtgFacturas.AllowUserToDeleteRows = false;
+            dtgFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgFacturas.Columns.AddRange(new DataGridViewColumn[] { Num_fac, Fec_fac, Fec_can, Total, Estado });
+            dtgFacturas.Location = new Point(27, 235);
+            dtgFacturas.Margin = new Padding(4, 3, 4, 3);
+            dtgFacturas.Name = "dtgFacturas";
+            dtgFacturas.ReadOnly = true;
+            dtgFacturas.RowHeadersVisible = false;
+            dtgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgFacturas.Size = new Size(878, 228);
+            dtgFacturas.TabIndex = 7;
             // 
             // Num_fac
             // 
-            this.Num_fac.DataPropertyName = "num_fac";
-            this.Num_fac.HeaderText = "Nro. Factura";
-            this.Num_fac.Name = "Num_fac";
-            this.Num_fac.ReadOnly = true;
+            Num_fac.DataPropertyName = "num_fac";
+            Num_fac.HeaderText = "Nro. Factura";
+            Num_fac.Name = "Num_fac";
+            Num_fac.ReadOnly = true;
             // 
             // Fec_fac
             // 
-            this.Fec_fac.DataPropertyName = "Fec_fac";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "d";
-            this.Fec_fac.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Fec_fac.HeaderText = "Fec. Facturacion";
-            this.Fec_fac.Name = "Fec_fac";
-            this.Fec_fac.ReadOnly = true;
+            Fec_fac.DataPropertyName = "Fec_fac";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "d";
+            Fec_fac.DefaultCellStyle = dataGridViewCellStyle4;
+            Fec_fac.HeaderText = "Fec. Facturacion";
+            Fec_fac.Name = "Fec_fac";
+            Fec_fac.ReadOnly = true;
             // 
             // Fec_can
             // 
-            this.Fec_can.DataPropertyName = "fec_can";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            this.Fec_can.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Fec_can.HeaderText = "Fec. Cancelacion";
-            this.Fec_can.Name = "Fec_can";
-            this.Fec_can.ReadOnly = true;
+            Fec_can.DataPropertyName = "fec_can";
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = "-";
+            Fec_can.DefaultCellStyle = dataGridViewCellStyle5;
+            Fec_can.HeaderText = "Fec. Cancelacion";
+            Fec_can.Name = "Fec_can";
+            Fec_can.ReadOnly = true;
             // 
             // Total
             // 
-            this.Total.DataPropertyName = "total";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "n2";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Total.HeaderText = "Total (S/.)";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
+            Total.DataPropertyName = "total";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "n2";
+            Total.DefaultCellStyle = dataGridViewCellStyle6;
+            Total.HeaderText = "Total (S/.)";
+            Total.Name = "Total";
+            Total.ReadOnly = true;
             // 
             // Estado
             // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // txtCod
-            // 
-            this.txtCod.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCod.Location = new System.Drawing.Point(174, 14);
-            this.txtCod.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtCod.MaxLength = 4;
-            this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(90, 23);
-            this.txtCod.TabIndex = 0;
+            Estado.DataPropertyName = "Estado";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(299, 17);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Razon social:";
+            label5.AutoSize = true;
+            label5.Location = new Point(22, 19);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(75, 15);
+            label5.TabIndex = 11;
+            label5.Text = "Razon social:";
             // 
             // lblRazSoc
             // 
-            this.lblRazSoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRazSoc.Location = new System.Drawing.Point(388, 14);
-            this.lblRazSoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRazSoc.Name = "lblRazSoc";
-            this.lblRazSoc.Size = new System.Drawing.Size(534, 26);
-            this.lblRazSoc.TabIndex = 12;
+            lblRazSoc.BorderStyle = BorderStyle.FixedSingle;
+            lblRazSoc.Location = new Point(112, 19);
+            lblRazSoc.Margin = new Padding(4, 0, 4, 0);
+            lblRazSoc.Name = "lblRazSoc";
+            lblRazSoc.Size = new Size(534, 26);
+            lblRazSoc.TabIndex = 12;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 57);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 15);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "RUC:";
+            label6.AutoSize = true;
+            label6.Location = new Point(22, 57);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(33, 15);
+            label6.TabIndex = 11;
+            label6.Text = "RUC:";
             // 
             // lblRuc
             // 
-            this.lblRuc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRuc.Location = new System.Drawing.Point(68, 55);
-            this.lblRuc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRuc.Name = "lblRuc";
-            this.lblRuc.Size = new System.Drawing.Size(116, 26);
-            this.lblRuc.TabIndex = 12;
+            lblRuc.BorderStyle = BorderStyle.FixedSingle;
+            lblRuc.Location = new Point(68, 56);
+            lblRuc.Margin = new Padding(4, 0, 4, 0);
+            lblRuc.Name = "lblRuc";
+            lblRuc.Size = new Size(116, 26);
+            lblRuc.TabIndex = 12;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(209, 57);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 15);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Direccion:";
+            label8.AutoSize = true;
+            label8.Location = new Point(209, 57);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(60, 15);
+            label8.TabIndex = 11;
+            label8.Text = "Direccion:";
             // 
             // lblDir
             // 
-            this.lblDir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDir.Location = new System.Drawing.Point(280, 57);
-            this.lblDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDir.Name = "lblDir";
-            this.lblDir.Size = new System.Drawing.Size(642, 26);
-            this.lblDir.TabIndex = 12;
+            lblDir.BorderStyle = BorderStyle.FixedSingle;
+            lblDir.Location = new Point(280, 57);
+            lblDir.Margin = new Padding(4, 0, 4, 0);
+            lblDir.Name = "lblDir";
+            lblDir.Size = new Size(642, 26);
+            lblDir.TabIndex = 12;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 103);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Telefono:";
+            label10.AutoSize = true;
+            label10.Location = new Point(22, 103);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(55, 15);
+            label10.TabIndex = 11;
+            label10.Text = "Telefono:";
             // 
             // lblTel
             // 
-            this.lblTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTel.Location = new System.Drawing.Point(90, 102);
-            this.lblTel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(94, 26);
-            this.lblTel.TabIndex = 12;
+            lblTel.BorderStyle = BorderStyle.FixedSingle;
+            lblTel.Location = new Point(90, 102);
+            lblTel.Margin = new Padding(4, 0, 4, 0);
+            lblTel.Name = "lblTel";
+            lblTel.Size = new Size(94, 26);
+            lblTel.TabIndex = 12;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(205, 103);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 15);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Ubicacion:";
+            label12.AutoSize = true;
+            label12.Location = new Point(205, 103);
+            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(63, 15);
+            label12.TabIndex = 11;
+            label12.Text = "Ubicacion:";
             // 
             // lblUbicacion
             // 
-            this.lblUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblUbicacion.Location = new System.Drawing.Point(280, 102);
-            this.lblUbicacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUbicacion.Name = "lblUbicacion";
-            this.lblUbicacion.Size = new System.Drawing.Size(473, 26);
-            this.lblUbicacion.TabIndex = 12;
+            lblUbicacion.BorderStyle = BorderStyle.FixedSingle;
+            lblUbicacion.Location = new Point(280, 102);
+            lblUbicacion.Margin = new Padding(4, 0, 4, 0);
+            lblUbicacion.Name = "lblUbicacion";
+            lblUbicacion.Size = new Size(473, 26);
+            lblUbicacion.TabIndex = 12;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(778, 103);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 15);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Estado:";
+            label14.AutoSize = true;
+            label14.Location = new Point(778, 103);
+            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(45, 15);
+            label14.TabIndex = 11;
+            label14.Text = "Estado:";
             // 
             // lblEstado
             // 
-            this.lblEstado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEstado.Location = new System.Drawing.Point(835, 103);
-            this.lblEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(87, 25);
-            this.lblEstado.TabIndex = 12;
+            lblEstado.BorderStyle = BorderStyle.FixedSingle;
+            lblEstado.Location = new Point(835, 103);
+            lblEstado.Margin = new Padding(4, 0, 4, 0);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(87, 25);
+            lblEstado.TabIndex = 12;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 144);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 15);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Deuda:";
+            label7.AutoSize = true;
+            label7.Location = new Point(22, 144);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(44, 15);
+            label7.TabIndex = 11;
+            label7.Text = "Deuda:";
             // 
             // lblDeuda
             // 
-            this.lblDeuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDeuda.Location = new System.Drawing.Point(90, 143);
-            this.lblDeuda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(94, 26);
-            this.lblDeuda.TabIndex = 12;
-            this.lblDeuda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblDeuda.BorderStyle = BorderStyle.FixedSingle;
+            lblDeuda.Location = new Point(90, 143);
+            lblDeuda.Margin = new Padding(4, 0, 4, 0);
+            lblDeuda.Name = "lblDeuda";
+            lblDeuda.Size = new Size(94, 26);
+            lblDeuda.TabIndex = 12;
+            lblDeuda.TextAlign = ContentAlignment.MiddleRight;
             // 
             // frmConsFacturasCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 532);
-            this.Controls.Add(this.lblDir);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.lblEstado);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.lblUbicacion);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.lblDeuda);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.lblTel);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.lblRuc);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblRazSoc);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtCod);
-            this.Controls.Add(this.dtgFacturas);
-            this.Controls.Add(this.lblRegistros);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.dtpFecFin);
-            this.Controls.Add(this.dtpFecIni);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximumSize = new System.Drawing.Size(954, 571);
-            this.MinimumSize = new System.Drawing.Size(907, 548);
-            this.Name = "frmConsFacturasCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta de Facturas por Cliente";
-            this.Load += new System.EventHandler(this.frmConsFacturasCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgFacturas)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(938, 532);
+            Controls.Add(lblDir);
+            Controls.Add(label8);
+            Controls.Add(lblEstado);
+            Controls.Add(label14);
+            Controls.Add(lblUbicacion);
+            Controls.Add(label12);
+            Controls.Add(lblDeuda);
+            Controls.Add(label7);
+            Controls.Add(lblTel);
+            Controls.Add(label10);
+            Controls.Add(lblRuc);
+            Controls.Add(label6);
+            Controls.Add(lblRazSoc);
+            Controls.Add(label5);
+            Controls.Add(dtgFacturas);
+            Controls.Add(lblRegistros);
+            Controls.Add(label4);
+            Controls.Add(btnConsultar);
+            Controls.Add(dtpFecFin);
+            Controls.Add(dtpFecIni);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Margin = new Padding(4, 3, 4, 3);
+            MaximumSize = new Size(954, 571);
+            MinimumSize = new Size(907, 548);
+            Name = "frmConsFacturasCliente";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Consulta de Facturas por Cliente";
+            Load += frmConsFacturasCliente_Load;
+            ((System.ComponentModel.ISupportInitialize)dtgFacturas).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFecIni;
@@ -414,7 +381,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fec_can;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.TextBox txtCod;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRazSoc;
         private System.Windows.Forms.Label label6;
