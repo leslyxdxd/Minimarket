@@ -1,4 +1,4 @@
-﻿namespace GesUni_GUI
+﻿namespace BibReservas_GUI
 {
     partial class frmLogin
     {
@@ -29,17 +29,83 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            timer1 = new System.Windows.Forms.Timer(components);
-            panel1 = new Panel();
             label1 = new Label();
             txtLogin = new TextBox();
             label2 = new Label();
             txtPassword = new TextBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
+            panel1 = new Panel();
             label3 = new Label();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            label1.Location = new Point(91, 291);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(47, 17);
+            label1.TabIndex = 0;
+            label1.Text = "Login:";
+            // 
+            // txtLogin
+            // 
+            txtLogin.Font = new Font("Segoe UI", 9.75F);
+            txtLogin.Location = new Point(152, 285);
+            txtLogin.Margin = new Padding(4, 3, 4, 3);
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(135, 25);
+            txtLogin.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            label2.Location = new Point(67, 327);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 17);
+            label2.TabIndex = 0;
+            label2.Text = "Password:";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Font = new Font("Segoe UI", 9.75F);
+            txtPassword.Location = new Point(152, 326);
+            txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(135, 25);
+            txtPassword.TabIndex = 1;
+            // 
+            // btnAceptar
+            // 
+            btnAceptar.BackColor = Color.Transparent;
+            btnAceptar.ForeColor = SystemColors.ControlText;
+            btnAceptar.Location = new Point(78, 373);
+            btnAceptar.Margin = new Padding(4, 3, 4, 3);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(103, 36);
+            btnAceptar.TabIndex = 2;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Transparent;
+            btnCancelar.ForeColor = SystemColors.ControlText;
+            btnCancelar.Location = new Point(221, 373);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(115, 36);
+            btnCancelar.TabIndex = 3;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // timer1
             // 
@@ -49,98 +115,29 @@
             // 
             // panel1
             // 
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Location = new Point(86, 13);
+            panel1.Location = new Point(87, 91);
             panel1.Name = "panel1";
-            panel1.Size = new Size(173, 182);
-            panel1.TabIndex = 10;
-            panel1.Paint += panel1_Paint;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial Black", 9.75F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(30, 271);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(79, 18);
-            label1.TabIndex = 0;
-            label1.Text = "USUARIO:";
-            // 
-            // txtLogin
-            // 
-            txtLogin.CharacterCasing = CharacterCasing.Upper;
-            txtLogin.Location = new Point(117, 269);
-            txtLogin.Margin = new Padding(4, 3, 4, 3);
-            txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(116, 22);
-            txtLogin.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial Black", 9F, FontStyle.Bold);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(4, 328);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(105, 17);
-            label2.TabIndex = 0;
-            label2.Text = "CONTRASEÑA:";
-            // 
-            // txtPassword
-            // 
-            txtPassword.CharacterCasing = CharacterCasing.Upper;
-            txtPassword.Location = new Point(117, 323);
-            txtPassword.Margin = new Padding(4, 3, 4, 3);
-            txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(116, 22);
-            txtPassword.TabIndex = 1;
-            // 
-            // btnAceptar
-            // 
-            btnAceptar.BackColor = Color.White;
-            btnAceptar.Location = new Point(255, 265);
-            btnAceptar.Margin = new Padding(4, 3, 4, 3);
-            btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(89, 30);
-            btnAceptar.TabIndex = 2;
-            btnAceptar.Text = "Aceptar";
-            btnAceptar.UseVisualStyleBackColor = false;
-            btnAceptar.Click += btnAceptar_Click;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = Color.White;
-            btnCancelar.Location = new Point(255, 319);
-            btnCancelar.Margin = new Padding(4, 3, 4, 3);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(89, 30);
-            btnCancelar.TabIndex = 3;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            panel1.Size = new Size(200, 100);
+            panel1.TabIndex = 6;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.Teal;
-            label3.Font = new Font("Yu Gothic", 11.25F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(112, 223);
+            label3.BackColor = Color.FromArgb(0, 192, 192);
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(67, 23);
             label3.Name = "label3";
-            label3.Size = new Size(111, 19);
-            label3.TabIndex = 11;
-            label3.Text = "BIENVENIDO ";
+            label3.Size = new Size(269, 21);
+            label3.TabIndex = 5;
+            label3.Text = "BIENVENIDO A LIBROS UNVERSALES";
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.SkyBlue;
-            ClientSize = new Size(366, 377);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(416, 430);
             Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(btnCancelar);
@@ -149,17 +146,17 @@
             Controls.Add(label2);
             Controls.Add(txtLogin);
             Controls.Add(label1);
-            Font = new Font("Arial", 9.75F);
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Ingrese su usuario y contraseña";
-            FormClosed += frmLogin_FormClosed;
+            Text = "Ingrese su Login y passwrod";
+            FormClosed += FrmLogin_FormClosed;
+            Load += frmLogin_Load;
             KeyDown += frmLogin_KeyDown;
             ResumeLayout(false);
             PerformLayout();

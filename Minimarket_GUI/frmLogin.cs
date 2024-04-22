@@ -4,22 +4,29 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
 
+//Using...
 
-/*using GesUni_BE;
-using GesUni_BL;*/
+using Minimarket_BE;
+using Minimarket_BL;
+using Minimarket_GUI;
+using ProyVentas_GUI;
 
-namespace GesUni_GUI
+
+
+namespace BibReservas_GUI
 {
+
     public partial class frmLogin : Form
     {
         int intentos = 0;// Para cantidad de intentos fallidos
         int tiempo = 30; // Para cantidad de segundos como limite de tiempo para ingresar credenciales
 
-        /*UsuariosBE objUsuariosBE = new UsuariosBE();
-        UsuariosBL objUsuariosBL = new UsuariosBL();*/
+        UsuariosBE objUsuariosBE = new UsuariosBE();
+        UsuariosBL objUsuariosBL = new UsuariosBL();
 
         public frmLogin()
         {
@@ -28,55 +35,55 @@ namespace GesUni_GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            /*  if (txtLogin.Text.Trim() != "" & txtPassword.Text.Trim() != "")
-               {
-                   objUsuariosBE = objUsuariosBL.ConsultarUsuarios(txtLogin.Text.Trim());
+            if (txtLogin.Text.Trim() != "" & txtPassword.Text.Trim() != "")
+            {
+                objUsuariosBE = objUsuariosBL.ConsultarUsuarios(txtLogin.Text.Trim());
 
 
-                   if (objUsuariosBE.Login_Usuario == null)
-                   {
-                       // Si las credenciales son correctas...
+                if (objUsuariosBE.Login_Usuario == null)
+                {
+                    // Si las credenciales son correctas...
 
-                       intentos += 1;
-                       ValidaAccesos();
-                       throw new Exception("Usuario no Existe");
+                    intentos += 1;
+                    ValidaAccesos();
+                    throw new Exception("Usuario no Existe");
 
-                   }
-                   else if (objUsuariosBE.Login_Usuario == txtLogin.Text.Trim() && objUsuariosBE.Pass_Usuario == txtPassword.Text.Trim())
-                   {
-                       this.Hide();
-                       timer1.Enabled = false;
+                }
+                else if (objUsuariosBE.Login_Usuario == txtLogin.Text.Trim() && objUsuariosBE.Pass_Usuario == txtPassword.Text.Trim())
+                {
+                    this.Hide();
+                    timer1.Enabled = false;
 
-                       clsCredenciales.Login_Usuario = objUsuariosBE.Login_Usuario;
-                       clsCredenciales.Niv_Usuario = objUsuariosBE.Niv_Usuario;
-                       clsCredenciales.Pass_Usuario = objUsuariosBE.Pass_Usuario;
-
-
-                       MDIPrincipal _MDIPrincipal = new MDIPrincipal();
-                       _MDIPrincipal.ShowDialog();
+                    clsCredenciales.Login_Usuario = objUsuariosBE.Login_Usuario;
+                    clsCredenciales.Niv_Usuario = objUsuariosBE.Niv_Usuario;
+                    clsCredenciales.Pass_Usuario = objUsuariosBE.Pass_Usuario;
 
 
-                   }
+                    MDIPrincipal mdi = new MDIPrincipal();
+                    mdi.ShowDialog();
 
 
-                   else
-                   {
-                       MessageBox.Show("Usuario o Password incorrectos",
-                       "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                       intentos += 1;
-                       ValidaAccesos();
+                }
 
-                   }
-               }
-               else
-               {
-                   MessageBox.Show("Usuario o Password obligatorios",
-                       "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   intentos += 1;
-                   ValidaAccesos();
-               }
 
-               */
+                else
+                {
+                    MessageBox.Show("Usuario o Password incorrectos",
+                    "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    intentos += 1;
+                    ValidaAccesos();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o Password obligatorios",
+                    "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                intentos += 1;
+                ValidaAccesos();
+            }
+
+
 
         }
 
@@ -115,7 +122,7 @@ namespace GesUni_GUI
 
         }
 
-        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             timer1.Enabled = false;
             Application.Exit();
@@ -131,6 +138,7 @@ namespace GesUni_GUI
 
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
+            // Para al pulsar Enter acceder al MDI...
             if (e.KeyCode == Keys.Enter)
             {
                 btnAceptar.PerformClick();
@@ -138,7 +146,7 @@ namespace GesUni_GUI
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void frmLogin_Load(object sender, EventArgs e)
         {
 
         }

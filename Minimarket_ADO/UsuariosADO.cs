@@ -1,0 +1,66 @@
+﻿using Minimarket_BE;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Minimarket_ADO
+{
+    public class UsuariosADO
+    {
+        ConexionADO MiConexion = new ConexionADO();
+        SqlConnection cnx = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dtr;
+
+        public UsuariosBE ConsultarUsuarios(String strLogin) 
+        {
+            UsuariosBE objUsuariosBE = new UsuariosBE();
+            cnx.ConnectionString = MiConexion.GetCnx();
+            cmd.Connection = cnx;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_ConsultarUsuarios";
+
+            //Agregamos el parametro
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Login_Usuario", strLogin);
+
+            try
+            {
+                cnx.Open();
+                dtr = cmd.ExecuteReader();
+                if (dtr.HasRows == true)
+                {
+                    dtr.Read();
+                    objUsuariosBE.Login_Usuario = dtr["Login_Usuario"].ToString();
+                    objUsuariosBE.Pass_Usuario = dtr["Pass_Usuario"].ToString();
+                    objUsuariosBE.Niv_Usuario = Convert.ToInt16(dtr["Niv_Usuario"]);
+                    objUsuariosBE.Est_Usuario = Convert.ToInt16(dtr["Est_usuario"]);
+                    objUsuariosBE.Usu_Registro = dtr["Usu_Registro"].ToString();
+                }
+                dtr.Close();
+                return objUsuariosBE;
+
+            }
+            catch (SqlException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
+
+        }
+
+
+    }
+}
