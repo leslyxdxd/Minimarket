@@ -17,7 +17,7 @@ using ProyVentas_GUI;
 
 
 
-namespace BibReservas_GUI
+namespace Minimarket_GUI
 {
 
     public partial class frmLogin : Form

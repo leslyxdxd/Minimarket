@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Minimarket_GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +20,9 @@ namespace ProyVentas_GUI
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ProveedorMan01 prov01 = new ProveedorMan01();
-            //prov01.MdiParent = this;
-            //prov01.Show();
+            frmListaProveedores prov01  = new frmListaProveedores();
+            prov01.MdiParent = this;
+            prov01.Show();
         }
 
         private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)

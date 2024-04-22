@@ -1,4 +1,4 @@
-﻿namespace BibReservas_GUI
+﻿namespace Minimarket_GUI
 {
     partial class frmLogin
     {
