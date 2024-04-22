@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Minimarket_BE;
-using Minimarket_ADO;
+
 namespace Minimarket_ADO
 
 
@@ -23,7 +23,7 @@ namespace Minimarket_ADO
         SqlDataReader dtr;
         SqlDataAdapter ada;
 
-        public DataTable ListarProfesor()
+        public DataTable ListarProveedor()
         {
 
             try

@@ -16,7 +16,7 @@ namespace Minimarket_BL
 
         public DataTable ListarProveedor()
         {
-            return objProveedorADO.ListarProfesor();
+            return objProveedorADO.ListarProveedor();
         }
        /* public ProveedorBE ConsultarProveedor(String strCodigo)
         {
