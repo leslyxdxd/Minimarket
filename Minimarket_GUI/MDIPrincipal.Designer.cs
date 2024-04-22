@@ -32,6 +32,7 @@
             mantenimientosToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
             vendedoresToolStripMenuItem = new ToolStripMenuItem();
+            productoToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
             facturasClienteToolStripMenuItem = new ToolStripMenuItem();
             facturasVendedorToolStripMenuItem = new ToolStripMenuItem();
@@ -43,7 +44,7 @@
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
-            productoToolStripMenuItem = new ToolStripMenuItem();
+            proveedoresToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             // mantenimientosToolStripMenuItem
             // 
-            mantenimientosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { proveedoresToolStripMenuItem, vendedoresToolStripMenuItem, productoToolStripMenuItem });
+            mantenimientosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { proveedoresToolStripMenuItem, vendedoresToolStripMenuItem, productoToolStripMenuItem, proveedoresToolStripMenuItem1 });
             mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
             mantenimientosToolStripMenuItem.Size = new Size(106, 20);
             mantenimientosToolStripMenuItem.Text = "Mantenimientos";
@@ -79,24 +80,31 @@
             vendedoresToolStripMenuItem.Text = "Vendedores";
             vendedoresToolStripMenuItem.Click += vendedoresToolStripMenuItem_Click;
             // 
+            // productoToolStripMenuItem
+            // 
+            productoToolStripMenuItem.Name = "productoToolStripMenuItem";
+            productoToolStripMenuItem.Size = new Size(180, 22);
+            productoToolStripMenuItem.Text = "Producto";
+            productoToolStripMenuItem.Click += productoToolStripMenuItem_Click;
+            // 
             // consultasToolStripMenuItem
             // 
             consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturasClienteToolStripMenuItem, facturasVendedorToolStripMenuItem });
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(71, 20);
-            consultasToolStripMenuItem.Text = "Consultas";
+            consultasToolStripMenuItem.Size = new Size(73, 20);
+            consultasToolStripMenuItem.Text = "Productos";
             // 
             // facturasClienteToolStripMenuItem
             // 
             facturasClienteToolStripMenuItem.Name = "facturasClienteToolStripMenuItem";
-            facturasClienteToolStripMenuItem.Size = new Size(171, 22);
+            facturasClienteToolStripMenuItem.Size = new Size(180, 22);
             facturasClienteToolStripMenuItem.Text = "Facturas Cliente";
             facturasClienteToolStripMenuItem.Click += facturasClienteToolStripMenuItem_Click;
             // 
             // facturasVendedorToolStripMenuItem
             // 
             facturasVendedorToolStripMenuItem.Name = "facturasVendedorToolStripMenuItem";
-            facturasVendedorToolStripMenuItem.Size = new Size(171, 22);
+            facturasVendedorToolStripMenuItem.Size = new Size(180, 22);
             facturasVendedorToolStripMenuItem.Text = "Facturas Vendedor";
             // 
             // listadosToolStripMenuItem
@@ -109,14 +117,14 @@
             // listadosXMLToolStripMenuItem
             // 
             listadosXMLToolStripMenuItem.Name = "listadosXMLToolStripMenuItem";
-            listadosXMLToolStripMenuItem.Size = new Size(147, 22);
+            listadosXMLToolStripMenuItem.Size = new Size(180, 22);
             listadosXMLToolStripMenuItem.Text = "Listados XML";
             listadosXMLToolStripMenuItem.Click += listadosXMLToolStripMenuItem_Click;
             // 
             // listadosExcelToolStripMenuItem
             // 
             listadosExcelToolStripMenuItem.Name = "listadosExcelToolStripMenuItem";
-            listadosExcelToolStripMenuItem.Size = new Size(147, 22);
+            listadosExcelToolStripMenuItem.Size = new Size(180, 22);
             listadosExcelToolStripMenuItem.Text = "Listados Excel";
             listadosExcelToolStripMenuItem.Click += listadosExcelToolStripMenuItem_Click;
             // 
@@ -130,7 +138,7 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(96, 22);
+            salirToolStripMenuItem.Size = new Size(180, 22);
             salirToolStripMenuItem.Text = "Salir";
             // 
             // statusStrip1
@@ -159,12 +167,11 @@
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
             // 
-            // productoToolStripMenuItem
+            // proveedoresToolStripMenuItem1
             // 
-            productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            productoToolStripMenuItem.Size = new Size(180, 22);
-            productoToolStripMenuItem.Text = "Producto";
-            productoToolStripMenuItem.Click += productoToolStripMenuItem_Click;
+            proveedoresToolStripMenuItem1.Name = "proveedoresToolStripMenuItem1";
+            proveedoresToolStripMenuItem1.Size = new Size(180, 22);
+            proveedoresToolStripMenuItem1.Text = "Proveedores";
             // 
             // MDIPrincipal
             // 
@@ -177,7 +184,7 @@
             MainMenuStrip = menuStrip1;
             Margin = new Padding(4, 3, 4, 3);
             Name = "MDIPrincipal";
-            Text = "Menu Principal - Modulo de Ventas";
+            Text = "Inventario Minimarket";
             WindowState = FormWindowState.Maximized;
             FormClosing += MDIPrincipal_FormClosing;
             FormClosed += MDIPrincipal_FormClosed;
@@ -208,5 +215,6 @@
         private ToolStripMenuItem salirDelSistemasToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem productoToolStripMenuItem;
+        private ToolStripMenuItem proveedoresToolStripMenuItem1;
     }
 }
