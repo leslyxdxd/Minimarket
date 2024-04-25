@@ -30,12 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
-            btnCerrar = new Button();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            label2 = new Label();
-            lblRegistros = new Label();
-            btnGuia = new Button();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Direccion = new DataGridViewTextBoxColumn();
@@ -43,6 +37,11 @@
             Correo = new DataGridViewTextBoxColumn();
             RUC = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            btnCerrar = new Button();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            label2 = new Label();
+            lblRegistros = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -66,61 +65,6 @@
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1078, 452);
             dtgDatos.TabIndex = 0;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(993, 589);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 41);
-            btnCerrar.TabIndex = 1;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 50);
-            label1.Name = "label1";
-            label1.Size = new Size(147, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Ingrese filtro por apellidos:";
-            // 
-            // txtFiltro
-            // 
-            txtFiltro.Location = new Point(212, 47);
-            txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(297, 23);
-            txtFiltro.TabIndex = 3;
-            txtFiltro.TextChanged += txtFiltro_TextChanged;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(39, 608);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Registros:";
-            // 
-            // lblRegistros
-            // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(103, 608);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
-            lblRegistros.TabIndex = 2;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // btnGuia
-            // 
-            btnGuia.Location = new Point(977, 44);
-            btnGuia.Name = "btnGuia";
-            btnGuia.Size = new Size(140, 24);
-            btnGuia.TabIndex = 4;
-            btnGuia.Text = "Nueva Guia";
-            btnGuia.UseVisualStyleBackColor = true;
-            btnGuia.Click += btnGuia_Click;
             // 
             // Id_Proveedor
             // 
@@ -171,13 +115,57 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(993, 589);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(124, 41);
+            btnCerrar.TabIndex = 1;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(147, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Ingrese filtro por apellidos:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(212, 47);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(297, 23);
+            txtFiltro.TabIndex = 3;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(39, 608);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Registros:";
+            // 
+            // lblRegistros
+            // 
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(103, 608);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 2;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // frmListaProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(1200, 661);
-            Controls.Add(btnGuia);
             Controls.Add(txtFiltro);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
@@ -204,7 +192,6 @@
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
-        private Button btnGuia;
         private DataGridViewTextBoxColumn Id_Proveedor;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Direccion;

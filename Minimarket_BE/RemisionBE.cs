@@ -9,19 +9,23 @@ namespace Minimarket_BE
     public class RemisionBE
     {
        
+        public int Id_Detalle { get; set; }
+
+
         public String Id_Remision { get; set; }
-       
-        public String NumeroGuia{ get; set; }
-       
-        public String Fecha { get; set; }
-      
+
         public String Id_Proveedor { get; set; }
-            
+
+        public String Id_Producto{ get; set; }
+        public Decimal PrecioUnitario{ get; set; }
+       
+        public int Cantidad { get; set; }
+      
+ 
         public Decimal Total { get; set; }
         
 
    
-       // public String Id_Ubigeo { get; set; }
         
        
         public DateTime Fec_Registro { get; set; }

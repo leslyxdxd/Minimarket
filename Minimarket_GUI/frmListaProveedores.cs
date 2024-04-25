@@ -129,11 +129,6 @@ namespace Minimarket_GUI
             this.Close();
         }
 
-        private void btnGuia_Click(object sender, EventArgs e)
-        {
-
-            frmGuiaRemision objActualizarEstudiante = new frmGuiaRemision();
-
-        }
+        
     }
 }
