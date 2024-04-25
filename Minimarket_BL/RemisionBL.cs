@@ -19,10 +19,7 @@ namespace Minimarket_BL
 
         }
 
-        public RemisionBE ConsultarRemision(String strCodigo)
-        {
-            return objRemisionADO.ConsultarRemision(strCodigo);
-        }
+      
 
 
 

@@ -129,6 +129,11 @@ namespace Minimarket_GUI
             this.Close();
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmGuiaRemision actualizarUsuario = new frmGuiaRemision();
+            actualizarUsuario.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+            actualizarUsuario.ShowDialog();
+        }
     }
 }

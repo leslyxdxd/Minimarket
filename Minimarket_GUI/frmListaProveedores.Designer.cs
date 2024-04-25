@@ -42,6 +42,7 @@
             txtFiltro = new TextBox();
             label2 = new Label();
             lblRegistros = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -53,8 +54,7 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
-            dtgDatos.ColumnHeadersHeight = 50;
-            dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, Correo, RUC, Estado });
             dtgDatos.Location = new Point(39, 87);
             dtgDatos.Name = "dtgDatos";
@@ -86,6 +86,7 @@
             Direccion.HeaderText = "Direccion";
             Direccion.Name = "Direccion";
             Direccion.ReadOnly = true;
+            Direccion.Visible = false;
             // 
             // Telefono
             // 
@@ -100,6 +101,7 @@
             Correo.HeaderText = "CorreoElectronico";
             Correo.Name = "Correo";
             Correo.ReadOnly = true;
+            Correo.Visible = false;
             // 
             // RUC
             // 
@@ -114,6 +116,7 @@
             Estado.HeaderText = "Estado";
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
+            Estado.Visible = false;
             // 
             // btnCerrar
             // 
@@ -160,12 +163,23 @@
             lblRegistros.TabIndex = 2;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // button1
+            // 
+            button1.Location = new Point(822, 589);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 41);
+            button1.TabIndex = 4;
+            button1.Text = "Ver Proveedor";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmListaProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(1200, 661);
+            Controls.Add(button1);
             Controls.Add(txtFiltro);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
@@ -192,6 +206,7 @@
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
+        private Button button1;
         private DataGridViewTextBoxColumn Id_Proveedor;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Direccion;

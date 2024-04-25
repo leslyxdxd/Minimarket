@@ -11,7 +11,7 @@ namespace Minimarket_BE
     {
         // Definimos la entidad de negocio Producto, con todas las propiedades de acuerdo a la estructura 
         // de la tabla Tb_Producto
-        public String ID_Proveedor{ get; set; }
+        public String Id_Proveedor{ get; set; }
         public String Nom_Proveedor { get; set; }
 
         public String Direc_Proveedor { get; set; }

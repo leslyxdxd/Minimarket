@@ -49,19 +49,19 @@ namespace Minimarket_ADO
 
         }
 
-       /* public ProfesorBE ConsultarProfesor(String strCodigo)
+        public ProveedorBE ConsultarProveedor(String strCodigo)
         {
 
             try
             {
                 //Codifique
-                ProfesorBE objProfesorBE = new ProfesorBE();
+                ProveedorBE objProveedorBE = new ProveedorBE();
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_ConsultarProfesor";
+                cmd.CommandText = "usp_ConsultarProveedor";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Id_Profesor", strCodigo);
+                cmd.Parameters.AddWithValue("@Id_Proveedor", strCodigo);
 
 
                 //Abrimos y ejecutamos...
@@ -75,37 +75,25 @@ namespace Minimarket_ADO
                     dtr.Read();
 
 
-                    objProfesorBE.ID_Profesor = dtr["ID_Profesor"].ToString();
-                    objProfesorBE.Nom_Profesor = dtr["Nom_Profesor"].ToString();
-                    objProfesorBE.Apellido_Profesor = dtr["Apellido_Profesor"].ToString();
+                    objProveedorBE.Id_Proveedor = dtr["Id_Proveedor"].ToString();
+                    objProveedorBE.Nom_Proveedor = dtr["Nom_Proveedor"].ToString();
+                 
 
-                    objProfesorBE.DNI_Profesor = dtr["DNI_Profesor"].ToString();
-                    objProfesorBE.FecNa_Profesor = Convert.ToDateTime(dtr["FecNa_Profesor"]);
-                    objProfesorBE.Direccion_Profesor = dtr["Direccion_Profesor"].ToString();
-                    objProfesorBE.Correo_Profesor = dtr["Correo_Profesor"].ToString();
-                    objProfesorBE.Telefono_Profesor = dtr["Telefono_Profesor"].ToString();
+                    objProveedorBE.Direc_Proveedor = dtr["Direc_Proveedor"].ToString();
+                    objProveedorBE.RUC = dtr["RUC"].ToString();
+                    objProveedorBE.Telefono = dtr["Telefono"].ToString();
+                    objProveedorBE.Correo = dtr["Correo"].ToString();
 
-                    if (dtr["Foto_Profesor"] != DBNull.Value)
-                    {
-                        objProfesorBE.Foto_Profesor = (byte[])dtr["Foto_Profesor"];
-                    }
-                    else
-                    {
-                        objProfesorBE.Foto_Profesor = null;
-                    }
-
-                    objProfesorBE.Estado = Convert.ToInt16(dtr["Estado"]);
+                    objProveedorBE.Estado = Convert.ToInt16(dtr["Estado"]);
 
 
-                    objProfesorBE.Id_Ubigeo = dtr["Id_Ubigeo"].ToString();
-
-
+        
 
 
 
                 }
                 dtr.Close();
-                return objProfesorBE;
+                return objProveedorBE;
 
 
             }
@@ -126,7 +114,7 @@ namespace Minimarket_ADO
 
         }
 
-        public Boolean InsertarProfesor(ProfesorBE objProfesorBE)
+      /*  public Boolean InsertarProfesor(ProfesorBE objProfesorBE)
         {
 
             try
