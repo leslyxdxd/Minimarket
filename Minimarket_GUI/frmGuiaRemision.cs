@@ -37,8 +37,6 @@ namespace ProyVentas_GUI
 
 
 
-
-
                 lblCodigo.Text = objProveedorBE.Id_Proveedor;
                 lblNombre.Text = objProveedorBE.Nom_Proveedor;
                 lblDireccion.Text = objProveedorBE.Direc_Proveedor;
