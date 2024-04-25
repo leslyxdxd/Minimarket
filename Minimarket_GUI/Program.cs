@@ -1,7 +1,3 @@
-using Minimarket_GUI;
-using Minimarket_GUI;
-using ProyVentas_GUI;
-
 namespace Minimarket_GUI
 {
     internal static class Program

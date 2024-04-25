@@ -1,6 +1,6 @@
 ﻿namespace ProyVentas_GUI
 {
-    partial class frmConsFacturasCliente
+    partial class frmGuiaRemision
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
@@ -159,9 +159,9 @@
             // Fec_fac
             // 
             Fec_fac.DataPropertyName = "Fec_fac";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "d";
-            Fec_fac.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "d";
+            Fec_fac.DefaultCellStyle = dataGridViewCellStyle1;
             Fec_fac.HeaderText = "Fec. Facturacion";
             Fec_fac.Name = "Fec_fac";
             Fec_fac.ReadOnly = true;
@@ -169,10 +169,10 @@
             // Fec_can
             // 
             Fec_can.DataPropertyName = "fec_can";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = "-";
-            Fec_can.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "-";
+            Fec_can.DefaultCellStyle = dataGridViewCellStyle2;
             Fec_can.HeaderText = "Fec. Cancelacion";
             Fec_can.Name = "Fec_can";
             Fec_can.ReadOnly = true;
@@ -180,9 +180,9 @@
             // Total
             // 
             Total.DataPropertyName = "total";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "n2";
-            Total.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "n2";
+            Total.DefaultCellStyle = dataGridViewCellStyle3;
             Total.HeaderText = "Total (S/.)";
             Total.Name = "Total";
             Total.ReadOnly = true;
@@ -328,7 +328,7 @@
             lblDeuda.TabIndex = 12;
             lblDeuda.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // frmConsFacturasCliente
+            // frmGuiaRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -358,9 +358,9 @@
             Margin = new Padding(4, 3, 4, 3);
             MaximumSize = new Size(954, 571);
             MinimumSize = new Size(907, 548);
-            Name = "frmConsFacturasCliente";
+            Name = "frmGuiaRemision";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Consulta de Facturas por Cliente";
+            Text = "Guia de Remision";
             Load += frmConsFacturasCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).EndInit();
             ResumeLayout(false);

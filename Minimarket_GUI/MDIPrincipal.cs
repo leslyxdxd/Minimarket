@@ -1,13 +1,4 @@
 ﻿using Minimarket_GUI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ProyVentas_GUI
 {
@@ -20,7 +11,7 @@ namespace ProyVentas_GUI
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmListaProveedores prov01  = new frmListaProveedores();
+            frmListaProveedores prov01 = new frmListaProveedores();
             prov01.MdiParent = this;
             prov01.Show();
         }
@@ -56,25 +47,25 @@ namespace ProyVentas_GUI
 
         private void MDIPrincipal_Load(object sender, EventArgs e)
         {
-           /* this.lblUsuario.Text = clsCredenciales.Usuario;
-            //Definimos la seguridad por roles..
-            if (clsCredenciales.Nivel == 1)
-            {
-                mantenimientosToolStripMenuItem.Visible = true;
-                consultasToolStripMenuItem.Visible = true;
-                listadosToolStripMenuItem.Visible = true;
-                salirDelSistemasToolStripMenuItem.Visible = true;
+            /* this.lblUsuario.Text = clsCredenciales.Usuario;
+             //Definimos la seguridad por roles..
+             if (clsCredenciales.Nivel == 1)
+             {
+                 mantenimientosToolStripMenuItem.Visible = true;
+                 consultasToolStripMenuItem.Visible = true;
+                 listadosToolStripMenuItem.Visible = true;
+                 salirDelSistemasToolStripMenuItem.Visible = true;
 
-            }
-            else if (clsCredenciales.Nivel == 2)
-            {
+             }
+             else if (clsCredenciales.Nivel == 2)
+             {
 
-                mantenimientosToolStripMenuItem.Visible = true;
-                consultasToolStripMenuItem.Visible = true;
-                listadosToolStripMenuItem.Visible = false;
-                salirDelSistemasToolStripMenuItem.Visible = true;
+                 mantenimientosToolStripMenuItem.Visible = true;
+                 consultasToolStripMenuItem.Visible = true;
+                 listadosToolStripMenuItem.Visible = false;
+                 salirDelSistemasToolStripMenuItem.Visible = true;
 
-            }*/
+             }*/
 
 
         }

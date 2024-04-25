@@ -10,13 +10,13 @@ using System.Windows.Forms;
 //using ProyVentas_BE;
 namespace ProyVentas_GUI
 {
-    public partial class frmConsFacturasCliente : Form
+    public partial class frmGuiaRemision : Form
     {
        // FacturaBL objFacturaBL = new FacturaBL();
         //ClienteBL objClienteBL = new ClienteBL();
         //ClienteBE objClienteBE = new ClienteBE();
 
-        public frmConsFacturasCliente()
+        public frmGuiaRemision()
         {
             InitializeComponent();
         }

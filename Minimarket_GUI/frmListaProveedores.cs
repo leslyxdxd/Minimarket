@@ -1,15 +1,7 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data; // Para los objetos DataTable, DataRow y DataView
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-// Agregar...
+﻿// Agregar...
 using Minimarket_BL;
+using ProyVentas_GUI;
+using System.Data; // Para los objetos DataTable, DataRow y DataView
 
 
 namespace Minimarket_GUI
@@ -135,6 +127,13 @@ namespace Minimarket_GUI
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnGuia_Click(object sender, EventArgs e)
+        {
+
+            frmGuiaRemision objActualizarEstudiante = new frmGuiaRemision();
+
         }
     }
 }

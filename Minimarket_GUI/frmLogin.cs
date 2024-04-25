@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Windows.Forms;
-
-//Using...
+﻿//Using...
 
 using Minimarket_BE;
 using Minimarket_BL;
-using Minimarket_GUI;
 using ProyVentas_GUI;
 
 
