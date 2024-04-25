@@ -16,12 +16,12 @@ namespace Minimarket_GUI
         {
             InitializeComponent();
         }
-        private void CargarDatos(String apellidos)
+        private void CargarDatos(String RUC)
         {
 
 
             dtv = new DataView(objProveedorBL.ListarProveedor());
-            dtv.RowFilter = "apellidos like '%" + apellidos + "%'";
+            dtv.RowFilter = "RUC like '%" + RUC + "%'";
             dtgDatos.DataSource = dtv;
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();
 

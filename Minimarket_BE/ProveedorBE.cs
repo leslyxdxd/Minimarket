@@ -20,7 +20,7 @@ namespace Minimarket_BE
         public String Correo { get; set; }
 
 
-
+        public String RUC { get; set; }    
 
         public DateTime Fec_Registro { get; set; }
 

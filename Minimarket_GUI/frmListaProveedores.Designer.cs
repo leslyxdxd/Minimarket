@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
-            Id_Proveedor = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Direccion = new DataGridViewTextBoxColumn();
-            Telefono = new DataGridViewTextBoxColumn();
-            CorreoElectronico = new DataGridViewTextBoxColumn();
             btnCerrar = new Button();
             label1 = new Label();
             txtFiltro = new TextBox();
             label2 = new Label();
             lblRegistros = new Label();
             btnGuia = new Button();
+            Id_Proveedor = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Direccion = new DataGridViewTextBoxColumn();
+            Telefono = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            RUC = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -54,51 +56,16 @@
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeight = 50;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, CorreoElectronico });
+            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, Correo, RUC, Estado });
             dtgDatos.Location = new Point(39, 87);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1078, 452);
             dtgDatos.TabIndex = 0;
-            // 
-            // Id_Proveedor
-            // 
-            Id_Proveedor.DataPropertyName = "Id_Proveedor";
-            Id_Proveedor.HeaderText = "Cod Proveedor";
-            Id_Proveedor.Name = "Id_Proveedor";
-            Id_Proveedor.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            Nombre.DataPropertyName = "Nombre";
-            Nombre.HeaderText = "Nombre Proveedor";
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            Direccion.DataPropertyName = "Direccion";
-            Direccion.HeaderText = "Direccion";
-            Direccion.Name = "Direccion";
-            Direccion.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            Telefono.DataPropertyName = "Telefono";
-            Telefono.HeaderText = "Telefono ";
-            Telefono.Name = "Telefono";
-            Telefono.ReadOnly = true;
-            // 
-            // CorreoElectronico
-            // 
-            CorreoElectronico.DataPropertyName = "CorreoElectronico";
-            CorreoElectronico.HeaderText = "CorreoElectronico";
-            CorreoElectronico.Name = "CorreoElectronico";
-            CorreoElectronico.ReadOnly = true;
             // 
             // btnCerrar
             // 
@@ -155,6 +122,55 @@
             btnGuia.UseVisualStyleBackColor = true;
             btnGuia.Click += btnGuia_Click;
             // 
+            // Id_Proveedor
+            // 
+            Id_Proveedor.DataPropertyName = "Id_Proveedor";
+            Id_Proveedor.HeaderText = "Cod Proveedor";
+            Id_Proveedor.Name = "Id_Proveedor";
+            Id_Proveedor.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.DataPropertyName = "Nom_Proveedor";
+            Nombre.HeaderText = "Nombre Proveedor";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            Direccion.DataPropertyName = "Direc_Proveedor";
+            Direccion.HeaderText = "Direccion";
+            Direccion.Name = "Direccion";
+            Direccion.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            Telefono.DataPropertyName = "Telefono";
+            Telefono.HeaderText = "Telefono ";
+            Telefono.Name = "Telefono";
+            Telefono.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            Correo.DataPropertyName = "Correo";
+            Correo.HeaderText = "CorreoElectronico";
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            // 
+            // RUC
+            // 
+            RUC.DataPropertyName = "RUC";
+            RUC.HeaderText = "RUC";
+            RUC.Name = "RUC";
+            RUC.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            Estado.DataPropertyName = "Estado";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            // 
             // frmListaProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -188,11 +204,13 @@
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
+        private Button btnGuia;
         private DataGridViewTextBoxColumn Id_Proveedor;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Direccion;
         private DataGridViewTextBoxColumn Telefono;
-        private DataGridViewTextBoxColumn CorreoElectronico;
-        private Button btnGuia;
+        private DataGridViewTextBoxColumn Correo;
+        private DataGridViewTextBoxColumn RUC;
+        private DataGridViewTextBoxColumn Estado;
     }
 }
