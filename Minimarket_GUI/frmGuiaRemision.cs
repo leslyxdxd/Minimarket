@@ -6,32 +6,67 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-//using ProyVentas_BL;
-//using ProyVentas_BE;
+using Minimarket_BL;
+using Minimarket_BE;
 namespace ProyVentas_GUI
 {
     public partial class frmGuiaRemision : Form
     {
-       // FacturaBL objFacturaBL = new FacturaBL();
-        //ClienteBL objClienteBL = new ClienteBL();
-        //ClienteBE objClienteBE = new ClienteBE();
+        
+        ProveedorBL objProveedorBL = new ProveedorBL();
+        ProveedorBE objProveedorBE = new ProveedorBE();
+
 
         public frmGuiaRemision()
         {
             InitializeComponent();
         }
 
+        public String Codigo { get; set; }
+
         private void frmConsFacturasCliente_Load(object sender, EventArgs e)
         {
             try
-            {               
+            {
 
-                // Desactivamos la generacion de columnas automaticas del datagrid...
-                dtgFacturas.AutoGenerateColumns = false;
+                // Cargamos los combos...
+
+                //codifique
+                //invocamos la methodo consultar..
+                objProveedorBE = objProveedorBL.ConsultarProveedor(this.Codigo);
+
+
+
+
+
+                lblCodigo.Text = objProveedorBE.Id_Proveedor;
+                lblNombre.Text = objProveedorBE.Nom_Proveedor;
+                lblDireccion.Text = objProveedorBE.Direc_Proveedor;
+                lblRuc.Text = objProveedorBE.RUC;
+                lblCorreo.Text = objProveedorBE.Correo;
+            
+                lblTel.Text = objProveedorBE.Telefono;
+
+
+
+
+                lblEstados.Text = objProveedorBE.Estado == 1 ? "Activo" : "Inactivo";
+
+
+
+                DataTable dt2 = objProveedorBL.ListarProveedor();
+                DataRow dtr;
+                dtr = dt2.NewRow();
+
+
+
+
+
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

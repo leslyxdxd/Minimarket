@@ -45,19 +45,19 @@
             Total = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             label5 = new Label();
-            lblRazSoc = new Label();
+            lblNombre = new Label();
             label6 = new Label();
             lblRuc = new Label();
             label8 = new Label();
-            lblDir = new Label();
+            lblDireccion = new Label();
             label10 = new Label();
             lblTel = new Label();
             label12 = new Label();
-            lblUbicacion = new Label();
+            lblCorreo = new Label();
             label14 = new Label();
-            lblEstado = new Label();
-            label7 = new Label();
-            lblDeuda = new Label();
+            lblEstados = new Label();
+            lblCodigo = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).BeginInit();
             SuspendLayout();
             // 
@@ -197,21 +197,21 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(22, 19);
+            label5.Location = new Point(209, 20);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(75, 15);
             label5.TabIndex = 11;
             label5.Text = "Razon social:";
             // 
-            // lblRazSoc
+            // lblNombre
             // 
-            lblRazSoc.BorderStyle = BorderStyle.FixedSingle;
-            lblRazSoc.Location = new Point(112, 19);
-            lblRazSoc.Margin = new Padding(4, 0, 4, 0);
-            lblRazSoc.Name = "lblRazSoc";
-            lblRazSoc.Size = new Size(534, 26);
-            lblRazSoc.TabIndex = 12;
+            lblNombre.BorderStyle = BorderStyle.FixedSingle;
+            lblNombre.Location = new Point(292, 16);
+            lblNombre.Margin = new Padding(4, 0, 4, 0);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(534, 26);
+            lblNombre.TabIndex = 12;
             // 
             // label6
             // 
@@ -242,19 +242,19 @@
             label8.TabIndex = 11;
             label8.Text = "Direccion:";
             // 
-            // lblDir
+            // lblDireccion
             // 
-            lblDir.BorderStyle = BorderStyle.FixedSingle;
-            lblDir.Location = new Point(280, 57);
-            lblDir.Margin = new Padding(4, 0, 4, 0);
-            lblDir.Name = "lblDir";
-            lblDir.Size = new Size(642, 26);
-            lblDir.TabIndex = 12;
+            lblDireccion.BorderStyle = BorderStyle.FixedSingle;
+            lblDireccion.Location = new Point(280, 57);
+            lblDireccion.Margin = new Padding(4, 0, 4, 0);
+            lblDireccion.Name = "lblDireccion";
+            lblDireccion.Size = new Size(642, 26);
+            lblDireccion.TabIndex = 12;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(22, 103);
+            label10.Location = new Point(13, 109);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(55, 15);
@@ -264,7 +264,7 @@
             // lblTel
             // 
             lblTel.BorderStyle = BorderStyle.FixedSingle;
-            lblTel.Location = new Point(90, 102);
+            lblTel.Location = new Point(76, 102);
             lblTel.Margin = new Padding(4, 0, 4, 0);
             lblTel.Name = "lblTel";
             lblTel.Size = new Size(94, 26);
@@ -276,76 +276,75 @@
             label12.Location = new Point(205, 103);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(63, 15);
+            label12.Size = new Size(46, 15);
             label12.TabIndex = 11;
-            label12.Text = "Ubicacion:";
+            label12.Text = "Correo:";
             // 
-            // lblUbicacion
+            // lblCorreo
             // 
-            lblUbicacion.BorderStyle = BorderStyle.FixedSingle;
-            lblUbicacion.Location = new Point(280, 102);
-            lblUbicacion.Margin = new Padding(4, 0, 4, 0);
-            lblUbicacion.Name = "lblUbicacion";
-            lblUbicacion.Size = new Size(473, 26);
-            lblUbicacion.TabIndex = 12;
+            lblCorreo.BorderStyle = BorderStyle.FixedSingle;
+            lblCorreo.Location = new Point(280, 102);
+            lblCorreo.Margin = new Padding(4, 0, 4, 0);
+            lblCorreo.Name = "lblCorreo";
+            lblCorreo.Size = new Size(473, 26);
+            lblCorreo.TabIndex = 12;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(778, 103);
+            label14.Location = new Point(773, 109);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new Size(45, 15);
             label14.TabIndex = 11;
             label14.Text = "Estado:";
             // 
-            // lblEstado
+            // lblEstados
             // 
-            lblEstado.BorderStyle = BorderStyle.FixedSingle;
-            lblEstado.Location = new Point(835, 103);
-            lblEstado.Margin = new Padding(4, 0, 4, 0);
-            lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(87, 25);
-            lblEstado.TabIndex = 12;
+            lblEstados.BorderStyle = BorderStyle.FixedSingle;
+            lblEstados.Location = new Point(831, 103);
+            lblEstados.Margin = new Padding(4, 0, 4, 0);
+            lblEstados.Name = "lblEstados";
+            lblEstados.Size = new Size(94, 26);
+            lblEstados.TabIndex = 12;
+            lblEstados.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label7
+            // lblCodigo
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(22, 144);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(44, 15);
-            label7.TabIndex = 11;
-            label7.Text = "Deuda:";
+            lblCodigo.BorderStyle = BorderStyle.FixedSingle;
+            lblCodigo.Location = new Point(90, 19);
+            lblCodigo.Name = "lblCodigo";
+            lblCodigo.Size = new Size(70, 23);
+            lblCodigo.TabIndex = 13;
             // 
-            // lblDeuda
+            // label1
             // 
-            lblDeuda.BorderStyle = BorderStyle.FixedSingle;
-            lblDeuda.Location = new Point(90, 143);
-            lblDeuda.Margin = new Padding(4, 0, 4, 0);
-            lblDeuda.Name = "lblDeuda";
-            lblDeuda.Size = new Size(94, 26);
-            lblDeuda.TabIndex = 12;
-            lblDeuda.TextAlign = ContentAlignment.MiddleRight;
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 20);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Codigo";
             // 
             // frmGuiaRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(938, 532);
-            Controls.Add(lblDir);
+            Controls.Add(label1);
+            Controls.Add(lblCodigo);
+            Controls.Add(lblDireccion);
             Controls.Add(label8);
-            Controls.Add(lblEstado);
             Controls.Add(label14);
-            Controls.Add(lblUbicacion);
+            Controls.Add(lblCorreo);
             Controls.Add(label12);
-            Controls.Add(lblDeuda);
-            Controls.Add(label7);
+            Controls.Add(lblEstados);
             Controls.Add(lblTel);
             Controls.Add(label10);
             Controls.Add(lblRuc);
             Controls.Add(label6);
-            Controls.Add(lblRazSoc);
+            Controls.Add(lblNombre);
             Controls.Add(label5);
             Controls.Add(dtgFacturas);
             Controls.Add(lblRegistros);
@@ -382,18 +381,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblRazSoc;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblRuc;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblDir;
+        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblUbicacion;
+        private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblDeuda;
+        private System.Windows.Forms.Label lblEstados;
+        private Label lblCodigo;
+        private Label label1;
     }
 }

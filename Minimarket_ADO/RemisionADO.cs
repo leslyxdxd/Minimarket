@@ -32,7 +32,7 @@ namespace Minimarket_ADO
                     cnx.ConnectionString = MiConexion.GetCnx();
                     cmd.Connection = cnx;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "usp_ListarGuiaRemision ";
+                    cmd.CommandText = "usp_ListarDetalleRemision ";
                     cmd.Parameters.Clear();
                     DataSet dts = new DataSet();
                     ada = new SqlDataAdapter(cmd);
@@ -48,9 +48,8 @@ namespace Minimarket_ADO
 
             }
 
-
-
-        
+       
+  
 
 
 
