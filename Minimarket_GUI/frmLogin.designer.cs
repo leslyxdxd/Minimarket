@@ -140,7 +140,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(349, 398);
+            ClientSize = new Size(341, 391);
             Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(btnCancelar);
