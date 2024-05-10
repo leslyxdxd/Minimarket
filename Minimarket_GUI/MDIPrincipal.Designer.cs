@@ -37,14 +37,14 @@
             consultasToolStripMenuItem = new ToolStripMenuItem();
             facturasClienteToolStripMenuItem = new ToolStripMenuItem();
             facturasVendedorToolStripMenuItem = new ToolStripMenuItem();
-            salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
-            salirToolStripMenuItem = new ToolStripMenuItem();
             generarGuiaToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
+            gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
+            salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
-            gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -90,28 +90,52 @@
             // consultasToolStripMenuItem
             // 
             consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturasClienteToolStripMenuItem, facturasVendedorToolStripMenuItem });
+            consultasToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(73, 21);
+            consultasToolStripMenuItem.Size = new Size(79, 21);
             consultasToolStripMenuItem.Text = "Productos";
             // 
             // facturasClienteToolStripMenuItem
             // 
             facturasClienteToolStripMenuItem.Name = "facturasClienteToolStripMenuItem";
-            facturasClienteToolStripMenuItem.Size = new Size(171, 22);
+            facturasClienteToolStripMenuItem.Size = new Size(185, 22);
             facturasClienteToolStripMenuItem.Text = "Facturas Cliente";
             facturasClienteToolStripMenuItem.Click += facturasClienteToolStripMenuItem_Click;
             // 
             // facturasVendedorToolStripMenuItem
             // 
             facturasVendedorToolStripMenuItem.Name = "facturasVendedorToolStripMenuItem";
-            facturasVendedorToolStripMenuItem.Size = new Size(171, 22);
+            facturasVendedorToolStripMenuItem.Size = new Size(185, 22);
             facturasVendedorToolStripMenuItem.Text = "Facturas Vendedor";
+            // 
+            // generarGuiaToolStripMenuItem
+            // 
+            generarGuiaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { proveedoresToolStripMenuItem });
+            generarGuiaToolStripMenuItem.Font = new Font("Segoe UI", 9.75F);
+            generarGuiaToolStripMenuItem.Name = "generarGuiaToolStripMenuItem";
+            generarGuiaToolStripMenuItem.Size = new Size(94, 21);
+            generarGuiaToolStripMenuItem.Text = "Proveedores";
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            proveedoresToolStripMenuItem.Size = new Size(225, 22);
+            proveedoresToolStripMenuItem.Text = "Generar guia de remision";
+            proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click_1;
+            // 
+            // gestionarUsuariosToolStripMenuItem
+            // 
+            gestionarUsuariosToolStripMenuItem.Font = new Font("Segoe UI", 9.75F);
+            gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
+            gestionarUsuariosToolStripMenuItem.Size = new Size(131, 21);
+            gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
             // 
             // salirDelSistemasToolStripMenuItem
             // 
             salirDelSistemasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
+            salirDelSistemasToolStripMenuItem.Font = new Font("Segoe UI", 9.75F);
             salirDelSistemasToolStripMenuItem.Name = "salirDelSistemasToolStripMenuItem";
-            salirDelSistemasToolStripMenuItem.Size = new Size(104, 21);
+            salirDelSistemasToolStripMenuItem.Size = new Size(116, 21);
             salirDelSistemasToolStripMenuItem.Text = "Salir del Sistema";
             // 
             // salirToolStripMenuItem
@@ -119,20 +143,6 @@
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(180, 22);
             salirToolStripMenuItem.Text = "Salir";
-            // 
-            // generarGuiaToolStripMenuItem
-            // 
-            generarGuiaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { proveedoresToolStripMenuItem });
-            generarGuiaToolStripMenuItem.Name = "generarGuiaToolStripMenuItem";
-            generarGuiaToolStripMenuItem.Size = new Size(87, 21);
-            generarGuiaToolStripMenuItem.Text = "Generar Guia";
-            // 
-            // proveedoresToolStripMenuItem
-            // 
-            proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            proveedoresToolStripMenuItem.Size = new Size(180, 22);
-            proveedoresToolStripMenuItem.Text = "Proveedores";
-            proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click_1;
             // 
             // statusStrip1
             // 
@@ -160,12 +170,6 @@
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
             // 
-            // gestionarUsuariosToolStripMenuItem
-            // 
-            gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
-            gestionarUsuariosToolStripMenuItem.Size = new Size(117, 21);
-            gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
-            // 
             // MDIPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -179,7 +183,8 @@
             MainMenuStrip = menuStrip1;
             Margin = new Padding(4, 3, 4, 3);
             Name = "MDIPrincipal";
-            Text = "Inventario Minimarket";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "INVENTARIO MINIMARKET";
             WindowState = FormWindowState.Maximized;
             FormClosing += MDIPrincipal_FormClosing;
             FormClosed += MDIPrincipal_FormClosed;
