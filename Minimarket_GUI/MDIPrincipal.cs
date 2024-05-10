@@ -11,9 +11,7 @@ namespace ProyVentas_GUI
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmListaProveedores prov01 = new frmListaProveedores();
-            prov01.MdiParent = this;
-            prov01.Show();
+
         }
 
         private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,25 +45,62 @@ namespace ProyVentas_GUI
 
         private void MDIPrincipal_Load(object sender, EventArgs e)
         {
-            /* this.lblUsuario.Text = clsCredenciales.Usuario;
-             //Definimos la seguridad por roles..
-             if (clsCredenciales.Nivel == 1)
-             {
-                 mantenimientosToolStripMenuItem.Visible = true;
-                 consultasToolStripMenuItem.Visible = true;
-                 listadosToolStripMenuItem.Visible = true;
-                 salirDelSistemasToolStripMenuItem.Visible = true;
+            // Obtener el nombre de usuario
+            string nombreUsuario = clsCredenciales.Login_Usuario;
 
-             }
-             else if (clsCredenciales.Nivel == 2)
-             {
+            // Definir los nombres personalizados para ciertos usuarios
+            string nombrePersonalizado;
 
-                 mantenimientosToolStripMenuItem.Visible = true;
-                 consultasToolStripMenuItem.Visible = true;
-                 listadosToolStripMenuItem.Visible = false;
-                 salirDelSistemasToolStripMenuItem.Visible = true;
+            switch (nombreUsuario)
+            {
+                case "sa":
+                    nombrePersonalizado = "Administrador";
+                    break;
+                case "jordan":
+                    nombrePersonalizado = "Gerente de Tienda";
+                    break;
+                case "lesly":
+                    nombrePersonalizado = "Gerente de Almacén";
+                    break;
+                default:
+                    nombrePersonalizado = nombreUsuario; // Si no coincide con ningún usuario específico, mostrar el nombre de usuario normal
+                    break;
+            }
 
-             }*/
+            // Asignar el nombre personalizado al campo de texto
+            this.lblUsuario.Text = nombrePersonalizado;
+
+            if (clsCredenciales.Niv_Usuario == 1)
+            {
+                mantenimientosToolStripMenuItem.Visible = true;
+                consultasToolStripMenuItem.Visible = true;
+                listadosToolStripMenuItem.Visible = true;
+                salirDelSistemasToolStripMenuItem.Visible = true;
+                generarGuiaToolStripMenuItem.Visible = true;
+
+
+            }
+            else if (clsCredenciales.Niv_Usuario == 3)
+            {
+
+                mantenimientosToolStripMenuItem.Visible = false;
+                consultasToolStripMenuItem.Visible = true;
+                listadosToolStripMenuItem.Visible = true;
+                salirDelSistemasToolStripMenuItem.Visible = true;
+                generarGuiaToolStripMenuItem.Visible = false;
+
+            }
+            else if (clsCredenciales.Niv_Usuario == 2)
+            {
+
+                mantenimientosToolStripMenuItem.Visible = false;
+                consultasToolStripMenuItem.Visible = true;
+                listadosToolStripMenuItem.Visible = true;
+                salirDelSistemasToolStripMenuItem.Visible = true;
+                generarGuiaToolStripMenuItem.Visible = true;
+         
+
+            }
 
 
         }
@@ -91,6 +126,17 @@ namespace ProyVentas_GUI
             /*ProductoMan01 prod01 = new ProductoMan01();
             prod01.MdiParent = this;
             prod01.Show();*/
+        }
+
+        private void proveeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void proveedoresToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmListaProveedores prov01 = new frmListaProveedores();
+            prov01.MdiParent = this;
+            prov01.Show();
         }
     }
 }

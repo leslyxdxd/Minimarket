@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             label1 = new Label();
             txtLogin = new TextBox();
             label2 = new Label();
@@ -44,7 +45,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            label1.Location = new Point(91, 291);
+            label1.Location = new Point(50, 241);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(47, 17);
@@ -54,7 +55,7 @@
             // txtLogin
             // 
             txtLogin.Font = new Font("Segoe UI", 9.75F);
-            txtLogin.Location = new Point(152, 285);
+            txtLogin.Location = new Point(111, 238);
             txtLogin.Margin = new Padding(4, 3, 4, 3);
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(135, 25);
@@ -64,7 +65,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            label2.Location = new Point(67, 327);
+            label2.Location = new Point(26, 277);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(70, 17);
@@ -74,7 +75,7 @@
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 9.75F);
-            txtPassword.Location = new Point(152, 326);
+            txtPassword.Location = new Point(111, 276);
             txtPassword.Margin = new Padding(4, 3, 4, 3);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -85,7 +86,7 @@
             // 
             btnAceptar.BackColor = Color.Transparent;
             btnAceptar.ForeColor = SystemColors.ControlText;
-            btnAceptar.Location = new Point(78, 373);
+            btnAceptar.Location = new Point(37, 323);
             btnAceptar.Margin = new Padding(4, 3, 4, 3);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(103, 36);
@@ -98,7 +99,7 @@
             // 
             btnCancelar.BackColor = Color.Transparent;
             btnCancelar.ForeColor = SystemColors.ControlText;
-            btnCancelar.Location = new Point(221, 373);
+            btnCancelar.Location = new Point(180, 323);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(115, 36);
@@ -115,9 +116,11 @@
             // 
             // panel1
             // 
-            panel1.Location = new Point(87, 91);
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Location = new Point(99, 72);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 100);
+            panel1.Size = new Size(163, 144);
             panel1.TabIndex = 6;
             // 
             // label3
@@ -126,18 +129,18 @@
             label3.BackColor = Color.FromArgb(0, 192, 192);
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(67, 23);
+            label3.Location = new Point(68, 24);
             label3.Name = "label3";
-            label3.Size = new Size(269, 21);
+            label3.Size = new Size(215, 21);
             label3.TabIndex = 5;
-            label3.Text = "BIENVENIDO A LIBROS UNVERSALES";
+            label3.Text = "BIENVENIDO AL INVENTARIO";
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(416, 430);
+            ClientSize = new Size(349, 398);
             Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(btnCancelar);
@@ -154,7 +157,7 @@
             MinimizeBox = false;
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Ingrese su Login y passwrod";
+            Text = "Ingrese sus credenciales";
             FormClosed += FrmLogin_FormClosed;
             Load += frmLogin_Load;
             KeyDown += frmLogin_KeyDown;
