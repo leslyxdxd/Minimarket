@@ -16,5 +16,11 @@ namespace Minimarket_BL
         {
             return objUsuariosADO.ConsultarUsuarios(strLogin);
         }
+
+        public Boolean InsertarUsuario(UsuariosBE objUsuariosBE)
+        {
+            return objUsuariosADO.InsertarUsuario(objUsuariosBE);
+        }
+
     }
 }

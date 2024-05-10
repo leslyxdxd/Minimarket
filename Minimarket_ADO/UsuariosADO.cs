@@ -61,6 +61,50 @@ namespace Minimarket_ADO
 
         }
 
+     public Boolean InsertarUsuario(UsuariosBE objUsuarioBE)
+        {
+
+      
+            try
+            {
+                //Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_InsertarUsuario";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Login_Usuario", objUsuarioBE.Login_Usuario);
+                cmd.Parameters.AddWithValue("@Pass_Usuario", objUsuarioBE.Pass_Usuario);
+
+                cmd.Parameters.AddWithValue("@Niv_Usuario", objUsuarioBE.Niv_Usuario);
+
+                cmd.Parameters.AddWithValue("@Est_Usuario", objUsuarioBE.Est_Usuario);
+              
+
+            
+
+
+                //Abrimos y ejecutamos
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException x)
+            {
+                throw new Exception(x.Message);
+                return false;
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
+        }
+
 
     }
 }
