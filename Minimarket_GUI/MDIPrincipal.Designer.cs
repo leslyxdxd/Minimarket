@@ -40,21 +40,21 @@
             generarGuiaToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
+            usuariosToolStripMenuItem = new ToolStripMenuItem();
+            agregarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
-            usuariosToolStripMenuItem = new ToolStripMenuItem();
-            agregarUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            generarVentaToolStripMenuItem = new ToolStripMenuItem();
+            gestionarVentaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, salirDelSistemasToolStripMenuItem, generarVentaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, salirDelSistemasToolStripMenuItem, gestionarVentaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10);
@@ -135,6 +135,20 @@
             gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
             gestionarUsuariosToolStripMenuItem.Click += gestionarUsuariosToolStripMenuItem_Click;
             // 
+            // usuariosToolStripMenuItem
+            // 
+            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            usuariosToolStripMenuItem.Size = new Size(173, 22);
+            usuariosToolStripMenuItem.Text = "Usuarios";
+            usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
+            // 
+            // agregarUsuarioToolStripMenuItem
+            // 
+            agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+            agregarUsuarioToolStripMenuItem.Size = new Size(173, 22);
+            agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
+            agregarUsuarioToolStripMenuItem.Click += agregarUsuarioToolStripMenuItem_Click;
+            // 
             // salirDelSistemasToolStripMenuItem
             // 
             salirDelSistemasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
@@ -176,19 +190,12 @@
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
             // 
-            // usuariosToolStripMenuItem
+            // gestionarVentaToolStripMenuItem
             // 
-            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            usuariosToolStripMenuItem.Size = new Size(180, 22);
-            usuariosToolStripMenuItem.Text = "Usuarios";
-            usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
-            // 
-            // agregarUsuarioToolStripMenuItem
-            // 
-            agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            agregarUsuarioToolStripMenuItem.Size = new Size(180, 22);
-            agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
-            agregarUsuarioToolStripMenuItem.Click += agregarUsuarioToolStripMenuItem_Click;
+            gestionarVentaToolStripMenuItem.Name = "gestionarVentaToolStripMenuItem";
+            gestionarVentaToolStripMenuItem.Size = new Size(101, 21);
+            gestionarVentaToolStripMenuItem.Text = "Gestionar Venta";
+            gestionarVentaToolStripMenuItem.Click += gestionarVentaToolStripMenuItem_Click;
             // 
             // MDIPrincipal
             // 
@@ -237,5 +244,6 @@
         private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
         private ToolStripMenuItem usuariosToolStripMenuItem;
         private ToolStripMenuItem agregarUsuarioToolStripMenuItem;
+        private ToolStripMenuItem gestionarVentaToolStripMenuItem;
     }
 }

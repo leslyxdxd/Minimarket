@@ -165,41 +165,19 @@
             // 
             // Num_fac
             // 
-            Num_fac.DataPropertyName = "num_fac";
-            Num_fac.HeaderText = "Nro. Factura";
-            Num_fac.Name = "Num_fac";
-            Num_fac.ReadOnly = true;
+           
             // 
             // Fec_fac
             // 
-            Fec_fac.DataPropertyName = "Fec_fac";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "d";
-            Fec_fac.DefaultCellStyle = dataGridViewCellStyle1;
-            Fec_fac.HeaderText = "Fec. Facturacion";
-            Fec_fac.Name = "Fec_fac";
-            Fec_fac.ReadOnly = true;
+          
             // 
             // Fec_can
             // 
-            Fec_can.DataPropertyName = "fec_can";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            Fec_can.DefaultCellStyle = dataGridViewCellStyle2;
-            Fec_can.HeaderText = "Fec. Cancelacion";
-            Fec_can.Name = "Fec_can";
-            Fec_can.ReadOnly = true;
+           
             // 
             // Total
             // 
-            Total.DataPropertyName = "total";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "n2";
-            Total.DefaultCellStyle = dataGridViewCellStyle3;
-            Total.HeaderText = "Total (S/.)";
-            Total.Name = "Total";
-            Total.ReadOnly = true;
+            
             // 
             // Estado
             // 

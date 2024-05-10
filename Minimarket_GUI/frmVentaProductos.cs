@@ -41,10 +41,7 @@ namespace Minimarket_GUI
                     lblPrecio.Text = objProductoBE.Precio_Unitario.ToString();
                     lblUM.Text = objProductoBE.Id_UM.ToString();
                     lblStock.Text = objProductoBE.Stk_Tienda.ToString();
-                    lblprove.Text = objProductoBE.Id_Proveedor.ToString();
-                    lblcat.Text = objProductoBE.Id_Cat.ToString();
-                    lbltienda.Text = objProductoBE.Stk_Trastienda.ToString();
-                    lblestado.Text = objProductoBE.Estado.ToString();
+               
 
 
 

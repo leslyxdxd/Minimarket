@@ -35,7 +35,6 @@
             button1 = new Button();
             button3 = new Button();
             groupBox1 = new GroupBox();
-            lblestado = new Label();
             label11 = new Label();
             lblUM = new Label();
             label9 = new Label();
@@ -48,9 +47,6 @@
             label4 = new Label();
             label3 = new Label();
             lblCodigo = new Label();
-            lblcat = new Label();
-            lbltienda = new Label();
-            lblprove = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,7 +106,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(lblestado);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(lblUM);
             groupBox1.Controls.Add(label9);
@@ -130,15 +125,6 @@
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalle de Producto ";
-            // 
-            // lblestado
-            // 
-            lblestado.BorderStyle = BorderStyle.FixedSingle;
-            lblestado.Location = new Point(666, -21);
-            lblestado.Margin = new Padding(4, 0, 4, 0);
-            lblestado.Name = "lblestado";
-            lblestado.Size = new Size(90, 35);
-            lblestado.TabIndex = 24;
             // 
             // label11
             // 
@@ -247,41 +233,11 @@
             lblCodigo.TabIndex = 8;
             lblCodigo.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblcat
-            // 
-            lblcat.BorderStyle = BorderStyle.FixedSingle;
-            lblcat.Location = new Point(330, 9);
-            lblcat.Margin = new Padding(4, 0, 4, 0);
-            lblcat.Name = "lblcat";
-            lblcat.Size = new Size(90, 35);
-            lblcat.TabIndex = 21;
-            // 
-            // lbltienda
-            // 
-            lbltienda.BorderStyle = BorderStyle.FixedSingle;
-            lbltienda.Location = new Point(440, 9);
-            lbltienda.Margin = new Padding(4, 0, 4, 0);
-            lbltienda.Name = "lbltienda";
-            lbltienda.Size = new Size(90, 35);
-            lbltienda.TabIndex = 22;
-            // 
-            // lblprove
-            // 
-            lblprove.BorderStyle = BorderStyle.FixedSingle;
-            lblprove.Location = new Point(557, 9);
-            lblprove.Margin = new Padding(4, 0, 4, 0);
-            lblprove.Name = "lblprove";
-            lblprove.Size = new Size(90, 35);
-            lblprove.TabIndex = 23;
-            // 
             // frmVentaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(985, 660);
-            Controls.Add(lblprove);
-            Controls.Add(lbltienda);
-            Controls.Add(lblcat);
             Controls.Add(groupBox1);
             Controls.Add(button1);
             Controls.Add(label2);
@@ -320,9 +276,5 @@
         private Label lblUM;
         private Label label9;
         private Label lblStock;
-        private Label lblestado;
-        private Label lblcat;
-        private Label lbltienda;
-        private Label lblprove;
     }
 }
