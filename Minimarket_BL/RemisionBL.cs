@@ -13,9 +13,9 @@ namespace Minimarket_BL
     {
         RemisionADO objRemisionADO = new RemisionADO();
 
-        public DataTable ListarGuiaRemision()
+        public DataTable ListarGuiasProveedoresFechas(String strCodigo, DateTime FecIni, DateTime FecFin)
         {
-            return objRemisionADO.ListarGuiaRemision();
+            return objRemisionADO.ListarGuiasProveedoresFechas(strCodigo,  FecIni,  FecFin);
 
         }
 

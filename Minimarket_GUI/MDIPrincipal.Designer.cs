@@ -45,6 +45,8 @@
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
+            usuariosToolStripMenuItem = new ToolStripMenuItem();
+            agregarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -125,10 +127,12 @@
             // 
             // gestionarUsuariosToolStripMenuItem
             // 
+            gestionarUsuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuariosToolStripMenuItem, agregarUsuarioToolStripMenuItem });
             gestionarUsuariosToolStripMenuItem.Font = new Font("Segoe UI", 9.75F);
             gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
             gestionarUsuariosToolStripMenuItem.Size = new Size(131, 21);
             gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
+            gestionarUsuariosToolStripMenuItem.Click += gestionarUsuariosToolStripMenuItem_Click;
             // 
             // salirDelSistemasToolStripMenuItem
             // 
@@ -170,6 +174,20 @@
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            usuariosToolStripMenuItem.Size = new Size(180, 22);
+            usuariosToolStripMenuItem.Text = "Usuarios";
+            usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
+            // 
+            // agregarUsuarioToolStripMenuItem
+            // 
+            agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+            agregarUsuarioToolStripMenuItem.Size = new Size(180, 22);
+            agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
+            agregarUsuarioToolStripMenuItem.Click += agregarUsuarioToolStripMenuItem_Click;
             // 
             // MDIPrincipal
             // 
@@ -216,5 +234,7 @@
         private ToolStripMenuItem generarGuiaToolStripMenuItem;
         private ToolStripMenuItem proveedoresToolStripMenuItem;
         private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
+        private ToolStripMenuItem usuariosToolStripMenuItem;
+        private ToolStripMenuItem agregarUsuarioToolStripMenuItem;
     }
 }

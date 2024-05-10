@@ -18,56 +18,46 @@ namespace Minimarket_ADO
         SqlConnection cnx = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dtr;
-        SqlDataAdapter ada; 
+        SqlDataAdapter ada;
 
 
 
-            public DataTable ListarGuiaRemision()
+        public DataTable ListarGuiasProveedoresFechas(String strCodigo, DateTime FecIni, DateTime FecFin)
+        {
+
+            try
             {
 
-                try
-                {
-
-                    // Codifique
-                    cnx.ConnectionString = MiConexion.GetCnx();
-                    cmd.Connection = cnx;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "usp_ListarDetalleRemision ";
-                    cmd.Parameters.Clear();
-                    DataSet dts = new DataSet();
-                    ada = new SqlDataAdapter(cmd);
-                    ada.Fill(dts, "Remision");
-                    return dts.Tables["Remision"];
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ListarGuiasProveedoresFechas";
+                cmd.Parameters.Clear();
 
 
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                //parametros del store procedure
+                cmd.Parameters.AddWithValue("@Id_Proveedor", strCodigo);
+                cmd.Parameters.AddWithValue("@fecini", FecIni);
+                cmd.Parameters.AddWithValue("@fecfin", FecFin);
+
+
+                ada = new SqlDataAdapter(cmd);
+                DataSet dts = new DataSet();
+
+                ada.Fill(dts, "Remision");
+                return dts.Tables["Remision"];
+
 
             }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
-       
-  
+          
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
 
 

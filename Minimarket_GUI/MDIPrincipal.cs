@@ -74,7 +74,7 @@ namespace ProyVentas_GUI
             {
                 mantenimientosToolStripMenuItem.Visible = true;
                 consultasToolStripMenuItem.Visible = true;
-                gestionarUsuariosToolStripMenuItem.Visible = false;
+                gestionarUsuariosToolStripMenuItem.Visible = true;
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
 
@@ -148,6 +148,26 @@ namespace ProyVentas_GUI
             //Para que se cierre
             this.Close();
 
+        }
+
+        private void gestionarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaUsuario listausu = new frmListaUsuario();   
+            listausu.MdiParent = this;  
+            listausu.Show();    
+
+        }
+
+        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInsertarUsuario usu = new frmInsertarUsuario();
+            usu.MdiParent = this;
+            usu.Show();
         }
     }
 }

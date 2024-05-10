@@ -12,9 +12,10 @@ namespace ProyVentas_GUI
 {
     public partial class frmGuiaRemision : Form
     {
-        
+
         ProveedorBL objProveedorBL = new ProveedorBL();
         ProveedorBE objProveedorBE = new ProveedorBE();
+        RemisionBL objRemisionBL = new RemisionBL();
 
 
         public frmGuiaRemision()
@@ -42,23 +43,14 @@ namespace ProyVentas_GUI
                 lblDireccion.Text = objProveedorBE.Direc_Proveedor;
                 lblRuc.Text = objProveedorBE.RUC;
                 lblCorreo.Text = objProveedorBE.Correo;
-            
+
                 lblTel.Text = objProveedorBE.Telefono;
 
 
-
-
                 lblEstados.Text = objProveedorBE.Estado == 1 ? "Activo" : "Inactivo";
-
-
-
                 DataTable dt2 = objProveedorBL.ListarProveedor();
                 DataRow dtr;
                 dtr = dt2.NewRow();
-
-
-
-
 
 
             }
@@ -67,20 +59,29 @@ namespace ProyVentas_GUI
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-         private void btnConsultar_Click(object sender, EventArgs e)
+        private void btnConsultar_Click(object sender, EventArgs e)
         {
             try
             {
-               // Codifique
+                if (dtpFecIni.Value.Date > dtpFecFin.Value.Date) 
+                {
+                    throw new Exception("La fecha de inicio no puede ser mayor que la de fin");
+                }
+
+                dtgFacturas.DataSource = objRemisionBL.ListarGuiasProveedoresFechas(Codigo, dtpFecIni.Value.Date, dtpFecFin.Value.Date);
+                lblRegistros.Text = dtgFacturas.Rows.Count.ToString();
+
+               
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
-              
+
+
 
         private void LimpiarResultados()
         {
@@ -95,7 +96,10 @@ namespace ProyVentas_GUI
             }
             // Limpiamos el datagridview
             dtgFacturas.DataSource = null;
-          
+
         }
+
+    
+
     }
 }

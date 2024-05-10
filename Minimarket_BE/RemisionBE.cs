@@ -21,11 +21,9 @@ namespace Minimarket_BE
        
         public int Cantidad { get; set; }
       
- 
         public Decimal Total { get; set; }
-        
-
-   
+     
+     
         
        
         public DateTime Fec_Registro { get; set; }

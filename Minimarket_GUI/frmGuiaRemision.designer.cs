@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
@@ -39,11 +36,6 @@
             lblRegistros = new Label();
             label4 = new Label();
             dtgFacturas = new DataGridView();
-            Num_fac = new DataGridViewTextBoxColumn();
-            Fec_fac = new DataGridViewTextBoxColumn();
-            Fec_can = new DataGridViewTextBoxColumn();
-            Total = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
             label5 = new Label();
             lblNombre = new Label();
             label6 = new Label();
@@ -58,13 +50,32 @@
             lblEstados = new Label();
             lblCodigo = new Label();
             label1 = new Label();
+            btnIngresarGuia = new Button();
+            btnConsultar = new Button();
+            Id_Remision = new DataGridViewTextBoxColumn();
+            FechaIni = new DataGridViewTextBoxColumn();
+            FechaFin = new DataGridViewTextBoxColumn();
+            Id_Proveedor = new DataGridViewTextBoxColumn();
+            Nom_Proveedor = new DataGridViewTextBoxColumn();
+            RUC = new DataGridViewTextBoxColumn();
+            Telefono = new DataGridViewTextBoxColumn();
+            Correo = new DataGridViewTextBoxColumn();
+            Id_Producto = new DataGridViewTextBoxColumn();
+            Nom_Producto = new DataGridViewTextBoxColumn();
+            Id_Cat = new DataGridViewTextBoxColumn();
+            Des_Cat = new DataGridViewTextBoxColumn();
+            PrecioUnitario = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            total = new DataGridViewTextBoxColumn();
+            Observaciones = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).BeginInit();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 179);
+            label2.Location = new Point(89, 216);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(89, 15);
@@ -74,7 +85,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(357, 179);
+            label3.Location = new Point(395, 212);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(76, 15);
@@ -84,7 +95,7 @@
             // dtpFecIni
             // 
             dtpFecIni.Format = DateTimePickerFormat.Short;
-            dtpFecIni.Location = new Point(166, 173);
+            dtpFecIni.Location = new Point(186, 210);
             dtpFecIni.Margin = new Padding(4, 3, 4, 3);
             dtpFecIni.Name = "dtpFecIni";
             dtpFecIni.Size = new Size(148, 23);
@@ -93,7 +104,7 @@
             // dtpFecFin
             // 
             dtpFecFin.Format = DateTimePickerFormat.Short;
-            dtpFecFin.Location = new Point(471, 173);
+            dtpFecFin.Location = new Point(479, 210);
             dtpFecFin.Margin = new Padding(4, 3, 4, 3);
             dtpFecFin.Name = "dtpFecFin";
             dtpFecFin.Size = new Size(148, 23);
@@ -101,20 +112,19 @@
             // 
             // btnDetalleGuia
             // 
-            btnDetalleGuia.Location = new Point(742, 165);
+            btnDetalleGuia.Location = new Point(627, 658);
             btnDetalleGuia.Margin = new Padding(4, 3, 4, 3);
             btnDetalleGuia.Name = "btnDetalleGuia";
             btnDetalleGuia.Size = new Size(138, 42);
             btnDetalleGuia.TabIndex = 6;
             btnDetalleGuia.Text = "Detalles de Guias de remision";
             btnDetalleGuia.UseVisualStyleBackColor = true;
-            btnDetalleGuia.Click += btnConsultar_Click;
             // 
             // lblRegistros
             // 
             lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(856, 498);
+            lblRegistros.Location = new Point(101, 679);
             lblRegistros.Margin = new Padding(4, 0, 4, 0);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(57, 26);
@@ -125,10 +135,11 @@
             // 
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(790, 504);
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(27, 683);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(58, 15);
+            label4.Size = new Size(66, 17);
             label4.TabIndex = 8;
             label4.Text = "Registros:";
             // 
@@ -136,68 +147,23 @@
             // 
             dtgFacturas.AllowUserToAddRows = false;
             dtgFacturas.AllowUserToDeleteRows = false;
-            dtgFacturas.Anchor = AnchorStyles.None;
+            dtgFacturas.Anchor = AnchorStyles.Left;
             dtgFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgFacturas.Columns.AddRange(new DataGridViewColumn[] { Num_fac, Fec_fac, Fec_can, Total, Estado });
-            dtgFacturas.Location = new Point(27, 235);
+            dtgFacturas.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, FechaIni, FechaFin, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, Des_Cat, PrecioUnitario, Cantidad, total, Observaciones, Estado });
+            dtgFacturas.Location = new Point(27, 273);
             dtgFacturas.Margin = new Padding(4, 3, 4, 3);
             dtgFacturas.Name = "dtgFacturas";
             dtgFacturas.ReadOnly = true;
             dtgFacturas.RowHeadersVisible = false;
             dtgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgFacturas.Size = new Size(878, 245);
+            dtgFacturas.Size = new Size(922, 319);
             dtgFacturas.TabIndex = 7;
-            // 
-            // Num_fac
-            // 
-            Num_fac.DataPropertyName = "num_fac";
-            Num_fac.HeaderText = "Nro. Factura";
-            Num_fac.Name = "Num_fac";
-            Num_fac.ReadOnly = true;
-            // 
-            // Fec_fac
-            // 
-            Fec_fac.DataPropertyName = "Fec_fac";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "d";
-            Fec_fac.DefaultCellStyle = dataGridViewCellStyle7;
-            Fec_fac.HeaderText = "Fec. Facturacion";
-            Fec_fac.Name = "Fec_fac";
-            Fec_fac.ReadOnly = true;
-            // 
-            // Fec_can
-            // 
-            Fec_can.DataPropertyName = "fec_can";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "d";
-            dataGridViewCellStyle8.NullValue = "-";
-            Fec_can.DefaultCellStyle = dataGridViewCellStyle8;
-            Fec_can.HeaderText = "Fec. Cancelacion";
-            Fec_can.Name = "Fec_can";
-            Fec_can.ReadOnly = true;
-            // 
-            // Total
-            // 
-            Total.DataPropertyName = "total";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "n2";
-            Total.DefaultCellStyle = dataGridViewCellStyle9;
-            Total.HeaderText = "Total (S/.)";
-            Total.Name = "Total";
-            Total.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            Estado.DataPropertyName = "Estado";
-            Estado.HeaderText = "Estado";
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(209, 20);
+            label5.Location = new Point(220, 42);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(75, 15);
@@ -207,7 +173,7 @@
             // lblNombre
             // 
             lblNombre.BorderStyle = BorderStyle.FixedSingle;
-            lblNombre.Location = new Point(292, 16);
+            lblNombre.Location = new Point(307, 35);
             lblNombre.Margin = new Padding(4, 0, 4, 0);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(534, 26);
@@ -216,7 +182,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(22, 57);
+            label6.Location = new Point(36, 80);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(33, 15);
@@ -226,7 +192,7 @@
             // lblRuc
             // 
             lblRuc.BorderStyle = BorderStyle.FixedSingle;
-            lblRuc.Location = new Point(68, 56);
+            lblRuc.Location = new Point(85, 78);
             lblRuc.Margin = new Padding(4, 0, 4, 0);
             lblRuc.Name = "lblRuc";
             lblRuc.Size = new Size(116, 26);
@@ -235,7 +201,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(209, 57);
+            label8.Location = new Point(235, 80);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(60, 15);
@@ -245,7 +211,7 @@
             // lblDireccion
             // 
             lblDireccion.BorderStyle = BorderStyle.FixedSingle;
-            lblDireccion.Location = new Point(280, 57);
+            lblDireccion.Location = new Point(307, 78);
             lblDireccion.Margin = new Padding(4, 0, 4, 0);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(642, 26);
@@ -254,7 +220,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(13, 109);
+            label10.Location = new Point(22, 131);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(55, 15);
@@ -264,16 +230,16 @@
             // lblTel
             // 
             lblTel.BorderStyle = BorderStyle.FixedSingle;
-            lblTel.Location = new Point(76, 102);
+            lblTel.Location = new Point(85, 124);
             lblTel.Margin = new Padding(4, 0, 4, 0);
             lblTel.Name = "lblTel";
-            lblTel.Size = new Size(94, 26);
+            lblTel.Size = new Size(116, 26);
             lblTel.TabIndex = 12;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(205, 103);
+            label12.Location = new Point(249, 131);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(46, 15);
@@ -283,7 +249,7 @@
             // lblCorreo
             // 
             lblCorreo.BorderStyle = BorderStyle.FixedSingle;
-            lblCorreo.Location = new Point(280, 102);
+            lblCorreo.Location = new Point(307, 124);
             lblCorreo.Margin = new Padding(4, 0, 4, 0);
             lblCorreo.Name = "lblCorreo";
             lblCorreo.Size = new Size(473, 26);
@@ -292,7 +258,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(773, 109);
+            label14.Location = new Point(802, 131);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new Size(45, 15);
@@ -302,7 +268,7 @@
             // lblEstados
             // 
             lblEstados.BorderStyle = BorderStyle.FixedSingle;
-            lblEstados.Location = new Point(831, 103);
+            lblEstados.Location = new Point(855, 124);
             lblEstados.Margin = new Padding(4, 0, 4, 0);
             lblEstados.Name = "lblEstados";
             lblEstados.Size = new Size(94, 26);
@@ -312,26 +278,178 @@
             // lblCodigo
             // 
             lblCodigo.BorderStyle = BorderStyle.FixedSingle;
-            lblCodigo.Location = new Point(90, 19);
+            lblCodigo.Location = new Point(88, 38);
             lblCodigo.Name = "lblCodigo";
-            lblCodigo.Size = new Size(70, 23);
+            lblCodigo.Size = new Size(113, 23);
             lblCodigo.TabIndex = 13;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 20);
+            label1.Location = new Point(27, 42);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(46, 15);
             label1.TabIndex = 14;
             label1.Text = "Codigo";
             // 
+            // btnIngresarGuia
+            // 
+            btnIngresarGuia.Location = new Point(811, 658);
+            btnIngresarGuia.Margin = new Padding(4, 3, 4, 3);
+            btnIngresarGuia.Name = "btnIngresarGuia";
+            btnIngresarGuia.Size = new Size(138, 42);
+            btnIngresarGuia.TabIndex = 6;
+            btnIngresarGuia.Text = "Ingresar guia de remision";
+            btnIngresarGuia.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultar
+            // 
+            btnConsultar.Location = new Point(688, 198);
+            btnConsultar.Margin = new Padding(4, 3, 4, 3);
+            btnConsultar.Name = "btnConsultar";
+            btnConsultar.Size = new Size(138, 42);
+            btnConsultar.TabIndex = 15;
+            btnConsultar.Text = "Consultar";
+            btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
+            // 
+            // Id_Remision
+            // 
+            Id_Remision.DataPropertyName = "Id_Remision";
+            Id_Remision.HeaderText = "Codigo Remision";
+            Id_Remision.Name = "Id_Remision";
+            Id_Remision.ReadOnly = true;
+            // 
+            // FechaIni
+            // 
+            FechaIni.DataPropertyName = "FechaIni";
+            FechaIni.HeaderText = "Fec.Inicio";
+            FechaIni.Name = "FechaIni";
+            FechaIni.ReadOnly = true;
+            // 
+            // FechaFin
+            // 
+            FechaFin.DataPropertyName = "FechaFin";
+            FechaFin.HeaderText = "Fec.Fin";
+            FechaFin.Name = "FechaFin";
+            FechaFin.ReadOnly = true;
+            // 
+            // Id_Proveedor
+            // 
+            Id_Proveedor.DataPropertyName = "Id_Proveedor";
+            Id_Proveedor.HeaderText = "Id_Proveedor";
+            Id_Proveedor.Name = "Id_Proveedor";
+            Id_Proveedor.ReadOnly = true;
+            Id_Proveedor.Visible = false;
+            // 
+            // Nom_Proveedor
+            // 
+            Nom_Proveedor.DataPropertyName = "Nom_Proveedor";
+            Nom_Proveedor.HeaderText = "Proveedor";
+            Nom_Proveedor.Name = "Nom_Proveedor";
+            Nom_Proveedor.ReadOnly = true;
+            Nom_Proveedor.Visible = false;
+            // 
+            // RUC
+            // 
+            RUC.DataPropertyName = "RUC";
+            RUC.HeaderText = "RUC";
+            RUC.Name = "RUC";
+            RUC.ReadOnly = true;
+            RUC.Visible = false;
+            // 
+            // Telefono
+            // 
+            Telefono.DataPropertyName = "Telefono";
+            Telefono.HeaderText = "Teléfono";
+            Telefono.Name = "Telefono";
+            Telefono.ReadOnly = true;
+            Telefono.Visible = false;
+            // 
+            // Correo
+            // 
+            Correo.DataPropertyName = "Correo";
+            Correo.HeaderText = "Correo";
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            Correo.Visible = false;
+            // 
+            // Id_Producto
+            // 
+            Id_Producto.DataPropertyName = "Id_Producto";
+            Id_Producto.HeaderText = "Id_Producto";
+            Id_Producto.Name = "Id_Producto";
+            Id_Producto.ReadOnly = true;
+            Id_Producto.Visible = false;
+            // 
+            // Nom_Producto
+            // 
+            Nom_Producto.DataPropertyName = "Nom_Producto";
+            Nom_Producto.HeaderText = "Producto";
+            Nom_Producto.Name = "Nom_Producto";
+            Nom_Producto.ReadOnly = true;
+            Nom_Producto.Visible = false;
+            // 
+            // Id_Cat
+            // 
+            Id_Cat.DataPropertyName = "Id_Cat";
+            Id_Cat.HeaderText = "Id_Cat";
+            Id_Cat.Name = "Id_Cat";
+            Id_Cat.ReadOnly = true;
+            Id_Cat.Visible = false;
+            // 
+            // Des_Cat
+            // 
+            Des_Cat.DataPropertyName = "Des_Cat";
+            Des_Cat.HeaderText = "Categoria";
+            Des_Cat.Name = "Des_Cat";
+            Des_Cat.ReadOnly = true;
+            Des_Cat.Visible = false;
+            // 
+            // PrecioUnitario
+            // 
+            PrecioUnitario.DataPropertyName = "PrecioUnitario";
+            PrecioUnitario.HeaderText = "Pre.Unitario";
+            PrecioUnitario.Name = "PrecioUnitario";
+            PrecioUnitario.ReadOnly = true;
+            PrecioUnitario.Visible = false;
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.HeaderText = "Cantidad ingresada";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            Cantidad.Visible = false;
+            // 
+            // total
+            // 
+            total.DataPropertyName = "total";
+            total.HeaderText = "Precio Total(S/.)";
+            total.Name = "total";
+            total.ReadOnly = true;
+            // 
+            // Observaciones
+            // 
+            Observaciones.DataPropertyName = "Observaciones";
+            Observaciones.HeaderText = "Observaciones";
+            Observaciones.Name = "Observaciones";
+            Observaciones.ReadOnly = true;
+            Observaciones.Visible = false;
+            // 
+            // Estado
+            // 
+            Estado.DataPropertyName = "Estado";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            // 
             // frmGuiaRemision
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(938, 532);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(984, 729);
+            Controls.Add(btnConsultar);
             Controls.Add(label1);
             Controls.Add(lblCodigo);
             Controls.Add(lblDireccion);
@@ -349,13 +467,14 @@
             Controls.Add(dtgFacturas);
             Controls.Add(lblRegistros);
             Controls.Add(label4);
+            Controls.Add(btnIngresarGuia);
             Controls.Add(btnDetalleGuia);
             Controls.Add(dtpFecFin);
             Controls.Add(dtpFecIni);
             Controls.Add(label3);
             Controls.Add(label2);
             Margin = new Padding(4, 3, 4, 3);
-            MaximumSize = new Size(954, 571);
+            MaximumSize = new Size(1000, 900);
             MinimumSize = new Size(907, 548);
             Name = "frmGuiaRemision";
             StartPosition = FormStartPosition.CenterScreen;
@@ -375,11 +494,6 @@
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtgFacturas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Num_fac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fec_fac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fec_can;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label6;
@@ -394,5 +508,24 @@
         private System.Windows.Forms.Label lblEstados;
         private Label lblCodigo;
         private Label label1;
+        private Button btnIngresarGuia;
+        private Button btnConsultar;
+        private DataGridViewTextBoxColumn Id_Remision;
+        private DataGridViewTextBoxColumn FechaIni;
+        private DataGridViewTextBoxColumn FechaFin;
+        private DataGridViewTextBoxColumn Id_Proveedor;
+        private DataGridViewTextBoxColumn Nom_Proveedor;
+        private DataGridViewTextBoxColumn RUC;
+        private DataGridViewTextBoxColumn Telefono;
+        private DataGridViewTextBoxColumn Correo;
+        private DataGridViewTextBoxColumn Id_Producto;
+        private DataGridViewTextBoxColumn Nom_Producto;
+        private DataGridViewTextBoxColumn Id_Cat;
+        private DataGridViewTextBoxColumn Des_Cat;
+        private DataGridViewTextBoxColumn PrecioUnitario;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn total;
+        private DataGridViewTextBoxColumn Observaciones;
+        private DataGridViewTextBoxColumn Estado;
     }
 }

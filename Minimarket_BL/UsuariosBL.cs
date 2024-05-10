@@ -2,6 +2,7 @@
 using Minimarket_BE;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,13 @@ namespace Minimarket_BL
     {
         UsuariosADO objUsuariosADO = new UsuariosADO();
 
+
+        public DataTable ListarUsuarios()
+        {
+            return objUsuariosADO.ListarUsuarios();
+
+        }
+
         public UsuariosBE ConsultarUsuarios(String strLogin)
         {
             return objUsuariosADO.ConsultarUsuarios(strLogin);
@@ -21,6 +29,7 @@ namespace Minimarket_BL
         {
             return objUsuariosADO.InsertarUsuario(objUsuariosBE);
         }
+
 
     }
 }

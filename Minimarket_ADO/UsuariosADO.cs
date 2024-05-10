@@ -16,6 +16,8 @@ namespace Minimarket_ADO
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dtr;
 
+
+
         public UsuariosBE ConsultarUsuarios(String strLogin) 
         {
             UsuariosBE objUsuariosBE = new UsuariosBE();
@@ -75,14 +77,8 @@ namespace Minimarket_ADO
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Login_Usuario", objUsuarioBE.Login_Usuario);
                 cmd.Parameters.AddWithValue("@Pass_Usuario", objUsuarioBE.Pass_Usuario);
-
                 cmd.Parameters.AddWithValue("@Niv_Usuario", objUsuarioBE.Niv_Usuario);
-
-                cmd.Parameters.AddWithValue("@Est_Usuario", objUsuarioBE.Est_Usuario);
-              
-
-            
-
+                cmd.Parameters.AddWithValue("@Usu_Registro", objUsuarioBE.Usu_Registro);
 
                 //Abrimos y ejecutamos
 
@@ -104,6 +100,31 @@ namespace Minimarket_ADO
 
             }
         }
+
+
+        public DataTable ListarUsuarios()
+        {
+            DataSet dts = new DataSet();
+            cnx.ConnectionString = MiConexion.GetCnx();
+            cmd.Connection = cnx;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "usp_ListarUsuarios";
+
+            try
+            {
+                cmd.Parameters.Clear();
+                SqlDataAdapter ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Usuarios");
+                return dts.Tables["Usuarios"];
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
 
 
     }
