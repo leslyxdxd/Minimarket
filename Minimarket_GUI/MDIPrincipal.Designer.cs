@@ -70,21 +70,21 @@
             // vendedoresToolStripMenuItem
             // 
             vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
-            vendedoresToolStripMenuItem.Size = new Size(180, 22);
+            vendedoresToolStripMenuItem.Size = new Size(150, 22);
             vendedoresToolStripMenuItem.Text = "Vendedores";
             vendedoresToolStripMenuItem.Click += vendedoresToolStripMenuItem_Click;
             // 
             // productoToolStripMenuItem
             // 
             productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            productoToolStripMenuItem.Size = new Size(180, 22);
+            productoToolStripMenuItem.Size = new Size(150, 22);
             productoToolStripMenuItem.Text = "Producto";
             productoToolStripMenuItem.Click += productoToolStripMenuItem_Click;
             // 
             // proveedoresToolStripMenuItem1
             // 
             proveedoresToolStripMenuItem1.Name = "proveedoresToolStripMenuItem1";
-            proveedoresToolStripMenuItem1.Size = new Size(180, 22);
+            proveedoresToolStripMenuItem1.Size = new Size(150, 22);
             proveedoresToolStripMenuItem1.Text = "Proveedores";
             // 
             // consultasToolStripMenuItem
@@ -98,15 +98,15 @@
             // facturasClienteToolStripMenuItem
             // 
             facturasClienteToolStripMenuItem.Name = "facturasClienteToolStripMenuItem";
-            facturasClienteToolStripMenuItem.Size = new Size(185, 22);
-            facturasClienteToolStripMenuItem.Text = "Facturas Cliente";
+            facturasClienteToolStripMenuItem.Size = new Size(208, 22);
+            facturasClienteToolStripMenuItem.Text = "Almacen de Tienda";
             facturasClienteToolStripMenuItem.Click += facturasClienteToolStripMenuItem_Click;
             // 
             // facturasVendedorToolStripMenuItem
             // 
             facturasVendedorToolStripMenuItem.Name = "facturasVendedorToolStripMenuItem";
-            facturasVendedorToolStripMenuItem.Size = new Size(185, 22);
-            facturasVendedorToolStripMenuItem.Text = "Facturas Vendedor";
+            facturasVendedorToolStripMenuItem.Size = new Size(208, 22);
+            facturasVendedorToolStripMenuItem.Text = "Almacen de Trastienda";
             // 
             // generarGuiaToolStripMenuItem
             // 
@@ -141,7 +141,7 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(101, 22);
             salirToolStripMenuItem.Text = "Salir";
             // 
             // statusStrip1
