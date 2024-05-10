@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
@@ -159,6 +162,51 @@
             dtgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgFacturas.Size = new Size(922, 319);
             dtgFacturas.TabIndex = 7;
+            // 
+            // Num_fac
+            // 
+            Num_fac.DataPropertyName = "num_fac";
+            Num_fac.HeaderText = "Nro. Factura";
+            Num_fac.Name = "Num_fac";
+            Num_fac.ReadOnly = true;
+            // 
+            // Fec_fac
+            // 
+            Fec_fac.DataPropertyName = "Fec_fac";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "d";
+            Fec_fac.DefaultCellStyle = dataGridViewCellStyle1;
+            Fec_fac.HeaderText = "Fec. Facturacion";
+            Fec_fac.Name = "Fec_fac";
+            Fec_fac.ReadOnly = true;
+            // 
+            // Fec_can
+            // 
+            Fec_can.DataPropertyName = "fec_can";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "-";
+            Fec_can.DefaultCellStyle = dataGridViewCellStyle2;
+            Fec_can.HeaderText = "Fec. Cancelacion";
+            Fec_can.Name = "Fec_can";
+            Fec_can.ReadOnly = true;
+            // 
+            // Total
+            // 
+            Total.DataPropertyName = "total";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "n2";
+            Total.DefaultCellStyle = dataGridViewCellStyle3;
+            Total.HeaderText = "Total (S/.)";
+            Total.Name = "Total";
+            Total.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            Estado.DataPropertyName = "Estado";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
             // 
             // label5
             // 
@@ -477,6 +525,7 @@
             MaximumSize = new Size(1000, 900);
             MinimumSize = new Size(907, 548);
             Name = "frmGuiaRemision";
+            RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Guia de Remision";
             Load += frmConsFacturasCliente_Load;

@@ -77,6 +77,7 @@ namespace ProyVentas_GUI
                 gestionarUsuariosToolStripMenuItem.Visible = true;
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
+                generarVentaToolStripMenuItem.Visible = true;
 
 
             }
@@ -90,6 +91,7 @@ namespace ProyVentas_GUI
                 generarGuiaToolStripMenuItem.Visible = false;
                 facturasClienteToolStripMenuItem.Visible = true;
                 facturasVendedorToolStripMenuItem.Visible = false;
+                generarVentaToolStripMenuItem.Visible = true;
             }
             else if (clsCredenciales.Niv_Usuario == 2)
             {
@@ -102,6 +104,7 @@ namespace ProyVentas_GUI
                 facturasClienteToolStripMenuItem.Visible = false;
                 facturasVendedorToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
+                generarVentaToolStripMenuItem.Visible = false;
 
 
             }
@@ -168,6 +171,13 @@ namespace ProyVentas_GUI
             frmInsertarUsuario usu = new frmInsertarUsuario();
             usu.MdiParent = this;
             usu.Show();
+        }
+
+        private void generarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVentaProductos prov01 = new frmVentaProductos();
+            prov01.MdiParent = this;
+            prov01.Show();
         }
     }
 }
