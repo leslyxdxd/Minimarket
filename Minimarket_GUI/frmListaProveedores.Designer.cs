@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -42,7 +42,7 @@
             txtFiltro = new TextBox();
             label2 = new Label();
             lblRegistros = new Label();
-            button1 = new Button();
+            btnGuiasRemision = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -60,8 +60,8 @@
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1078, 452);
             dtgDatos.TabIndex = 0;
@@ -163,15 +163,15 @@
             lblRegistros.TabIndex = 2;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // button1
+            // btnGuiasRemision
             // 
-            button1.Location = new Point(822, 589);
-            button1.Name = "button1";
-            button1.Size = new Size(124, 41);
-            button1.TabIndex = 4;
-            button1.Text = "Ver Proveedor";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnGuiasRemision.Location = new Point(807, 589);
+            btnGuiasRemision.Name = "btnGuiasRemision";
+            btnGuiasRemision.Size = new Size(165, 41);
+            btnGuiasRemision.TabIndex = 4;
+            btnGuiasRemision.Text = "Guias de Remision";
+            btnGuiasRemision.UseVisualStyleBackColor = true;
+            btnGuiasRemision.Click += button1_Click;
             // 
             // frmListaProveedores
             // 
@@ -179,7 +179,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(1200, 661);
-            Controls.Add(button1);
+            Controls.Add(btnGuiasRemision);
             Controls.Add(txtFiltro);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
@@ -206,7 +206,7 @@
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
-        private Button button1;
+        private Button btnGuiasRemision;
         private DataGridViewTextBoxColumn Id_Proveedor;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Direccion;

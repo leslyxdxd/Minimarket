@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
             dtpFecFin = new DateTimePicker();
-            btnConsultar = new Button();
+            btnDetalleGuia = new Button();
             lblRegistros = new Label();
             label4 = new Label();
             dtgFacturas = new DataGridView();
@@ -64,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 196);
+            label2.Location = new Point(27, 179);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(89, 15);
@@ -74,7 +74,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(358, 196);
+            label3.Location = new Point(357, 179);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(76, 15);
@@ -84,7 +84,7 @@
             // dtpFecIni
             // 
             dtpFecIni.Format = DateTimePickerFormat.Short;
-            dtpFecIni.Location = new Point(163, 196);
+            dtpFecIni.Location = new Point(166, 173);
             dtpFecIni.Margin = new Padding(4, 3, 4, 3);
             dtpFecIni.Name = "dtpFecIni";
             dtpFecIni.Size = new Size(148, 23);
@@ -93,28 +93,28 @@
             // dtpFecFin
             // 
             dtpFecFin.Format = DateTimePickerFormat.Short;
-            dtpFecFin.Location = new Point(470, 196);
+            dtpFecFin.Location = new Point(471, 173);
             dtpFecFin.Margin = new Padding(4, 3, 4, 3);
             dtpFecFin.Name = "dtpFecFin";
             dtpFecFin.Size = new Size(148, 23);
             dtpFecFin.TabIndex = 5;
             // 
-            // btnConsultar
+            // btnDetalleGuia
             // 
-            btnConsultar.Location = new Point(680, 187);
-            btnConsultar.Margin = new Padding(4, 3, 4, 3);
-            btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(138, 42);
-            btnConsultar.TabIndex = 6;
-            btnConsultar.Text = "Consultar";
-            btnConsultar.UseVisualStyleBackColor = true;
-            btnConsultar.Click += btnConsultar_Click;
+            btnDetalleGuia.Location = new Point(742, 165);
+            btnDetalleGuia.Margin = new Padding(4, 3, 4, 3);
+            btnDetalleGuia.Name = "btnDetalleGuia";
+            btnDetalleGuia.Size = new Size(138, 42);
+            btnDetalleGuia.TabIndex = 6;
+            btnDetalleGuia.Text = "Detalles de Guias de remision";
+            btnDetalleGuia.UseVisualStyleBackColor = true;
+            btnDetalleGuia.Click += btnConsultar_Click;
             // 
             // lblRegistros
             // 
             lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(848, 472);
+            lblRegistros.Location = new Point(856, 498);
             lblRegistros.Margin = new Padding(4, 0, 4, 0);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(57, 26);
@@ -125,7 +125,7 @@
             // 
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(765, 472);
+            label4.Location = new Point(790, 504);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(58, 15);
@@ -136,7 +136,7 @@
             // 
             dtgFacturas.AllowUserToAddRows = false;
             dtgFacturas.AllowUserToDeleteRows = false;
-            dtgFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgFacturas.Anchor = AnchorStyles.None;
             dtgFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgFacturas.Columns.AddRange(new DataGridViewColumn[] { Num_fac, Fec_fac, Fec_can, Total, Estado });
@@ -146,7 +146,7 @@
             dtgFacturas.ReadOnly = true;
             dtgFacturas.RowHeadersVisible = false;
             dtgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgFacturas.Size = new Size(878, 228);
+            dtgFacturas.Size = new Size(878, 245);
             dtgFacturas.TabIndex = 7;
             // 
             // Num_fac
@@ -159,9 +159,9 @@
             // Fec_fac
             // 
             Fec_fac.DataPropertyName = "Fec_fac";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "d";
-            Fec_fac.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "d";
+            Fec_fac.DefaultCellStyle = dataGridViewCellStyle7;
             Fec_fac.HeaderText = "Fec. Facturacion";
             Fec_fac.Name = "Fec_fac";
             Fec_fac.ReadOnly = true;
@@ -169,10 +169,10 @@
             // Fec_can
             // 
             Fec_can.DataPropertyName = "fec_can";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            Fec_can.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "d";
+            dataGridViewCellStyle8.NullValue = "-";
+            Fec_can.DefaultCellStyle = dataGridViewCellStyle8;
             Fec_can.HeaderText = "Fec. Cancelacion";
             Fec_can.Name = "Fec_can";
             Fec_can.ReadOnly = true;
@@ -180,9 +180,9 @@
             // Total
             // 
             Total.DataPropertyName = "total";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "n2";
-            Total.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "n2";
+            Total.DefaultCellStyle = dataGridViewCellStyle9;
             Total.HeaderText = "Total (S/.)";
             Total.Name = "Total";
             Total.ReadOnly = true;
@@ -349,7 +349,7 @@
             Controls.Add(dtgFacturas);
             Controls.Add(lblRegistros);
             Controls.Add(label4);
-            Controls.Add(btnConsultar);
+            Controls.Add(btnDetalleGuia);
             Controls.Add(dtpFecFin);
             Controls.Add(dtpFecIni);
             Controls.Add(label3);
@@ -371,7 +371,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFecIni;
         private System.Windows.Forms.DateTimePicker dtpFecFin;
-        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnDetalleGuia;
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtgFacturas;

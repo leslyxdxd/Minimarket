@@ -74,7 +74,7 @@ namespace ProyVentas_GUI
             {
                 mantenimientosToolStripMenuItem.Visible = true;
                 consultasToolStripMenuItem.Visible = true;
-                
+                gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
 
@@ -85,7 +85,7 @@ namespace ProyVentas_GUI
 
                 mantenimientosToolStripMenuItem.Visible = false;
                 consultasToolStripMenuItem.Visible = true;
-              
+
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = false;
 
@@ -95,10 +95,10 @@ namespace ProyVentas_GUI
 
                 mantenimientosToolStripMenuItem.Visible = false;
                 consultasToolStripMenuItem.Visible = true;
-               
+                gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
-         
+
 
             }
 
@@ -137,6 +137,13 @@ namespace ProyVentas_GUI
             frmListaProveedores prov01 = new frmListaProveedores();
             prov01.MdiParent = this;
             prov01.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Para que se cierre
+            this.Close();
+
         }
     }
 }
