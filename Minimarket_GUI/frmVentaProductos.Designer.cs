@@ -35,6 +35,7 @@
             button1 = new Button();
             button3 = new Button();
             groupBox1 = new GroupBox();
+            textBox1 = new TextBox();
             label7 = new Label();
             label5 = new Label();
             lblDir = new Label();
@@ -42,15 +43,14 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // listView1
             // 
-            listView1.Location = new Point(28, 210);
+            listView1.Location = new Point(28, 188);
             listView1.Name = "listView1";
-            listView1.Size = new Size(722, 415);
+            listView1.Size = new Size(722, 437);
             listView1.TabIndex = 2;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -110,12 +110,20 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(button3);
-            groupBox1.Location = new Point(13, 70);
+            groupBox1.Location = new Point(12, 30);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(772, 122);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalle de Producto ";
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.None;
+            textBox1.Location = new Point(591, 69);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(107, 23);
+            textBox1.TabIndex = 16;
             // 
             // label7
             // 
@@ -179,14 +187,6 @@
             label1.Size = new Size(69, 35);
             label1.TabIndex = 8;
             label1.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.Location = new Point(591, 69);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(107, 23);
-            textBox1.TabIndex = 16;
             // 
             // frmVentaProductos
             // 
