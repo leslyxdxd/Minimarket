@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
@@ -159,9 +159,9 @@
             // Fec_fac
             // 
             Fec_fac.DataPropertyName = "Fec_fac";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "d";
-            Fec_fac.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "d";
+            Fec_fac.DefaultCellStyle = dataGridViewCellStyle1;
             Fec_fac.HeaderText = "Fec. Facturacion";
             Fec_fac.Name = "Fec_fac";
             Fec_fac.ReadOnly = true;
@@ -169,10 +169,10 @@
             // Fec_can
             // 
             Fec_can.DataPropertyName = "fec_can";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "d";
-            dataGridViewCellStyle8.NullValue = "-";
-            Fec_can.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "-";
+            Fec_can.DefaultCellStyle = dataGridViewCellStyle2;
             Fec_can.HeaderText = "Fec. Cancelacion";
             Fec_can.Name = "Fec_can";
             Fec_can.ReadOnly = true;
@@ -180,9 +180,9 @@
             // Total
             // 
             Total.DataPropertyName = "total";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "n2";
-            Total.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "n2";
+            Total.DefaultCellStyle = dataGridViewCellStyle3;
             Total.HeaderText = "Total (S/.)";
             Total.Name = "Total";
             Total.ReadOnly = true;
@@ -358,6 +358,7 @@
             MaximumSize = new Size(954, 571);
             MinimumSize = new Size(907, 548);
             Name = "frmGuiaRemision";
+            RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Guia de Remision";
             Load += frmConsFacturasCliente_Load;

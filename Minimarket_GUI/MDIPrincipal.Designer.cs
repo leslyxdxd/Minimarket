@@ -45,13 +45,14 @@
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
+            generarVentaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, salirDelSistemasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, salirDelSistemasToolStripMenuItem, generarVentaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10);
@@ -171,6 +172,13 @@
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
             // 
+            // generarVentaToolStripMenuItem
+            // 
+            generarVentaToolStripMenuItem.Name = "generarVentaToolStripMenuItem";
+            generarVentaToolStripMenuItem.Size = new Size(92, 21);
+            generarVentaToolStripMenuItem.Text = "Generar Venta";
+            generarVentaToolStripMenuItem.Click += generarVentaToolStripMenuItem_Click;
+            // 
             // MDIPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -216,5 +224,6 @@
         private ToolStripMenuItem generarGuiaToolStripMenuItem;
         private ToolStripMenuItem proveedoresToolStripMenuItem;
         private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
+        private ToolStripMenuItem generarVentaToolStripMenuItem;
     }
 }
