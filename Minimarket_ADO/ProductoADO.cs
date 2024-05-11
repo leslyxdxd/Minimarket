@@ -76,12 +76,12 @@ namespace Minimarket_ADO
 
 
                     objProductoBE.Precio_Unitario = Convert.ToDecimal(dtr["Precio_Unitario"]);
-                    objProductoBE.Id_Cat = Convert.ToInt16(dtr["Id_Cat"]);
-                    objProductoBE.Id_Proveedor = Convert.ToInt16(dtr["Id_Proveedor"]);
-                    objProductoBE.Id_UM = Convert.ToInt16(dtr["Id_UM"]);
+
+                    objProductoBE.Des_UM = dtr["Des_UM"].ToString();
+
+
                     objProductoBE.Stk_Tienda = Convert.ToInt16(dtr["Stk_Tienda"]);
-                    objProductoBE.Stk_Trastienda = Convert.ToInt16(dtr["Stk_Trastienda"]);
-                    objProductoBE.Estado = Convert.ToInt16(dtr["Estado"]);
+                   
 
 
 

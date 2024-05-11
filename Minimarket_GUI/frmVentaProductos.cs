@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using Minimarket_BL;
 using Minimarket_BE;
+using System.Data;
 
 namespace Minimarket_GUI
 {
@@ -29,32 +30,30 @@ namespace Minimarket_GUI
         {
             try
             {
-                // Verificar si se proporcionó un código válido
-                if (!string.IsNullOrEmpty(Codigo))
-                {
-                    // Invocamos el método ConsultarProducto con el código proporcionado
-                    objProductoBE = objProductoBL.ConsultarProducto(Codigo);
 
-                    // Asignamos los valores a los controles del formulario
-                    lblCodigo.Text = objProductoBE.Id_Producto;
-                    lblNombre.Text = objProductoBE.Nom_Producto;
-                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString();
-                    lblUM.Text = objProductoBE.Id_UM.ToString();
-                    lblStock.Text = objProductoBE.Stk_Tienda.ToString();
+                // Cargamos los combos...
+
+                //codifique
+                //invocamos la methodo consultar..
+                objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);
+
+
+
+                lblCodigo.Text = objProductoBE.Id_Producto;
+                lblNombre.Text = objProductoBE.Nom_Producto;
+                lblPrecio.Text = objProductoBE.Precio_Unitario.ToString(); ;
+                lblUM.Text = objProductoBE.Des_UM;
+                lblStock.Text = objProductoBE.Stk_Tienda.ToString(); ;
+
+             
+
+
                
+                DataTable dt2 = objProductoBL.ListarProducto();
+                DataRow dtr;
+                dtr = dt2.NewRow();
 
 
-
-
-
-      
-
-
-                }
-                else
-                {
-                    MessageBox.Show("No se proporcionó un código de producto válido.");
-                }
             }
             catch (Exception ex)
             {

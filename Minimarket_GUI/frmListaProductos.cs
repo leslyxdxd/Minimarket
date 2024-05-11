@@ -4,6 +4,7 @@ using Minimarket_BL;
 using Minimarket_BE;
 using System.Data;
 
+
 namespace Minimarket_GUI
 {
     public partial class frmListaProductos : Form
@@ -15,6 +16,7 @@ namespace Minimarket_GUI
         {
             InitializeComponent();
         }
+        public String Codigo { get; set; }
 
         private void CargarDatos(string Nom_Producto)
         {
@@ -51,32 +53,10 @@ namespace Minimarket_GUI
 
         private void btnGuiasRemision_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Verificar si se ha seleccionado una fila en el DataGridView
-                if (dtgDatos.SelectedRows.Count > 0)
-                {
-                    // Obtener el código del producto seleccionado
-                    string codigoProducto = dtgDatos.SelectedRows[0].Cells["Id_Producto"].Value.ToString();
 
-                    // Crear una instancia del formulario frmVentaProductos
-                    frmVentaProductos seleccionarProductos = new frmVentaProductos();
-
-                    // Asignar el código del producto seleccionado a la propiedad Codigo del formulario frmVentaProductos
-                    seleccionarProductos.Codigo = codigoProducto;
-
-                    // Mostrar el formulario frmVentaProductos
-                    seleccionarProductos.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione un producto primero.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            frmVentaProductos ConsultarProducto = new frmVentaProductos();
+            ConsultarProducto.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+            ConsultarProducto.ShowDialog();
         }
     }
 }

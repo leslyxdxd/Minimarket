@@ -129,7 +129,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(629, 42);
+            label11.Location = new Point(612, 45);
             label11.Name = "label11";
             label11.Size = new Size(32, 15);
             label11.TabIndex = 20;
@@ -138,7 +138,7 @@
             // lblUM
             // 
             lblUM.BorderStyle = BorderStyle.FixedSingle;
-            lblUM.Location = new Point(600, 71);
+            lblUM.Location = new Point(580, 71);
             lblUM.Margin = new Padding(4, 0, 4, 0);
             lblUM.Name = "lblUM";
             lblUM.Size = new Size(90, 35);
@@ -156,7 +156,7 @@
             // lblStock
             // 
             lblStock.BorderStyle = BorderStyle.FixedSingle;
-            lblStock.Location = new Point(708, 71);
+            lblStock.Location = new Point(696, 71);
             lblStock.Margin = new Padding(4, 0, 4, 0);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(100, 35);
@@ -182,10 +182,10 @@
             // lblPrecio
             // 
             lblPrecio.BorderStyle = BorderStyle.FixedSingle;
-            lblPrecio.Location = new Point(475, 71);
+            lblPrecio.Location = new Point(436, 71);
             lblPrecio.Margin = new Padding(4, 0, 4, 0);
             lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(100, 35);
+            lblPrecio.Size = new Size(120, 35);
             lblPrecio.TabIndex = 14;
             // 
             // lblNombre
@@ -194,13 +194,13 @@
             lblNombre.Location = new Point(198, 71);
             lblNombre.Margin = new Padding(4, 0, 4, 0);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(252, 35);
+            lblNombre.Size = new Size(206, 35);
             lblNombre.TabIndex = 13;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(493, 42);
+            label6.Location = new Point(473, 42);
             label6.Name = "label6";
             label6.Size = new Size(43, 15);
             label6.TabIndex = 9;
