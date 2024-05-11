@@ -30,6 +30,12 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            label2 = new Label();
+            lblRegistros = new Label();
+            btnCerrar = new Button();
+            btnGuiasRemision = new Button();
             Id_Producto = new DataGridViewTextBoxColumn();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Precio_Unitario = new DataGridViewTextBoxColumn();
@@ -39,12 +45,9 @@
             Stk_Tienda = new DataGridViewTextBoxColumn();
             Stk_Trastienda = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            label2 = new Label();
-            lblRegistros = new Label();
-            btnCerrar = new Button();
-            btnGuiasRemision = new Button();
+            Des_Cat = new DataGridViewTextBoxColumn();
+            Nom_Proveedor = new DataGridViewTextBoxColumn();
+            Des_UM = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -57,7 +60,7 @@
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Producto, Nom_Producto, Precio_Unitario, Id_Cat, Id_Proveedor, Id_UM, Stk_Tienda, Stk_Trastienda, Estado });
+            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Producto, Nom_Producto, Precio_Unitario, Id_Cat, Id_Proveedor, Id_UM, Stk_Tienda, Stk_Trastienda, Estado, Des_Cat, Nom_Proveedor, Des_UM });
             dtgDatos.Location = new Point(25, 53);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
@@ -67,72 +70,6 @@
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(574, 436);
             dtgDatos.TabIndex = 1;
-            // 
-            // Id_Producto
-            // 
-            Id_Producto.DataPropertyName = "Id_Producto";
-            Id_Producto.HeaderText = "Id_Producto";
-            Id_Producto.Name = "Id_Producto";
-            Id_Producto.ReadOnly = true;
-            // 
-            // Nom_Producto
-            // 
-            Nom_Producto.DataPropertyName = "Nom_Producto";
-            Nom_Producto.HeaderText = "Producto";
-            Nom_Producto.Name = "Nom_Producto";
-            Nom_Producto.ReadOnly = true;
-            // 
-            // Precio_Unitario
-            // 
-            Precio_Unitario.DataPropertyName = "Precio_Unitario";
-            Precio_Unitario.HeaderText = "Precio Unitario";
-            Precio_Unitario.Name = "Precio_Unitario";
-            Precio_Unitario.ReadOnly = true;
-            // 
-            // Id_Cat
-            // 
-            Id_Cat.DataPropertyName = "Id_Cat";
-            Id_Cat.HeaderText = "Categoria";
-            Id_Cat.Name = "Id_Cat";
-            Id_Cat.ReadOnly = true;
-            // 
-            // Id_Proveedor
-            // 
-            Id_Proveedor.DataPropertyName = "Id_Proveedor";
-            Id_Proveedor.HeaderText = "Proveedor";
-            Id_Proveedor.Name = "Id_Proveedor";
-            Id_Proveedor.ReadOnly = true;
-            Id_Proveedor.Visible = false;
-            // 
-            // Id_UM
-            // 
-            Id_UM.DataPropertyName = "Id_UM";
-            Id_UM.HeaderText = "Unidad de Medida";
-            Id_UM.Name = "Id_UM";
-            Id_UM.ReadOnly = true;
-            // 
-            // Stk_Tienda
-            // 
-            Stk_Tienda.DataPropertyName = "Stk_Tienda";
-            Stk_Tienda.HeaderText = "Stok Tienda";
-            Stk_Tienda.Name = "Stk_Tienda";
-            Stk_Tienda.ReadOnly = true;
-            // 
-            // Stk_Trastienda
-            // 
-            Stk_Trastienda.DataPropertyName = "Stk_Trastienda";
-            Stk_Trastienda.HeaderText = "Stok_Trastienda";
-            Stk_Trastienda.Name = "Stk_Trastienda";
-            Stk_Trastienda.ReadOnly = true;
-            Stk_Trastienda.Visible = false;
-            // 
-            // Estado
-            // 
-            Estado.DataPropertyName = "Estado";
-            Estado.HeaderText = "Estado";
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
-            Estado.Visible = false;
             // 
             // label1
             // 
@@ -187,6 +124,96 @@
             btnGuiasRemision.UseVisualStyleBackColor = true;
             btnGuiasRemision.Click += btnGuiasRemision_Click;
             // 
+            // Id_Producto
+            // 
+            Id_Producto.DataPropertyName = "Id_Producto";
+            Id_Producto.HeaderText = "Id_Producto";
+            Id_Producto.Name = "Id_Producto";
+            Id_Producto.ReadOnly = true;
+            Id_Producto.Visible = false;
+            // 
+            // Nom_Producto
+            // 
+            Nom_Producto.DataPropertyName = "Nom_Producto";
+            Nom_Producto.HeaderText = "Producto";
+            Nom_Producto.Name = "Nom_Producto";
+            Nom_Producto.ReadOnly = true;
+            // 
+            // Precio_Unitario
+            // 
+            Precio_Unitario.DataPropertyName = "Precio_Unitario";
+            Precio_Unitario.HeaderText = "Precio Unitario";
+            Precio_Unitario.Name = "Precio_Unitario";
+            Precio_Unitario.ReadOnly = true;
+            // 
+            // Id_Cat
+            // 
+            Id_Cat.DataPropertyName = "Id_Cat";
+            Id_Cat.HeaderText = "Categoria";
+            Id_Cat.Name = "Id_Cat";
+            Id_Cat.ReadOnly = true;
+            Id_Cat.Visible = false;
+            // 
+            // Id_Proveedor
+            // 
+            Id_Proveedor.DataPropertyName = "Id_Proveedor";
+            Id_Proveedor.HeaderText = "Proveedor";
+            Id_Proveedor.Name = "Id_Proveedor";
+            Id_Proveedor.ReadOnly = true;
+            Id_Proveedor.Visible = false;
+            // 
+            // Id_UM
+            // 
+            Id_UM.DataPropertyName = "Id_UM";
+            Id_UM.HeaderText = "Unidad de Medida";
+            Id_UM.Name = "Id_UM";
+            Id_UM.ReadOnly = true;
+            Id_UM.Visible = false;
+            // 
+            // Stk_Tienda
+            // 
+            Stk_Tienda.DataPropertyName = "Stk_Tienda";
+            Stk_Tienda.HeaderText = "Stock ";
+            Stk_Tienda.Name = "Stk_Tienda";
+            Stk_Tienda.ReadOnly = true;
+            // 
+            // Stk_Trastienda
+            // 
+            Stk_Trastienda.DataPropertyName = "Stk_Trastienda";
+            Stk_Trastienda.HeaderText = "Stok_Trastienda";
+            Stk_Trastienda.Name = "Stk_Trastienda";
+            Stk_Trastienda.ReadOnly = true;
+            Stk_Trastienda.Visible = false;
+            // 
+            // Estado
+            // 
+            Estado.DataPropertyName = "Estado";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            Estado.Visible = false;
+            // 
+            // Des_Cat
+            // 
+            Des_Cat.DataPropertyName = "Des_Cat";
+            Des_Cat.HeaderText = "Categoria";
+            Des_Cat.Name = "Des_Cat";
+            Des_Cat.ReadOnly = true;
+            // 
+            // Nom_Proveedor
+            // 
+            Nom_Proveedor.DataPropertyName = "Nom_Proveedor";
+            Nom_Proveedor.HeaderText = "Proveedor";
+            Nom_Proveedor.Name = "Nom_Proveedor";
+            Nom_Proveedor.ReadOnly = true;
+            // 
+            // Des_UM
+            // 
+            Des_UM.DataPropertyName = "Des_UM";
+            Des_UM.HeaderText = "U.M.";
+            Des_UM.Name = "Des_UM";
+            Des_UM.ReadOnly = true;
+            // 
             // frmListaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -229,5 +256,8 @@
         private DataGridViewTextBoxColumn Stk_Tienda;
         private DataGridViewTextBoxColumn Stk_Trastienda;
         private DataGridViewTextBoxColumn Estado;
+        private DataGridViewTextBoxColumn Des_Cat;
+        private DataGridViewTextBoxColumn Nom_Proveedor;
+        private DataGridViewTextBoxColumn Des_UM;
     }
 }

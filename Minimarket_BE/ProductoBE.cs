@@ -18,11 +18,9 @@ namespace Minimarket_BE
         public int Id_Cat { get; set; }
         public int Id_Proveedor { get; set; }
         public int Id_UM{ get; set; }
-        public int Stk_Tienda { get; set; }
-        public int Stk_Trastienda { get; set; }
-        public int Estado { get; set; }
+  
+      
 
-        public String RUC { get; set; }
         public DateTime Fec_Registro { get; set; }
 
         public String Usu_Registro { get; set; }
@@ -30,5 +28,13 @@ namespace Minimarket_BE
         public DateTime Fec_Ult_Mod { get; set; }
 
         public String Usu_Ult_Mod { get; set; }
+
+        public int cantidadTotal { get; set; }
+
+        public int Stk_Tienda { get; set; }
+
+        public int Stk_Trastienda { get; set; }
+
+        public int Estado { get; set; }
     }
 }
