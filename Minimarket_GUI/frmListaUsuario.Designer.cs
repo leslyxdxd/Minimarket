@@ -43,9 +43,10 @@ namespace ProyVentas_GUI
             lblRegistros = new Label();
             label2 = new Label();
             btnSalir = new Button();
-            btnActualizar = new Button();
             txtFiltro = new TextBox();
             label1 = new Label();
+            btnInhabilitar = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +63,7 @@ namespace ProyVentas_GUI
             dtgUsuario.ReadOnly = true;
             dtgUsuario.RowHeadersVisible = false;
             dtgUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgUsuario.Size = new Size(870, 306);
+            dtgUsuario.Size = new Size(702, 306);
             dtgUsuario.TabIndex = 0;
             dtgUsuario.DoubleClick += dtgCategoria_DoubleClick;
             // 
@@ -124,6 +125,7 @@ namespace ProyVentas_GUI
             Usu_Registro.HeaderText = "Auditoria registro";
             Usu_Registro.Name = "Usu_Registro";
             Usu_Registro.ReadOnly = true;
+            Usu_Registro.Visible = false;
             // 
             // Fec_Ult_Mod
             // 
@@ -131,6 +133,7 @@ namespace ProyVentas_GUI
             Fec_Ult_Mod.HeaderText = "Fecha de modificación";
             Fec_Ult_Mod.Name = "Fec_Ult_Mod";
             Fec_Ult_Mod.ReadOnly = true;
+            Fec_Ult_Mod.Visible = false;
             // 
             // Usu_Ult_Mod
             // 
@@ -138,13 +141,14 @@ namespace ProyVentas_GUI
             Usu_Ult_Mod.HeaderText = "Ultima modificacion";
             Usu_Ult_Mod.Name = "Usu_Ult_Mod";
             Usu_Ult_Mod.ReadOnly = true;
+            Usu_Ult_Mod.Visible = false;
             // 
             // lblRegistros
             // 
             lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
             lblRegistros.Font = new Font("Segoe UI", 9.75F);
-            lblRegistros.Location = new Point(99, 433);
+            lblRegistros.Location = new Point(90, 419);
             lblRegistros.Margin = new Padding(4, 0, 4, 0);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(92, 25);
@@ -155,7 +159,7 @@ namespace ProyVentas_GUI
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F);
-            label2.Location = new Point(25, 434);
+            label2.Location = new Point(16, 420);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(66, 17);
@@ -166,7 +170,7 @@ namespace ProyVentas_GUI
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalir.Font = new Font("Segoe UI", 9.75F);
-            btnSalir.Location = new Point(773, 414);
+            btnSalir.Location = new Point(614, 409);
             btnSalir.Margin = new Padding(4, 3, 4, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(102, 38);
@@ -174,19 +178,6 @@ namespace ProyVentas_GUI
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnActualizar.Font = new Font("Segoe UI", 9.75F);
-            btnActualizar.Location = new Point(642, 414);
-            btnActualizar.Margin = new Padding(4, 3, 4, 3);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(108, 38);
-            btnActualizar.TabIndex = 10;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
             // 
             // txtFiltro
             // 
@@ -208,17 +199,44 @@ namespace ProyVentas_GUI
             label1.TabIndex = 13;
             label1.Text = "Ingrese Usuario";
             // 
+            // btnInhabilitar
+            // 
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.Font = new Font("Segoe UI", 9.75F);
+            btnInhabilitar.Location = new Point(480, 406);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(102, 38);
+            btnInhabilitar.TabIndex = 15;
+            btnInhabilitar.Text = "Inhabilitar";
+            btnInhabilitar.UseVisualStyleBackColor = true;
+            btnInhabilitar.Click += btnInhabilitar_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Font = new Font("Segoe UI", 9.75F);
+            button1.Location = new Point(358, 406);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(102, 38);
+            button1.TabIndex = 16;
+            button1.Text = "Habilitar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmListaUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(911, 473);
+            ClientSize = new Size(741, 469);
+            Controls.Add(button1);
+            Controls.Add(btnInhabilitar);
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(btnSalir);
-            Controls.Add(btnActualizar);
             Controls.Add(dtgUsuario);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
@@ -226,7 +244,7 @@ namespace ProyVentas_GUI
             MinimizeBox = false;
             Name = "frmListaUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Listado Usuarios";
+            Text = "Usuarios";
             Load += CategoriaMan01_Load;
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).EndInit();
             ResumeLayout(false);
@@ -239,7 +257,6 @@ namespace ProyVentas_GUI
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
         private DataGridViewTextBoxColumn Login_Usuario;
@@ -252,5 +269,7 @@ namespace ProyVentas_GUI
         private DataGridViewTextBoxColumn Usu_Registro;
         private DataGridViewTextBoxColumn Fec_Ult_Mod;
         private DataGridViewTextBoxColumn Usu_Ult_Mod;
+        private Button btnInhabilitar;
+        private Button button1;
     }
 }

@@ -24,58 +24,49 @@ namespace Minimarket_GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (txtLogin.Text.Trim() != "" & txtPassword.Text.Trim() != "")
+            if (txtLogin.Text.Trim() != "" && txtPassword.Text.Trim() != "")
             {
                 objUsuariosBE = objUsuariosBL.ConsultarUsuarios(txtLogin.Text.Trim());
 
-
                 if (objUsuariosBE.Login_Usuario == null)
                 {
-                    // Si las credenciales son correctas...
-
                     intentos += 1;
                     ValidaAccesos();
-                    throw new Exception("Usuario no Existe");
-
+                    MessageBox.Show("Usuario no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (objUsuariosBE.Login_Usuario == txtLogin.Text.Trim() && objUsuariosBE.Pass_Usuario == txtPassword.Text.Trim())
                 {
-                    this.Hide();
-                    timer1.Enabled = false;
+                    if (objUsuariosBE.Est_Usuario == 1) // Verifica si el usuario está habilitado
+                    {
+                        this.Hide();
+                        timer1.Enabled = false;
 
-                    clsCredenciales.Login_Usuario = objUsuariosBE.Login_Usuario;
-                    clsCredenciales.Niv_Usuario = objUsuariosBE.Niv_Usuario;
-                    clsCredenciales.Pass_Usuario = objUsuariosBE.Pass_Usuario;
+                        clsCredenciales.Login_Usuario = objUsuariosBE.Login_Usuario;
+                        clsCredenciales.Niv_Usuario = objUsuariosBE.Niv_Usuario;
+                        clsCredenciales.Pass_Usuario = objUsuariosBE.Pass_Usuario;
 
-
-                    MDIPrincipal mdi = new MDIPrincipal();
-                    mdi.ShowDialog();
-
-
+                        MDIPrincipal mdi = new MDIPrincipal();
+                        mdi.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario inhabilitado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-
-
                 else
                 {
-                    MessageBox.Show("Usuario o Password incorrectos",
-                    "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuario o contraseña incorrectos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     intentos += 1;
                     ValidaAccesos();
-
                 }
             }
             else
             {
-                MessageBox.Show("Usuario o Password obligatorios",
-                    "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuario o contraseña obligatorios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 intentos += 1;
                 ValidaAccesos();
             }
-
-
-
         }
-
 
 
 

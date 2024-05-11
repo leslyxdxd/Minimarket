@@ -30,6 +30,14 @@ namespace Minimarket_BL
             return objUsuariosADO.InsertarUsuario(objUsuariosBE);
         }
 
+        public Boolean InhabilitarUsuario(UsuariosBE objUsuariosBE)
+        {
+            return objUsuariosADO.InhabilitarUsuario(objUsuariosBE);
+        }
 
+        public Boolean HabilitarUsuario(UsuariosBE objUsuariosBE)
+        {
+            return objUsuariosADO.HabilitarUsuario(objUsuariosBE);
+        }
     }
 }
