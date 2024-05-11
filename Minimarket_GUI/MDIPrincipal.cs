@@ -104,6 +104,7 @@ namespace ProyVentas_GUI
                 facturasClienteToolStripMenuItem.Visible = false;
                 facturasVendedorToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
+                gestionarVentaToolStripMenuItem.Visible = false;
 
 
 
