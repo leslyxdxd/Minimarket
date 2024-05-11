@@ -3,6 +3,7 @@
 using Minimarket_BE;
 using Minimarket_BL;
 using ProyVentas_GUI;
+using System.Data;
 
 
 
@@ -125,9 +126,10 @@ namespace Minimarket_GUI
 
             }
         }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
         }
+
     }
+}

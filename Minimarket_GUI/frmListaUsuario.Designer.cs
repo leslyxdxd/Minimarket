@@ -187,6 +187,7 @@ namespace ProyVentas_GUI
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(196, 25);
             txtFiltro.TabIndex = 14;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // label1
             // 

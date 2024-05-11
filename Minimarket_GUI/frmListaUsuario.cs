@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Minimarket_BE;
 using Minimarket_BL;
+using static System.Net.Mime.MediaTypeNames;
 
 
 
@@ -25,6 +26,7 @@ namespace ProyVentas_GUI
         }
 
         public void CargarDatos(String strFiltro)
+
         {
             // Construimos el dataview en base al datatable devuelto por el metodo ListarCategoria
             dtv = new DataView(objUsuarioBL.ListarUsuarios());
@@ -37,6 +39,7 @@ namespace ProyVentas_GUI
         }
         private void CategoriaMan01_Load(object sender, EventArgs e)
         {
+           
 
             try
             {
@@ -75,19 +78,26 @@ namespace ProyVentas_GUI
         {
 
         }
-
         private void btnInhabilitar_Click(object sender, EventArgs e)
         {
             // Verifica si hay al menos una fila seleccionada
             if (dtgUsuario.SelectedRows.Count > 0)
             {
-                // Obtiene el Login_Usuario de la fila seleccionada
+                // Obtiene el Login_Usuario y el nivel de usuario de la fila seleccionada
                 string loginUsuario = dtgUsuario.SelectedRows[0].Cells["Login_Usuario"].Value.ToString();
+                string nivelUsuario = dtgUsuario.SelectedRows[0].Cells["Niv_Usuario"].Value.ToString();
 
                 // Verifica si el usuario ya está inhabilitado
                 if (dtgUsuario.SelectedRows[0].Cells["Est_Usuario"].Value.ToString() == "2")
                 {
                     MessageBox.Show("El usuario ya está inhabilitado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Sale del método sin continuar
+                }
+
+                // Verifica si el usuario es administrador (nivel de usuario 1)
+                if (nivelUsuario == "1")
+                {
+                    MessageBox.Show("No es posible inhabilitar al administrador.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return; // Sale del método sin continuar
                 }
 
@@ -126,7 +136,6 @@ namespace ProyVentas_GUI
                 MessageBox.Show("Por favor, seleccione un usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             // Verifica si hay al menos una fila seleccionada
@@ -168,6 +177,21 @@ namespace ProyVentas_GUI
             else
             {
                 MessageBox.Show("Por favor, seleccione un usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+     
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Pasaremos al metodo CargarDatos el texto que se va escribiendo
+                // en la caja de texto 
+                CargarDatos(txtFiltro.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
             }
         }
     }
