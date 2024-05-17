@@ -18,6 +18,10 @@ namespace Minimarket_BL
         {
             return objProductoADO.ListarProducto();
         }
+        public DataTable ListarProductoxProveedor()
+        {
+            return objProductoADO.ListarProductoxProveedor();
+        }
         public ProductoBE ConsultarProducto(String strCodigo)
         {
             return objProductoADO.ConsultarProducto(strCodigo);

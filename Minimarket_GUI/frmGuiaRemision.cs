@@ -63,7 +63,7 @@ namespace ProyVentas_GUI
         {
             try
             {
-                if (dtpFecIni.Value.Date > dtpFecFin.Value.Date) 
+                if (dtpFecIni.Value.Date > dtpFecFin.Value.Date)
                 {
                     throw new Exception("La fecha de inicio no puede ser mayor que la de fin");
                 }
@@ -71,7 +71,7 @@ namespace ProyVentas_GUI
                 dtgFacturas.DataSource = objRemisionBL.ListarGuiasProveedoresFechas(Codigo, dtpFecIni.Value.Date, dtpFecFin.Value.Date);
                 lblRegistros.Text = dtgFacturas.Rows.Count.ToString();
 
-               
+
 
             }
             catch (Exception ex)
@@ -99,7 +99,9 @@ namespace ProyVentas_GUI
 
         }
 
-    
+        private void btnIngresarGuia_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

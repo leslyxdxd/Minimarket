@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
@@ -39,22 +36,6 @@
             lblRegistros = new Label();
             label4 = new Label();
             dtgFacturas = new DataGridView();
-            label5 = new Label();
-            lblNombre = new Label();
-            label6 = new Label();
-            lblRuc = new Label();
-            label8 = new Label();
-            lblDireccion = new Label();
-            label10 = new Label();
-            lblTel = new Label();
-            label12 = new Label();
-            lblCorreo = new Label();
-            label14 = new Label();
-            lblEstados = new Label();
-            lblCodigo = new Label();
-            label1 = new Label();
-            btnIngresarGuia = new Button();
-            btnConsultar = new Button();
             Id_Remision = new DataGridViewTextBoxColumn();
             FechaIni = new DataGridViewTextBoxColumn();
             FechaFin = new DataGridViewTextBoxColumn();
@@ -72,6 +53,22 @@
             total = new DataGridViewTextBoxColumn();
             Observaciones = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            label5 = new Label();
+            lblNombre = new Label();
+            label6 = new Label();
+            lblRuc = new Label();
+            label8 = new Label();
+            lblDireccion = new Label();
+            label10 = new Label();
+            lblTel = new Label();
+            label12 = new Label();
+            lblCorreo = new Label();
+            label14 = new Label();
+            lblEstados = new Label();
+            lblCodigo = new Label();
+            label1 = new Label();
+            btnIngresarGuia = new Button();
+            btnConsultar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).BeginInit();
             SuspendLayout();
             // 
@@ -163,21 +160,129 @@
             dtgFacturas.Size = new Size(922, 319);
             dtgFacturas.TabIndex = 7;
             // 
-            // Num_fac
+            // Id_Remision
             // 
-           
+            Id_Remision.DataPropertyName = "Id_Remision";
+            Id_Remision.HeaderText = "Codigo Remision";
+            Id_Remision.Name = "Id_Remision";
+            Id_Remision.ReadOnly = true;
             // 
-            // Fec_fac
+            // FechaIni
             // 
-          
+            FechaIni.DataPropertyName = "FechaIni";
+            FechaIni.HeaderText = "Fec.Inicio";
+            FechaIni.Name = "FechaIni";
+            FechaIni.ReadOnly = true;
             // 
-            // Fec_can
+            // FechaFin
             // 
-           
+            FechaFin.DataPropertyName = "FechaFin";
+            FechaFin.HeaderText = "Fec.Fin";
+            FechaFin.Name = "FechaFin";
+            FechaFin.ReadOnly = true;
             // 
-            // Total
+            // Id_Proveedor
             // 
-            
+            Id_Proveedor.DataPropertyName = "Id_Proveedor";
+            Id_Proveedor.HeaderText = "Id_Proveedor";
+            Id_Proveedor.Name = "Id_Proveedor";
+            Id_Proveedor.ReadOnly = true;
+            Id_Proveedor.Visible = false;
+            // 
+            // Nom_Proveedor
+            // 
+            Nom_Proveedor.DataPropertyName = "Nom_Proveedor";
+            Nom_Proveedor.HeaderText = "Proveedor";
+            Nom_Proveedor.Name = "Nom_Proveedor";
+            Nom_Proveedor.ReadOnly = true;
+            Nom_Proveedor.Visible = false;
+            // 
+            // RUC
+            // 
+            RUC.DataPropertyName = "RUC";
+            RUC.HeaderText = "RUC";
+            RUC.Name = "RUC";
+            RUC.ReadOnly = true;
+            RUC.Visible = false;
+            // 
+            // Telefono
+            // 
+            Telefono.DataPropertyName = "Telefono";
+            Telefono.HeaderText = "Teléfono";
+            Telefono.Name = "Telefono";
+            Telefono.ReadOnly = true;
+            Telefono.Visible = false;
+            // 
+            // Correo
+            // 
+            Correo.DataPropertyName = "Correo";
+            Correo.HeaderText = "Correo";
+            Correo.Name = "Correo";
+            Correo.ReadOnly = true;
+            Correo.Visible = false;
+            // 
+            // Id_Producto
+            // 
+            Id_Producto.DataPropertyName = "Id_Producto";
+            Id_Producto.HeaderText = "Id_Producto";
+            Id_Producto.Name = "Id_Producto";
+            Id_Producto.ReadOnly = true;
+            Id_Producto.Visible = false;
+            // 
+            // Nom_Producto
+            // 
+            Nom_Producto.DataPropertyName = "Nom_Producto";
+            Nom_Producto.HeaderText = "Producto";
+            Nom_Producto.Name = "Nom_Producto";
+            Nom_Producto.ReadOnly = true;
+            Nom_Producto.Visible = false;
+            // 
+            // Id_Cat
+            // 
+            Id_Cat.DataPropertyName = "Id_Cat";
+            Id_Cat.HeaderText = "Id_Cat";
+            Id_Cat.Name = "Id_Cat";
+            Id_Cat.ReadOnly = true;
+            Id_Cat.Visible = false;
+            // 
+            // Des_Cat
+            // 
+            Des_Cat.DataPropertyName = "Des_Cat";
+            Des_Cat.HeaderText = "Categoria";
+            Des_Cat.Name = "Des_Cat";
+            Des_Cat.ReadOnly = true;
+            Des_Cat.Visible = false;
+            // 
+            // PrecioUnitario
+            // 
+            PrecioUnitario.DataPropertyName = "PrecioUnitario";
+            PrecioUnitario.HeaderText = "Pre.Unitario";
+            PrecioUnitario.Name = "PrecioUnitario";
+            PrecioUnitario.ReadOnly = true;
+            PrecioUnitario.Visible = false;
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.HeaderText = "Cantidad ingresada";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            Cantidad.Visible = false;
+            // 
+            // total
+            // 
+            total.DataPropertyName = "total";
+            total.HeaderText = "Precio Total(S/.)";
+            total.Name = "total";
+            total.ReadOnly = true;
+            // 
+            // Observaciones
+            // 
+            Observaciones.DataPropertyName = "Observaciones";
+            Observaciones.HeaderText = "Observaciones";
+            Observaciones.Name = "Observaciones";
+            Observaciones.ReadOnly = true;
+            Observaciones.Visible = false;
             // 
             // Estado
             // 
@@ -326,8 +431,9 @@
             btnIngresarGuia.Name = "btnIngresarGuia";
             btnIngresarGuia.Size = new Size(138, 42);
             btnIngresarGuia.TabIndex = 6;
-            btnIngresarGuia.Text = "Ingresar guia de remision";
+            btnIngresarGuia.Text = "Nueva guia de remision";
             btnIngresarGuia.UseVisualStyleBackColor = true;
+            btnIngresarGuia.Click += btnIngresarGuia_Click;
             // 
             // btnConsultar
             // 
@@ -339,137 +445,6 @@
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
             btnConsultar.Click += btnConsultar_Click;
-            // 
-            // Id_Remision
-            // 
-            Id_Remision.DataPropertyName = "Id_Remision";
-            Id_Remision.HeaderText = "Codigo Remision";
-            Id_Remision.Name = "Id_Remision";
-            Id_Remision.ReadOnly = true;
-            // 
-            // FechaIni
-            // 
-            FechaIni.DataPropertyName = "FechaIni";
-            FechaIni.HeaderText = "Fec.Inicio";
-            FechaIni.Name = "FechaIni";
-            FechaIni.ReadOnly = true;
-            // 
-            // FechaFin
-            // 
-            FechaFin.DataPropertyName = "FechaFin";
-            FechaFin.HeaderText = "Fec.Fin";
-            FechaFin.Name = "FechaFin";
-            FechaFin.ReadOnly = true;
-            // 
-            // Id_Proveedor
-            // 
-            Id_Proveedor.DataPropertyName = "Id_Proveedor";
-            Id_Proveedor.HeaderText = "Id_Proveedor";
-            Id_Proveedor.Name = "Id_Proveedor";
-            Id_Proveedor.ReadOnly = true;
-            Id_Proveedor.Visible = false;
-            // 
-            // Nom_Proveedor
-            // 
-            Nom_Proveedor.DataPropertyName = "Nom_Proveedor";
-            Nom_Proveedor.HeaderText = "Proveedor";
-            Nom_Proveedor.Name = "Nom_Proveedor";
-            Nom_Proveedor.ReadOnly = true;
-            Nom_Proveedor.Visible = false;
-            // 
-            // RUC
-            // 
-            RUC.DataPropertyName = "RUC";
-            RUC.HeaderText = "RUC";
-            RUC.Name = "RUC";
-            RUC.ReadOnly = true;
-            RUC.Visible = false;
-            // 
-            // Telefono
-            // 
-            Telefono.DataPropertyName = "Telefono";
-            Telefono.HeaderText = "Teléfono";
-            Telefono.Name = "Telefono";
-            Telefono.ReadOnly = true;
-            Telefono.Visible = false;
-            // 
-            // Correo
-            // 
-            Correo.DataPropertyName = "Correo";
-            Correo.HeaderText = "Correo";
-            Correo.Name = "Correo";
-            Correo.ReadOnly = true;
-            Correo.Visible = false;
-            // 
-            // Id_Producto
-            // 
-            Id_Producto.DataPropertyName = "Id_Producto";
-            Id_Producto.HeaderText = "Id_Producto";
-            Id_Producto.Name = "Id_Producto";
-            Id_Producto.ReadOnly = true;
-            Id_Producto.Visible = false;
-            // 
-            // Nom_Producto
-            // 
-            Nom_Producto.DataPropertyName = "Nom_Producto";
-            Nom_Producto.HeaderText = "Producto";
-            Nom_Producto.Name = "Nom_Producto";
-            Nom_Producto.ReadOnly = true;
-            Nom_Producto.Visible = false;
-            // 
-            // Id_Cat
-            // 
-            Id_Cat.DataPropertyName = "Id_Cat";
-            Id_Cat.HeaderText = "Id_Cat";
-            Id_Cat.Name = "Id_Cat";
-            Id_Cat.ReadOnly = true;
-            Id_Cat.Visible = false;
-            // 
-            // Des_Cat
-            // 
-            Des_Cat.DataPropertyName = "Des_Cat";
-            Des_Cat.HeaderText = "Categoria";
-            Des_Cat.Name = "Des_Cat";
-            Des_Cat.ReadOnly = true;
-            Des_Cat.Visible = false;
-            // 
-            // PrecioUnitario
-            // 
-            PrecioUnitario.DataPropertyName = "PrecioUnitario";
-            PrecioUnitario.HeaderText = "Pre.Unitario";
-            PrecioUnitario.Name = "PrecioUnitario";
-            PrecioUnitario.ReadOnly = true;
-            PrecioUnitario.Visible = false;
-            // 
-            // Cantidad
-            // 
-            Cantidad.DataPropertyName = "Cantidad";
-            Cantidad.HeaderText = "Cantidad ingresada";
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            Cantidad.Visible = false;
-            // 
-            // total
-            // 
-            total.DataPropertyName = "total";
-            total.HeaderText = "Precio Total(S/.)";
-            total.Name = "total";
-            total.ReadOnly = true;
-            // 
-            // Observaciones
-            // 
-            Observaciones.DataPropertyName = "Observaciones";
-            Observaciones.HeaderText = "Observaciones";
-            Observaciones.Name = "Observaciones";
-            Observaciones.ReadOnly = true;
-            Observaciones.Visible = false;
-            // 
-            // Estado
-            // 
-            Estado.DataPropertyName = "Estado";
-            Estado.HeaderText = "Estado";
-            Estado.Name = "Estado";
-            Estado.ReadOnly = true;
             // 
             // frmGuiaRemision
             // 

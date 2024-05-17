@@ -45,6 +45,32 @@ namespace Minimarket_ADO
             }
        }
 
+        public DataTable ListarProductoxProveedor()
+        {
+
+            try
+            {
+
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ListarProductoxProveedor";
+                cmd.Parameters.Clear();
+                DataSet dts = new DataSet();
+                ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Productos");
+                return dts.Tables["Productos"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         public ProductoBE ConsultarProducto(String strCodigo)
         {
 

@@ -181,5 +181,12 @@ namespace ProyVentas_GUI
             prov01.Show();
 
         }
+
+        private void generarRemisionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGenerarRemision prov01 = new frmGenerarRemision();
+            prov01.MdiParent = this;
+            prov01.Show();
+        }
     }
 }
