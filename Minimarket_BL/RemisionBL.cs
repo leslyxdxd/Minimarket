@@ -23,7 +23,10 @@ namespace Minimarket_BL
         {
             return objRemisionADO.InsertarRemision(objRemisionBE);
         }
-
+        public DataTable ListarRemision()
+        {
+            return objRemisionADO.ListarRemision();
+        }
 
 
 

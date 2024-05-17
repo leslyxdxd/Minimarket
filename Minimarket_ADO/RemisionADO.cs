@@ -101,6 +101,31 @@ namespace Minimarket_ADO
             }
         }
 
+        public DataTable ListarRemision()
+        {
+
+            try
+            {
+
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ListarRemision";
+                cmd.Parameters.Clear();
+                DataSet dts = new DataSet();
+                ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Remision");
+                return dts.Tables["Remision"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
 
 
 

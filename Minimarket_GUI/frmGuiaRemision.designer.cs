@@ -32,7 +32,6 @@
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
             dtpFecFin = new DateTimePicker();
-            btnDetalleGuia = new Button();
             lblRegistros = new Label();
             label4 = new Label();
             dtgFacturas = new DataGridView();
@@ -109,16 +108,6 @@
             dtpFecFin.Name = "dtpFecFin";
             dtpFecFin.Size = new Size(148, 23);
             dtpFecFin.TabIndex = 5;
-            // 
-            // btnDetalleGuia
-            // 
-            btnDetalleGuia.Location = new Point(627, 658);
-            btnDetalleGuia.Margin = new Padding(4, 3, 4, 3);
-            btnDetalleGuia.Name = "btnDetalleGuia";
-            btnDetalleGuia.Size = new Size(138, 42);
-            btnDetalleGuia.TabIndex = 6;
-            btnDetalleGuia.Text = "Detalles de Guias de remision";
-            btnDetalleGuia.UseVisualStyleBackColor = true;
             // 
             // lblRegistros
             // 
@@ -426,7 +415,7 @@
             // 
             // btnIngresarGuia
             // 
-            btnIngresarGuia.Location = new Point(811, 658);
+            btnIngresarGuia.Location = new Point(802, 658);
             btnIngresarGuia.Margin = new Padding(4, 3, 4, 3);
             btnIngresarGuia.Name = "btnIngresarGuia";
             btnIngresarGuia.Size = new Size(138, 42);
@@ -469,7 +458,6 @@
             Controls.Add(lblRegistros);
             Controls.Add(label4);
             Controls.Add(btnIngresarGuia);
-            Controls.Add(btnDetalleGuia);
             Controls.Add(dtpFecFin);
             Controls.Add(dtpFecIni);
             Controls.Add(label3);
@@ -492,7 +480,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFecIni;
         private System.Windows.Forms.DateTimePicker dtpFecFin;
-        private System.Windows.Forms.Button btnDetalleGuia;
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtgFacturas;

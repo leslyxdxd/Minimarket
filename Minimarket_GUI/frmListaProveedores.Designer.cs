@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -60,8 +60,8 @@
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1078, 452);
             dtgDatos.TabIndex = 0;
@@ -169,7 +169,7 @@
             btnGuiasRemision.Name = "btnGuiasRemision";
             btnGuiasRemision.Size = new Size(165, 41);
             btnGuiasRemision.TabIndex = 4;
-            btnGuiasRemision.Text = "Guias de Remision";
+            btnGuiasRemision.Text = "ver detalle";
             btnGuiasRemision.UseVisualStyleBackColor = true;
             btnGuiasRemision.Click += button1_Click;
             // 

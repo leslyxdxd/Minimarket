@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Minimarket_BL;
 using Minimarket_BE;
+using Minimarket_GUI;
 namespace ProyVentas_GUI
 {
     public partial class frmGuiaRemision : Form
@@ -101,7 +102,8 @@ namespace ProyVentas_GUI
 
         private void btnIngresarGuia_Click(object sender, EventArgs e)
         {
-
+            frmGenerarRemision ConsultarProducto = new frmGenerarRemision();
+            ConsultarProducto.ShowDialog();
         }
     }
 }

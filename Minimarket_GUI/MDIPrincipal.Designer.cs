@@ -42,13 +42,13 @@
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            gestionarVentaToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            gestionarVentaToolStripMenuItem = new ToolStripMenuItem();
+            generarRemisionToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
-            generarRemisionToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -123,8 +123,8 @@
             // proveedoresToolStripMenuItem
             // 
             proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            proveedoresToolStripMenuItem.Size = new Size(225, 22);
-            proveedoresToolStripMenuItem.Text = "Generar guia de remision";
+            proveedoresToolStripMenuItem.Size = new Size(180, 22);
+            proveedoresToolStripMenuItem.Text = "Lista Proveedor";
             proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click_1;
             // 
             // gestionarUsuariosToolStripMenuItem
@@ -150,6 +150,13 @@
             agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
             agregarUsuarioToolStripMenuItem.Click += agregarUsuarioToolStripMenuItem_Click;
             // 
+            // gestionarVentaToolStripMenuItem
+            // 
+            gestionarVentaToolStripMenuItem.Name = "gestionarVentaToolStripMenuItem";
+            gestionarVentaToolStripMenuItem.Size = new Size(101, 21);
+            gestionarVentaToolStripMenuItem.Text = "Gestionar Venta";
+            gestionarVentaToolStripMenuItem.Click += gestionarVentaToolStripMenuItem_Click;
+            // 
             // salirDelSistemasToolStripMenuItem
             // 
             salirDelSistemasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
@@ -161,16 +168,16 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(101, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
-            // gestionarVentaToolStripMenuItem
+            // generarRemisionToolStripMenuItem
             // 
-            gestionarVentaToolStripMenuItem.Name = "gestionarVentaToolStripMenuItem";
-            gestionarVentaToolStripMenuItem.Size = new Size(101, 21);
-            gestionarVentaToolStripMenuItem.Text = "Gestionar Venta";
-            gestionarVentaToolStripMenuItem.Click += gestionarVentaToolStripMenuItem_Click;
+            generarRemisionToolStripMenuItem.Name = "generarRemisionToolStripMenuItem";
+            generarRemisionToolStripMenuItem.Size = new Size(116, 21);
+            generarRemisionToolStripMenuItem.Text = "Guias de Remision";
+            generarRemisionToolStripMenuItem.Click += generarRemisionToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -197,13 +204,6 @@
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
-            // 
-            // generarRemisionToolStripMenuItem
-            // 
-            generarRemisionToolStripMenuItem.Name = "generarRemisionToolStripMenuItem";
-            generarRemisionToolStripMenuItem.Size = new Size(112, 21);
-            generarRemisionToolStripMenuItem.Text = "Generar Remision";
-            generarRemisionToolStripMenuItem.Click += generarRemisionToolStripMenuItem_Click;
             // 
             // MDIPrincipal
             // 

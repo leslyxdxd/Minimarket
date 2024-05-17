@@ -184,7 +184,7 @@ namespace ProyVentas_GUI
 
         private void generarRemisionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGenerarRemision prov01 = new frmGenerarRemision();
+            frmListaRemision prov01 = new frmListaRemision();
             prov01.MdiParent = this;
             prov01.Show();
         }

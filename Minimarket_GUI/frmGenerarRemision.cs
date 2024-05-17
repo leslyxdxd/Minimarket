@@ -22,6 +22,8 @@ namespace Minimarket_GUI
         ProductoBE objProductoBE = new ProductoBE();
         ProveedorBL objProveedorBL = new ProveedorBL();
         ProveedorBE objProveedorBE = new ProveedorBE();
+        RemisionBL objRemisionBL = new RemisionBL();
+        RemisionBE objRemisionBE = new RemisionBE();
 
         public frmGenerarRemision()
         {
@@ -111,6 +113,42 @@ namespace Minimarket_GUI
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+                objRemisionBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
+                objRemisionBE.Id_Proveedor = Convert.ToString(cboProveeedor.SelectedValue);
+                objRemisionBE.PrecioUnitario = Convert.ToDecimal(txtPrecioUni.Text.Trim());
+                objRemisionBE.Cantidad = Convert.ToInt16(UpdownCantidad.Text.Trim());
+             
+
+                objRemisionBE.Observaciones = txtObservacion.Text.Trim();
+                objRemisionBE.Usu_Registro = clsCredenciales.Login_Usuario;
+
+
+                if (objRemisionBL.InsertarRemision(objRemisionBE) == true)
+                {
+                    // si se inserto correctamente
+                    this.Close();
+                }
+                else
+                {
+                    throw new Exception("Error en el proceso, contacte con TI");
+                }
+
+
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
         }
     }
