@@ -43,6 +43,13 @@
             lblCorreo = new Label();
             lblDireccion = new Label();
             cboProducto = new ComboBox();
+            txtPrecioUni = new TextBox();
+            UpdownCantidad = new NumericUpDown();
+            txtObservacion = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             SuspendLayout();
             // 
             // label14
@@ -134,13 +141,14 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(382, 298);
+            btnConsultar.Location = new Point(347, 288);
             btnConsultar.Margin = new Padding(4, 3, 4, 3);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(116, 42);
             btnConsultar.TabIndex = 31;
             btnConsultar.Text = "Generar";
             btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // label12
             // 
@@ -183,16 +191,73 @@
             // cboProducto
             // 
             cboProducto.FormattingEnabled = true;
-            cboProducto.Location = new Point(80, 25);
+            cboProducto.Location = new Point(98, 25);
             cboProducto.Name = "cboProducto";
             cboProducto.Size = new Size(121, 23);
             cboProducto.TabIndex = 32;
+            // 
+            // txtPrecioUni
+            // 
+            txtPrecioUni.Location = new Point(100, 90);
+            txtPrecioUni.Name = "txtPrecioUni";
+            txtPrecioUni.Size = new Size(100, 23);
+            txtPrecioUni.TabIndex = 33;
+            // 
+            // UpdownCantidad
+            // 
+            UpdownCantidad.Location = new Point(99, 153);
+            UpdownCantidad.Name = "UpdownCantidad";
+            UpdownCantidad.Size = new Size(120, 23);
+            UpdownCantidad.TabIndex = 35;
+            // 
+            // txtObservacion
+            // 
+            txtObservacion.Location = new Point(95, 222);
+            txtObservacion.Name = "txtObservacion";
+            txtObservacion.Size = new Size(161, 23);
+            txtObservacion.TabIndex = 36;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(4, 225);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 15);
+            label2.TabIndex = 37;
+            label2.Text = "Observaciones";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 98);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(85, 15);
+            label3.TabIndex = 38;
+            label3.Text = "Precio Unitario";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(14, 161);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(55, 15);
+            label4.TabIndex = 39;
+            label4.Text = "Cantidad";
             // 
             // frmGenerarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(540, 367);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(txtObservacion);
+            Controls.Add(UpdownCantidad);
+            Controls.Add(txtPrecioUni);
             Controls.Add(cboProducto);
             Controls.Add(btnConsultar);
             Controls.Add(label1);
@@ -214,6 +279,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Remision";
             Load += frmGenerarRemision_Load;
+            ((System.ComponentModel.ISupportInitialize)UpdownCantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -234,5 +300,11 @@
         private Label lblCorreo;
         private Label lblDireccion;
         private ComboBox cboProducto;
+        private TextBox txtPrecioUni;
+        private NumericUpDown UpdownCantidad;
+        private TextBox txtObservacion;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

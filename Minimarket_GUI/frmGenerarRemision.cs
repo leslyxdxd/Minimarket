@@ -108,5 +108,10 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

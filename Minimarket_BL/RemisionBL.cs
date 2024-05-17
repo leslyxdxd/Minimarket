@@ -19,7 +19,13 @@ namespace Minimarket_BL
 
         }
 
-      
+        public Boolean InsertarRemision(RemisionBE objRemisionBE)
+        {
+            return objRemisionADO.InsertarRemision(objRemisionBE);
+        }
+
+
+
 
 
 

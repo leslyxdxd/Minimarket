@@ -23,8 +23,7 @@ namespace Minimarket_BL
             return objProveedorADO.ConsultarProveedor(strCodigo);
         }
 
-  
-  
-       
+
+
     }
 }
