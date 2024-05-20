@@ -23,9 +23,9 @@ namespace ProyVentas_GUI
 
         private void facturasClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmConsFacturasCliente frmc1 = new frmConsFacturasCliente();
-            //frmc1.MdiParent = this;
-            //frmc1.Show();
+            frmListaProductos frmc1 = new frmListaProductos();
+            frmc1.MdiParent = this;
+            frmc1.Show();
 
         }
 
@@ -90,7 +90,7 @@ namespace ProyVentas_GUI
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = false;
                 facturasClienteToolStripMenuItem.Visible = true;
-                facturasVendedorToolStripMenuItem.Visible = false;
+                
 
             }
             else if (clsCredenciales.Niv_Usuario == 2)
@@ -102,7 +102,7 @@ namespace ProyVentas_GUI
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = false;
                 facturasClienteToolStripMenuItem.Visible = false;
-                facturasVendedorToolStripMenuItem.Visible = true;
+             
                 generarGuiaToolStripMenuItem.Visible = true;
                 gestionarVentaToolStripMenuItem.Visible = false;
 

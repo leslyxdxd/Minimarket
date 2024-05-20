@@ -9,7 +9,7 @@ namespace Minimarket_GUI
 {
     public partial class frmListaProductos : Form
     {
-        ProductoBL objProductoBL = new ProductoBL();
+        StockBL objStock = new StockBL();
         DataView dtv;
 
         public frmListaProductos()
@@ -20,7 +20,7 @@ namespace Minimarket_GUI
 
         private void CargarDatos(string Nom_Producto)
         {
-            dtv = new DataView(objProductoBL.ListarProducto());
+            dtv = new DataView(objStock.ListarStock());
             dtv.RowFilter = "Nom_Producto LIKE '%" + Nom_Producto + "%'";
             dtgDatos.DataSource = dtv;
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();

@@ -36,12 +36,17 @@
             lblRegistros = new Label();
             btnCerrar = new Button();
             btnGuiasRemision = new Button();
-            Id_Producto = new DataGridViewTextBoxColumn();
             Nom_Producto = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
             Precio_Unitario = new DataGridViewTextBoxColumn();
+            Id_Stock = new DataGridViewTextBoxColumn();
+            Stk_Trastienda = new DataGridViewTextBoxColumn();
+            Movimiento_Tras = new DataGridViewTextBoxColumn();
+            Total_Mov_Tras = new DataGridViewTextBoxColumn();
+            Movimiento_Venta = new DataGridViewTextBoxColumn();
+            Total_Mov_Ven = new DataGridViewTextBoxColumn();
+            Id_Producto = new DataGridViewTextBoxColumn();
             Stk_Tienda = new DataGridViewTextBoxColumn();
-            Nom_Proveedor = new DataGridViewTextBoxColumn();
-            Des_UM = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +59,7 @@
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Producto, Nom_Producto, Precio_Unitario, Stk_Tienda, Nom_Proveedor, Des_UM });
+            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda });
             dtgDatos.Location = new Point(25, 53);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
@@ -62,7 +67,7 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(574, 436);
+            dtgDatos.Size = new Size(564, 436);
             dtgDatos.TabIndex = 1;
             // 
             // label1
@@ -118,13 +123,6 @@
             btnGuiasRemision.UseVisualStyleBackColor = true;
             btnGuiasRemision.Click += btnGuiasRemision_Click;
             // 
-            // Id_Producto
-            // 
-            Id_Producto.DataPropertyName = "Id_Producto";
-            Id_Producto.HeaderText = "Id_Producto";
-            Id_Producto.Name = "Id_Producto";
-            Id_Producto.ReadOnly = true;
-            // 
             // Nom_Producto
             // 
             Nom_Producto.DataPropertyName = "Nom_Producto";
@@ -132,39 +130,87 @@
             Nom_Producto.Name = "Nom_Producto";
             Nom_Producto.ReadOnly = true;
             // 
+            // Estado
+            // 
+            Estado.DataPropertyName = "Estado";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            // 
             // Precio_Unitario
             // 
             Precio_Unitario.DataPropertyName = "Precio_Unitario";
-            Precio_Unitario.HeaderText = "Precio Unitario";
+            Precio_Unitario.HeaderText = "Precio Tienda(UNI)";
             Precio_Unitario.Name = "Precio_Unitario";
             Precio_Unitario.ReadOnly = true;
+            // 
+            // Id_Stock
+            // 
+            Id_Stock.DataPropertyName = "Id_Stock";
+            Id_Stock.HeaderText = "Cod_Stock";
+            Id_Stock.Name = "Id_Stock";
+            Id_Stock.ReadOnly = true;
+            Id_Stock.Visible = false;
+            // 
+            // Stk_Trastienda
+            // 
+            Stk_Trastienda.DataPropertyName = "Stk_Trastienda";
+            Stk_Trastienda.HeaderText = "Stock Trastienda";
+            Stk_Trastienda.Name = "Stk_Trastienda";
+            Stk_Trastienda.ReadOnly = true;
+            // 
+            // Movimiento_Tras
+            // 
+            Movimiento_Tras.DataPropertyName = "Movimiento_Tras";
+            Movimiento_Tras.HeaderText = "Transaccion_Tienda";
+            Movimiento_Tras.Name = "Movimiento_Tras";
+            Movimiento_Tras.ReadOnly = true;
+            Movimiento_Tras.Visible = false;
+            // 
+            // Total_Mov_Tras
+            // 
+            Total_Mov_Tras.DataPropertyName = "Total_Mov_Tras";
+            Total_Mov_Tras.HeaderText = "MovimientoTotal Trastienda-Tienda";
+            Total_Mov_Tras.Name = "Total_Mov_Tras";
+            Total_Mov_Tras.ReadOnly = true;
+            Total_Mov_Tras.Visible = false;
+            // 
+            // Movimiento_Venta
+            // 
+            Movimiento_Venta.DataPropertyName = "Movimiento_Venta";
+            Movimiento_Venta.HeaderText = "Movimiento_Venta";
+            Movimiento_Venta.Name = "Movimiento_Venta";
+            Movimiento_Venta.ReadOnly = true;
+            Movimiento_Venta.Visible = false;
+            // 
+            // Total_Mov_Ven
+            // 
+            Total_Mov_Ven.DataPropertyName = "Total_Mov_Ven";
+            Total_Mov_Ven.HeaderText = "Total_Mov_Ven";
+            Total_Mov_Ven.Name = "Total_Mov_Ven";
+            Total_Mov_Ven.ReadOnly = true;
+            Total_Mov_Ven.Visible = false;
+            // 
+            // Id_Producto
+            // 
+            Id_Producto.DataPropertyName = "Id_Producto";
+            Id_Producto.HeaderText = "Id_Producto";
+            Id_Producto.Name = "Id_Producto";
+            Id_Producto.ReadOnly = true;
+            Id_Producto.Visible = false;
             // 
             // Stk_Tienda
             // 
             Stk_Tienda.DataPropertyName = "Stk_Tienda";
-            Stk_Tienda.HeaderText = "Stock ";
+            Stk_Tienda.HeaderText = "Stock Tienda";
             Stk_Tienda.Name = "Stk_Tienda";
             Stk_Tienda.ReadOnly = true;
-            // 
-            // Nom_Proveedor
-            // 
-            Nom_Proveedor.DataPropertyName = "Nom_Proveedor";
-            Nom_Proveedor.HeaderText = "Proveedor";
-            Nom_Proveedor.Name = "Nom_Proveedor";
-            Nom_Proveedor.ReadOnly = true;
-            // 
-            // Des_UM
-            // 
-            Des_UM.DataPropertyName = "Des_UM";
-            Des_UM.HeaderText = "U.M.";
-            Des_UM.Name = "Des_UM";
-            Des_UM.ReadOnly = true;
             // 
             // frmListaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(633, 572);
+            ClientSize = new Size(623, 572);
             Controls.Add(btnCerrar);
             Controls.Add(btnGuiasRemision);
             Controls.Add(lblRegistros);
@@ -193,11 +239,16 @@
         private Label lblRegistros;
         private Button btnCerrar;
         private Button btnGuiasRemision;
-        private DataGridViewTextBoxColumn Id_Producto;
         private DataGridViewTextBoxColumn Nom_Producto;
+        private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Precio_Unitario;
+        private DataGridViewTextBoxColumn Id_Stock;
+        private DataGridViewTextBoxColumn Stk_Trastienda;
+        private DataGridViewTextBoxColumn Movimiento_Tras;
+        private DataGridViewTextBoxColumn Total_Mov_Tras;
+        private DataGridViewTextBoxColumn Movimiento_Venta;
+        private DataGridViewTextBoxColumn Total_Mov_Ven;
+        private DataGridViewTextBoxColumn Id_Producto;
         private DataGridViewTextBoxColumn Stk_Tienda;
-        private DataGridViewTextBoxColumn Nom_Proveedor;
-        private DataGridViewTextBoxColumn Des_UM;
     }
 }
