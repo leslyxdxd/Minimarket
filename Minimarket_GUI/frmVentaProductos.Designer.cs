@@ -38,8 +38,8 @@
             lblUM = new Label();
             label9 = new Label();
             lblStock = new Label();
-            txtCantidad = new TextBox();
             label7 = new Label();
+            txtCantidad = new TextBox();
             lblPrecio = new Label();
             lblNombre = new Label();
             label6 = new Label();
@@ -58,7 +58,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(813, 577);
+            button2.Location = new Point(857, 577);
             button2.Name = "button2";
             button2.Size = new Size(147, 48);
             button2.TabIndex = 3;
@@ -68,7 +68,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(813, 515);
+            lblRegistros.Location = new Point(857, 500);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(147, 35);
             lblRegistros.TabIndex = 4;
@@ -77,7 +77,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(813, 500);
+            label2.Location = new Point(857, 471);
             label2.Name = "label2";
             label2.Size = new Size(74, 15);
             label2.TabIndex = 5;
@@ -85,7 +85,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(813, 184);
+            button1.Location = new Point(843, 195);
             button1.Name = "button1";
             button1.Size = new Size(147, 71);
             button1.TabIndex = 6;
@@ -108,8 +108,8 @@
             groupBox1.Controls.Add(lblUM);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(lblStock);
-            groupBox1.Controls.Add(txtCantidad);
             groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(txtCantidad);
             groupBox1.Controls.Add(lblPrecio);
             groupBox1.Controls.Add(lblNombre);
             groupBox1.Controls.Add(label6);
@@ -119,7 +119,7 @@
             groupBox1.Controls.Add(button3);
             groupBox1.Location = new Point(12, 30);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(948, 122);
+            groupBox1.Size = new Size(1010, 122);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalle de Producto ";
@@ -141,6 +141,7 @@
             lblUM.Name = "lblUM";
             lblUM.Size = new Size(90, 35);
             lblUM.TabIndex = 19;
+            lblUM.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -154,28 +155,30 @@
             // lblStock
             // 
             lblStock.BorderStyle = BorderStyle.FixedSingle;
-            lblStock.Location = new Point(696, 71);
+            lblStock.Location = new Point(694, 71);
             lblStock.Margin = new Padding(4, 0, 4, 0);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(100, 35);
             lblStock.TabIndex = 17;
-            // 
-            // txtCantidad
-            // 
-            txtCantidad.Anchor = AnchorStyles.None;
-            txtCantidad.Location = new Point(825, 81);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(107, 23);
-            txtCantidad.TabIndex = 16;
+            lblStock.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(859, 45);
+            label7.Location = new Point(831, 45);
             label7.Name = "label7";
             label7.Size = new Size(58, 15);
             label7.TabIndex = 15;
             label7.Text = "Cantidad ";
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Anchor = AnchorStyles.None;
+            txtCantidad.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCantidad.Location = new Point(831, 79);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(88, 25);
+            txtCantidad.TabIndex = 16;
             // 
             // lblPrecio
             // 
@@ -185,6 +188,7 @@
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(120, 35);
             lblPrecio.TabIndex = 14;
+            lblPrecio.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblNombre
             // 
@@ -194,6 +198,7 @@
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(206, 35);
             lblNombre.TabIndex = 13;
+            lblNombre.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -229,7 +234,7 @@
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(76, 37);
             lblCodigo.TabIndex = 8;
-            lblCodigo.TextAlign = ContentAlignment.MiddleRight;
+            lblCodigo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dtgUsuario
             // 
@@ -244,7 +249,7 @@
             dtgUsuario.ReadOnly = true;
             dtgUsuario.RowHeadersVisible = false;
             dtgUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgUsuario.Size = new Size(756, 441);
+            dtgUsuario.Size = new Size(778, 441);
             dtgUsuario.TabIndex = 9;
             // 
             // Cod_Producto
@@ -252,10 +257,12 @@
             Cod_Producto.HeaderText = "Cod_Producto";
             Cod_Producto.Name = "Cod_Producto";
             Cod_Producto.ReadOnly = true;
+            Cod_Producto.Resizable = DataGridViewTriState.False;
+            Cod_Producto.Visible = false;
             // 
             // Producto
             // 
-            Producto.HeaderText = "Nom_Producto";
+            Producto.HeaderText = "Producto";
             Producto.Name = "Producto";
             Producto.ReadOnly = true;
             // 
@@ -281,7 +288,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(985, 660);
+            AutoSize = true;
+            ClientSize = new Size(1047, 660);
             Controls.Add(dtgUsuario);
             Controls.Add(groupBox1);
             Controls.Add(button1);
