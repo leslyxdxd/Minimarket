@@ -46,12 +46,19 @@
             label4 = new Label();
             label3 = new Label();
             lblCodigo = new Label();
+            dtgUsuario = new DataGridView();
+            Cod_Producto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
             SuspendLayout();
             // 
             // button2
             // 
-            button2.Location = new Point(807, 577);
+            button2.Location = new Point(813, 577);
             button2.Name = "button2";
             button2.Size = new Size(147, 48);
             button2.TabIndex = 3;
@@ -61,7 +68,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(807, 515);
+            lblRegistros.Location = new Point(813, 515);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(147, 35);
             lblRegistros.TabIndex = 4;
@@ -70,7 +77,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(844, 475);
+            label2.Location = new Point(813, 500);
             label2.Name = "label2";
             label2.Size = new Size(74, 15);
             label2.TabIndex = 5;
@@ -78,7 +85,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(807, 218);
+            button1.Location = new Point(813, 184);
             button1.Name = "button1";
             button1.Size = new Size(147, 71);
             button1.TabIndex = 6;
@@ -156,7 +163,7 @@
             // txtCantidad
             // 
             txtCantidad.Anchor = AnchorStyles.None;
-            txtCantidad.Location = new Point(832, 83);
+            txtCantidad.Location = new Point(825, 81);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(107, 23);
             txtCantidad.TabIndex = 16;
@@ -224,11 +231,58 @@
             lblCodigo.TabIndex = 8;
             lblCodigo.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // dtgUsuario
+            // 
+            dtgUsuario.AllowUserToAddRows = false;
+            dtgUsuario.AllowUserToDeleteRows = false;
+            dtgUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgUsuario.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, SubTotal });
+            dtgUsuario.Location = new Point(28, 184);
+            dtgUsuario.Margin = new Padding(4, 3, 4, 3);
+            dtgUsuario.Name = "dtgUsuario";
+            dtgUsuario.ReadOnly = true;
+            dtgUsuario.RowHeadersVisible = false;
+            dtgUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgUsuario.Size = new Size(756, 441);
+            dtgUsuario.TabIndex = 9;
+            // 
+            // Cod_Producto
+            // 
+            Cod_Producto.HeaderText = "Cod_Producto";
+            Cod_Producto.Name = "Cod_Producto";
+            Cod_Producto.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            Producto.HeaderText = "Nom_Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            SubTotal.HeaderText = "SubTotal";
+            SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
+            // 
             // frmVentaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(985, 660);
+            Controls.Add(dtgUsuario);
             Controls.Add(groupBox1);
             Controls.Add(button1);
             Controls.Add(label2);
@@ -241,6 +295,7 @@
             Text = "Registro de compra";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgUsuario).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -264,5 +319,11 @@
         private Label lblUM;
         private Label label9;
         private Label lblStock;
+        private DataGridView dtgUsuario;
+        private DataGridViewTextBoxColumn Cod_Producto;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn SubTotal;
     }
 }
