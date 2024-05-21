@@ -33,10 +33,7 @@ namespace Minimarket_BE
 
         public int cantidadTotal { get; set; }
 
-        public int Stk_Tienda { get; set; }
-
-        public int Stk_Trastienda { get; set; }
-
+  
         public int Estado { get; set; }
     }
 }

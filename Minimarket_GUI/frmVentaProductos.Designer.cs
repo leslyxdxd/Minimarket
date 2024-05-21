@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
             button2 = new Button();
             lblRegistros = new Label();
             label2 = new Label();
@@ -49,14 +48,6 @@
             lblCodigo = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(28, 188);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(756, 437);
-            listView1.TabIndex = 2;
-            listView1.UseCompatibleStateImageBehavior = false;
             // 
             // button2
             // 
@@ -243,7 +234,6 @@
             Controls.Add(label2);
             Controls.Add(lblRegistros);
             Controls.Add(button2);
-            Controls.Add(listView1);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmVentaProductos";
@@ -256,8 +246,6 @@
         }
 
         #endregion
-
-        private ListView listView1;
         private Button button2;
         private Label lblRegistros;
         private Label label2;

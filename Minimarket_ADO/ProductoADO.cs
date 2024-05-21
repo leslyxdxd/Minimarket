@@ -43,7 +43,7 @@ namespace Minimarket_ADO
             {
                 throw new Exception(ex.Message);
             }
-       }
+        }
 
         public DataTable ListarProductoxProveedor()
         {
@@ -106,13 +106,7 @@ namespace Minimarket_ADO
                     objProductoBE.Des_UM = dtr["Des_UM"].ToString();
 
 
-                    objProductoBE.Stk_Tienda = Convert.ToInt16(dtr["Stk_Tienda"]);
-                   
-
-
-
-
-
+                  
 
                 }
                 dtr.Close();
@@ -142,14 +136,7 @@ namespace Minimarket_ADO
 
 
 
-
-
-
-
-
-
-
-
-
     }
+
 }
+
