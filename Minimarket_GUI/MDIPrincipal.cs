@@ -90,7 +90,9 @@ namespace ProyVentas_GUI
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = false;
                 facturasClienteToolStripMenuItem.Visible = true;
-                
+                generarRemisionToolStripMenuItem.Visible = false;
+                gestionarVentaToolStripMenuItem.Visible = true;
+                traspasoATiendaToolStripMenuItem.Visible = true;
 
             }
             else if (clsCredenciales.Niv_Usuario == 2)
@@ -100,11 +102,12 @@ namespace ProyVentas_GUI
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
-                generarGuiaToolStripMenuItem.Visible = false;
-                facturasClienteToolStripMenuItem.Visible = false;
-             
+                facturasClienteToolStripMenuItem.Visible = true;
+                
+                generarRemisionToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
                 gestionarVentaToolStripMenuItem.Visible = false;
+                traspasoATiendaToolStripMenuItem.Visible = false;
 
 
 
