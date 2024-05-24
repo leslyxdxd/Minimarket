@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label14 = new Label();
-            lblEstados = new Label();
             lblTel = new Label();
             label10 = new Label();
             lblRuc = new Label();
@@ -56,26 +54,6 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(47, 145);
-            label14.Margin = new Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(45, 15);
-            label14.TabIndex = 16;
-            label14.Text = "Estado:";
-            // 
-            // lblEstados
-            // 
-            lblEstados.BorderStyle = BorderStyle.FixedSingle;
-            lblEstados.Location = new Point(99, 134);
-            lblEstados.Margin = new Padding(4, 0, 4, 0);
-            lblEstados.Name = "lblEstados";
-            lblEstados.Size = new Size(94, 26);
-            lblEstados.TabIndex = 23;
-            lblEstados.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblTel
             // 
@@ -146,7 +124,7 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(563, 421);
+            btnConsultar.Location = new Point(563, 383);
             btnConsultar.Margin = new Padding(4, 3, 4, 3);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(116, 40);
@@ -220,7 +198,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(36, 457);
+            label2.Location = new Point(36, 424);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(84, 15);
@@ -268,7 +246,7 @@
             // 
             // txtObservacion
             // 
-            txtObservacion.Location = new Point(124, 421);
+            txtObservacion.Location = new Point(127, 383);
             txtObservacion.Name = "txtObservacion";
             txtObservacion.Size = new Size(321, 114);
             txtObservacion.TabIndex = 41;
@@ -276,7 +254,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(563, 495);
+            btnCancelar.Location = new Point(563, 457);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 40);
@@ -293,11 +271,9 @@
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(UpdownCantidad);
             groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(lblEstados);
-            groupBox2.Controls.Add(label14);
             groupBox2.Location = new Point(25, 219);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(654, 184);
+            groupBox2.Size = new Size(654, 143);
             groupBox2.TabIndex = 42;
             groupBox2.TabStop = false;
             groupBox2.Text = "Información del producto";
@@ -329,8 +305,6 @@
         }
 
         #endregion
-        private Label label14;
-        private Label lblEstados;
         private Label lblTel;
         private Label label10;
         private Label lblRuc;

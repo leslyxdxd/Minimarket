@@ -230,7 +230,7 @@
             // PrecioUnitario
             // 
             PrecioUnitario.DataPropertyName = "PrecioUnitario";
-            PrecioUnitario.HeaderText = "Precio Unitario(Compra)";
+            PrecioUnitario.HeaderText = "Precio U. (Compra)";
             PrecioUnitario.Name = "PrecioUnitario";
             PrecioUnitario.ReadOnly = true;
             // 
