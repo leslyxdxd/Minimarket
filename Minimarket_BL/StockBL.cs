@@ -1,4 +1,5 @@
 ﻿using Minimarket_ADO;
+using Minimarket_BE;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,5 +19,12 @@ namespace Minimarket_BL
             return objStockADO.ListarStock();
 
         }
+        public StockBE ConsultarProducto(String strCodigo)
+        {
+            return objStockADO.ConsultarProducto(strCodigo);
+        }
+
+     
+
     }
 }

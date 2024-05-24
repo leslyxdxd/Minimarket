@@ -60,69 +60,7 @@ namespace Minimarket_GUI
             }
         }
 
-        //private void btnAgregar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Codifique
-        //        frmIngresarUsuario insertarUsuario = new frmIngresarUsuario();
-        //        insertarUsuario.ShowDialog();
-
-
-        //        dtv = new DataView(objUsuariosBL.ListarUsuarios());
-        //        CargarDatos(txtFiltro.Text.Trim());
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error:" + ex.Message);
-        //    }
-        //}
-
-        //private void btnActualizar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Codifique
-        //        frmActualizarUsuario actualizarUsuario = new frmActualizarUsuario();
-        //        actualizarUsuario.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
-        //        actualizarUsuario.ShowDialog();
-
-
-        //        dtv = new DataView(objUsuariosBL.ListarUsuarios());
-        //        CargarDatos(txtFiltro.Text.Trim());
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error:" + ex.Message);
-        //    }
-
-        //}
-
-        //private void btnEliminar_Click(object sender, EventArgs e)
-        //{
-        //    DialogResult vrpta;
-
-        //    vrpta = MessageBox.Show("¿Seguro de eliminar el registro?", "Confirmar", MessageBoxButtons.YesNo);
-
-        //    if (vrpta == DialogResult.Yes)
-        //    {
-        //        //Obtenemos el codigo que se va a eliminar
-        //        String strCodigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
-        //        if (objUsuariosBL.EliminarUsuario(strCodigo) == true)
-        //        {
-
-        //            CargarDatos(txtFiltro.Text.Trim());
-        //        }
-        //        else
-        //        {
-        //            throw new Exception("Registro no se puede elimnar por estar referenciado a otra tabla");
-        //        }
-
-        //    }
-
-        //}
+   
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
