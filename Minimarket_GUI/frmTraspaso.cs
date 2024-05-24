@@ -16,8 +16,8 @@ namespace Minimarket_GUI
     {
         MovimientoBL objMovimientoBL = new MovimientoBL();
         MovimientoBE objMovimientoBE = new MovimientoBE();
-        StockBL objStock = new StockBL();
-
+        StockBL objStockBL = new StockBL();
+        StockBE objStockBE = new StockBE();
 
 
 
@@ -38,17 +38,20 @@ namespace Minimarket_GUI
 
                 //codifique
                 //invocamos la methodo consultar..
-                objMovimientoBE = objMovimientoBL.ConsultarProducto(this.Codigo);
+                objStockBE = objStockBL.ConsultarProducto(this.Codigo);
 
 
-                lblCodigo.Text = objMovimientoBE.Id_Producto;
-                lblProducto.Text = objMovimientoBE.Nom_Producto;
-                lblStockDis.Text = objMovimientoBE.Stk_Trastienda.ToString();
+                lblCodigo.Text = objStockBE.Id_Producto;
+                lblProducto.Text = objStockBE.Nom_Producto;
+                lblStockDis.Text = objStockBE.Stk_Trastienda.ToString();
+                lblUM.Text = Convert.ToInt16(objStockBE.Id_UM).ToString();
 
-                lblUNI.Text = objMovimientoBE.Des_UM;
-               
-              
-                
+                lblUNI.Text = objStockBE.Des_UM;
+
+                DataTable dt2 = objStockBL.ListarStock();
+                DataRow dtr;
+                dtr = dt2.NewRow();
+
 
 
             }

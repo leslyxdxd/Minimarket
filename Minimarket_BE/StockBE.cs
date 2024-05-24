@@ -15,11 +15,8 @@ namespace Minimarket_BE
         public int Stk_Trastienda { get; set; }
         public Int16 Movimiento_Tras { get; set; }
 
-        public Int16 Total_Mov_Tras { get; set; }
-
-        public Int16 Movimiento_Venta { get; set; }
-        public Int16 Total_Mov_Ven { get; set; }
-
+        public int Id_UM { get; set; }
+        public String Des_UM { get; set; }
         public String Id_Producto { get; set; }
         public String Nom_Producto { get; set; }
         public decimal Precio_Unitario { get; set; }

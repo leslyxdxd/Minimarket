@@ -12,9 +12,6 @@ namespace Minimarket_BL
     {
         MovimientoADO objMovimientoADO = new MovimientoADO();
 
-        public MovimientoBE ConsultarProducto(String strCodigo)
-        {
-            return objMovimientoADO.ConsultarProducto(strCodigo);
-        }
+    
     }
 }

@@ -18,7 +18,7 @@ namespace Minimarket_GUI
             InitializeComponent();
         }
 
-        public String Codigo { get; set; }
+       
 
         private void CargarDatos(string Nom_Producto)
         {
@@ -50,12 +50,7 @@ namespace Minimarket_GUI
 
         private void dtgDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                ProductoSeleccionado = (DataRowView)dtgDatos.Rows[e.RowIndex].DataBoundItem;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

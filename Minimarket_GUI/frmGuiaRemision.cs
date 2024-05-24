@@ -49,6 +49,7 @@ namespace ProyVentas_GUI
 
 
                 lblEstados.Text = objProveedorBE.Estado == 1 ? "Activo" : "Inactivo";
+
                 DataTable dt2 = objProveedorBL.ListarProveedor();
                 DataRow dtr;
                 dtr = dt2.NewRow();
