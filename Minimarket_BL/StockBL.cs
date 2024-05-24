@@ -19,6 +19,7 @@ namespace Minimarket_BL
             return objStockADO.ListarStock();
 
         }
+
         public StockBE ConsultarProducto(String strCodigo)
         {
             return objStockADO.ConsultarProducto(strCodigo);

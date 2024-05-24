@@ -74,9 +74,8 @@ namespace Minimarket_ADO
                     objStockBE.Id_Producto = dtr["Id_Producto"].ToString();
                     objStockBE.Nom_Producto = dtr["Nom_Producto"].ToString();
                     objStockBE.Des_UM = dtr["Des_UM"].ToString();
-
                     objStockBE.Id_UM = Convert.ToInt16(dtr["Id_UM"]);
-                    objStockBE.Stk_Tienda = Convert.ToInt16(dtr["Stk_Trastienda"]);
+                    objStockBE.Stk_Trastienda = Convert.ToInt16(dtr["Stk_Trastienda"]);
 
                 }
                 dtr.Close();

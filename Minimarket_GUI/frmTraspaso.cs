@@ -33,26 +33,11 @@ namespace Minimarket_GUI
 
             try
             {
-
-                // Cargamos los combos...
-
-                //codifique
-                //invocamos la methodo consultar..
                 objStockBE = objStockBL.ConsultarProducto(this.Codigo);
-
-
-                lblCodigo.Text = objStockBE.Id_Producto;
                 lblProducto.Text = objStockBE.Nom_Producto;
-                lblStockDis.Text = objStockBE.Stk_Trastienda.ToString();
-                lblUM.Text = Convert.ToInt16(objStockBE.Id_UM).ToString();
-
+                lblStockDis.Text = Convert.ToInt16(objStockBE.Stk_Trastienda).ToString();
                 lblUNI.Text = objStockBE.Des_UM;
-
-                DataTable dt2 = objStockBL.ListarStock();
-                DataRow dtr;
-                dtr = dt2.NewRow();
-
-
+               
 
             }
             catch (Exception ex)
