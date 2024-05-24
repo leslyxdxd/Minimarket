@@ -130,6 +130,27 @@ namespace Minimarket_ADO
 
 
         }
+        public DataTable ProveedorxProducto(String strProducto)
+        {
+            DataSet dts = new DataSet();
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ProveedoresConProductos";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Proveedor", strProducto);
+                SqlDataAdapter miada;
+                miada = new SqlDataAdapter(cmd);
+                miada.Fill(dts, "Producto");
+                return dts.Tables["Producto"];
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 

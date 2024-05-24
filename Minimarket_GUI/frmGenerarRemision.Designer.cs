@@ -110,7 +110,7 @@
             cboProveeedor.Name = "cboProveeedor";
             cboProveeedor.Size = new Size(243, 23);
             cboProveeedor.TabIndex = 29;
-            cboProveeedor.SelectedIndexChanged += cboProveeedor_SelectedIndexChanged;
+           
             // 
             // label1
             // 

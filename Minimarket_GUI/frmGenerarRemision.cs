@@ -135,7 +135,7 @@ namespace Minimarket_GUI
                 {
                     throw new Exception("Error en el proceso, contacte con TI");
                 }
-
+                +
 
 
 

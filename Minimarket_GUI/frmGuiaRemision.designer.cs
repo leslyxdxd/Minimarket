@@ -66,7 +66,6 @@
             lblEstados = new Label();
             lblCodigo = new Label();
             label1 = new Label();
-            btnIngresarGuia = new Button();
             btnConsultar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).BeginInit();
             SuspendLayout();
@@ -113,7 +112,7 @@
             // 
             lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(101, 679);
+            lblRegistros.Location = new Point(101, 647);
             lblRegistros.Margin = new Padding(4, 0, 4, 0);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(57, 26);
@@ -125,7 +124,7 @@
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(27, 683);
+            label4.Location = new Point(27, 651);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(66, 17);
@@ -140,13 +139,13 @@
             dtgFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgFacturas.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, FechaIni, FechaFin, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, Des_Cat, PrecioUnitario, Cantidad, total, Observaciones, Estado });
-            dtgFacturas.Location = new Point(27, 273);
+            dtgFacturas.Location = new Point(27, 257);
             dtgFacturas.Margin = new Padding(4, 3, 4, 3);
             dtgFacturas.Name = "dtgFacturas";
             dtgFacturas.ReadOnly = true;
             dtgFacturas.RowHeadersVisible = false;
             dtgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgFacturas.Size = new Size(922, 319);
+            dtgFacturas.Size = new Size(922, 369);
             dtgFacturas.TabIndex = 7;
             // 
             // Id_Remision
@@ -413,17 +412,6 @@
             label1.TabIndex = 14;
             label1.Text = "Codigo";
             // 
-            // btnIngresarGuia
-            // 
-            btnIngresarGuia.Location = new Point(802, 658);
-            btnIngresarGuia.Margin = new Padding(4, 3, 4, 3);
-            btnIngresarGuia.Name = "btnIngresarGuia";
-            btnIngresarGuia.Size = new Size(138, 42);
-            btnIngresarGuia.TabIndex = 6;
-            btnIngresarGuia.Text = "Nueva guia de remision";
-            btnIngresarGuia.UseVisualStyleBackColor = true;
-            btnIngresarGuia.Click += btnIngresarGuia_Click;
-            // 
             // btnConsultar
             // 
             btnConsultar.Location = new Point(688, 198);
@@ -438,7 +426,7 @@
             // frmGuiaRemision
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(984, 729);
+            ClientSize = new Size(984, 697);
             Controls.Add(btnConsultar);
             Controls.Add(label1);
             Controls.Add(lblCodigo);
@@ -457,7 +445,6 @@
             Controls.Add(dtgFacturas);
             Controls.Add(lblRegistros);
             Controls.Add(label4);
-            Controls.Add(btnIngresarGuia);
             Controls.Add(dtpFecFin);
             Controls.Add(dtpFecIni);
             Controls.Add(label3);
@@ -497,7 +484,6 @@
         private System.Windows.Forms.Label lblEstados;
         private Label lblCodigo;
         private Label label1;
-        private Button btnIngresarGuia;
         private Button btnConsultar;
         private DataGridViewTextBoxColumn Id_Remision;
         private DataGridViewTextBoxColumn FechaIni;
