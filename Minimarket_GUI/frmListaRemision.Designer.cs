@@ -199,18 +199,16 @@
             // FechaIni
             // 
             FechaIni.DataPropertyName = "FechaIni";
-            FechaIni.HeaderText = "Fec.Inicio";
+            FechaIni.HeaderText = "Fecha Ingreso";
             FechaIni.Name = "FechaIni";
             FechaIni.ReadOnly = true;
-            FechaIni.Visible = false;
             // 
             // FechaFin
             // 
             FechaFin.DataPropertyName = "FechaFin";
-            FechaFin.HeaderText = "Fecha Fin";
+            FechaFin.HeaderText = "Fecha Recepcion";
             FechaFin.Name = "FechaFin";
             FechaFin.ReadOnly = true;
-            FechaFin.Visible = false;
             // 
             // Des_Cat
             // 
@@ -233,6 +231,7 @@
             PrecioUnitario.HeaderText = "Precio U. (Compra)";
             PrecioUnitario.Name = "PrecioUnitario";
             PrecioUnitario.ReadOnly = true;
+            PrecioUnitario.Visible = false;
             // 
             // total
             // 

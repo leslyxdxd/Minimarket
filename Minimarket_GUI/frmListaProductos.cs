@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Minimarket_BL;
 using Minimarket_BE;
 using System.Data;
+using ProyVentas_GUI;
 
 namespace Minimarket_GUI
 {
@@ -40,21 +41,11 @@ namespace Minimarket_GUI
             }
         }
 
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                CargarDatos(txtFiltro.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
+
 
         private void btnGuiasRemision_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dtgDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -71,6 +62,25 @@ namespace Minimarket_GUI
         {
             this.Close();
         }
-        
+
+        private void txtFiltro_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarDatos(txtFiltro.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+        }
+
+        private void btnTraspaso_Click(object sender, EventArgs e)
+        {
+            frmTraspaso traspasoProducto = new frmTraspaso();
+            traspasoProducto.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+            traspasoProducto.ShowDialog();
+        }
     }
 }

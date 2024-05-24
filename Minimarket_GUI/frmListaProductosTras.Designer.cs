@@ -1,6 +1,6 @@
 ﻿namespace Minimarket_GUI
 {
-    partial class frmListaProductos
+    partial class frmListaProductosTras
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,6 @@
             label2 = new Label();
             lblRegistros = new Label();
             btnCerrar = new Button();
-            btnTraspaso = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -72,7 +71,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgDatos.Location = new Point(25, 56);
+            dtgDatos.Location = new Point(25, 53);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
@@ -81,7 +80,6 @@
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(619, 436);
             dtgDatos.TabIndex = 1;
-            dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
             // 
             // Nom_Producto
             // 
@@ -105,6 +103,7 @@
             Precio_Unitario.HeaderText = "Precio U. (Venta)";
             Precio_Unitario.Name = "Precio_Unitario";
             Precio_Unitario.ReadOnly = true;
+            Precio_Unitario.Visible = false;
             // 
             // Id_Stock
             // 
@@ -167,6 +166,7 @@
             Stk_Tienda.HeaderText = "Stock Tienda";
             Stk_Tienda.Name = "Stk_Tienda";
             Stk_Tienda.ReadOnly = true;
+            Stk_Tienda.Visible = false;
             // 
             // Id_UM
             // 
@@ -179,7 +179,7 @@
             // Des_UM
             // 
             Des_UM.DataPropertyName = "Des_UM";
-            Des_UM.HeaderText = "U.Medida";
+            Des_UM.HeaderText = "UNI. MEDIDA";
             Des_UM.Name = "Des_UM";
             Des_UM.ReadOnly = true;
             // 
@@ -196,23 +196,23 @@
             // 
             txtFiltro.Location = new Point(175, 18);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(189, 23);
+            txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 4;
-            txtFiltro.TextChanged += txtFiltro_TextChanged_1;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(25, 520);
             label2.Name = "label2";
-            label2.Size = new Size(64, 15);
+            label2.Size = new Size(58, 15);
             label2.TabIndex = 5;
-            label2.Text = "Productos:";
+            label2.Text = "Registros:";
             // 
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(95, 516);
+            lblRegistros.Location = new Point(89, 516);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 6;
@@ -228,22 +228,11 @@
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += btnCerrar_Click;
             // 
-            // btnTraspaso
-            // 
-            btnTraspaso.Location = new Point(375, 511);
-            btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(124, 32);
-            btnTraspaso.TabIndex = 9;
-            btnTraspaso.Text = "Traspasar";
-            btnTraspaso.UseVisualStyleBackColor = true;
-            btnTraspaso.Click += btnTraspaso_Click;
-            // 
-            // frmListaProductos
+            // frmListaProductosTras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(668, 572);
-            Controls.Add(btnTraspaso);
+            ClientSize = new Size(669, 572);
             Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
@@ -253,10 +242,10 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmListaProductos";
+            Name = "frmListaProductosTras";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Productos Tienda";
-            Load += frmListaProductos_Load;
+            Text = "Productos trastienda";
+            Load += frmListaProductosTras_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -269,7 +258,6 @@
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
-        private Button btnCerrar;
         private DataGridViewTextBoxColumn Nom_Producto;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Precio_Unitario;
@@ -283,6 +271,6 @@
         private DataGridViewTextBoxColumn Stk_Tienda;
         private DataGridViewTextBoxColumn Id_UM;
         private DataGridViewTextBoxColumn Des_UM;
-        private Button btnTraspaso;
+        private Button btnCerrar;
     }
 }

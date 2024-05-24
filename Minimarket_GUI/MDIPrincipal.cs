@@ -89,10 +89,10 @@ namespace ProyVentas_GUI
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = false;
-                facturasClienteToolStripMenuItem.Visible = true;
+                StokTienda.Visible = true;
                 generarRemisionToolStripMenuItem.Visible = false;
                 gestionarVentaToolStripMenuItem.Visible = true;
-                traspasoATiendaToolStripMenuItem.Visible = true;
+
 
             }
             else if (clsCredenciales.Niv_Usuario == 2)
@@ -102,12 +102,12 @@ namespace ProyVentas_GUI
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
-                facturasClienteToolStripMenuItem.Visible = true;
-                
+                StokTienda.Visible = true;
+
                 generarRemisionToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
                 gestionarVentaToolStripMenuItem.Visible = false;
-                traspasoATiendaToolStripMenuItem.Visible = false;
+
 
 
 
@@ -190,6 +190,14 @@ namespace ProyVentas_GUI
             frmListaRemision prov01 = new frmListaRemision();
             prov01.MdiParent = this;
             prov01.Show();
+        }
+
+        private void stokAlmacen_Click(object sender, EventArgs e)
+        {
+            frmListaProductosTras frmc1 = new frmListaProductosTras();
+            frmc1.MdiParent = this;
+            frmc1.Show();
+
         }
     }
 }

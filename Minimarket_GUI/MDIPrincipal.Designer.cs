@@ -35,8 +35,8 @@
             productoToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem1 = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
-            facturasClienteToolStripMenuItem = new ToolStripMenuItem();
-            traspasoATiendaToolStripMenuItem = new ToolStripMenuItem();
+            StokTienda = new ToolStripMenuItem();
+            stokAlmacen = new ToolStripMenuItem();
             generarGuiaToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
@@ -93,24 +93,25 @@
             // 
             // consultasToolStripMenuItem
             // 
-            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturasClienteToolStripMenuItem, traspasoATiendaToolStripMenuItem });
+            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { StokTienda, stokAlmacen });
             consultasToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             consultasToolStripMenuItem.Size = new Size(79, 21);
             consultasToolStripMenuItem.Text = "Productos";
             // 
-            // facturasClienteToolStripMenuItem
+            // StokTienda
             // 
-            facturasClienteToolStripMenuItem.Name = "facturasClienteToolStripMenuItem";
-            facturasClienteToolStripMenuItem.Size = new Size(183, 22);
-            facturasClienteToolStripMenuItem.Text = "Stock ";
-            facturasClienteToolStripMenuItem.Click += facturasClienteToolStripMenuItem_Click;
+            StokTienda.Name = "StokTienda";
+            StokTienda.Size = new Size(180, 22);
+            StokTienda.Text = "Stock ";
+            StokTienda.Click += facturasClienteToolStripMenuItem_Click;
             // 
-            // traspasoATiendaToolStripMenuItem
+            // stokAlmacen
             // 
-            traspasoATiendaToolStripMenuItem.Name = "traspasoATiendaToolStripMenuItem";
-            traspasoATiendaToolStripMenuItem.Size = new Size(183, 22);
-            traspasoATiendaToolStripMenuItem.Text = "Traspaso a Tienda";
+            stokAlmacen.Name = "stokAlmacen";
+            stokAlmacen.Size = new Size(180, 22);
+            stokAlmacen.Text = "Stock";
+            stokAlmacen.Click += stokAlmacen_Click;
             // 
             // generarGuiaToolStripMenuItem
             // 
@@ -123,7 +124,7 @@
             // proveedoresToolStripMenuItem
             // 
             proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            proveedoresToolStripMenuItem.Size = new Size(180, 22);
+            proveedoresToolStripMenuItem.Size = new Size(167, 22);
             proveedoresToolStripMenuItem.Text = "Lista Proveedor";
             proveedoresToolStripMenuItem.Click += proveedoresToolStripMenuItem_Click_1;
             // 
@@ -238,7 +239,7 @@
         private ToolStripMenuItem mantenimientosToolStripMenuItem;
         private ToolStripMenuItem vendedoresToolStripMenuItem;
         private ToolStripMenuItem consultasToolStripMenuItem;
-        private ToolStripMenuItem facturasClienteToolStripMenuItem;
+        private ToolStripMenuItem StokTienda;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel lbl1;
         private ToolStripStatusLabel lblUsuario;
@@ -253,6 +254,6 @@
         private ToolStripMenuItem agregarUsuarioToolStripMenuItem;
         private ToolStripMenuItem gestionarVentaToolStripMenuItem;
         private ToolStripMenuItem generarRemisionToolStripMenuItem;
-        private ToolStripMenuItem traspasoATiendaToolStripMenuItem;
+        private ToolStripMenuItem stokAlmacen;
     }
 }
