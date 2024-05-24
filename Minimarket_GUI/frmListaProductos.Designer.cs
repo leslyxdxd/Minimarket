@@ -187,6 +187,7 @@
             Id_Producto.HeaderText = "Id_Producto";
             Id_Producto.Name = "Id_Producto";
             Id_Producto.ReadOnly = true;
+            Id_Producto.Visible = false;
             // 
             // Stk_Tienda
             // 
