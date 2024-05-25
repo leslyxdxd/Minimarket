@@ -152,6 +152,6 @@ namespace Minimarket_GUI
 
         }
 
-       
+    
     }
 }

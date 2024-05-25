@@ -62,24 +62,27 @@
             label16 = new Label();
             label17 = new Label();
             groupBox4 = new GroupBox();
+            txtPeso = new TextBox();
             label19 = new Label();
             label18 = new Label();
             textBox1 = new TextBox();
             txtNombre = new TextBox();
             dtpFecFin = new DateTimePicker();
-            upPeso = new NumericUpDown();
             label13 = new Label();
             label11 = new Label();
             dtpFecIni = new DateTimePicker();
             cboUm = new ComboBox();
             label7 = new Label();
             label15 = new Label();
+            label20 = new Label();
+            lblUnidad = new Label();
+            label22 = new Label();
+            lblMarcas = new Label();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)upPeso).BeginInit();
             SuspendLayout();
             // 
             // lblTel
@@ -202,7 +205,7 @@
             cboProducto.BackColor = SystemColors.Window;
             cboProducto.ForeColor = SystemColors.InactiveCaptionText;
             cboProducto.FormattingEnabled = true;
-            cboProducto.Location = new Point(75, 37);
+            cboProducto.Location = new Point(86, 37);
             cboProducto.Name = "cboProducto";
             cboProducto.Size = new Size(129, 23);
             cboProducto.TabIndex = 32;
@@ -217,7 +220,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 80);
+            label2.Location = new Point(164, 147);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(84, 15);
@@ -255,9 +258,9 @@
             // 
             // txtObservacion
             // 
-            txtObservacion.Location = new Point(12, 98);
+            txtObservacion.Location = new Point(7, 165);
             txtObservacion.Name = "txtObservacion";
-            txtObservacion.Size = new Size(412, 106);
+            txtObservacion.Size = new Size(426, 106);
             txtObservacion.TabIndex = 41;
             txtObservacion.Text = "";
             // 
@@ -274,6 +277,10 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(lblMarcas);
+            groupBox2.Controls.Add(label22);
+            groupBox2.Controls.Add(lblUnidad);
+            groupBox2.Controls.Add(label20);
             groupBox2.Controls.Add(cboProducto);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(label4);
@@ -282,7 +289,7 @@
             groupBox2.Controls.Add(UpdownCantidad);
             groupBox2.Location = new Point(12, 182);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(450, 220);
+            groupBox2.Size = new Size(450, 286);
             groupBox2.TabIndex = 42;
             groupBox2.TabStop = false;
             groupBox2.Text = "INFORMACION DEL PRODUCTO";
@@ -301,7 +308,7 @@
             groupBox3.Controls.Add(lblMarca);
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
-            groupBox3.Location = new Point(573, 37);
+            groupBox3.Location = new Point(573, 25);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(566, 139);
             groupBox3.TabIndex = 41;
@@ -423,12 +430,12 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(txtPeso);
             groupBox4.Controls.Add(label19);
             groupBox4.Controls.Add(label18);
             groupBox4.Controls.Add(textBox1);
             groupBox4.Controls.Add(txtNombre);
             groupBox4.Controls.Add(dtpFecFin);
-            groupBox4.Controls.Add(upPeso);
             groupBox4.Controls.Add(label13);
             groupBox4.Controls.Add(label11);
             groupBox4.Controls.Add(dtpFecIni);
@@ -441,6 +448,14 @@
             groupBox4.TabIndex = 43;
             groupBox4.TabStop = false;
             groupBox4.Text = "INFORMACION DE CARGA";
+            // 
+            // txtPeso
+            // 
+            txtPeso.Font = new Font("Segoe UI", 9.75F);
+            txtPeso.Location = new Point(439, 34);
+            txtPeso.Name = "txtPeso";
+            txtPeso.Size = new Size(84, 25);
+            txtPeso.TabIndex = 49;
             // 
             // label19
             // 
@@ -465,7 +480,7 @@
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 9.75F);
-            textBox1.Location = new Point(334, 165);
+            textBox1.Location = new Point(334, 174);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(312, 25);
             textBox1.TabIndex = 46;
@@ -473,7 +488,7 @@
             // txtNombre
             // 
             txtNombre.Font = new Font("Segoe UI", 9.75F);
-            txtNombre.Location = new Point(21, 165);
+            txtNombre.Location = new Point(21, 174);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(266, 25);
             txtNombre.TabIndex = 45;
@@ -487,27 +502,20 @@
             dtpFecFin.Size = new Size(148, 23);
             dtpFecFin.TabIndex = 44;
             // 
-            // upPeso
-            // 
-            upPeso.Location = new Point(439, 36);
-            upPeso.Name = "upPeso";
-            upPeso.Size = new Size(120, 23);
-            upPeso.TabIndex = 40;
-            // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(55, 40);
+            label13.Location = new Point(27, 41);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(61, 15);
+            label13.Size = new Size(89, 15);
             label13.TabIndex = 40;
-            label13.Text = "U. Medida";
+            label13.Text = "U. Medida Peso";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(319, 88);
+            label11.Location = new Point(319, 92);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(101, 15);
@@ -517,7 +525,7 @@
             // dtpFecIni
             // 
             dtpFecIni.Format = DateTimePickerFormat.Short;
-            dtpFecIni.Location = new Point(124, 82);
+            dtpFecIni.Location = new Point(124, 86);
             dtpFecIni.Margin = new Padding(4, 3, 4, 3);
             dtpFecIni.Name = "dtpFecIni";
             dtpFecIni.Size = new Size(157, 23);
@@ -528,7 +536,7 @@
             cboUm.BackColor = SystemColors.Window;
             cboUm.ForeColor = SystemColors.InactiveCaptionText;
             cboUm.FormattingEnabled = true;
-            cboUm.Location = new Point(123, 37);
+            cboUm.Location = new Point(124, 38);
             cboUm.Name = "cboUm";
             cboUm.Size = new Size(171, 23);
             cboUm.TabIndex = 32;
@@ -546,12 +554,50 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(19, 86);
+            label15.Location = new Point(19, 92);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
             label15.Size = new Size(97, 15);
             label15.TabIndex = 41;
             label15.Text = "Fecha de Partida:";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(12, 88);
+            label20.Margin = new Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(61, 15);
+            label20.TabIndex = 51;
+            label20.Text = "U. Medida";
+            // 
+            // lblUnidad
+            // 
+            lblUnidad.BorderStyle = BorderStyle.FixedSingle;
+            lblUnidad.Location = new Point(86, 88);
+            lblUnidad.Margin = new Padding(4, 0, 4, 0);
+            lblUnidad.Name = "lblUnidad";
+            lblUnidad.Size = new Size(129, 16);
+            lblUnidad.TabIndex = 30;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(253, 91);
+            label22.Margin = new Padding(4, 0, 4, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(43, 15);
+            label22.TabIndex = 52;
+            label22.Text = "Marca:";
+            // 
+            // lblMarcas
+            // 
+            lblMarcas.BorderStyle = BorderStyle.FixedSingle;
+            lblMarcas.Location = new Point(304, 90);
+            lblMarcas.Margin = new Padding(4, 0, 4, 0);
+            lblMarcas.Name = "lblMarcas";
+            lblMarcas.Size = new Size(129, 16);
+            lblMarcas.TabIndex = 53;
             // 
             // frmGenerarRemision
             // 
@@ -579,7 +625,6 @@
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)upPeso).EndInit();
             ResumeLayout(false);
         }
 
@@ -621,7 +666,6 @@
         private Label label13;
         private ComboBox cboUm;
         private Label label7;
-        private NumericUpDown upPeso;
         private DateTimePicker dtpFecFin;
         private Label label11;
         private DateTimePicker dtpFecIni;
@@ -630,5 +674,10 @@
         private Label label18;
         private TextBox textBox1;
         private TextBox txtNombre;
+        private TextBox txtPeso;
+        private Label label20;
+        private Label label22;
+        private Label lblUnidad;
+        private Label lblMarcas;
     }
 }
