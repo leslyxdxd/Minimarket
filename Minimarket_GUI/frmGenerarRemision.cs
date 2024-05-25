@@ -118,9 +118,9 @@ namespace Minimarket_GUI
 
                 objRemisionBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
                 objRemisionBE.Id_Proveedor = Convert.ToString(cboProveeedor.SelectedValue);
-                objRemisionBE.PrecioUnitario = Convert.ToDecimal(txtPrecioUni.Text.Trim());
+
                 objRemisionBE.Cantidad = Convert.ToInt16(UpdownCantidad.Text.Trim());
-             
+
 
                 objRemisionBE.Observaciones = txtObservacion.Text.Trim();
                 objRemisionBE.Usu_Registro = clsCredenciales.Login_Usuario;
@@ -135,7 +135,7 @@ namespace Minimarket_GUI
                 {
                     throw new Exception("Error en el proceso, contacte con TI");
                 }
-                
+
 
 
 
@@ -151,5 +151,7 @@ namespace Minimarket_GUI
             }
 
         }
+
+       
     }
 }
