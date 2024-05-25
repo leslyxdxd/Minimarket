@@ -34,13 +34,13 @@
             lblUNI = new Label();
             lblStockDis = new Label();
             label3 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            Cantidad = new NumericUpDown();
             label2 = new Label();
             label4 = new Label();
             btnTransferir = new Button();
             btnCancelar = new Button();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cantidad).BeginInit();
             SuspendLayout();
             // 
             // lblProducto
@@ -57,7 +57,7 @@
             groupBox2.Controls.Add(lblUNI);
             groupBox2.Controls.Add(lblStockDis);
             groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(numericUpDown1);
+            groupBox2.Controls.Add(Cantidad);
             groupBox2.Controls.Add(lblProducto);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label4);
@@ -105,12 +105,12 @@
             label3.TabIndex = 41;
             label3.Text = "Cantidad a Transferir:";
             // 
-            // numericUpDown1
+            // Cantidad
             // 
-            numericUpDown1.Location = new Point(392, 94);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 40;
+            Cantidad.Location = new Point(392, 94);
+            Cantidad.Name = "Cantidad";
+            Cantidad.Size = new Size(120, 23);
+            Cantidad.TabIndex = 40;
             // 
             // label2
             // 
@@ -141,6 +141,7 @@
             btnTransferir.TabIndex = 44;
             btnTransferir.Text = "Transferir";
             btnTransferir.UseVisualStyleBackColor = true;
+            btnTransferir.Click += btnTransferir_Click;
             // 
             // btnCancelar
             // 
@@ -156,7 +157,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(621, 266);
+            ClientSize = new Size(604, 257);
             Controls.Add(btnCancelar);
             Controls.Add(btnTransferir);
             Controls.Add(groupBox2);
@@ -168,7 +169,7 @@
             Load += frmTraspaso_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cantidad).EndInit();
             ResumeLayout(false);
         }
 
@@ -176,7 +177,7 @@
         private Label lblProducto;
         private GroupBox groupBox2;
         private Label label3;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown Cantidad;
         private Label label2;
         private Label label4;
         private Label lb;
@@ -184,7 +185,5 @@
         private Label lblStockDis;
         private Button btnTransferir;
         private Button btnCancelar;
-        private Label lblCodigo;
-        private Label lblUM;
     }
 }

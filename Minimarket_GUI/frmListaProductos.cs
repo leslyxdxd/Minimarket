@@ -18,7 +18,19 @@ namespace Minimarket_GUI
             InitializeComponent();
         }
 
-       
+        public void ActualizarProductos()
+        {
+            try
+            {
+                // Vuelve a cargar los datos en el DataGridView
+                CargarDatos("");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar los productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void CargarDatos(string Nom_Producto)
         {
@@ -80,8 +92,11 @@ namespace Minimarket_GUI
         private void btnTraspaso_Click(object sender, EventArgs e)
         {
             frmTraspaso traspasoProducto = new frmTraspaso();
-            traspasoProducto.Codigo = dtgDatos.CurrentRow.Cells["Id_Producto"].Value.ToString();
+            traspasoProducto.Codigo = dtgDatos.CurrentRow.Cells["Id_Stock"].Value.ToString();
             traspasoProducto.ShowDialog();
+
+            // Llama al método para actualizar la lista de productos
+            ActualizarProductos();
         }
     }
 }

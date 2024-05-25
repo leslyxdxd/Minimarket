@@ -12,6 +12,9 @@ namespace Minimarket_BL
     {
         MovimientoADO objMovimientoADO = new MovimientoADO();
 
-    
+        public Boolean InsertarMovimiento(MovimientoBE objMovimientoBE)
+        {
+            return objMovimientoADO.InsertarMovimiento(objMovimientoBE);
+        }
     }
 }

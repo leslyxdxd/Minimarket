@@ -11,7 +11,7 @@ namespace Minimarket_BE
         public int Id_Movimiento { get; set; }
 
 
-        public int Trastienda_Mov { get; set; }
+        public int Movimiento_Tienda { get; set; }
 
         public DateTime Fec_Registro { get; set; }
 

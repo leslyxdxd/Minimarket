@@ -21,6 +21,41 @@ namespace Minimarket_ADO
 
 
 
+        public Boolean InsertarMovimiento(MovimientoBE objMovimientoBE)
+        {
+            try
+            {
+                   
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_InsertarMovimientoStock";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Stock", objMovimientoBE.Id_Stock);
+                cmd.Parameters.AddWithValue("@Movimiento_Tienda", objMovimientoBE.Movimiento_Tienda);
+                cmd.Parameters.AddWithValue("@Usu_Registro", objMovimientoBE.Usu_Registro);
+
+                cnx.Open();
+                cmd.ExecuteNonQuery(); // Ejecutar el procedimiento almacenado sin leer un conjunto de resultados
+
+                // No necesitas procesar resultados ya que este procedimiento no devuelve un conjunto de resultados
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+                return false;
+
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
 
 
 
