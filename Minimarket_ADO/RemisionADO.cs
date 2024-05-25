@@ -71,8 +71,14 @@ namespace Minimarket_ADO
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Id_Proveedor", objRemisionBE.Id_Proveedor);
                 cmd.Parameters.AddWithValue("@Id_Producto", objRemisionBE.Id_Producto);
+                cmd.Parameters.AddWithValue("@Id_Transporte", objRemisionBE.Id_Transporte);
+                cmd.Parameters.AddWithValue("@Id_UM", objRemisionBE.Id_UM);
+                cmd.Parameters.AddWithValue("@Peso_Carga", objRemisionBE.Peso_Carga);
+                cmd.Parameters.AddWithValue("@FechaIni", objRemisionBE.FechaIni);
 
-                cmd.Parameters.AddWithValue("@PrecioUnitario", objRemisionBE.PrecioUnitario);
+                cmd.Parameters.AddWithValue("@FechaFin", objRemisionBE.FechaFin);
+                cmd.Parameters.AddWithValue("@Punto_Partida", objRemisionBE.Punto_Partida);
+                cmd.Parameters.AddWithValue("@Punto_Llegada", objRemisionBE.Punto_Llegada);
 
                 cmd.Parameters.AddWithValue("@Cantidad", objRemisionBE.Cantidad);
                 cmd.Parameters.AddWithValue("@Observaciones", objRemisionBE.Observaciones);

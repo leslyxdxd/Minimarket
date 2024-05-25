@@ -48,10 +48,14 @@
             txtObservacion = new RichTextBox();
             btnCancelar = new Button();
             groupBox2 = new GroupBox();
+            lblMarcas = new Label();
+            label22 = new Label();
+            lblUnidad = new Label();
+            label20 = new Label();
             groupBox3 = new GroupBox();
             label9 = new Label();
             label3 = new Label();
-            cboTrasportista = new ComboBox();
+            cboTransportista = new ComboBox();
             Transporte = new Label();
             lblDirecTrans = new Label();
             lblRucTra = new Label();
@@ -65,8 +69,8 @@
             txtPeso = new TextBox();
             label19 = new Label();
             label18 = new Label();
-            textBox1 = new TextBox();
-            txtNombre = new TextBox();
+            txtLlegada = new TextBox();
+            txtPartida = new TextBox();
             dtpFecFin = new DateTimePicker();
             label13 = new Label();
             label11 = new Label();
@@ -74,10 +78,6 @@
             cboUm = new ComboBox();
             label7 = new Label();
             label15 = new Label();
-            label20 = new Label();
-            lblUnidad = new Label();
-            label22 = new Label();
-            lblMarcas = new Label();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -294,11 +294,49 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "INFORMACION DEL PRODUCTO";
             // 
+            // lblMarcas
+            // 
+            lblMarcas.BorderStyle = BorderStyle.FixedSingle;
+            lblMarcas.Location = new Point(304, 90);
+            lblMarcas.Margin = new Padding(4, 0, 4, 0);
+            lblMarcas.Name = "lblMarcas";
+            lblMarcas.Size = new Size(129, 16);
+            lblMarcas.TabIndex = 53;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(253, 91);
+            label22.Margin = new Padding(4, 0, 4, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(43, 15);
+            label22.TabIndex = 52;
+            label22.Text = "Marca:";
+            // 
+            // lblUnidad
+            // 
+            lblUnidad.BorderStyle = BorderStyle.FixedSingle;
+            lblUnidad.Location = new Point(86, 88);
+            lblUnidad.Margin = new Padding(4, 0, 4, 0);
+            lblUnidad.Name = "lblUnidad";
+            lblUnidad.Size = new Size(129, 16);
+            lblUnidad.TabIndex = 30;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(12, 88);
+            label20.Margin = new Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(61, 15);
+            label20.TabIndex = 51;
+            label20.Text = "U. Medida";
+            // 
             // groupBox3
             // 
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(cboTrasportista);
+            groupBox3.Controls.Add(cboTransportista);
             groupBox3.Controls.Add(Transporte);
             groupBox3.Controls.Add(lblDirecTrans);
             groupBox3.Controls.Add(lblRucTra);
@@ -334,13 +372,13 @@
             label3.Size = new Size(157, 16);
             label3.TabIndex = 30;
             // 
-            // cboTrasportista
+            // cboTransportista
             // 
-            cboTrasportista.FormattingEnabled = true;
-            cboTrasportista.Location = new Point(101, 34);
-            cboTrasportista.Name = "cboTrasportista";
-            cboTrasportista.Size = new Size(157, 23);
-            cboTrasportista.TabIndex = 29;
+            cboTransportista.FormattingEnabled = true;
+            cboTransportista.Location = new Point(101, 34);
+            cboTransportista.Name = "cboTransportista";
+            cboTransportista.Size = new Size(157, 23);
+            cboTransportista.TabIndex = 29;
             // 
             // Transporte
             // 
@@ -433,8 +471,8 @@
             groupBox4.Controls.Add(txtPeso);
             groupBox4.Controls.Add(label19);
             groupBox4.Controls.Add(label18);
-            groupBox4.Controls.Add(textBox1);
-            groupBox4.Controls.Add(txtNombre);
+            groupBox4.Controls.Add(txtLlegada);
+            groupBox4.Controls.Add(txtPartida);
             groupBox4.Controls.Add(dtpFecFin);
             groupBox4.Controls.Add(label13);
             groupBox4.Controls.Add(label11);
@@ -477,21 +515,21 @@
             label18.TabIndex = 47;
             label18.Text = "Punto de Partida";
             // 
-            // textBox1
+            // txtLlegada
             // 
-            textBox1.Font = new Font("Segoe UI", 9.75F);
-            textBox1.Location = new Point(334, 174);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(312, 25);
-            textBox1.TabIndex = 46;
+            txtLlegada.Font = new Font("Segoe UI", 9.75F);
+            txtLlegada.Location = new Point(334, 174);
+            txtLlegada.Name = "txtLlegada";
+            txtLlegada.Size = new Size(312, 25);
+            txtLlegada.TabIndex = 46;
             // 
-            // txtNombre
+            // txtPartida
             // 
-            txtNombre.Font = new Font("Segoe UI", 9.75F);
-            txtNombre.Location = new Point(21, 174);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(266, 25);
-            txtNombre.TabIndex = 45;
+            txtPartida.Font = new Font("Segoe UI", 9.75F);
+            txtPartida.Location = new Point(21, 174);
+            txtPartida.Name = "txtPartida";
+            txtPartida.Size = new Size(266, 25);
+            txtPartida.TabIndex = 45;
             // 
             // dtpFecFin
             // 
@@ -561,44 +599,6 @@
             label15.TabIndex = 41;
             label15.Text = "Fecha de Partida:";
             // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(12, 88);
-            label20.Margin = new Padding(4, 0, 4, 0);
-            label20.Name = "label20";
-            label20.Size = new Size(61, 15);
-            label20.TabIndex = 51;
-            label20.Text = "U. Medida";
-            // 
-            // lblUnidad
-            // 
-            lblUnidad.BorderStyle = BorderStyle.FixedSingle;
-            lblUnidad.Location = new Point(86, 88);
-            lblUnidad.Margin = new Padding(4, 0, 4, 0);
-            lblUnidad.Name = "lblUnidad";
-            lblUnidad.Size = new Size(129, 16);
-            lblUnidad.TabIndex = 30;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(253, 91);
-            label22.Margin = new Padding(4, 0, 4, 0);
-            label22.Name = "label22";
-            label22.Size = new Size(43, 15);
-            label22.TabIndex = 52;
-            label22.Text = "Marca:";
-            // 
-            // lblMarcas
-            // 
-            lblMarcas.BorderStyle = BorderStyle.FixedSingle;
-            lblMarcas.Location = new Point(304, 90);
-            lblMarcas.Margin = new Padding(4, 0, 4, 0);
-            lblMarcas.Name = "lblMarcas";
-            lblMarcas.Size = new Size(129, 16);
-            lblMarcas.TabIndex = 53;
-            // 
             // frmGenerarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -650,7 +650,7 @@
         private Button btnCancelar;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
-        private ComboBox cboTrasportista;
+        private ComboBox cboTransportista;
         private Label Transporte;
         private Label lblDirecTrans;
         private Label lblRucTra;
@@ -672,8 +672,8 @@
         private Label label15;
         private Label label19;
         private Label label18;
-        private TextBox textBox1;
-        private TextBox txtNombre;
+        private TextBox txtLlegada;
+        private TextBox txtPartida;
         private TextBox txtPeso;
         private Label label20;
         private Label label22;

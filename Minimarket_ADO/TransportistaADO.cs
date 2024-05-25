@@ -100,7 +100,6 @@ namespace Minimarket_ADO
                 {
                     dtr.Read();
 
-
                     
                     objTransportistaBE.Id_Transporte = dtr["Id_Transporte"].ToString();
                
