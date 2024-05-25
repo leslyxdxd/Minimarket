@@ -28,7 +28,7 @@ namespace Minimarket_ADO
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_ProveedoresTransportePorIdProveedor";
+                cmd.CommandText = "usp_ConsultarTransportista";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Id_Proveedor", strCodigo);
 
@@ -43,10 +43,7 @@ namespace Minimarket_ADO
                     dtr.Read();
 
 
-                    objTransportistaBE.Id_Proveedor = dtr["Id_Proveedor"].ToString();
-                    objTransportistaBE.Id_Transporte = dtr["Id_Transporte"].ToString();
-
-                    objTransportistaBE.Direccion_Empresa = dtr["Direccion_Empresa"].ToString();
+                  
                     objTransportistaBE.Ruc_Transporte = dtr["Ruc_Transporte"].ToString();
                     objTransportistaBE.Marca_Transporte = dtr["Marca_Transporte"].ToString();
                     objTransportistaBE.Empresa_Transporte = dtr["Empresa_Transporte"].ToString();

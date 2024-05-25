@@ -58,9 +58,9 @@ namespace Minimarket_ADO
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_ProveedoresProductosPorIdProveedor";
+                cmd.CommandText = "usp_ConsultarProducto";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Id_Proveedor", strCodigo);
+                cmd.Parameters.AddWithValue("@Id_Producto", strCodigo);
 
 
                 //Abrimos y ejecutamos...
@@ -78,7 +78,6 @@ namespace Minimarket_ADO
                     objProductoBE.Nom_Producto = dtr["Nom_Producto"].ToString();
 
 
-                    objProductoBE.Precio_Unitario = Convert.ToDecimal(dtr["Precio_Unitario"]);
                     objProductoBE.Id_UM = Convert.ToInt16(dtr["Id_UM"]);
                     objProductoBE.Marca = dtr["Marca"].ToString();
 
