@@ -153,7 +153,7 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(1022, 455);
+            btnConsultar.Location = new Point(1013, 504);
             btnConsultar.Margin = new Padding(4, 3, 4, 3);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(116, 40);
@@ -266,7 +266,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(875, 455);
+            btnCancelar.Location = new Point(855, 504);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 40);
@@ -603,7 +603,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1151, 517);
+            ClientSize = new Size(1151, 556);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
