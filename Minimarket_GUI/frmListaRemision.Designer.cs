@@ -224,6 +224,7 @@
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
+            Cantidad.Visible = false;
             // 
             // PrecioUnitario
             // 
@@ -239,6 +240,7 @@
             total.HeaderText = "Precio Total(S/.)";
             total.Name = "total";
             total.ReadOnly = true;
+            total.Visible = false;
             // 
             // Observaciones
             // 

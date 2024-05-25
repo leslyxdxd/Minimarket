@@ -80,7 +80,7 @@ namespace Minimarket_GUI
         private void btnTraspaso_Click(object sender, EventArgs e)
         {
             frmTraspaso traspasoProducto = new frmTraspaso();
-            traspasoProducto.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+            traspasoProducto.Codigo = dtgDatos.CurrentRow.Cells["Id_Stock"].Value.ToString();
             traspasoProducto.ShowDialog();
         }
     }

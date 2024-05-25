@@ -40,11 +40,11 @@ namespace Minimarket_GUI
                 //invocamos la methodo consultar..
                 objStockBE = objStockBL.ConsultarProducto(this.Codigo);
 
-
+                lblSTK.Text = objStockBE.Id_Stock;
                 lblCodigo.Text = objStockBE.Id_Producto;
                 lblProducto.Text = objStockBE.Nom_Producto;
                 lblStockDis.Text = objStockBE.Stk_Trastienda.ToString();
-                lblUM.Text = Convert.ToInt16(objStockBE.Id_UM).ToString();
+                lblSTK.Text = Convert.ToInt16(objStockBE.Id_UM).ToString();
 
                 lblUNI.Text = objStockBE.Des_UM;
 
