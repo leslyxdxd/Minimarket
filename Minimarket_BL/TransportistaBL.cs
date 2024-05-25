@@ -15,10 +15,7 @@ namespace Minimarket_BL
         {
             return objTransportistaDO.ConsultarTransportista(strCodigo);
         }
-        public TransportistaBE ConsultarTransportistaxProveedor(String strCodigo)
-        {
-            return objTransportistaDO.ConsultarTransportistaxProveedor(strCodigo);
-        }
+     
 
     }
 }

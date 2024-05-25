@@ -24,6 +24,15 @@ namespace Minimarket_BL
         }
 
 
+        public DataTable ConsultarProductoxProveedor(String strIdCodigo)
+        {
+            return objProveedorADO.ConsultarProductoxProveedor(strIdCodigo);
+        }
+
+        public DataTable ConsultarTransportistaxProveedor(String strIdCodigo)
+        {
+            return objProveedorADO.ConsultarTransportistaxProveedor(strIdCodigo);
+        }
 
     }
 }

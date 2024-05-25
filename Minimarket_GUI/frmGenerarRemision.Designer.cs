@@ -140,6 +140,7 @@
             cboProveeedor.Name = "cboProveeedor";
             cboProveeedor.Size = new Size(157, 23);
             cboProveeedor.TabIndex = 29;
+            cboProveeedor.SelectionChangeCommitted += cboProveeedor_SelectionChangeCommitted;
             // 
             // label1
             // 
@@ -209,6 +210,7 @@
             cboProducto.Name = "cboProducto";
             cboProducto.Size = new Size(129, 23);
             cboProducto.TabIndex = 32;
+            cboProducto.SelectionChangeCommitted += cboProducto_SelectionChangeCommitted;
             // 
             // UpdownCantidad
             // 
@@ -379,6 +381,7 @@
             cboTransportista.Name = "cboTransportista";
             cboTransportista.Size = new Size(157, 23);
             cboTransportista.TabIndex = 29;
+            cboTransportista.SelectionChangeCommitted += cboTransportista_SelectionChangeCommitted;
             // 
             // Transporte
             // 

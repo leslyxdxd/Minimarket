@@ -20,14 +20,14 @@ namespace ProyVentas_ADO
 
         public DataTable ListarUM()
         {
-            DataSet dts = new DataSet();
-            cnx.ConnectionString = MiConexion.GetCnx();
-            cmd.Connection = cnx;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "usp_ListarUM";
             try
             {
-
+                 DataSet dts = new DataSet();
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ListarUM";
+           
                 cmd.Parameters.Clear();
                 SqlDataAdapter ada = new SqlDataAdapter(cmd);
                 ada.Fill(dts, "Unidades");

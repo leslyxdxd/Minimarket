@@ -110,60 +110,6 @@ namespace Minimarket_ADO
         }
        
 
-        public ProductoBE ConsultarProductoxProveedor(String strCodigo)
-        {
-
-            try
-            {
-                //Codifique
-                ProductoBE objProductoBE = new ProductoBE();
-                cnx.ConnectionString = MiConexion.GetCnx();
-                cmd.Connection = cnx;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_ProveedoresProductosPorIdProveedor";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Id_Proveedor", strCodigo);
-
-
-                //Abrimos y ejecutamos...
-                cnx.Open();
-                dtr = cmd.ExecuteReader();
-
-
-
-                if (dtr.HasRows == true)
-                {
-                    dtr.Read();
-
-
-                    objProductoBE.Id_Producto = dtr["Id_Producto"].ToString();
-                    objProductoBE.Nom_Producto = dtr["Nom_Producto"].ToString();
-
-
-                }
-                dtr.Close();
-                return objProductoBE;
-
-
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                if (cnx.State == ConnectionState.Open)
-                {
-                    cnx.Close();
-                }
-
-            }
-
-
-
-        }
-
-
 
 
     }

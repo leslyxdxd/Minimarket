@@ -23,11 +23,7 @@ namespace Minimarket_BL
         {
             return objProductoADO.ConsultarProducto(strCodigo);
         }
-        public ProductoBE ConsultarProductoxProveedor(String strCodigo)
-        {
-            return objProductoADO.ConsultarProductoxProveedor(strCodigo);
-        }
-
+     
 
     }
 }

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Minimarket_BE;
+using System.Globalization;
+using System.Net;
 
 namespace Minimarket_ADO
 
@@ -104,6 +106,69 @@ namespace Minimarket_ADO
                 }
 
             }
+
+
+
+        }
+
+
+
+        public DataTable ConsultarTransportistaxProveedor(String strIdCodigo)
+        {
+
+            try
+            {
+                //Codifique
+                TransportistaBE objTransportistaBE = new TransportistaBE();
+
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ProveedoresTransportePorIdProveedor";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IdProveedor", strIdCodigo);
+                SqlDataAdapter miada;
+                DataSet dts = new DataSet();
+                miada = new SqlDataAdapter(cmd);
+                miada.Fill(dts, "Transportista");
+                return dts.Tables["Transportista"];
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
+        }
+
+
+
+
+        public DataTable ConsultarProductoxProveedor(String strIdCodigo)
+        {
+
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ProveedoresProductosPorIdProveedor";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IdProveedor", strIdCodigo);
+                SqlDataAdapter miada;
+                DataSet dts = new DataSet();
+                miada = new SqlDataAdapter(cmd);
+                miada.Fill(dts, "Productos");
+                return dts.Tables["Productos"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
 
 
 

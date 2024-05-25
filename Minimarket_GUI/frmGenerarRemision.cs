@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Minimarket_BE;
 using Minimarket_BL;
-using Minimarket_GUI;
-
-using System;
-using System.Data;
-using System.Windows.Forms;
 using ProyVentas_BL;
+
 namespace Minimarket_GUI
 {
     public partial class frmGenerarRemision : Form
@@ -29,6 +19,7 @@ namespace Minimarket_GUI
         TransportistaBE objTransportistaBE = new TransportistaBE();
         UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
         UnidadMedidaBE objUnidadMedidaBE = new UnidadMedidaBE();
+
         public frmGenerarRemision()
         {
             InitializeComponent();
@@ -36,20 +27,68 @@ namespace Minimarket_GUI
 
         public String Codigo { get; set; }
 
-        private void cboProveeedor_SelectedIndexChanged(object sender, EventArgs e)
+        private void CargarCombos(string strIdCodigo)
         {
-           
-        }
 
-        private void frmGenerarRemision_Load(object sender, EventArgs e)
+
+            //Categoria
+            DataTable dt = new DataTable();
+
+            //Crear una nueva fila 
+            DataRow dr;
+
+
+            //De unidad de medida
+            dt = objUnidadMedidaBL.ListarUM();
+            dr = dt.NewRow();//Nueva fila
+            dr["Id_UM"] = 0;
+            dr["Des_UM"] = "--Seleccione--";
+            dt.Rows.InsertAt(dr, 0);//La fila se inserta en la posicion 0 de la tabla
+
+            //Llenamos el combo 
+            cboUm.DataSource = dt;
+            cboUm.ValueMember = "Id_UM";
+            cboUm.DisplayMember = "Des_UM";
+
+            cboProveeedor.DataSource = objProveedorBL.ListarProveedor();
+            cboProveeedor.ValueMember = "Id_Proveedor";
+            cboProveeedor.DisplayMember = "Nom_Proveedor";
+            cboProveeedor.SelectedValue = strIdCodigo;
+
+            // Para cboProducto
+            DataTable productoData = objProveedorBL.ConsultarProductoxProveedor(strIdCodigo);
+            DataRow productoRow = productoData.NewRow();
+            productoRow["Id_Producto"] = DBNull.Value;  // O un valor especial que indiques como 'Seleccione'
+            productoRow["Nom_Producto"] = "--Seleccione--";
+            productoData.Rows.InsertAt(productoRow, 0);
+
+            cboProducto.DataSource = productoData;
+            cboProducto.ValueMember = "Id_Producto";
+            cboProducto.DisplayMember = "Nom_Producto";
+            cboProducto.SelectedIndex = 0; // Seleccionar el primer ítem (Seleccione)
+
+            // Para cboTransportista
+            DataTable transportistaData = objProveedorBL.ConsultarTransportistaxProveedor(strIdCodigo);
+            DataRow transportistaRow = transportistaData.NewRow();
+            transportistaRow["Id_Transporte"] = DBNull.Value;  // O un valor especial que indiques como 'Seleccione'
+            transportistaRow["Empresa_Transporte"] = "--Seleccione--";
+            transportistaData.Rows.InsertAt(transportistaRow, 0);
+
+            cboTransportista.DataSource = transportistaData;
+            cboTransportista.ValueMember = "Id_Transporte";
+            cboTransportista.DisplayMember = "Empresa_Transporte";
+            cboTransportista.SelectedIndex = 0; // Seleccionar el primer ítem (Seleccione)
+
+        }
+            
+            private void frmGenerarRemision_Load(object sender, EventArgs e)
         {
             try
             {
-
+                CargarCombos("02");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -58,7 +97,6 @@ namespace Minimarket_GUI
         {
             try
             {
-
                 objProveedorBE.Id_Proveedor = Convert.ToString(cboProveeedor.SelectedValue);
                 objProductoBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
                 objTransportistaBE.Id_Transporte = Convert.ToString(cboTransportista.SelectedValue);
@@ -74,33 +112,35 @@ namespace Minimarket_GUI
                 objRemisionBE.Observaciones = txtObservacion.Text.Trim();
                 objRemisionBE.Usu_Registro = clsCredenciales.Login_Usuario;
 
-
-                if (objRemisionBL.InsertarRemision(objRemisionBE) == true)
+                if (objRemisionBL.InsertarRemision(objRemisionBE))
                 {
-                    // si se inserto correctamente
+                    // Si se insertó correctamente
                     this.Close();
                 }
                 else
                 {
                     throw new Exception("Error en el proceso, contacte con TI");
                 }
-
-
-
-
-
-
-
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void cboProveeedor_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarCombos(cboProveeedor.SelectedValue.ToString());
+        }
+
+        private void cboProducto_SelectionChangeCommitted(object sender, EventArgs e)
+        {
 
         }
 
-    
+        private void cboTransportista_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
     }
 }

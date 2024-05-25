@@ -9,7 +9,7 @@ namespace Minimarket_BE
     public class TransportistaBE
     {
         public String Id_Proveedor { get; set; }
-        public String Id_Transporte{ get; set; }
+        public String Id_Transporte { get; set; }
         public String Empresa_Transporte{ get; set; }
 
         public String Direccion_Empresa { get; set; }
