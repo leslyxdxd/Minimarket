@@ -18,6 +18,18 @@ namespace Minimarket_ADO
         SqlDataReader dtr;
         SqlDataAdapter ada;
 
-       
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

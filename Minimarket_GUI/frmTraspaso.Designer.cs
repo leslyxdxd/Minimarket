@@ -39,8 +39,6 @@
             label4 = new Label();
             btnTransferir = new Button();
             btnCancelar = new Button();
-            lblCodigo = new Label();
-            lblUM = new Label();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -154,29 +152,11 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblCodigo
-            // 
-            lblCodigo.BorderStyle = BorderStyle.FixedSingle;
-            lblCodigo.Location = new Point(145, 209);
-            lblCodigo.Name = "lblCodigo";
-            lblCodigo.Size = new Size(113, 23);
-            lblCodigo.TabIndex = 45;
-            // 
-            // lblUM
-            // 
-            lblUM.BorderStyle = BorderStyle.FixedSingle;
-            lblUM.Location = new Point(145, 175);
-            lblUM.Name = "lblUM";
-            lblUM.Size = new Size(113, 23);
-            lblUM.TabIndex = 46;
-            // 
             // frmTraspaso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(604, 257);
-            Controls.Add(lblUM);
-            Controls.Add(lblCodigo);
+            ClientSize = new Size(621, 266);
             Controls.Add(btnCancelar);
             Controls.Add(btnTransferir);
             Controls.Add(groupBox2);
