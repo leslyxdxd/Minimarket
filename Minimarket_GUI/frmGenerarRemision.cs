@@ -23,27 +23,25 @@ namespace Minimarket_GUI
         public frmGenerarRemision()
         {
             InitializeComponent();
+            // Establecer DropDownStyle para que los ComboBox sean solo de lectura
+            cboUm.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboProveeedor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTransportista.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-
-        public String Codigo { get; set; }
 
         private void CargarCombos(string strIdCodigo)
         {
-
-
             //Categoria
             DataTable dt = new DataTable();
-
-            //Crear una nueva fila 
             DataRow dr;
-
 
             //De unidad de medida
             dt = objUnidadMedidaBL.ListarUM();
-            dr = dt.NewRow();//Nueva fila
+            dr = dt.NewRow();
             dr["Id_UM"] = 0;
             dr["Des_UM"] = "--Seleccione--";
-            dt.Rows.InsertAt(dr, 0);//La fila se inserta en la posicion 0 de la tabla
+            dt.Rows.InsertAt(dr, 0);
 
             //Llenamos el combo 
             cboUm.DataSource = dt;
@@ -58,42 +56,109 @@ namespace Minimarket_GUI
             // Para cboProducto
             DataTable productoData = objProveedorBL.ConsultarProductoxProveedor(strIdCodigo);
             DataRow productoRow = productoData.NewRow();
-            productoRow["Id_Producto"] = DBNull.Value;  // O un valor especial que indiques como 'Seleccione'
+            productoRow["Id_Producto"] = DBNull.Value;
             productoRow["Nom_Producto"] = "--Seleccione--";
             productoData.Rows.InsertAt(productoRow, 0);
 
             cboProducto.DataSource = productoData;
             cboProducto.ValueMember = "Id_Producto";
             cboProducto.DisplayMember = "Nom_Producto";
-            cboProducto.SelectedIndex = 0; // Seleccionar el primer ítem (Seleccione)
+            cboProducto.SelectedIndex = 0;
 
             // Para cboTransportista
             DataTable transportistaData = objProveedorBL.ConsultarTransportistaxProveedor(strIdCodigo);
             DataRow transportistaRow = transportistaData.NewRow();
-            transportistaRow["Id_Transporte"] = DBNull.Value;  // O un valor especial que indiques como 'Seleccione'
+            transportistaRow["Id_Transporte"] = DBNull.Value;
             transportistaRow["Empresa_Transporte"] = "--Seleccione--";
             transportistaData.Rows.InsertAt(transportistaRow, 0);
 
             cboTransportista.DataSource = transportistaData;
             cboTransportista.ValueMember = "Id_Transporte";
             cboTransportista.DisplayMember = "Empresa_Transporte";
-            cboTransportista.SelectedIndex = 0; // Seleccionar el primer ítem (Seleccione)
-
+            cboTransportista.SelectedIndex = 0;
         }
-            
-            private void frmGenerarRemision_Load(object sender, EventArgs e)
+
+        private void LimpiarLabels()
+        {
+            lblDireccion.Text = string.Empty;
+            lblRuc.Text = string.Empty;
+            lblCorreo.Text = string.Empty;
+            lblTel.Text = string.Empty;
+
+            lblUnidad.Text = string.Empty;
+            lblMarcas.Text = string.Empty;
+
+            lblDirecTrans.Text = string.Empty;
+            lblRucTra.Text = string.Empty;
+            lblMarca.Text = string.Empty;
+            lblPlaca.Text = string.Empty;
+            lblLicencia.Text = string.Empty;
+        }
+
+        private void frmGenerarRemision_Load(object sender, EventArgs e)
         {
             try
             {
-                CargarCombos("02");
+                string codigoInicial = "02";
+                CargarCombos(codigoInicial);
+                CargarProveedor(codigoInicial);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void CargarProveedor(string codigoProveedor)
+        {
+            try
+            {
+                objProveedorBE = objProveedorBL.ConsultarProveedor(codigoProveedor);
+
+                lblDireccion.Text = objProveedorBE.Direc_Proveedor;
+                lblRuc.Text = objProveedorBE.RUC;
+                lblCorreo.Text = objProveedorBE.Correo;
+                lblTel.Text = objProveedorBE.Telefono;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void CargarProducto(string codigoProducto)
+        {
+            try
+            {
+                objProductoBE = objProductoBL.ConsultarProducto(codigoProducto);
+
+                lblUnidad.Text = objProductoBE.Des_UM;
+                lblMarcas.Text = objProductoBE.Marca;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void CargarTransportista(string codigoTransportista)
+        {
+            try
+            {
+                objTransportistaBE = objTransportistaBL.ConsultarTransportista(codigoTransportista);
+
+                lblDirecTrans.Text = objTransportistaBE.Direccion_Empresa;
+                lblRucTra.Text = objTransportistaBE.Ruc_Transporte;
+                lblMarca.Text = objTransportistaBE.Marca_Transporte;
+                lblPlaca.Text = objTransportistaBE.Marca_Transporte;
+                lblLicencia.Text = objTransportistaBE.Licencia_Transporte;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        private void btnGenerar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -108,13 +173,11 @@ namespace Minimarket_GUI
                 objRemisionBE.FechaFin = Convert.ToDateTime(dtpFecFin.Text.Trim());
                 objRemisionBE.Punto_Partida = txtPartida.Text.Trim();
                 objRemisionBE.Punto_Llegada = txtLlegada.Text.Trim();
-
                 objRemisionBE.Observaciones = txtObservacion.Text.Trim();
                 objRemisionBE.Usu_Registro = clsCredenciales.Login_Usuario;
 
                 if (objRemisionBL.InsertarRemision(objRemisionBE))
                 {
-                    // Si se insertó correctamente
                     this.Close();
                 }
                 else
@@ -126,21 +189,30 @@ namespace Minimarket_GUI
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
         }
+ 
 
         private void cboProveeedor_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            CargarCombos(cboProveeedor.SelectedValue.ToString());
+            string codigoProveedorSeleccionado = cboProveeedor.SelectedValue.ToString();
+            LimpiarLabels(); // Llamar al método para limpiar los labels
+            CargarCombos(codigoProveedorSeleccionado);
+            CargarProveedor(codigoProveedorSeleccionado);
         }
 
         private void cboProducto_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            string codigoProductoSeleccionado = cboProducto.SelectedValue.ToString();
+            CargarProducto(codigoProductoSeleccionado);
         }
 
         private void cboTransportista_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            string codigoTransportistaSeleccionado = cboTransportista.SelectedValue.ToString();
+            CargarTransportista(codigoTransportistaSeleccionado);
         }
+
+       
     }
 }

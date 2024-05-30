@@ -30,7 +30,7 @@ namespace Minimarket_ADO
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "usp_ConsultarTransportista";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Id_Proveedor", strCodigo);
+                cmd.Parameters.AddWithValue("@Id_Transporte", strCodigo);
 
 
                 //Abrimos y ejecutamos...
@@ -45,11 +45,11 @@ namespace Minimarket_ADO
 
                   
                     objTransportistaBE.Ruc_Transporte = dtr["Ruc_Transporte"].ToString();
-                    objTransportistaBE.Marca_Transporte = dtr["Marca_Transporte"].ToString();
+                    objTransportistaBE.Marca_Transporte = dtr["Marca_Trasporte"].ToString();
                     objTransportistaBE.Empresa_Transporte = dtr["Empresa_Transporte"].ToString();
-
+                    objTransportistaBE.Direccion_Empresa = dtr["Direccion_Empresa"].ToString();
                     objTransportistaBE.Licencia_Transporte = dtr["Licencia_Transporte"].ToString();
-                    objTransportistaBE.Placa_Transporte = dtr["Placa_Transporte"].ToString();
+                    objTransportistaBE.Placa_Transporte = dtr["Placa_Trasporte"].ToString();
 
                 }
                 dtr.Close();

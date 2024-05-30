@@ -35,7 +35,6 @@
             label5 = new Label();
             cboProveeedor = new ComboBox();
             label1 = new Label();
-            btnConsultar = new Button();
             label12 = new Label();
             label8 = new Label();
             lblCorreo = new Label();
@@ -54,7 +53,7 @@
             label20 = new Label();
             groupBox3 = new GroupBox();
             label9 = new Label();
-            label3 = new Label();
+            lblLicencia = new Label();
             cboTransportista = new ComboBox();
             Transporte = new Label();
             lblDirecTrans = new Label();
@@ -78,6 +77,7 @@
             cboUm = new ComboBox();
             label7 = new Label();
             label15 = new Label();
+            btnGenerar = new Button();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -135,6 +135,7 @@
             // 
             // cboProveeedor
             // 
+            cboProveeedor.DropDownStyle = ComboBoxStyle.Simple;
             cboProveeedor.FormattingEnabled = true;
             cboProveeedor.Location = new Point(113, 34);
             cboProveeedor.Name = "cboProveeedor";
@@ -151,17 +152,6 @@
             label1.Size = new Size(56, 15);
             label1.TabIndex = 30;
             label1.Text = "Producto";
-            // 
-            // btnConsultar
-            // 
-            btnConsultar.Location = new Point(1013, 504);
-            btnConsultar.Margin = new Padding(4, 3, 4, 3);
-            btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(116, 40);
-            btnConsultar.TabIndex = 31;
-            btnConsultar.Text = "Generar";
-            btnConsultar.UseVisualStyleBackColor = true;
-            btnConsultar.Click += btnConsultar_Click;
             // 
             // label12
             // 
@@ -275,7 +265,6 @@
             btnCancelar.TabIndex = 31;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnConsultar_Click;
             // 
             // groupBox2
             // 
@@ -337,7 +326,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(label3);
+            groupBox3.Controls.Add(lblLicencia);
             groupBox3.Controls.Add(cboTransportista);
             groupBox3.Controls.Add(Transporte);
             groupBox3.Controls.Add(lblDirecTrans);
@@ -365,14 +354,14 @@
             label9.TabIndex = 31;
             label9.Text = "N. Licencia";
             // 
-            // label3
+            // lblLicencia
             // 
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Location = new Point(334, 103);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(157, 16);
-            label3.TabIndex = 30;
+            lblLicencia.BorderStyle = BorderStyle.FixedSingle;
+            lblLicencia.Location = new Point(334, 103);
+            lblLicencia.Margin = new Padding(4, 0, 4, 0);
+            lblLicencia.Name = "lblLicencia";
+            lblLicencia.Size = new Size(157, 16);
+            lblLicencia.TabIndex = 30;
             // 
             // cboTransportista
             // 
@@ -602,17 +591,28 @@
             label15.TabIndex = 41;
             label15.Text = "Fecha de Partida:";
             // 
+            // btnGenerar
+            // 
+            btnGenerar.Location = new Point(998, 504);
+            btnGenerar.Margin = new Padding(4, 3, 4, 3);
+            btnGenerar.Name = "btnGenerar";
+            btnGenerar.Size = new Size(116, 40);
+            btnGenerar.TabIndex = 44;
+            btnGenerar.Text = "Generar";
+            btnGenerar.UseVisualStyleBackColor = true;
+            btnGenerar.Click += btnGenerar_Click;
+            // 
             // frmGenerarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1151, 556);
+            Controls.Add(btnGenerar);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnCancelar);
-            Controls.Add(btnConsultar);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmGenerarRemision";
@@ -639,7 +639,6 @@
         private Label label5;
         private ComboBox cboProveeedor;
         private Label label1;
-        private Button btnConsultar;
         private Label label12;
         private Label label8;
         private Label lblCorreo;
@@ -663,7 +662,7 @@
         private Label lblMarca;
         private Label label16;
         private Label label17;
-        private Label label3;
+        private Label lblLicencia;
         private Label label9;
         private GroupBox groupBox4;
         private Label label13;
@@ -682,5 +681,6 @@
         private Label label22;
         private Label lblUnidad;
         private Label lblMarcas;
+        private Button btnGenerar;
     }
 }
