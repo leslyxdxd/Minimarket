@@ -162,10 +162,10 @@ namespace Minimarket_GUI
         {
             try
             {
-                objProveedorBE.Id_Proveedor = Convert.ToString(cboProveeedor.SelectedValue);
-                objProductoBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
-                objTransportistaBE.Id_Transporte = Convert.ToString(cboTransportista.SelectedValue);
-                objUnidadMedidaBE.Id_UM = Convert.ToInt16(cboUm.SelectedValue);
+                objRemisionBE.Id_Proveedor = Convert.ToString(cboProveeedor.SelectedValue);
+                objRemisionBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
+                objRemisionBE.Id_Transporte = Convert.ToString(cboTransportista.SelectedValue);
+                objRemisionBE.Id_UM = Convert.ToInt16(cboUm.SelectedValue);
 
                 objRemisionBE.Cantidad = Convert.ToInt16(UpdownCantidad.Text.Trim());
                 objRemisionBE.Peso_Carga = Convert.ToDecimal(txtPeso.Text.Trim());
@@ -178,7 +178,8 @@ namespace Minimarket_GUI
 
                 if (objRemisionBL.InsertarRemision(objRemisionBE))
                 {
-                    this.Close();
+                    MessageBox.Show("Remisión generada correctamente.");
+                    this.Close(); // Cierra el formulario después de la inserción exitosa
                 }
                 else
                 {
@@ -189,9 +190,8 @@ namespace Minimarket_GUI
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-
         }
- 
+
 
         private void cboProveeedor_SelectionChangeCommitted(object sender, EventArgs e)
         {
