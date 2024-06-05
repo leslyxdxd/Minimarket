@@ -633,9 +633,9 @@
             label21.Location = new Point(6, 9);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
-            label21.Size = new Size(255, 37);
+            label21.Size = new Size(399, 37);
             label21.TabIndex = 45;
-            label21.Text = " GUIA DE REMISION";
+            label21.Text = " GUIA DE REMISION REMITENTE";
             // 
             // frmGenerarRemision
             // 
