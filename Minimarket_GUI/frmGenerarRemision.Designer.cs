@@ -94,13 +94,13 @@
             lblTel.Location = new Point(359, 68);
             lblTel.Margin = new Padding(4, 0, 4, 0);
             lblTel.Name = "lblTel";
-            lblTel.Size = new Size(166, 16);
+            lblTel.Size = new Size(166, 17);
             lblTel.TabIndex = 24;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(296, 68);
+            label10.Location = new Point(296, 70);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(55, 15);
@@ -110,10 +110,10 @@
             // lblRuc
             // 
             lblRuc.BorderStyle = BorderStyle.FixedSingle;
-            lblRuc.Location = new Point(337, 36);
+            lblRuc.Location = new Point(337, 34);
             lblRuc.Margin = new Padding(4, 0, 4, 0);
             lblRuc.Name = "lblRuc";
-            lblRuc.Size = new Size(188, 15);
+            lblRuc.Size = new Size(188, 18);
             lblRuc.TabIndex = 25;
             // 
             // label6
@@ -609,7 +609,7 @@
             // 
             txtNumeroGuia.DropDownStyle = ComboBoxStyle.Simple;
             txtNumeroGuia.FormattingEnabled = true;
-            txtNumeroGuia.Location = new Point(962, 24);
+            txtNumeroGuia.Location = new Point(969, 24);
             txtNumeroGuia.Name = "txtNumeroGuia";
             txtNumeroGuia.Size = new Size(144, 23);
             txtNumeroGuia.TabIndex = 30;
@@ -618,11 +618,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(884, 26);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(71, 20);
+            label3.Size = new Size(78, 20);
             label3.TabIndex = 30;
             label3.Text = "Nº GUIA :";
             // 
