@@ -62,6 +62,7 @@ namespace Minimarket_GUI
             dtv.RowFilter = "Nom_Proveedor LIKE '%" + Nom_Proveedor + "%'";
             dtgRemision.DataSource = dtv;
             lblRegistros.Text = dtgRemision.Rows.Count.ToString();
+
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)

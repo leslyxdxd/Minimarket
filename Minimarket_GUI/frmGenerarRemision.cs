@@ -28,6 +28,30 @@ namespace Minimarket_GUI
             cboProveeedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTransportista.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Establecer el valor predeterminado y agregar el controlador de eventos KeyPress y TextChanged
+            txtNumeroGuia.Text = "001-";
+            txtNumeroGuia.KeyPress += new KeyPressEventHandler(txtNumeroGuia_KeyPress);
+            txtNumeroGuia.TextChanged += new EventHandler(txtNumeroGuia_TextChanged);
+        }
+
+        private void txtNumeroGuia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Prevenir la eliminación del prefijo "001-"
+            if (txtNumeroGuia.SelectionStart < 4 && (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumeroGuia_TextChanged(object sender, EventArgs e)
+        {
+            // Asegurarse de que el prefijo "001-" esté siempre presente
+            if (!txtNumeroGuia.Text.StartsWith("001-"))
+            {
+                txtNumeroGuia.Text = "001-";
+                txtNumeroGuia.SelectionStart = txtNumeroGuia.Text.Length; // Mover el cursor al final
+            }
         }
 
         private void CargarCombos(string strIdCodigo)
@@ -158,6 +182,7 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             try
@@ -166,6 +191,7 @@ namespace Minimarket_GUI
                 objRemisionBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
                 objRemisionBE.Id_Transporte = Convert.ToString(cboTransportista.SelectedValue);
                 objRemisionBE.Id_UM = Convert.ToInt16(cboUm.SelectedValue);
+                objRemisionBE.Num_Guia = txtNumeroGuia.Text.Trim();
 
                 objRemisionBE.Cantidad = Convert.ToInt16(UpdownCantidad.Text.Trim());
                 objRemisionBE.Peso_Carga = Convert.ToDecimal(txtPeso.Text.Trim());
@@ -192,7 +218,6 @@ namespace Minimarket_GUI
             }
         }
 
-
         private void cboProveeedor_SelectionChangeCommitted(object sender, EventArgs e)
         {
             string codigoProveedorSeleccionado = cboProveeedor.SelectedValue.ToString();
@@ -213,6 +238,6 @@ namespace Minimarket_GUI
             CargarTransportista(codigoTransportistaSeleccionado);
         }
 
-       
+    
     }
 }

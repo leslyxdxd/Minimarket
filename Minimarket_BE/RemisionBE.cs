@@ -11,7 +11,7 @@ namespace Minimarket_BE
        
         public int Id_Detalle { get; set; }
 
-
+        public String Num_Guia { get; set; }
         public String Id_Remision { get; set; }
         public String Id_Transporte { get; set; }
         public String Id_Proveedor { get; set; }

@@ -82,7 +82,8 @@ namespace Minimarket_ADO
 
                 cmd.Parameters.AddWithValue("@Cantidad", objRemisionBE.Cantidad);
                 cmd.Parameters.AddWithValue("@Observaciones", objRemisionBE.Observaciones);
-    
+                cmd.Parameters.AddWithValue("@Num_Guia", objRemisionBE.Num_Guia);
+
                 cmd.Parameters.AddWithValue("@Usu_Registro", objRemisionBE.Usu_Registro);
 
     

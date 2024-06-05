@@ -78,6 +78,9 @@
             label7 = new Label();
             label15 = new Label();
             btnGenerar = new Button();
+            txtNumeroGuia = new ComboBox();
+            label3 = new Label();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -241,7 +244,7 @@
             groupBox1.Controls.Add(lblTel);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label8);
-            groupBox1.Location = new Point(12, 25);
+            groupBox1.Location = new Point(12, 70);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(546, 139);
             groupBox1.TabIndex = 40;
@@ -258,7 +261,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(855, 504);
+            btnCancelar.Location = new Point(848, 461);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 40);
@@ -278,7 +281,7 @@
             groupBox2.Controls.Add(txtObservacion);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(UpdownCantidad);
-            groupBox2.Location = new Point(12, 182);
+            groupBox2.Location = new Point(13, 215);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(450, 286);
             groupBox2.TabIndex = 42;
@@ -337,7 +340,7 @@
             groupBox3.Controls.Add(lblMarca);
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
-            groupBox3.Location = new Point(573, 25);
+            groupBox3.Location = new Point(573, 70);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(566, 139);
             groupBox3.TabIndex = 41;
@@ -472,7 +475,7 @@
             groupBox4.Controls.Add(cboUm);
             groupBox4.Controls.Add(label7);
             groupBox4.Controls.Add(label15);
-            groupBox4.Location = new Point(468, 182);
+            groupBox4.Location = new Point(469, 215);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(671, 220);
             groupBox4.TabIndex = 43;
@@ -593,7 +596,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(998, 504);
+            btnGenerar.Location = new Point(999, 461);
             btnGenerar.Margin = new Padding(4, 3, 4, 3);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(116, 40);
@@ -602,11 +605,46 @@
             btnGenerar.UseVisualStyleBackColor = true;
             btnGenerar.Click += btnGenerar_Click;
             // 
+            // txtNumeroGuia
+            // 
+            txtNumeroGuia.DropDownStyle = ComboBoxStyle.Simple;
+            txtNumeroGuia.FormattingEnabled = true;
+            txtNumeroGuia.Location = new Point(962, 24);
+            txtNumeroGuia.Name = "txtNumeroGuia";
+            txtNumeroGuia.Size = new Size(144, 23);
+            txtNumeroGuia.TabIndex = 30;
+            txtNumeroGuia.KeyPress += txtNumeroGuia_KeyPress;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(884, 26);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 20);
+            label3.TabIndex = 30;
+            label3.Text = "Nº GUIA :";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label21.Location = new Point(6, 9);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(255, 37);
+            label21.TabIndex = 45;
+            label21.Text = " GUIA DE REMISION";
+            // 
             // frmGenerarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1151, 556);
+            ClientSize = new Size(1151, 535);
+            Controls.Add(label21);
+            Controls.Add(label3);
+            Controls.Add(txtNumeroGuia);
             Controls.Add(btnGenerar);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
@@ -629,6 +667,7 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -682,5 +721,8 @@
         private Label lblUnidad;
         private Label lblMarcas;
         private Button btnGenerar;
+        private ComboBox txtNumeroGuia;
+        private Label label3;
+        private Label label21;
     }
 }
