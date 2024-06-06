@@ -7,18 +7,18 @@ using ProyVentas_BL;
 
 namespace Minimarket_GUI
 {
-    public partial class frmVentaProductos : Form
+    public partial class frmVentaBoletas : Form
     {
         ProductoBL objProductoBL = new ProductoBL();
         ProductoBE objProductoBE = new ProductoBE();
         StockBE objStockBE = new StockBE();
         StockBL objStockBL = new StockBL();
         UnidadMedidaBE objUnidadMedidaBE = new UnidadMedidaBE();
-        UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();    
+        UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
 
         public string Codigo { get; set; }
 
-        public frmVentaProductos()
+        public frmVentaBoletas()
         {
             InitializeComponent();
         }
@@ -79,6 +79,11 @@ namespace Minimarket_GUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

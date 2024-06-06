@@ -43,13 +43,15 @@
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             agregarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             gestionarVentaToolStripMenuItem = new ToolStripMenuItem();
+            boletaToolStripMenuItem = new ToolStripMenuItem();
+            facturaToolStripMenuItem = new ToolStripMenuItem();
             generarRemisionToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            consultarClienteToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
-            consultarClienteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -154,10 +156,25 @@
             // 
             // gestionarVentaToolStripMenuItem
             // 
+            gestionarVentaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boletaToolStripMenuItem, facturaToolStripMenuItem });
             gestionarVentaToolStripMenuItem.Name = "gestionarVentaToolStripMenuItem";
             gestionarVentaToolStripMenuItem.Size = new Size(101, 21);
             gestionarVentaToolStripMenuItem.Text = "Gestionar Venta";
             gestionarVentaToolStripMenuItem.Click += gestionarVentaToolStripMenuItem_Click;
+            // 
+            // boletaToolStripMenuItem
+            // 
+            boletaToolStripMenuItem.Name = "boletaToolStripMenuItem";
+            boletaToolStripMenuItem.Size = new Size(180, 22);
+            boletaToolStripMenuItem.Text = "Boleta";
+            boletaToolStripMenuItem.Click += boletaToolStripMenuItem_Click;
+            // 
+            // facturaToolStripMenuItem
+            // 
+            facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
+            facturaToolStripMenuItem.Size = new Size(180, 22);
+            facturaToolStripMenuItem.Text = "Factura";
+            facturaToolStripMenuItem.Click += facturaToolStripMenuItem_Click;
             // 
             // generarRemisionToolStripMenuItem
             // 
@@ -177,9 +194,16 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Size = new Size(101, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            // 
+            // consultarClienteToolStripMenuItem
+            // 
+            consultarClienteToolStripMenuItem.Name = "consultarClienteToolStripMenuItem";
+            consultarClienteToolStripMenuItem.Size = new Size(110, 21);
+            consultarClienteToolStripMenuItem.Text = "Consultar Cliente";
+            consultarClienteToolStripMenuItem.Click += consultarClienteToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -206,13 +230,6 @@
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
-            // 
-            // consultarClienteToolStripMenuItem
-            // 
-            consultarClienteToolStripMenuItem.Name = "consultarClienteToolStripMenuItem";
-            consultarClienteToolStripMenuItem.Size = new Size(110, 21);
-            consultarClienteToolStripMenuItem.Text = "Consultar Cliente";
-            consultarClienteToolStripMenuItem.Click += consultarClienteToolStripMenuItem_Click;
             // 
             // MDIPrincipal
             // 
@@ -264,5 +281,7 @@
         private ToolStripMenuItem generarRemisionToolStripMenuItem;
         private ToolStripMenuItem stokAlmacen;
         private ToolStripMenuItem consultarClienteToolStripMenuItem;
+        private ToolStripMenuItem boletaToolStripMenuItem;
+        private ToolStripMenuItem facturaToolStripMenuItem;
     }
 }
