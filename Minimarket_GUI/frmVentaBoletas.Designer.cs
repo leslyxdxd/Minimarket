@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             button2 = new Button();
-            lblRegistros = new Label();
+            lblTotalPagar = new Label();
             label2 = new Label();
             button1 = new Button();
             button3 = new Button();
@@ -46,24 +46,26 @@
             label4 = new Label();
             label3 = new Label();
             lblCodigo = new Label();
-            dtgUsuario = new DataGridView();
+            dtgListaProductos = new DataGridView();
             Cod_Producto = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
+            txtDNI = new TextBox();
+            btnBuscarClienteDNI = new Button();
             label16 = new Label();
             label15 = new Label();
             label1 = new Label();
-            richTextBox2 = new RichTextBox();
-            label13 = new Label();
-            label8 = new Label();
+            lblApellidos = new Label();
+            lblNombres = new Label();
             label21 = new Label();
-            label5 = new Label();
+            lblRegistros = new Label();
             label10 = new Label();
+            btnEliminarProducto = new Button();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgListaProductos).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,14 +78,14 @@
             button2.Text = "Registrar comprobante";
             button2.UseVisualStyleBackColor = true;
             // 
-            // lblRegistros
+            // lblTotalPagar
             // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(897, 637);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(147, 35);
-            lblRegistros.TabIndex = 4;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            lblTotalPagar.BorderStyle = BorderStyle.FixedSingle;
+            lblTotalPagar.Location = new Point(897, 637);
+            lblTotalPagar.Name = "lblTotalPagar";
+            lblTotalPagar.Size = new Size(147, 35);
+            lblTotalPagar.TabIndex = 4;
+            lblTotalPagar.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -102,6 +104,7 @@
             button1.TabIndex = 6;
             button1.Text = "Agregar producto";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button3
             // 
@@ -128,9 +131,9 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(lblCodigo);
             groupBox1.Controls.Add(button3);
-            groupBox1.Location = new Point(34, 161);
+            groupBox1.Location = new Point(28, 161);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1010, 122);
+            groupBox1.Size = new Size(1025, 122);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalle de Producto ";
@@ -245,69 +248,94 @@
             lblCodigo.TabIndex = 8;
             lblCodigo.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dtgUsuario
+            // dtgListaProductos
             // 
-            dtgUsuario.AllowUserToAddRows = false;
-            dtgUsuario.AllowUserToDeleteRows = false;
-            dtgUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgUsuario.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, SubTotal });
-            dtgUsuario.Location = new Point(28, 311);
-            dtgUsuario.Margin = new Padding(4, 3, 4, 3);
-            dtgUsuario.Name = "dtgUsuario";
-            dtgUsuario.ReadOnly = true;
-            dtgUsuario.RowHeadersVisible = false;
-            dtgUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgUsuario.Size = new Size(778, 439);
-            dtgUsuario.TabIndex = 9;
+            dtgListaProductos.AllowUserToAddRows = false;
+            dtgListaProductos.AllowUserToDeleteRows = false;
+            dtgListaProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgListaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgListaProductos.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, SubTotal });
+            dtgListaProductos.Location = new Point(28, 311);
+            dtgListaProductos.Margin = new Padding(4, 3, 4, 3);
+            dtgListaProductos.Name = "dtgListaProductos";
+            dtgListaProductos.ReadOnly = true;
+            dtgListaProductos.RowHeadersVisible = false;
+            dtgListaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgListaProductos.Size = new Size(833, 439);
+            dtgListaProductos.TabIndex = 9;
             // 
             // Cod_Producto
             // 
-            Cod_Producto.HeaderText = "Cod_Producto";
+            Cod_Producto.DataPropertyName = "Cod_Producto";
+            Cod_Producto.HeaderText = "Cod.Producto";
             Cod_Producto.Name = "Cod_Producto";
             Cod_Producto.ReadOnly = true;
             Cod_Producto.Resizable = DataGridViewTriState.False;
-            Cod_Producto.Visible = false;
             // 
             // Producto
             // 
+            Producto.DataPropertyName = "Producto";
             Producto.HeaderText = "Producto";
             Producto.Name = "Producto";
             Producto.ReadOnly = true;
             // 
             // Precio
             // 
+            Precio.DataPropertyName = "Precio";
             Precio.HeaderText = "Precio";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
             // 
             // Cantidad
             // 
+            Cantidad.DataPropertyName = "Precio";
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
             Cantidad.ReadOnly = true;
             // 
             // SubTotal
             // 
+            SubTotal.DataPropertyName = "SubTotal";
             SubTotal.HeaderText = "SubTotal";
             SubTotal.Name = "SubTotal";
             SubTotal.ReadOnly = true;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(txtDNI);
+            groupBox2.Controls.Add(btnBuscarClienteDNI);
             groupBox2.Controls.Add(label16);
             groupBox2.Controls.Add(label15);
             groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(richTextBox2);
-            groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(lblApellidos);
+            groupBox2.Controls.Add(lblNombres);
             groupBox2.Location = new Point(28, 63);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1010, 76);
+            groupBox2.Size = new Size(1025, 76);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Información del comprador";
             groupBox2.Enter += groupBox2_Enter;
+            // 
+            // txtDNI
+            // 
+            txtDNI.Location = new Point(70, 35);
+            txtDNI.MaxLength = 8;
+            txtDNI.Name = "txtDNI";
+            txtDNI.Size = new Size(129, 23);
+            txtDNI.TabIndex = 21;
+            // 
+            // btnBuscarClienteDNI
+            // 
+            btnBuscarClienteDNI.BackColor = SystemColors.ButtonFace;
+            btnBuscarClienteDNI.BackgroundImage = Properties.Resources.lupa;
+            btnBuscarClienteDNI.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBuscarClienteDNI.Location = new Point(977, 29);
+            btnBuscarClienteDNI.Name = "btnBuscarClienteDNI";
+            btnBuscarClienteDNI.Size = new Size(33, 33);
+            btnBuscarClienteDNI.TabIndex = 18;
+            btnBuscarClienteDNI.UseVisualStyleBackColor = false;
+            btnBuscarClienteDNI.Click += btnBuscarClienteDNI_Click;
             // 
             // label16
             // 
@@ -336,33 +364,25 @@
             label1.TabIndex = 1;
             label1.Text = "DNI";
             // 
-            // richTextBox2
+            // lblApellidos
             // 
-            richTextBox2.Location = new Point(70, 35);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(148, 23);
-            richTextBox2.TabIndex = 0;
-            richTextBox2.Text = "";
+            lblApellidos.BorderStyle = BorderStyle.FixedSingle;
+            lblApellidos.Location = new Point(642, 32);
+            lblApellidos.Margin = new Padding(4, 0, 4, 0);
+            lblApellidos.Name = "lblApellidos";
+            lblApellidos.Size = new Size(323, 25);
+            lblApellidos.TabIndex = 17;
+            lblApellidos.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label13
+            // lblNombres
             // 
-            label13.BorderStyle = BorderStyle.FixedSingle;
-            label13.Location = new Point(642, 32);
-            label13.Margin = new Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(323, 25);
-            label13.TabIndex = 17;
-            label13.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            label8.BorderStyle = BorderStyle.FixedSingle;
-            label8.Location = new Point(319, 30);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(222, 25);
-            label8.TabIndex = 17;
-            label8.TextAlign = ContentAlignment.MiddleCenter;
+            lblNombres.BorderStyle = BorderStyle.FixedSingle;
+            lblNombres.Location = new Point(319, 30);
+            lblNombres.Margin = new Padding(4, 0, 4, 0);
+            lblNombres.Name = "lblNombres";
+            lblNombres.Size = new Size(222, 25);
+            lblNombres.TabIndex = 17;
+            lblNombres.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label21
             // 
@@ -375,14 +395,14 @@
             label21.TabIndex = 46;
             label21.Text = "BOLETA ELECTRONICA";
             // 
-            // label5
+            // lblRegistros
             // 
-            label5.BorderStyle = BorderStyle.FixedSingle;
-            label5.Location = new Point(98, 766);
-            label5.Name = "label5";
-            label5.Size = new Size(78, 22);
-            label5.TabIndex = 48;
-            label5.TextAlign = ContentAlignment.MiddleRight;
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(98, 766);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 48;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -393,21 +413,32 @@
             label10.TabIndex = 47;
             label10.Text = "Registros:";
             // 
+            // btnEliminarProducto
+            // 
+            btnEliminarProducto.Location = new Point(891, 395);
+            btnEliminarProducto.Name = "btnEliminarProducto";
+            btnEliminarProducto.Size = new Size(147, 68);
+            btnEliminarProducto.TabIndex = 49;
+            btnEliminarProducto.Text = "Eliminar Producto";
+            btnEliminarProducto.UseVisualStyleBackColor = true;
+            btnEliminarProducto.Click += btnEliminarProducto_Click;
+            // 
             // frmVentaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1074, 798);
-            Controls.Add(label5);
+            ClientSize = new Size(1074, 804);
+            Controls.Add(btnEliminarProducto);
+            Controls.Add(lblRegistros);
             Controls.Add(label10);
             Controls.Add(label21);
-            Controls.Add(dtgUsuario);
+            Controls.Add(dtgListaProductos);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(button1);
             Controls.Add(label2);
-            Controls.Add(lblRegistros);
+            Controls.Add(lblTotalPagar);
             Controls.Add(button2);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -416,7 +447,7 @@
             Text = "Registro de compra";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgUsuario).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgListaProductos).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -425,7 +456,7 @@
 
         #endregion
         private Button button2;
-        private Label lblRegistros;
+        private Label lblTotalPagar;
         private Label label2;
         private Button button1;
         private Button button3;
@@ -440,23 +471,25 @@
         private Label label11;
         private Label lblUM;
         private Label label9;
-        private DataGridView dtgUsuario;
+        private DataGridView dtgListaProductos;
+        private GroupBox groupBox2;
+        private Label label1;
+        private Label lblApellidos;
+        private Label lblNombres;
+        private Label label16;
+        private Label label15;
+        private Label label21;
+        private Label lblStock;
+        private Label lblRegistros;
+        private Label label10;
+        private TextBox txtCantidad;
+        private Button btnBuscarClienteDNI;
+        private TextBox txtDNI;
+        private Button btnEliminarProducto;
         private DataGridViewTextBoxColumn Cod_Producto;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
-        private GroupBox groupBox2;
-        private Label label1;
-        private RichTextBox richTextBox2;
-        private Label label13;
-        private Label label8;
-        private Label label16;
-        private Label label15;
-        private Label label21;
-        private Label lblStock;
-        private Label label5;
-        private Label label10;
-        private TextBox txtCantidad;
     }
 }

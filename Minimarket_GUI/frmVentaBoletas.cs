@@ -15,6 +15,7 @@ namespace Minimarket_GUI
         StockBL objStockBL = new StockBL();
         UnidadMedidaBE objUnidadMedidaBE = new UnidadMedidaBE();
         UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
+        ClienteBL objClienteBL = new ClienteBL();
 
         public string Codigo { get; set; }
 
@@ -83,6 +84,91 @@ namespace Minimarket_GUI
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private async void btnBuscarClienteDNI_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string dni = txtDNI.Text.Trim();
+                if (!string.IsNullOrEmpty(dni))
+                {
+                    ClienteBE cliente = await objClienteBL.ObtenerClientePorDniAsync(dni);
+                    if (cliente != null)
+                    {
+                        // Concatenar apellido paterno y materno con un espacio entre ellos
+                        lblApellidos.Text = cliente.apellido_paterno + " " + cliente.apellido_materno;
+                        lblNombres.Text = cliente.nombres;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró información para el DNI proporcionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un DNI.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al consultar el DNI: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow file = new DataGridViewRow();
+            file.CreateCells(dtgListaProductos);
+            file.Cells[0].Value = lblCodigo.Text;
+            file.Cells[1].Value = lblNombre.Text;
+            file.Cells[2].Value = lblPrecio.Text;
+            file.Cells[3].Value = txtCantidad.Text;
+            file.Cells[4].Value = (float.Parse(lblPrecio.Text) * float.Parse(txtCantidad.Text)).ToString();
+
+            dtgListaProductos.Rows.Add(file);
+            lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
+            lblNombre.Text = lblPrecio.Text = txtCantidad.Text = lblCodigo.Text =lblUM.Text = lblStock.Text = "";
+
+            obtenerTotal();
+
+        }
+
+        public void obtenerTotal()
+        {
+            float costot = 0;
+            int contador = 0;
+
+            contador = dtgListaProductos.RowCount;
+
+            for (int i = 0; i < contador; i++)
+            {
+                costot += float.Parse(dtgListaProductos.Rows[i].Cells[4].Value.ToString());
+            }
+
+            lblTotalPagar.Text = costot.ToString();
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult rppta = MessageBox.Show("¿Desea eliminar producto?",
+                    "Eliminacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (rppta == DialogResult.Yes)
+                {
+                    dtgListaProductos.Rows.Remove(dtgListaProductos.CurrentRow);
+                    lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            obtenerTotal();
 
         }
     }
