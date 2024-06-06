@@ -179,9 +179,6 @@ namespace ProyVentas_GUI
 
         private void gestionarVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVentaBoletas prov01 = new frmVentaBoletas();
-            prov01.MdiParent = this;
-            prov01.Show();
 
         }
 
