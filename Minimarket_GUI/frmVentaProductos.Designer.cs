@@ -37,7 +37,6 @@
             label11 = new Label();
             lblUM = new Label();
             label9 = new Label();
-            lblStock = new Label();
             label7 = new Label();
             txtCantidad = new TextBox();
             lblPrecio = new Label();
@@ -52,13 +51,29 @@
             Precio = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
+            groupBox2 = new GroupBox();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            groupBox3 = new GroupBox();
+            richTextBox1 = new RichTextBox();
+            richTextBox2 = new RichTextBox();
+            label1 = new Label();
+            label5 = new Label();
+            label8 = new Label();
+            label10 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // button2
             // 
-            button2.Location = new Point(857, 577);
+            button2.Location = new Point(897, 691);
             button2.Name = "button2";
             button2.Size = new Size(147, 48);
             button2.TabIndex = 3;
@@ -68,7 +83,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(857, 500);
+            lblRegistros.Location = new Point(897, 639);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(147, 35);
             lblRegistros.TabIndex = 4;
@@ -77,7 +92,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(857, 471);
+            label2.Location = new Point(897, 612);
             label2.Name = "label2";
             label2.Size = new Size(74, 15);
             label2.TabIndex = 5;
@@ -85,7 +100,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(843, 195);
+            button1.Location = new Point(891, 356);
             button1.Name = "button1";
             button1.Size = new Size(147, 71);
             button1.TabIndex = 6;
@@ -107,7 +122,6 @@
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(lblUM);
             groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(lblStock);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(txtCantidad);
             groupBox1.Controls.Add(lblPrecio);
@@ -117,7 +131,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(lblCodigo);
             groupBox1.Controls.Add(button3);
-            groupBox1.Location = new Point(12, 30);
+            groupBox1.Location = new Point(28, 208);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(1010, 122);
             groupBox1.TabIndex = 8;
@@ -151,16 +165,6 @@
             label9.Size = new Size(39, 15);
             label9.TabIndex = 18;
             label9.Text = "Stock ";
-            // 
-            // lblStock
-            // 
-            lblStock.BorderStyle = BorderStyle.FixedSingle;
-            lblStock.Location = new Point(694, 71);
-            lblStock.Margin = new Padding(4, 0, 4, 0);
-            lblStock.Name = "lblStock";
-            lblStock.Size = new Size(100, 35);
-            lblStock.TabIndex = 17;
-            lblStock.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -232,7 +236,7 @@
             lblCodigo.BorderStyle = BorderStyle.FixedSingle;
             lblCodigo.Location = new Point(16, 67);
             lblCodigo.Name = "lblCodigo";
-            lblCodigo.Size = new Size(76, 37);
+            lblCodigo.Size = new Size(81, 37);
             lblCodigo.TabIndex = 8;
             lblCodigo.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -243,7 +247,7 @@
             dtgUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgUsuario.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, SubTotal });
-            dtgUsuario.Location = new Point(28, 184);
+            dtgUsuario.Location = new Point(28, 347);
             dtgUsuario.Margin = new Padding(4, 3, 4, 3);
             dtgUsuario.Name = "dtgUsuario";
             dtgUsuario.ReadOnly = true;
@@ -284,13 +288,158 @@
             SubTotal.Name = "SubTotal";
             SubTotal.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(label16);
+            groupBox2.Controls.Add(label15);
+            groupBox2.Controls.Add(label14);
+            groupBox2.Controls.Add(label1);
+            groupBox2.Controls.Add(richTextBox2);
+            groupBox2.Controls.Add(label13);
+            groupBox2.Controls.Add(label10);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(richTextBox1);
+            groupBox2.Location = new Point(254, 27);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(909, 175);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Información del comprador";
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(39, 31);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(119, 19);
+            radioButton1.TabIndex = 10;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Boleta Electronica";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(39, 64);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(125, 19);
+            radioButton2.TabIndex = 11;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Factura Electronica";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(radioButton2);
+            groupBox3.Controls.Add(radioButton1);
+            groupBox3.Location = new Point(28, 27);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(206, 109);
+            groupBox3.TabIndex = 12;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Comprobante";
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(265, 32);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(148, 23);
+            richTextBox1.TabIndex = 0;
+            richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            richTextBox2.Location = new Point(62, 32);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.Size = new Size(148, 23);
+            richTextBox2.TabIndex = 0;
+            richTextBox2.Text = "";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(29, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(27, 15);
+            label1.TabIndex = 1;
+            label1.Text = "DNI";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(229, 35);
+            label5.Name = "label5";
+            label5.Size = new Size(30, 15);
+            label5.TabIndex = 2;
+            label5.Text = "RUC";
+            // 
+            // label8
+            // 
+            label8.BorderStyle = BorderStyle.FixedSingle;
+            label8.Location = new Point(109, 115);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(197, 25);
+            label8.TabIndex = 17;
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            label10.BorderStyle = BorderStyle.FixedSingle;
+            label10.Location = new Point(705, 115);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(197, 25);
+            label10.TabIndex = 17;
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            label13.BorderStyle = BorderStyle.FixedSingle;
+            label13.Location = new Point(398, 115);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(230, 25);
+            label13.TabIndex = 17;
+            label13.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(29, 120);
+            label14.Name = "label14";
+            label14.Size = new Size(73, 15);
+            label14.TabIndex = 1;
+            label14.Text = "Razon Social";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(334, 120);
+            label15.Name = "label15";
+            label15.Size = new Size(57, 15);
+            label15.TabIndex = 1;
+            label15.Text = "Direccion";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(656, 125);
+            label16.Name = "label16";
+            label16.Size = new Size(42, 15);
+            label16.TabIndex = 1;
+            label16.Text = "Estado";
+            // 
             // frmVentaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1047, 660);
+            ClientSize = new Size(1175, 816);
+            Controls.Add(groupBox3);
             Controls.Add(dtgUsuario);
+            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(button1);
             Controls.Add(label2);
@@ -304,6 +453,10 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -326,12 +479,25 @@
         private Label label11;
         private Label lblUM;
         private Label label9;
-        private Label lblStock;
         private DataGridView dtgUsuario;
         private DataGridViewTextBoxColumn Cod_Producto;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
+        private GroupBox groupBox2;
+        private RichTextBox richTextBox1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private GroupBox groupBox3;
+        private Label label5;
+        private Label label1;
+        private RichTextBox richTextBox2;
+        private Label label13;
+        private Label label10;
+        private Label label8;
+        private Label label16;
+        private Label label15;
+        private Label label14;
     }
 }
