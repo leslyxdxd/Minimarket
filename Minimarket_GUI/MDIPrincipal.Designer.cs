@@ -49,13 +49,14 @@
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
+            consultarClienteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, salirDelSistemasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, salirDelSistemasToolStripMenuItem, consultarClienteToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10);
@@ -102,14 +103,14 @@
             // StokTienda
             // 
             StokTienda.Name = "StokTienda";
-            StokTienda.Size = new Size(180, 22);
+            StokTienda.Size = new Size(111, 22);
             StokTienda.Text = "Stock ";
             StokTienda.Click += facturasClienteToolStripMenuItem_Click;
             // 
             // stokAlmacen
             // 
             stokAlmacen.Name = "stokAlmacen";
-            stokAlmacen.Size = new Size(180, 22);
+            stokAlmacen.Size = new Size(111, 22);
             stokAlmacen.Text = "Stock";
             stokAlmacen.Click += stokAlmacen_Click;
             // 
@@ -176,7 +177,7 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(101, 22);
+            salirToolStripMenuItem.Size = new Size(180, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -205,6 +206,13 @@
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(19, 17);
             lblUsuario.Text = "....";
+            // 
+            // consultarClienteToolStripMenuItem
+            // 
+            consultarClienteToolStripMenuItem.Name = "consultarClienteToolStripMenuItem";
+            consultarClienteToolStripMenuItem.Size = new Size(110, 21);
+            consultarClienteToolStripMenuItem.Text = "Consultar Cliente";
+            consultarClienteToolStripMenuItem.Click += consultarClienteToolStripMenuItem_Click;
             // 
             // MDIPrincipal
             // 
@@ -255,5 +263,6 @@
         private ToolStripMenuItem gestionarVentaToolStripMenuItem;
         private ToolStripMenuItem generarRemisionToolStripMenuItem;
         private ToolStripMenuItem stokAlmacen;
+        private ToolStripMenuItem consultarClienteToolStripMenuItem;
     }
 }
