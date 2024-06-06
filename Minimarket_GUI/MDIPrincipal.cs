@@ -199,5 +199,12 @@ namespace ProyVentas_GUI
             frmc1.Show();
 
         }
+
+        private void consultarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarCliente frmc1 = new frmConsultarCliente();
+            frmc1.MdiParent = this;
+            frmc1.Show();
+        }
     }
 }
