@@ -81,7 +81,7 @@ namespace ProyVentas_GUI
 
 
             }
-            else if (clsCredenciales.Niv_Usuario == 3)
+            else if (clsCredenciales.Niv_Usuario == 2)
             {
 
                 mantenimientosToolStripMenuItem.Visible = false;
@@ -90,20 +90,21 @@ namespace ProyVentas_GUI
                 salirDelSistemasToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = false;
                 StokTienda.Visible = true;
+                stokAlmacen.Visible = false;
                 generarRemisionToolStripMenuItem.Visible = false;
                 gestionarVentaToolStripMenuItem.Visible = true;
 
 
             }
-            else if (clsCredenciales.Niv_Usuario == 2)
+            else if (clsCredenciales.Niv_Usuario == 3)
             {
 
                 mantenimientosToolStripMenuItem.Visible = false;
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
-                StokTienda.Visible = true;
-
+                StokTienda.Visible = false;
+                stokAlmacen.Visible = true;
                 generarRemisionToolStripMenuItem.Visible = true;
                 generarGuiaToolStripMenuItem.Visible = true;
                 gestionarVentaToolStripMenuItem.Visible = false;
@@ -197,13 +198,7 @@ namespace ProyVentas_GUI
 
         }
 
-        private void consultarClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmConsultarCliente frmc1 = new frmConsultarCliente();
-            frmc1.MdiParent = this;
-            frmc1.Show();
-        }
-
+     
         private void boletaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

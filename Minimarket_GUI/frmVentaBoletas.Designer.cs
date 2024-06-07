@@ -81,6 +81,8 @@
             // lblTotalPagar
             // 
             lblTotalPagar.BorderStyle = BorderStyle.FixedSingle;
+            lblTotalPagar.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalPagar.ForeColor = Color.Red;
             lblTotalPagar.Location = new Point(897, 637);
             lblTotalPagar.Name = "lblTotalPagar";
             lblTotalPagar.Size = new Size(147, 35);
@@ -90,15 +92,16 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(897, 612);
             label2.Name = "label2";
-            label2.Size = new Size(74, 15);
+            label2.Size = new Size(109, 21);
             label2.TabIndex = 5;
             label2.Text = "Total a pagar";
             // 
             // button1
             // 
-            button1.Location = new Point(891, 301);
+            button1.Location = new Point(891, 311);
             button1.Name = "button1";
             button1.Size = new Size(147, 71);
             button1.TabIndex = 6;
@@ -415,7 +418,7 @@
             // 
             // btnEliminarProducto
             // 
-            btnEliminarProducto.Location = new Point(891, 395);
+            btnEliminarProducto.Location = new Point(891, 411);
             btnEliminarProducto.Name = "btnEliminarProducto";
             btnEliminarProducto.Size = new Size(147, 68);
             btnEliminarProducto.TabIndex = 49;

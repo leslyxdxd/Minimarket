@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label5 = new Label();
+            lblRegistros = new Label();
             label10 = new Label();
             label21 = new Label();
             dtgProducto = new DataGridView();
@@ -70,14 +70,14 @@
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // label5
+            // lblRegistros
             // 
-            label5.BorderStyle = BorderStyle.FixedSingle;
-            label5.Location = new Point(96, 784);
-            label5.Name = "label5";
-            label5.Size = new Size(78, 22);
-            label5.TabIndex = 58;
-            label5.TextAlign = ContentAlignment.MiddleRight;
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(96, 784);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 58;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -444,7 +444,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1061, 818);
             Controls.Add(btnEliminar);
-            Controls.Add(label5);
+            Controls.Add(lblRegistros);
             Controls.Add(label10);
             Controls.Add(label21);
             Controls.Add(dtgProducto);
@@ -469,7 +469,7 @@
 
         #endregion
 
-        private Label label5;
+        private Label lblRegistros;
         private Label label10;
         private Label label21;
         private DataGridView dtgProducto;

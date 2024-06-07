@@ -120,7 +120,7 @@ namespace Minimarket_GUI
                 fila.Cells[1].Value = lblPrecio.Text; // Segunda columna
                 fila.Cells[2].Value = txtCantidad2.Text; // Tercera columna
                 fila.Cells[3].Value = subtotal; // Cuarta columna
-
+                lblRegistros.Text = dtgProducto.Rows.Count.ToString();
                 // Agregar la fila al DataGridView
                 dtgProducto.Rows.Add(fila);
 
@@ -147,6 +147,7 @@ namespace Minimarket_GUI
                 {
                     // Obtener la fila seleccionada y eliminarla
                     dtgProducto.Rows.Remove(dtgProducto.SelectedRows[0]);
+                    lblRegistros.Text = dtgProducto.Rows.Count.ToString();
                     // Calcular el total después de eliminar
                     CalcularTotal();
                 }

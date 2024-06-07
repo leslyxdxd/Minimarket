@@ -130,7 +130,7 @@ namespace Minimarket_GUI
 
             dtgListaProductos.Rows.Add(file);
             lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
-            lblNombre.Text = lblPrecio.Text = txtCantidad.Text = lblCodigo.Text =lblUM.Text = lblStock.Text = "";
+            lblNombre.Text = lblPrecio.Text = txtCantidad.Text = lblCodigo.Text = lblUM.Text = lblStock.Text = "";
 
             obtenerTotal();
 

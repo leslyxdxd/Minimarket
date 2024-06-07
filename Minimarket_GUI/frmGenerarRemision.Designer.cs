@@ -610,6 +610,7 @@
             txtNumeroGuia.DropDownStyle = ComboBoxStyle.Simple;
             txtNumeroGuia.FormattingEnabled = true;
             txtNumeroGuia.Location = new Point(969, 24);
+            txtNumeroGuia.MaxLength = 10;
             txtNumeroGuia.Name = "txtNumeroGuia";
             txtNumeroGuia.Size = new Size(144, 23);
             txtNumeroGuia.TabIndex = 30;
