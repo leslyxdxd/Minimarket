@@ -22,7 +22,7 @@
 
         public String Dni_Cliente { get; set; }
 
-        public List<Detalle_Boleta> Detalle_Boleta {  get; set; }
+        public List<Detalle_BoletaBE> Detalle_Boleta {  get; set; }
 
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Minimarket_BE
 {
-    public class Detalle_Boleta
+    public class Detalle_BoletaBE
     {
         public int Id_DetalleBoleta { get; set; }   
 
