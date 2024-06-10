@@ -380,7 +380,7 @@
             // lblNombres
             // 
             lblNombres.BorderStyle = BorderStyle.FixedSingle;
-            lblNombres.Location = new Point(319, 30);
+            lblNombres.Location = new Point(334, 32);
             lblNombres.Margin = new Padding(4, 0, 4, 0);
             lblNombres.Name = "lblNombres";
             lblNombres.Size = new Size(222, 25);

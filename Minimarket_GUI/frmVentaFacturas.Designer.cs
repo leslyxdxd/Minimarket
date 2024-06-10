@@ -197,6 +197,7 @@
             label15.Size = new Size(128, 15);
             label15.TabIndex = 1;
             label15.Text = "Nombre / Razón Social";
+            label15.Click += label15_Click;
             // 
             // label1
             // 
@@ -218,7 +219,7 @@
             // lblEstado
             // 
             lblEstado.BorderStyle = BorderStyle.FixedSingle;
-            lblEstado.Location = new Point(759, 32);
+            lblEstado.Location = new Point(756, 32);
             lblEstado.Margin = new Padding(4, 0, 4, 0);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(108, 25);
@@ -228,7 +229,7 @@
             // lblDireccion
             // 
             lblDireccion.BorderStyle = BorderStyle.FixedSingle;
-            lblDireccion.Location = new Point(383, 70);
+            lblDireccion.Location = new Point(390, 70);
             lblDireccion.Margin = new Padding(4, 0, 4, 0);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(381, 25);
@@ -238,7 +239,7 @@
             // lblRazonSocial
             // 
             lblRazonSocial.BorderStyle = BorderStyle.FixedSingle;
-            lblRazonSocial.Location = new Point(383, 32);
+            lblRazonSocial.Location = new Point(390, 32);
             lblRazonSocial.Margin = new Padding(4, 0, 4, 0);
             lblRazonSocial.Name = "lblRazonSocial";
             lblRazonSocial.Size = new Size(310, 25);

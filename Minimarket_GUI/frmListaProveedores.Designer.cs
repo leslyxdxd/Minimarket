@@ -63,8 +63,9 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(1078, 452);
+            dtgDatos.Size = new Size(933, 452);
             dtgDatos.TabIndex = 0;
+            dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
             // 
             // Id_Proveedor
             // 
@@ -120,7 +121,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(993, 589);
+            btnCerrar.Location = new Point(848, 589);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(124, 41);
             btnCerrar.TabIndex = 1;
@@ -165,7 +166,7 @@
             // 
             // btnGuiasRemision
             // 
-            btnGuiasRemision.Location = new Point(807, 589);
+            btnGuiasRemision.Location = new Point(651, 589);
             btnGuiasRemision.Name = "btnGuiasRemision";
             btnGuiasRemision.Size = new Size(165, 41);
             btnGuiasRemision.TabIndex = 4;
@@ -178,7 +179,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(1200, 661);
+            ClientSize = new Size(1005, 661);
             Controls.Add(btnGuiasRemision);
             Controls.Add(txtFiltro);
             Controls.Add(lblRegistros);

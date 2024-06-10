@@ -183,5 +183,10 @@ namespace Minimarket_GUI
             lblStock.Text = "";
             txtCantidad2.Text = "";
         }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

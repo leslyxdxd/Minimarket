@@ -60,7 +60,7 @@ namespace Minimarket_GUI
             }
         }
 
-   
+
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -72,6 +72,13 @@ namespace Minimarket_GUI
             frmGuiaRemision actualizarUsuario = new frmGuiaRemision();
             actualizarUsuario.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
             actualizarUsuario.ShowDialog();
+        }
+
+        private void dtgDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmActualizarProveedor actualizarProveedor = new frmActualizarProveedor();
+            actualizarProveedor.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+            actualizarProveedor.ShowDialog();
         }
     }
 }
