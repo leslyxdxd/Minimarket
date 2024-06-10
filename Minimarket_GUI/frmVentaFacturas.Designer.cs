@@ -37,7 +37,6 @@
             Cantidad = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
-            button4 = new Button();
             label16 = new Label();
             label12 = new Label();
             label15 = new Label();
@@ -65,6 +64,7 @@
             lblTotal = new Label();
             button2 = new Button();
             btnEliminar = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -161,20 +161,10 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Información del comprador";
             // 
-            // button4
-            // 
-            button4.Location = new Point(91, 64);
-            button4.Name = "button4";
-            button4.Size = new Size(90, 24);
-            button4.TabIndex = 24;
-            button4.Text = "Buscar";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(707, 37);
+            label16.Location = new Point(775, 35);
             label16.Name = "label16";
             label16.Size = new Size(42, 15);
             label16.TabIndex = 1;
@@ -183,7 +173,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(319, 75);
+            label12.Location = new Point(372, 75);
             label12.Name = "label12";
             label12.Size = new Size(57, 15);
             label12.TabIndex = 1;
@@ -192,7 +182,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(248, 37);
+            label15.Location = new Point(303, 35);
             label15.Name = "label15";
             label15.Size = new Size(128, 15);
             label15.TabIndex = 1;
@@ -219,7 +209,7 @@
             // lblEstado
             // 
             lblEstado.BorderStyle = BorderStyle.FixedSingle;
-            lblEstado.Location = new Point(756, 32);
+            lblEstado.Location = new Point(824, 33);
             lblEstado.Margin = new Padding(4, 0, 4, 0);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(108, 25);
@@ -229,7 +219,7 @@
             // lblDireccion
             // 
             lblDireccion.BorderStyle = BorderStyle.FixedSingle;
-            lblDireccion.Location = new Point(390, 70);
+            lblDireccion.Location = new Point(436, 70);
             lblDireccion.Margin = new Padding(4, 0, 4, 0);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(381, 25);
@@ -239,7 +229,7 @@
             // lblRazonSocial
             // 
             lblRazonSocial.BorderStyle = BorderStyle.FixedSingle;
-            lblRazonSocial.Location = new Point(390, 32);
+            lblRazonSocial.Location = new Point(438, 32);
             lblRazonSocial.Margin = new Padding(4, 0, 4, 0);
             lblRazonSocial.Name = "lblRazonSocial";
             lblRazonSocial.Size = new Size(310, 25);
@@ -439,6 +429,17 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.ButtonFace;
+            button4.BackgroundImage = Properties.Resources.lupa;
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.Location = new Point(239, 29);
+            button4.Name = "button4";
+            button4.Size = new Size(33, 33);
+            button4.TabIndex = 25;
+            button4.UseVisualStyleBackColor = false;
+            // 
             // frmVentaFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -502,11 +503,11 @@
         private TextBox textBox1;
         private Label label7;
         private RichTextBox txtCantidad2;
-        private Button button4;
         private Button btnEliminar;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
+        private Button button4;
     }
 }
