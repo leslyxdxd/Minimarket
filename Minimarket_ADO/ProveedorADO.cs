@@ -168,8 +168,43 @@ namespace Minimarket_ADO
             {
                 throw new Exception(ex.Message);
             }
-            
+        }
 
+        public Boolean ActualizarProveedor(ProveedorBE objProveedorBE)
+        {
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ActualizarProveedor";
+                cmd.Parameters.Clear();
+                //Agregamos parametros 
+                cmd.Parameters.AddWithValue("@Id_Proveedor", objProveedorBE.Id_Proveedor);
+                cmd.Parameters.AddWithValue("@Direc_Proveedor", objProveedorBE.Direc_Proveedor);
+                cmd.Parameters.AddWithValue("@Telefono", objProveedorBE.Telefono);
+                cmd.Parameters.AddWithValue("@Correo", objProveedorBE.Correo);
+                cmd.Parameters.AddWithValue("@Estado", objProveedorBE.Estado);
+                cmd.Parameters.AddWithValue("@Usu_Ult_Mod", objProveedorBE.Usu_Ult_Mod);
+
+                //Codifique
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException x)
+            {
+                throw new Exception(x.Message);
+                return false;
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
 
 
         }

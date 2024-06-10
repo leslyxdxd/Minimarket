@@ -76,9 +76,24 @@ namespace Minimarket_GUI
 
         private void dtgDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmActualizarProveedor actualizarProveedor = new frmActualizarProveedor();
-            actualizarProveedor.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
-            actualizarProveedor.ShowDialog();
+
+            try
+            {
+                frmActualizarProveedor prov03 = new frmActualizarProveedor();
+                //Se toma el valor de la columna cero de la fila seleccionada 
+                //en el datagriv
+                prov03.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+                prov03.ShowDialog();
+                //Al retornar, resfrescamos la vista y cargamos los datos para ver los cambios 
+                //del proveedor actualizado 
+                dtv = new DataView(objProveedorBL.ListarProveedor());
+                CargarDatos(txtFiltro.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+
+            }
         }
     }
 }

@@ -34,5 +34,10 @@ namespace Minimarket_BL
             return objProveedorADO.ConsultarTransportistaxProveedor(strIdCodigo);
         }
 
+        public Boolean ActualizarProveedor(ProveedorBE objProveedorBE)
+        {
+            return objProveedorADO.ActualizarProveedor(objProveedorBE);
+        }
+
     }
 }

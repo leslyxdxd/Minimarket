@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -60,8 +60,8 @@
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(933, 452);
             dtgDatos.TabIndex = 0;
@@ -121,7 +121,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(848, 589);
+            btnCerrar.Location = new Point(848, 560);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(124, 41);
             btnCerrar.TabIndex = 1;
@@ -149,7 +149,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 608);
+            label2.Location = new Point(39, 564);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 2;
@@ -158,7 +158,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(103, 608);
+            lblRegistros.Location = new Point(108, 560);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 2;
@@ -166,7 +166,7 @@
             // 
             // btnGuiasRemision
             // 
-            btnGuiasRemision.Location = new Point(651, 589);
+            btnGuiasRemision.Location = new Point(660, 560);
             btnGuiasRemision.Name = "btnGuiasRemision";
             btnGuiasRemision.Size = new Size(165, 41);
             btnGuiasRemision.TabIndex = 4;
@@ -179,7 +179,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(1005, 661);
+            ClientSize = new Size(1022, 616);
             Controls.Add(btnGuiasRemision);
             Controls.Add(txtFiltro);
             Controls.Add(lblRegistros);
