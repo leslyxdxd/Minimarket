@@ -24,7 +24,5 @@
 
         public List<Detalle_Boleta> Detalle_Boleta {  get; set; }
 
-
-
     }
 }
