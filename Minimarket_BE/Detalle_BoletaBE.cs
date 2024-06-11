@@ -23,5 +23,7 @@ namespace Minimarket_BE
 
         public float Subtotal { get; set; }
 
+       
+
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -8,8 +10,15 @@ using Newtonsoft.Json;
 
 namespace Minimarket_ADO
 {
+
     public class FacturaADO
     {
+        ConexionADO MiConexion = new ConexionADO();
+        SqlConnection cnx = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dtr;
+        SqlDataAdapter ada;
+
         private readonly string apiUrl = "https://apiperu.dev/api/ruc";
         private readonly string token = "af453f8bef8ba4e615dc14ed34731d5611e5fcdbffaacb767543e09f92a7bcf5";
 
@@ -43,5 +52,64 @@ namespace Minimarket_ADO
                 }
             }
         }
+
+
+        public bool RegistrarFactura(FacturaBE objFacturaBE, DataTable Detalle_FacturaBE, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                // Configuración de la conexión y comando
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_RegistrarFactura";
+                cmd.Parameters.Clear();
+
+                // Agregar parámetros para la factura
+                cmd.Parameters.AddWithValue("@Ruc", objFacturaBE.ruc);
+                cmd.Parameters.AddWithValue("@RazonSocial", objFacturaBE.nombre_o_razon_social);
+                cmd.Parameters.AddWithValue("@Estado", objFacturaBE.estado);
+                cmd.Parameters.AddWithValue("@Direccion", objFacturaBE.direccion);
+                cmd.Parameters.AddWithValue("@Usu_Registro", objFacturaBE.Usu_Registro);
+
+                // Agregar parámetro para los detalles de la factura como tipo estructurado
+                SqlParameter detalleParam = cmd.Parameters.AddWithValue("@DetalleFactura", Detalle_FacturaBE);
+                detalleParam.SqlDbType = SqlDbType.Structured; // Asegura que el DataTable se pase como un tipo estructurado
+
+                // Agregar parámetros de salida
+                cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                // Abrir conexión y ejecutar
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+
+                // Obtener resultados de los parámetros de salida
+                Respuesta = Convert.ToBoolean(cmd.Parameters["@Resultado"].Value);
+                Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            finally
+            {
+                // Asegurar que la conexión se cierra
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+
+            return Respuesta;
+        }
+
+
+
     }
 }

@@ -63,7 +63,7 @@
             btnAgregar = new Button();
             label2 = new Label();
             lblTotal = new Label();
-            button2 = new Button();
+            btnRegistrar = new Button();
             btnEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
@@ -199,7 +199,6 @@
             label15.Size = new Size(128, 15);
             label15.TabIndex = 1;
             label15.Text = "Nombre / Razón Social";
-            label15.Click += label15_Click;
             // 
             // label1
             // 
@@ -422,14 +421,15 @@
             lblTotal.TabIndex = 50;
             lblTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // button2
+            // btnRegistrar
             // 
-            button2.Location = new Point(879, 725);
-            button2.Name = "button2";
-            button2.Size = new Size(147, 48);
-            button2.TabIndex = 49;
-            button2.Text = "Registrar comprobante";
-            button2.UseVisualStyleBackColor = true;
+            btnRegistrar.Location = new Point(879, 725);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(147, 48);
+            btnRegistrar.TabIndex = 49;
+            btnRegistrar.Text = "Registrar comprobante";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // btnEliminar
             // 
@@ -456,7 +456,7 @@
             Controls.Add(btnAgregar);
             Controls.Add(label2);
             Controls.Add(lblTotal);
-            Controls.Add(button2);
+            Controls.Add(btnRegistrar);
             Name = "frmVentaFacturas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de compras";
@@ -498,7 +498,7 @@
         private Button btnAgregar;
         private Label label2;
         private Label lblTotal;
-        private Button button2;
+        private Button btnRegistrar;
         private Label label12;
         private Label lblDireccion;
         private TextBox textBox1;

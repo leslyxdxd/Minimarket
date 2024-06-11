@@ -17,5 +17,14 @@ namespace Minimarket_BE
         public string[] ubigeo { get; set; }
         public bool? es_agente_de_retencion { get; set; }
         public bool? es_buen_contribuyente { get; set; }
+        public DateTime Fec_Registro { get; set; }
+
+        public String Usu_Registro { get; set; }
+
+        public DateTime Fec_Ult_Mod { get; set; }
+
+        public String Usu_Ult_Mod { get; set; }
+
+        public List<Detalle_FacturaBE> Detalle_Factura { get; set; }
     }
 }

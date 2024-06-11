@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Minimarket_BE;
 using Minimarket_BL;
@@ -190,9 +191,59 @@ namespace Minimarket_GUI
             txtCantidad2.Text = "";
         }
 
-        private void label15_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (dtgProducto.Rows.Count < 1)
+                {
+                    MessageBox.Show("Debe agregar al menos un producto a la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                DataTable detalleVenta = new DataTable();
+                detalleVenta.Columns.Add("IdProducto", typeof(int));
+                detalleVenta.Columns.Add("PrecioVenta", typeof(decimal));
+                detalleVenta.Columns.Add("Cantidad", typeof(int));
+                detalleVenta.Columns.Add("SubTotal", typeof(decimal));
+
+                foreach (DataGridViewRow row in dtgProducto.Rows)
+                {
+                    int idProducto = Convert.ToInt32(row.Cells[0].Value);
+                    decimal precioVenta = Convert.ToDecimal(row.Cells[1].Value);
+                    int cantidad = Convert.ToInt32(row.Cells[2].Value);
+                    decimal subTotal = Convert.ToDecimal(row.Cells[3].Value);
+
+                    detalleVenta.Rows.Add(idProducto, precioVenta, cantidad, subTotal);
+                }
+
+                // Aquí debes completar la instancia de la factura con los datos correspondientes de tu formulario
+                FacturaBE factura = new FacturaBE
+                {
+                    // Asigna los valores correspondientes a los atributos de la factura
+                    // por ejemplo: factura.Ruc = txtRuc.Text;
+                    // Completa con el resto de los atributos necesarios
+                };
+
+                // Llama al método para registrar la factura
+                string mensaje;
+                bool registrado = objFacturaBL.RegistrarFactura(factura, detalleVenta, out mensaje);
+
+                if (registrado)
+                {
+                    MessageBox.Show("Factura registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Aquí puedes realizar otras acciones luego de registrar la factura, como limpiar los controles del formulario, etc.
+                }
+                else
+                {
+                    MessageBox.Show($"Error al registrar la factura: {mensaje}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
+
