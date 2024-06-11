@@ -38,7 +38,7 @@ namespace Minimarket_GUI
                         // Mostrar los datos de la factura en etiquetas de texto
                         lblRazonSocial.Text = factura.nombre_o_razon_social;
                         lblDireccion.Text = factura.direccion;
-                        lblEstado.Text = factura.direccion_completa;
+                        lblEstado.Text = factura.estado;
                     }
                     else
                     {
@@ -72,6 +72,12 @@ namespace Minimarket_GUI
                         lblUM.Text = producto["Des_UM"].ToString();
                         lblStock.Text = producto["Stk_Tienda"].ToString();
                     }
+                }
+                else
+                
+                {
+                    MessageBox.Show("Error al cargar los datos");
+                
                 }
             }
         }

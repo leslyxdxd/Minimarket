@@ -322,7 +322,7 @@
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(70, 35);
+            txtDNI.Location = new Point(49, 32);
             txtDNI.MaxLength = 8;
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(129, 23);
@@ -333,7 +333,7 @@
             btnBuscarClienteDNI.BackColor = SystemColors.ButtonFace;
             btnBuscarClienteDNI.BackgroundImage = Properties.Resources.lupa;
             btnBuscarClienteDNI.BackgroundImageLayout = ImageLayout.Stretch;
-            btnBuscarClienteDNI.Location = new Point(977, 29);
+            btnBuscarClienteDNI.Location = new Point(184, 26);
             btnBuscarClienteDNI.Name = "btnBuscarClienteDNI";
             btnBuscarClienteDNI.Size = new Size(33, 33);
             btnBuscarClienteDNI.TabIndex = 18;
@@ -361,7 +361,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 37);
+            label1.Location = new Point(16, 37);
             label1.Name = "label1";
             label1.Size = new Size(27, 15);
             label1.TabIndex = 1;
@@ -383,7 +383,7 @@
             lblNombres.Location = new Point(334, 32);
             lblNombres.Margin = new Padding(4, 0, 4, 0);
             lblNombres.Name = "lblNombres";
-            lblNombres.Size = new Size(222, 25);
+            lblNombres.Size = new Size(235, 25);
             lblNombres.TabIndex = 17;
             lblNombres.TextAlign = ContentAlignment.MiddleLeft;
             // 

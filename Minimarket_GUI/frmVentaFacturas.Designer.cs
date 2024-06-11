@@ -37,6 +37,7 @@
             Cantidad = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
+            button4 = new Button();
             label16 = new Label();
             label12 = new Label();
             label15 = new Label();
@@ -64,7 +65,6 @@
             lblTotal = new Label();
             button2 = new Button();
             btnEliminar = new Button();
-            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -161,10 +161,22 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Información del comprador";
             // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.ButtonFace;
+            button4.BackgroundImage = Properties.Resources.lupa;
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.Location = new Point(206, 29);
+            button4.Name = "button4";
+            button4.Size = new Size(33, 33);
+            button4.TabIndex = 25;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(775, 35);
+            label16.Location = new Point(775, 37);
             label16.Name = "label16";
             label16.Size = new Size(42, 15);
             label16.TabIndex = 1;
@@ -173,7 +185,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(372, 75);
+            label12.Location = new Point(361, 75);
             label12.Name = "label12";
             label12.Size = new Size(57, 15);
             label12.TabIndex = 1;
@@ -182,7 +194,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(303, 35);
+            label15.Location = new Point(290, 37);
             label15.Name = "label15";
             label15.Size = new Size(128, 15);
             label15.TabIndex = 1;
@@ -192,7 +204,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 37);
+            label1.Location = new Point(16, 37);
             label1.Name = "label1";
             label1.Size = new Size(30, 15);
             label1.TabIndex = 1;
@@ -200,7 +212,7 @@
             // 
             // txtRuc
             // 
-            txtRuc.Location = new Point(70, 35);
+            txtRuc.Location = new Point(52, 35);
             txtRuc.Name = "txtRuc";
             txtRuc.Size = new Size(148, 23);
             txtRuc.TabIndex = 0;
@@ -428,17 +440,6 @@
             btnEliminar.Text = "Eliminar Producto";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
-            // 
-            // button4
-            // 
-            button4.BackColor = SystemColors.ButtonFace;
-            button4.BackgroundImage = Properties.Resources.lupa;
-            button4.BackgroundImageLayout = ImageLayout.Stretch;
-            button4.Location = new Point(239, 29);
-            button4.Name = "button4";
-            button4.Size = new Size(33, 33);
-            button4.TabIndex = 25;
-            button4.UseVisualStyleBackColor = false;
             // 
             // frmVentaFacturas
             // 
