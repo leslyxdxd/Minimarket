@@ -404,10 +404,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(879, 617);
             label2.Name = "label2";
-            label2.Size = new Size(121, 25);
+            label2.Size = new Size(127, 25);
             label2.TabIndex = 51;
             label2.Text = "Total a pagar";
             // 
