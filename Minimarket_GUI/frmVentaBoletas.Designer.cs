@@ -31,7 +31,7 @@
             btnRegistrarBoleta = new Button();
             lblTotalPagar = new Label();
             label2 = new Label();
-            button1 = new Button();
+            btnAgregar = new Button();
             button3 = new Button();
             groupBox1 = new GroupBox();
             txtCantidad = new TextBox();
@@ -100,15 +100,15 @@
             label2.TabIndex = 5;
             label2.Text = "Total a pagar";
             // 
-            // button1
+            // btnAgregar
             // 
-            button1.Location = new Point(891, 311);
-            button1.Name = "button1";
-            button1.Size = new Size(147, 71);
-            button1.TabIndex = 6;
-            button1.Text = "Agregar producto";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnAgregar.Location = new Point(891, 311);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(147, 71);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Agregar producto";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // button3
             // 
@@ -440,7 +440,7 @@
             Controls.Add(dtgListaProductos);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(button1);
+            Controls.Add(btnAgregar);
             Controls.Add(label2);
             Controls.Add(lblTotalPagar);
             Controls.Add(btnRegistrarBoleta);
@@ -462,7 +462,7 @@
         private Button btnRegistrarBoleta;
         private Label lblTotalPagar;
         private Label label2;
-        private Button button1;
+        private Button btnAgregar;
         private Button button3;
         private GroupBox groupBox1;
         private Label lblNombre;

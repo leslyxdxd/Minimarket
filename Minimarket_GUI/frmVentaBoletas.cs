@@ -18,7 +18,9 @@ namespace Minimarket_GUI
         UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
         ClienteBL objClienteBL = new ClienteBL();
 
+
         public string Codigo { get; set; }
+      
 
         public frmVentaBoletas()
         {
@@ -61,8 +63,6 @@ namespace Minimarket_GUI
                     lblPrecio.Text = objProductoBE.Precio_Unitario.ToString("0.00,###");
                     lblUM.Text = objUnidadMedidaBE.Des_UM;
                     lblStock.Text = objStockBE.Stk_Tienda.ToString();
-
-
                 }
             }
             catch (Exception ex)
@@ -119,21 +119,68 @@ namespace Minimarket_GUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow file = new DataGridViewRow();
-            file.CreateCells(dtgListaProductos);
-            file.Cells[0].Value = lblCodigo.Text;
-            file.Cells[1].Value = lblNombre.Text;
-            file.Cells[2].Value = lblPrecio.Text;
-            file.Cells[3].Value = txtCantidad.Text;
-            file.Cells[4].Value = (float.Parse(lblPrecio.Text) * float.Parse(txtCantidad.Text)).ToString();
 
-            dtgListaProductos.Rows.Add(file);
-            lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
-            lblNombre.Text = lblPrecio.Text = txtCantidad.Text = lblCodigo.Text = lblUM.Text = lblStock.Text = "";
 
-            obtenerTotal();
+            try
+            {
+                // Validación de la cantidad
+                if (string.IsNullOrWhiteSpace(txtCantidad.Text))
+                {
+                    MessageBox.Show("La cantidad no puede estar en blanco.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(txtCantidad.Text, out int cantidad))
+                {
+                    MessageBox.Show("La cantidad debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (cantidad <= 0)
+                {
+                    MessageBox.Show("La cantidad debe ser mayor que 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(lblStock.Text, out int stock))
+                {
+                    MessageBox.Show("El valor del stock no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (cantidad > stock)
+                {
+                    MessageBox.Show("La cantidad no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (cantidad == stock) 
+                {
+                    MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+
+                // Si todas las validaciones son correctas, se procede a agregar el producto
+                DataGridViewRow file = new DataGridViewRow();
+                file.CreateCells(dtgListaProductos);
+                file.Cells[0].Value = lblCodigo.Text;
+                file.Cells[1].Value = lblNombre.Text;
+                file.Cells[2].Value = lblPrecio.Text;
+                file.Cells[3].Value = txtCantidad.Text;
+                file.Cells[4].Value = (float.Parse(lblPrecio.Text) * cantidad).ToString();
+
+                dtgListaProductos.Rows.Add(file);
+                lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
+                lblNombre.Text = lblPrecio.Text = txtCantidad.Text = lblCodigo.Text = lblUM.Text = lblStock.Text = "";
+
+                obtenerTotal();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -176,57 +223,68 @@ namespace Minimarket_GUI
 
         private void btnRegistrarBoleta_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (dtgListaProductos.Rows.Count < 1)
+                {
+                    MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                DataTable Detalle_Boleta = new DataTable();
+                Detalle_Boleta.Columns.Add("Id_Producto", typeof(string));
+                Detalle_Boleta.Columns.Add("Cantidad", typeof(int));
+
+
+                foreach (DataGridViewRow row in dtgListaProductos.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    DataRow dataRow = Detalle_Boleta.NewRow();
+                    dataRow["Id_Producto"] = row.Cells["Cod_Producto"].Value.ToString().Trim(); // Aquí asignamos el Id_Producto de la fila actual
+                    dataRow["Cantidad"] = Convert.ToInt16(row.Cells["Cantidad"].Value);
+                    Detalle_Boleta.Rows.Add(dataRow);
+                }
+
+                BoletaBE BoletaBE = new BoletaBE
+                {
+                    Dni_Cliente = txtDNI.Text,
+                    Nombres_Cliente = lblNombres.Text,
+                    Apellidos_Cliente = lblApellidos.Text,
+                    Usu_Registro = clsCredenciales.Login_Usuario
+                };
+
+                string mensaje = string.Empty;
+                bool respuesta = new BoletaBL().Registrar(BoletaBE, Detalle_Boleta, out mensaje);
+                if (respuesta)
+                {
+                    MessageBox.Show("El registro de la boleta se realizo con exito");
+                    txtDNI.Text = "";
+                    lblApellidos.Text = "";
+                    lblNombres.Text = "";
+                    lblCodigo.Text = "";
+                    lblPrecio.Text = "";
+                    lblUM.Text = "";
+                    lblStock.Text = "";
+                    txtCantidad.Text = "";
+                    lblRegistros.Text = "";
+                    lblTotalPagar.Text = "";
+                    dtgListaProductos.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error del sistema consulte con TI", ex.Message);
+            }
+
           
-
-            if (dtgListaProductos.Rows.Count < 1)
-            {
-                MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            DataTable Detalle_Boleta = new DataTable();
-            Detalle_Boleta.Columns.Add("Id_Producto", typeof(string));
-            Detalle_Boleta.Columns.Add("Cantidad", typeof(int));
-
-
-            foreach (DataGridViewRow row in dtgListaProductos.Rows)
-            {
-                if (row.IsNewRow) continue;
-
-                DataRow dataRow = Detalle_Boleta.NewRow();
-                dataRow["Id_Producto"] = row.Cells["Cod_Producto"].Value.ToString().Trim(); // Aquí asignamos el Id_Producto de la fila actual
-                dataRow["Cantidad"] = Convert.ToInt16(row.Cells["Cantidad"].Value);
-                Detalle_Boleta.Rows.Add(dataRow);
-            }
-
-            BoletaBE BoletaBE = new BoletaBE
-            {
-                Dni_Cliente = txtDNI.Text,
-                Nombres_Cliente = lblNombres.Text,
-                Apellidos_Cliente = lblApellidos.Text,
-                Usu_Registro = clsCredenciales.Login_Usuario
-            };
-
-            string mensaje = string.Empty;
-            bool respuesta = new BoletaBL().Registrar(BoletaBE, Detalle_Boleta, out mensaje);
-            if (respuesta)
-            {
-                txtDNI.Text = "";
-                lblApellidos.Text = "";
-                lblNombres.Text = "";
-                lblCodigo.Text = "";
-                lblPrecio.Text = "";
-                lblUM.Text = "";
-                lblStock.Text = "";
-                txtCantidad.Text = "";
-                lblRegistros.Text = "";
-                lblTotalPagar.Text = "";
-                dtgListaProductos.Rows.Clear();
-            }
-            else
-            {
-                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
+
+
     }
 }

@@ -202,6 +202,8 @@ namespace ProyVentas_GUI
         private void boletaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        
+   
             frmVentaBoletas frmBoletas = new frmVentaBoletas();
             frmBoletas.MdiParent = this;
             frmBoletas.Show();
