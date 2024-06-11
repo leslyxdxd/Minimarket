@@ -20,7 +20,7 @@ namespace Minimarket_ADO
         SqlDataAdapter ada;
 
         private readonly string apiUrl = "https://apiperu.dev/api/ruc";
-        private readonly string token = "af453f8bef8ba4e615dc14ed34731d5611e5fcdbffaacb767543e09f92a7bcf5";
+        private readonly string token = "bf2be1ada10b09fc57758607c77d4a806c25122ab34daee5ee2026a23c51e0f3";
 
         private HttpClient GetHttpClient()
         {
