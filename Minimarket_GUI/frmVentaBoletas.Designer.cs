@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button2 = new Button();
+            btnRegistrarBoleta = new Button();
             lblTotalPagar = new Label();
             label2 = new Label();
             button1 = new Button();
@@ -69,14 +69,15 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // button2
+            // btnRegistrarBoleta
             // 
-            button2.Location = new Point(897, 691);
-            button2.Name = "button2";
-            button2.Size = new Size(147, 48);
-            button2.TabIndex = 3;
-            button2.Text = "Registrar comprobante";
-            button2.UseVisualStyleBackColor = true;
+            btnRegistrarBoleta.Location = new Point(897, 691);
+            btnRegistrarBoleta.Name = "btnRegistrarBoleta";
+            btnRegistrarBoleta.Size = new Size(147, 48);
+            btnRegistrarBoleta.TabIndex = 3;
+            btnRegistrarBoleta.Text = "Registrar comprobante";
+            btnRegistrarBoleta.UseVisualStyleBackColor = true;
+            btnRegistrarBoleta.Click += btnRegistrarBoleta_Click;
             // 
             // lblTotalPagar
             // 
@@ -442,7 +443,7 @@
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(lblTotalPagar);
-            Controls.Add(button2);
+            Controls.Add(btnRegistrarBoleta);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmVentaBoletas";
@@ -458,7 +459,7 @@
         }
 
         #endregion
-        private Button button2;
+        private Button btnRegistrarBoleta;
         private Label lblTotalPagar;
         private Label label2;
         private Button button1;

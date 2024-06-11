@@ -4,6 +4,7 @@ using Minimarket_BL;
 using Minimarket_BE;
 using System.Data;
 using ProyVentas_BL;
+using Minimarket_ADO;
 
 namespace Minimarket_GUI
 {
@@ -57,7 +58,7 @@ namespace Minimarket_GUI
                     objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);
                     lblCodigo.Text = objProductoBE.Id_Producto;
                     lblNombre.Text = objProductoBE.Nom_Producto;
-                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString();
+                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString("0.00,###");
                     lblUM.Text = objUnidadMedidaBE.Des_UM;
                     lblStock.Text = objStockBE.Stk_Tienda.ToString();
 
@@ -164,12 +165,68 @@ namespace Minimarket_GUI
                     dtgListaProductos.Rows.Remove(dtgListaProductos.CurrentRow);
                     lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             obtenerTotal();
 
+        }
+
+        private void btnRegistrarBoleta_Click(object sender, EventArgs e)
+        {
+          
+
+            if (dtgListaProductos.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DataTable Detalle_Boleta = new DataTable();
+            Detalle_Boleta.Columns.Add("Id_Producto", typeof(string));
+            Detalle_Boleta.Columns.Add("Cantidad", typeof(int));
+
+
+            foreach (DataGridViewRow row in dtgListaProductos.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                DataRow dataRow = Detalle_Boleta.NewRow();
+                dataRow["Id_Producto"] = row.Cells["Cod_Producto"].Value.ToString().Trim(); // Aquí asignamos el Id_Producto de la fila actual
+                dataRow["Cantidad"] = Convert.ToInt16(row.Cells["Cantidad"].Value);
+                Detalle_Boleta.Rows.Add(dataRow);
+            }
+
+            BoletaBE BoletaBE = new BoletaBE
+            {
+                Dni_Cliente = txtDNI.Text,
+                Nombres_Cliente = lblNombres.Text,
+                Apellidos_Cliente = lblApellidos.Text,
+                Usu_Registro = clsCredenciales.Login_Usuario
+            };
+
+            string mensaje = string.Empty;
+            bool respuesta = new BoletaBL().Registrar(BoletaBE, Detalle_Boleta, out mensaje);
+            if (respuesta)
+            {
+                txtDNI.Text = "";
+                lblApellidos.Text = "";
+                lblNombres.Text = "";
+                lblCodigo.Text = "";
+                lblPrecio.Text = "";
+                lblUM.Text = "";
+                lblStock.Text = "";
+                txtCantidad.Text = "";
+                lblRegistros.Text = "";
+                lblTotalPagar.Text = "";
+                dtgListaProductos.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
