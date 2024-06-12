@@ -26,6 +26,7 @@ namespace Minimarket_GUI
             InitializeComponent();
         }
 
+        // Método para buscar información de la factura basada en el RUC
         private async void button4_Click(object sender, EventArgs e)
         {
             try
@@ -36,7 +37,6 @@ namespace Minimarket_GUI
                     FacturaBE factura = await objFacturaBL.ObtenerFacturaPorRucAsync(ruc);
                     if (factura != null)
                     {
-                        // Mostrar los datos de la factura en etiquetas de texto
                         lblRazonSocial.Text = factura.nombre_o_razon_social;
                         lblDireccion.Text = factura.direccion;
                         lblEstado.Text = factura.estado;
@@ -57,9 +57,9 @@ namespace Minimarket_GUI
             }
         }
 
+        // Método para mostrar productos y seleccionarlos
         private void button3_Click(object sender, EventArgs e)
         {
-            // Mostrar el formulario frmListaProductos
             using (var listaProducto = new frmListaProductos())
             {
                 if (listaProducto.ShowDialog() == DialogResult.OK)
@@ -75,22 +75,17 @@ namespace Minimarket_GUI
                     }
                 }
                 else
-                
                 {
                     MessageBox.Show("Error al cargar los datos");
-                
                 }
             }
         }
 
+        // Método para cargar datos iniciales en el formulario
         private void frmVentaFacturas_Load(object sender, EventArgs e)
         {
             try
             {
-                // Aquí se puede cargar información inicial si es necesario
-
-                // Cargamos los combos...
-                // Codifique para cargar los datos del producto si ya se ha seleccionado un código anteriormente
                 if (!string.IsNullOrEmpty(this.Codigo))
                 {
                     objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);
@@ -107,80 +102,109 @@ namespace Minimarket_GUI
             }
         }
 
+        // Método para agregar productos a la lista de la factura
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Validar que se haya ingresado una cantidad válida
-            if (!string.IsNullOrEmpty(txtCantidad2.Text) && int.TryParse(txtCantidad2.Text, out int cantidad))
+            try
             {
-                // Calcular el subtotal
+                if (string.IsNullOrEmpty(txtCantidad2.Text))
+                {
+                    MessageBox.Show("La cantidad no puede estar en blanco.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(txtCantidad2.Text, out int cantidad))
+                {
+                    MessageBox.Show("La cantidad debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (cantidad <= 0)
+                {
+                    MessageBox.Show("La cantidad debe ser mayor que 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(lblStock.Text, out int stock))
+                {
+                    MessageBox.Show("El valor del stock no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (cantidad > stock)
+                {
+                    MessageBox.Show("La cantidad no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (cantidad == stock)
+                {
+                    MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
                 decimal subtotal = precioUnitario * cantidad;
 
-                // Crear una nueva fila para el DataGridView
                 DataGridViewRow fila = new DataGridViewRow();
-
-                // Agregar las celdas a la fila
                 fila.CreateCells(dtgProducto);
+                fila.Cells[0].Value = lblCodigo.Text;
+                fila.Cells[1].Value = lblNombre.Text;
+                fila.Cells[2].Value = lblPrecio.Text;
+                fila.Cells[3].Value = txtCantidad2.Text;
+                fila.Cells[4].Value = subtotal;
 
-                // Asignar los valores a las celdas de la fila
-                fila.Cells[0].Value = lblNombre.Text; // Primera columna
-                fila.Cells[1].Value = lblPrecio.Text; // Segunda columna
-                fila.Cells[2].Value = txtCantidad2.Text; // Tercera columna
-                fila.Cells[3].Value = subtotal; // Cuarta columna
-                lblRegistros.Text = dtgProducto.Rows.Count.ToString();
-                // Agregar la fila al DataGridView
                 dtgProducto.Rows.Add(fila);
-
-                // Calcular el total
+                lblRegistros.Text = dtgProducto.Rows.Count.ToString();
                 CalcularTotal();
-
-                // Limpiar los labels y el TextBox
                 LimpiarDatos();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, ingrese una cantidad válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // Método para eliminar productos de la lista de la factura
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Verificar si hay alguna fila seleccionada
-            if (dtgProducto.SelectedRows.Count > 0)
+            try
             {
-                // Mostrar un mensaje de advert
-                DialogResult result = MessageBox.Show("¿Estás seguro de que quieres eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+                if (dtgProducto.SelectedRows.Count > 0)
                 {
-                    // Obtener la fila seleccionada y eliminarla
-                    dtgProducto.Rows.Remove(dtgProducto.SelectedRows[0]);
-                    lblRegistros.Text = dtgProducto.Rows.Count.ToString();
-                    // Calcular el total después de eliminar
-                    CalcularTotal();
+                    DialogResult result = MessageBox.Show("¿Estás seguro de que quieres eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        dtgProducto.Rows.Remove(dtgProducto.SelectedRows[0]);
+                        lblRegistros.Text = dtgProducto.Rows.Count.ToString();
+                        CalcularTotal();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // Método para calcular el total de la factura
         private void CalcularTotal()
         {
-            // Reiniciar el total
             total = 0;
-            // Calcular el total sumando los subtotales de todas las filas
             foreach (DataGridViewRow fila in dtgProducto.Rows)
             {
-                if (fila.Cells[3].Value != null)
+                if (fila.Cells[4].Value != null)
                 {
-                    total += Convert.ToDecimal(fila.Cells[3].Value);
+                    total += Convert.ToDecimal(fila.Cells[4].Value);
                 }
             }
-            // Actualizar el valor del label lblTotal
-            lblTotal.Text = total.ToString();
+            lblTotal.Text = total.ToString("0.00");
         }
 
+        // Método para limpiar los datos del producto después de agregarlo
         private void LimpiarDatos()
         {
             lblCodigo.Text = "";
@@ -191,6 +215,7 @@ namespace Minimarket_GUI
             txtCantidad2.Text = "";
         }
 
+        // Método para registrar la factura
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             try
@@ -202,37 +227,40 @@ namespace Minimarket_GUI
                 }
 
                 DataTable detalleVenta = new DataTable();
-                detalleVenta.Columns.Add("IdProducto", typeof(int));
+                detalleVenta.Columns.Add("IdProducto", typeof(string));
                 detalleVenta.Columns.Add("PrecioVenta", typeof(decimal));
                 detalleVenta.Columns.Add("Cantidad", typeof(int));
                 detalleVenta.Columns.Add("SubTotal", typeof(decimal));
 
                 foreach (DataGridViewRow row in dtgProducto.Rows)
                 {
-                    int idProducto = Convert.ToInt32(row.Cells[0].Value);
-                    decimal precioVenta = Convert.ToDecimal(row.Cells[1].Value);
-                    int cantidad = Convert.ToInt32(row.Cells[2].Value);
-                    decimal subTotal = Convert.ToDecimal(row.Cells[3].Value);
+                    if (row.IsNewRow) continue;
 
-                    detalleVenta.Rows.Add(idProducto, precioVenta, cantidad, subTotal);
+                    DataRow dataRow = detalleVenta.NewRow();
+                    dataRow["IdProducto"] = row.Cells[0].Value.ToString();
+                    dataRow["PrecioVenta"] = Convert.ToDecimal(row.Cells[2].Value);
+                    dataRow["Cantidad"] = Convert.ToInt32(row.Cells[3].Value);
+                    dataRow["SubTotal"] = Convert.ToDecimal(row.Cells[4].Value);
+
+                    detalleVenta.Rows.Add(dataRow);
                 }
 
-                // Aquí debes completar la instancia de la factura con los datos correspondientes de tu formulario
                 FacturaBE factura = new FacturaBE
                 {
-                    // Asigna los valores correspondientes a los atributos de la factura
-                    // por ejemplo: factura.Ruc = txtRuc.Text;
-                    // Completa con el resto de los atributos necesarios
+                    ruc = txtRuc.Text,
+                    nombre_o_razon_social = lblRazonSocial.Text,
+                    direccion_completa = lblDireccion.Text,
+                    estado = lblEstado.Text,
+                    Usu_Registro = clsCredenciales.Login_Usuario
                 };
 
-                // Llama al método para registrar la factura
                 string mensaje;
                 bool registrado = objFacturaBL.RegistrarFactura(factura, detalleVenta, out mensaje);
 
                 if (registrado)
                 {
                     MessageBox.Show("Factura registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Aquí puedes realizar otras acciones luego de registrar la factura, como limpiar los controles del formulario, etc.
+                    LimpiarFormulario();
                 }
                 else
                 {
@@ -244,6 +272,23 @@ namespace Minimarket_GUI
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Método para limpiar el formulario después de registrar la factura
+        private void LimpiarFormulario()
+        {
+            txtRuc.Text = "";
+            lblRazonSocial.Text = "";
+            lblDireccion.Text = "";
+            lblEstado.Text = "";
+            lblCodigo.Text = "";
+            lblNombre.Text = "";
+            lblPrecio.Text = "";
+            lblUM.Text = "";
+            lblStock.Text = "";
+            txtCantidad2.Text = "";
+            lblRegistros.Text = "";
+            lblTotal.Text = "";
+            dtgProducto.Rows.Clear();
+        }
     }
 }
-

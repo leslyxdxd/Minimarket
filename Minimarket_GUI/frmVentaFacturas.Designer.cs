@@ -32,10 +32,6 @@
             label10 = new Label();
             label21 = new Label();
             dtgProducto = new DataGridView();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             button4 = new Button();
             label16 = new Label();
@@ -65,6 +61,11 @@
             lblTotal = new Label();
             btnRegistrar = new Button();
             btnEliminar = new Button();
+            Cod_Producto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -105,7 +106,7 @@
             dtgProducto.AllowUserToDeleteRows = false;
             dtgProducto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgProducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgProducto.Columns.AddRange(new DataGridViewColumn[] { Producto, Precio, Cantidad, SubTotal });
+            dtgProducto.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, SubTotal });
             dtgProducto.Location = new Point(32, 312);
             dtgProducto.Margin = new Padding(4, 3, 4, 3);
             dtgProducto.Name = "dtgProducto";
@@ -114,34 +115,6 @@
             dtgProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgProducto.Size = new Size(778, 461);
             dtgProducto.TabIndex = 55;
-            // 
-            // Producto
-            // 
-            Producto.DataPropertyName = "Nom_Producto";
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.DataPropertyName = "Precio_Unitario";
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.DataPropertyName = "Cantidad";
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            SubTotal.DataPropertyName = "SubTotal";
-            SubTotal.HeaderText = "SubTotal";
-            SubTotal.Name = "SubTotal";
-            SubTotal.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -441,6 +414,41 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // Cod_Producto
+            // 
+            Cod_Producto.DataPropertyName = "Cod_Producto";
+            Cod_Producto.HeaderText = "Cod.Producto";
+            Cod_Producto.Name = "Cod_Producto";
+            Cod_Producto.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            Producto.DataPropertyName = "Nom_Producto";
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.DataPropertyName = "Precio_Unitario";
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            SubTotal.DataPropertyName = "SubTotal";
+            SubTotal.HeaderText = "SubTotal";
+            SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
+            // 
             // frmVentaFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -505,10 +513,11 @@
         private Label label7;
         private RichTextBox txtCantidad2;
         private Button btnEliminar;
+        private Button button4;
+        private DataGridViewTextBoxColumn Cod_Producto;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
-        private Button button4;
     }
 }

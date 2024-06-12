@@ -72,12 +72,15 @@ namespace Minimarket_ADO
                 cmd.Parameters.AddWithValue("@Ruc", objFacturaBE.ruc);
                 cmd.Parameters.AddWithValue("@RazonSocial", objFacturaBE.nombre_o_razon_social);
                 cmd.Parameters.AddWithValue("@Estado", objFacturaBE.estado);
-                cmd.Parameters.AddWithValue("@Direccion", objFacturaBE.direccion);
+                cmd.Parameters.AddWithValue("@Direccion", objFacturaBE.direccion_completa);
                 cmd.Parameters.AddWithValue("@Usu_Registro", objFacturaBE.Usu_Registro);
 
                 // Agregar parámetro para los detalles de la factura como tipo estructurado
-                SqlParameter detalleParam = cmd.Parameters.AddWithValue("@DetalleFactura", Detalle_FacturaBE);
-                detalleParam.SqlDbType = SqlDbType.Structured; // Asegura que el DataTable se pase como un tipo estructurado
+                SqlParameter paramDetalle = new SqlParameter("@DetalleFactura", SqlDbType.Structured);
+                paramDetalle.TypeName = "EDetalle_Factura"; // Asegúrate que este sea el tipo definido en SQL Server
+                paramDetalle.Value = Detalle_FacturaBE;
+
+                cmd.Parameters.Add(paramDetalle);
 
                 // Agregar parámetros de salida
                 cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
