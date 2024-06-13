@@ -472,9 +472,12 @@
             Controls.Add(label2);
             Controls.Add(lblTotal);
             Controls.Add(btnRegistrar);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmVentaFacturas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de compras";
+            FormClosing += frmVentaFacturas_FormClosing;
             Load += frmVentaFacturas_Load;
             ((System.ComponentModel.ISupportInitialize)dtgProducto).EndInit();
             groupBox2.ResumeLayout(false);

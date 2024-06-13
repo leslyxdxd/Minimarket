@@ -18,5 +18,17 @@ namespace Minimarket_BL
         {
             return objBoletaADO.RegistrarVenta(objBoletaBE, Detalle_Boleta, out Mensaje);
         }
+
+
+
+        public bool RestarStock(String idproducto, int cantidad)
+        {
+            return objBoletaADO.RestarStock(idproducto, cantidad);
+        }
+
+        public bool SumarStock(String idproducto, int cantidad)
+        {
+            return objBoletaADO.SumarStock(idproducto, cantidad);
+        }
     }
 }

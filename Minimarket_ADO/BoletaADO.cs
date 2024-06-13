@@ -62,5 +62,66 @@ namespace Minimarket_ADO
 
             return Respuesta;
         }
+
+        public bool SumarStock(String idproducto, int cantidad)
+        {
+            bool respuesta = true;
+
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_SumarStockTienda";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@idproducto", idproducto);
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                // Aquí podrías loguear el error si es necesario
+                respuesta = false;
+            }
+
+            return respuesta;
+        }
+
+
+
+        public bool RestarStock(String idproducto, int cantidad)
+        {
+            bool respuesta = true;
+
+           
+                try
+                {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_RestarStockTienda";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@idproducto", idproducto);
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+                {
+                    // Aquí podrías loguear el error si es necesario
+                    respuesta = false;
+                }
+            
+            return respuesta;
+        }
+
+
+
+
+
     }
 }
+

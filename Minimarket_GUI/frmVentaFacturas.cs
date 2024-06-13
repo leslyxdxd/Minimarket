@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Minimarket_ADO;
 using Minimarket_BE;
 using Minimarket_BL;
 using ProyVentas_BL;
@@ -74,10 +75,7 @@ namespace Minimarket_GUI
                         lblStock.Text = producto["Stk_Tienda"].ToString();
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Error al cargar los datos");
-                }
+
             }
         }
 
@@ -136,29 +134,84 @@ namespace Minimarket_GUI
                     MessageBox.Show("La cantidad no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 if (cantidad == stock)
                 {
                     MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
-                decimal subtotal = precioUnitario * cantidad;
-                  decimal tasaIGV = 0.18m; // Tasa del 18%
-             decimal igv = subtotal * tasaIGV;
-             decimal total = subtotal + igv;
+                bool producto_existe = false;
+                int cantidadExistente = 0;
 
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dtgProducto);
-                fila.Cells[0].Value = lblCodigo.Text;
-                fila.Cells[1].Value = lblNombre.Text;
-                fila.Cells[2].Value = lblPrecio.Text;
-                fila.Cells[3].Value = txtCantidad2.Text;
+                // Verificar si el producto ya existe en el DataGridView
+                foreach (DataGridViewRow fila in dtgProducto.Rows)
+                {
+                    if (fila.Cells["Cod_Producto"].Value.ToString() == lblCodigo.Text)
+                    {
+                        producto_existe = true;
+                        cantidadExistente = int.Parse(fila.Cells["Cantidad"].Value.ToString());
+                        break;
+                    }
+                }
 
-                fila.Cells[4].Value = igv;
-                fila.Cells[5].Value = total;
+                if (producto_existe)
+                {
+                    // Actualizar cantidad y recalcular valores si el producto ya existe
+                    foreach (DataGridViewRow fila in dtgProducto.Rows)
+                    {
+                        if (fila.Cells["Cod_Producto"].Value.ToString() == lblCodigo.Text)
+                        {
+                            int nuevaCantidad = cantidadExistente + cantidad;
 
-                dtgProducto.Rows.Add(fila);
+                            if (nuevaCantidad > stock)
+                            {
+                                MessageBox.Show("La cantidad total no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            fila.Cells["Cantidad"].Value = nuevaCantidad;
+
+                            decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
+                            decimal subtotal = precioUnitario * nuevaCantidad;
+                            decimal tasaIGV = 0.18m; // Tasa del 18%
+                            decimal igv = subtotal * tasaIGV;
+                            decimal total = subtotal + igv;
+
+                            fila.Cells["IGV"].Value = igv;
+                            fila.Cells["SubTotal"].Value = total;
+
+                            // Restar el stock del nuevo producto agregado
+                            bool respuesta = new BoletaADO().RestarStock(lblCodigo.Text, cantidad);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    // Agregar nueva fila si el producto no existe
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dtgProducto);
+                    fila.Cells[0].Value = lblCodigo.Text;
+                    fila.Cells[1].Value = lblNombre.Text;
+                    fila.Cells[2].Value = lblPrecio.Text;
+                    fila.Cells[3].Value = txtCantidad2.Text;
+
+                    decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
+                    decimal subtotal = precioUnitario * cantidad;
+                    decimal tasaIGV = 0.18m; // Tasa del 18%
+                    decimal igv = subtotal * tasaIGV;
+                    decimal total = subtotal + igv;
+
+                    fila.Cells[4].Value = igv;
+                    fila.Cells[5].Value = total;
+
+                    dtgProducto.Rows.Add(fila);
+
+                    // Restar el stock del nuevo producto agregado
+                    bool respuesta = new BoletaADO().RestarStock(lblCodigo.Text, cantidad);
+                }
+
                 lblRegistros.Text = dtgProducto.Rows.Count.ToString();
                 CalcularTotal();
                 LimpiarDatos();
@@ -176,22 +229,44 @@ namespace Minimarket_GUI
             {
                 if (dtgProducto.SelectedRows.Count > 0)
                 {
-                    DialogResult result = MessageBox.Show("¿Estás seguro de que quieres eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
+                    DataGridViewRow fila = dtgProducto.SelectedRows[0];
+                    int index = fila.Index;
+
+                    if (index >= 0)
                     {
-                        dtgProducto.Rows.Remove(dtgProducto.SelectedRows[0]);
-                        lblRegistros.Text = dtgProducto.Rows.Count.ToString();
-                        CalcularTotal();
+                        string idProducto = dtgProducto.Rows[index].Cells["Cod_Producto"].Value?.ToString();
+                        string cantidadStr = dtgProducto.Rows[index].Cells["Cantidad"].Value?.ToString();
+
+                        if (idProducto != null && cantidadStr != null)
+                        {
+                            int cantidad = Convert.ToInt32(cantidadStr);
+
+                            bool respuesta = new BoletaADO().SumarStock(idProducto, cantidad);
+
+                            if (respuesta)
+                            {
+                                dtgProducto.Rows.RemoveAt(index);
+                                CalcularTotal();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo obtener el ID del producto o la cantidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fila seleccionada no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No hay filas seleccionadas para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Consulte con TI", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -294,6 +369,46 @@ namespace Minimarket_GUI
             lblRegistros.Text = "";
             lblTotal.Text = "";
             dtgProducto.Rows.Clear();
+        }
+
+        private void frmVentaFacturas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+
+
+                // Iterar sobre todas las filas del DataGridView
+                foreach (DataGridViewRow fila in dtgProducto.Rows)
+                {
+                    if (fila.Cells["Cod_Producto"].Value != null && fila.Cells["Cantidad"].Value != null)
+                    {
+                        string idProducto = fila.Cells["Cod_Producto"].Value.ToString();
+                        int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value.ToString());
+
+                        // Sumar el stock del producto
+                        bool respuesta = new BoletaADO().SumarStock(idProducto, cantidad);
+
+
+
+                        if (!respuesta)
+                        {
+                            MessageBox.Show($"No se pudo actualizar el stock para el producto con código {idProducto}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo obtener el ID del producto o la cantidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                // Limpiar todas las filas del DataGridView
+                dtgProducto.Rows.Clear();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Consulte con TI: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

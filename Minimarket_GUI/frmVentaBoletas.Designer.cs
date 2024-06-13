@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnRegistrarBoleta = new Button();
             lblTotalPagar = new Label();
             label2 = new Label();
@@ -290,8 +290,8 @@
             // Precio
             // 
             Precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle1.Format = "F2";
-            Precio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "F2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle2;
             Precio.HeaderText = "Precio(S/.)";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
@@ -433,7 +433,7 @@
             // 
             // btnEliminarProducto
             // 
-            btnEliminarProducto.Location = new Point(891, 411);
+            btnEliminarProducto.Location = new Point(897, 403);
             btnEliminarProducto.Name = "btnEliminarProducto";
             btnEliminarProducto.Size = new Size(147, 68);
             btnEliminarProducto.TabIndex = 49;
@@ -463,6 +463,7 @@
             Name = "frmVentaBoletas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de compra";
+            FormClosing += frmVentaBoletas_FormClosing;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).EndInit();
