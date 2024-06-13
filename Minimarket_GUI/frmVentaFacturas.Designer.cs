@@ -32,6 +32,12 @@
             label10 = new Label();
             label21 = new Label();
             dtgProducto = new DataGridView();
+            Cod_Producto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            IGV = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             button4 = new Button();
             label16 = new Label();
@@ -61,12 +67,6 @@
             lblTotal = new Label();
             btnRegistrar = new Button();
             btnEliminar = new Button();
-            Cod_Producto = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            IGV = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -116,6 +116,47 @@
             dtgProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgProducto.Size = new Size(778, 461);
             dtgProducto.TabIndex = 55;
+            // 
+            // Cod_Producto
+            // 
+            Cod_Producto.DataPropertyName = "Cod_Producto";
+            Cod_Producto.HeaderText = "Cod.Producto";
+            Cod_Producto.Name = "Cod_Producto";
+            Cod_Producto.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            Producto.DataPropertyName = "Nom_Producto";
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.DataPropertyName = "Precio_Unitario";
+            Precio.HeaderText = "Precio(S/.)";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // IGV
+            // 
+            IGV.HeaderText = "IGV";
+            IGV.Name = "IGV";
+            IGV.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            SubTotal.DataPropertyName = "SubTotal";
+            SubTotal.HeaderText = "SubTotal(S/.)";
+            SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -321,11 +362,11 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(473, 42);
+            label6.Location = new Point(464, 42);
             label6.Name = "label6";
-            label6.Size = new Size(43, 15);
+            label6.Size = new Size(65, 15);
             label6.TabIndex = 9;
-            label6.Text = "Precio ";
+            label6.Text = "Precio (S/.)";
             // 
             // label4
             // 
@@ -414,47 +455,6 @@
             btnEliminar.Text = "Eliminar Producto";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
-            // 
-            // Cod_Producto
-            // 
-            Cod_Producto.DataPropertyName = "Cod_Producto";
-            Cod_Producto.HeaderText = "Cod.Producto";
-            Cod_Producto.Name = "Cod_Producto";
-            Cod_Producto.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            Producto.DataPropertyName = "Nom_Producto";
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.DataPropertyName = "Precio_Unitario";
-            Precio.HeaderText = "Precio(S/.)";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.DataPropertyName = "Cantidad";
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            // 
-            // IGV
-            // 
-            IGV.HeaderText = "IGV";
-            IGV.Name = "IGV";
-            IGV.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            SubTotal.DataPropertyName = "SubTotal";
-            SubTotal.HeaderText = "SubTotal(S/.)";
-            SubTotal.Name = "SubTotal";
-            SubTotal.ReadOnly = true;
             // 
             // frmVentaFacturas
             // 
