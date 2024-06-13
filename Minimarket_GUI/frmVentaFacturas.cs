@@ -144,6 +144,9 @@ namespace Minimarket_GUI
 
                 decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
                 decimal subtotal = precioUnitario * cantidad;
+                  decimal tasaIGV = 0.18m; // Tasa del 18%
+             decimal igv = subtotal * tasaIGV;
+             decimal total = subtotal + igv;
 
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dtgProducto);
@@ -151,7 +154,9 @@ namespace Minimarket_GUI
                 fila.Cells[1].Value = lblNombre.Text;
                 fila.Cells[2].Value = lblPrecio.Text;
                 fila.Cells[3].Value = txtCantidad2.Text;
-                fila.Cells[4].Value = subtotal;
+
+                fila.Cells[4].Value = igv;
+                fila.Cells[5].Value = total;
 
                 dtgProducto.Rows.Add(fila);
                 lblRegistros.Text = dtgProducto.Rows.Count.ToString();
@@ -196,9 +201,9 @@ namespace Minimarket_GUI
             total = 0;
             foreach (DataGridViewRow fila in dtgProducto.Rows)
             {
-                if (fila.Cells[4].Value != null)
+                if (fila.Cells[5].Value != null)
                 {
-                    total += Convert.ToDecimal(fila.Cells[4].Value);
+                    total += Convert.ToDecimal(fila.Cells[5].Value);
                 }
             }
             lblTotal.Text = total.ToString("0.00");
