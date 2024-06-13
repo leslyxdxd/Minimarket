@@ -191,6 +191,11 @@ namespace Minimarket_GUI
                                 MessageBox.Show("La cantidad total no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
+                            if (nuevaCantidad == stock)
+                            {
+                                MessageBox.Show("La cantidad no puede ser igual que el Stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
 
                             // Actualizar la cantidad en el DataGridView
                             fila.Cells["Cantidad"].Value = nuevaCantidad;
@@ -254,7 +259,7 @@ namespace Minimarket_GUI
             }
         }
 
-            public void obtenerTotal()
+        public void obtenerTotal()
         {
             float costot = 0;
             int contador = 0;
@@ -315,12 +320,13 @@ namespace Minimarket_GUI
 
 
             }
-            catch {
+            catch
+            {
 
                 MessageBox.Show("Consulte con TI", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            }
+        }
 
         private void btnRegistrarBoleta_Click(object sender, EventArgs e)
         {
@@ -396,7 +402,7 @@ namespace Minimarket_GUI
 
             try
             {
-                
+
 
                 // Iterar sobre todas las filas del DataGridView
                 foreach (DataGridViewRow fila in dtgListaProductos.Rows)
@@ -424,12 +430,17 @@ namespace Minimarket_GUI
 
                 // Limpiar todas las filas del DataGridView
                 dtgListaProductos.Rows.Clear();
-             
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Consulte con TI: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

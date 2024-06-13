@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             btnRegistrarBoleta = new Button();
             lblTotalPagar = new Label();
             label2 = new Label();
@@ -151,6 +151,7 @@
             txtCantidad.Size = new Size(84, 35);
             txtCantidad.TabIndex = 24;
             txtCantidad.Text = "";
+            txtCantidad.TextChanged += txtCantidad_TextChanged;
             // 
             // label11
             // 
@@ -290,8 +291,8 @@
             // Precio
             // 
             Precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle2.Format = "F2";
-            Precio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "F2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle1;
             Precio.HeaderText = "Precio(S/.)";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;

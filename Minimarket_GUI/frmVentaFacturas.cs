@@ -170,6 +170,11 @@ namespace Minimarket_GUI
                                 return;
                             }
 
+                            if (nuevaCantidad == stock)
+                            {
+                                MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                             fila.Cells["Cantidad"].Value = nuevaCantidad;
 
                             decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
