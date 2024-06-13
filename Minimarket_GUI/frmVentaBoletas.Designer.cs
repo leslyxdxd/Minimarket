@@ -35,7 +35,6 @@
             btnAgregar = new Button();
             button3 = new Button();
             groupBox1 = new GroupBox();
-            txtCantidad = new TextBox();
             label11 = new Label();
             lblStock = new Label();
             lblUM = new Label();
@@ -66,6 +65,7 @@
             Cantidad = new DataGridViewTextBoxColumn();
             IGV = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
+            txtCantidad = new RichTextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).BeginInit();
             groupBox2.SuspendLayout();
@@ -143,13 +143,6 @@
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalle de Producto ";
-            // 
-            // txtCantidad
-            // 
-            txtCantidad.Location = new Point(831, 75);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(100, 23);
-            txtCantidad.TabIndex = 21;
             // 
             // label11
             // 
@@ -440,6 +433,14 @@
             SubTotal.Name = "SubTotal";
             SubTotal.ReadOnly = true;
             // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(831, 67);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(84, 35);
+            txtCantidad.TabIndex = 24;
+            txtCantidad.Text = "";
+            // 
             // frmVentaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -499,7 +500,6 @@
         private Label lblStock;
         private Label lblRegistros;
         private Label label10;
-        private TextBox txtCantidad;
         private Button btnBuscarClienteDNI;
         private TextBox txtDNI;
         private Button btnEliminarProducto;
@@ -509,5 +509,6 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn IGV;
         private DataGridViewTextBoxColumn SubTotal;
+        private RichTextBox txtCantidad;
     }
 }

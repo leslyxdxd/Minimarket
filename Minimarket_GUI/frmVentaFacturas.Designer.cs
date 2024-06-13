@@ -32,6 +32,11 @@
             label10 = new Label();
             label21 = new Label();
             dtgProducto = new DataGridView();
+            Cod_Producto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             button4 = new Button();
             label16 = new Label();
@@ -43,7 +48,6 @@
             lblDireccion = new Label();
             lblRazonSocial = new Label();
             groupBox1 = new GroupBox();
-            txtCantidad2 = new RichTextBox();
             label7 = new Label();
             label11 = new Label();
             lblStock = new Label();
@@ -61,11 +65,7 @@
             lblTotal = new Label();
             btnRegistrar = new Button();
             btnEliminar = new Button();
-            Cod_Producto = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
+            txtCantidad2 = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -115,6 +115,41 @@
             dtgProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgProducto.Size = new Size(778, 461);
             dtgProducto.TabIndex = 55;
+            // 
+            // Cod_Producto
+            // 
+            Cod_Producto.DataPropertyName = "Cod_Producto";
+            Cod_Producto.HeaderText = "Cod.Producto";
+            Cod_Producto.Name = "Cod_Producto";
+            Cod_Producto.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            Producto.DataPropertyName = "Nom_Producto";
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.DataPropertyName = "Precio_Unitario";
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Cantidad";
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            SubTotal.DataPropertyName = "SubTotal";
+            SubTotal.HeaderText = "SubTotal";
+            SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -241,14 +276,6 @@
             groupBox1.TabIndex = 54;
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalle de Producto ";
-            // 
-            // txtCantidad2
-            // 
-            txtCantidad2.Location = new Point(833, 71);
-            txtCantidad2.Name = "txtCantidad2";
-            txtCantidad2.Size = new Size(84, 35);
-            txtCantidad2.TabIndex = 23;
-            txtCantidad2.Text = "";
             // 
             // label7
             // 
@@ -414,40 +441,13 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
-            // Cod_Producto
+            // txtCantidad2
             // 
-            Cod_Producto.DataPropertyName = "Cod_Producto";
-            Cod_Producto.HeaderText = "Cod.Producto";
-            Cod_Producto.Name = "Cod_Producto";
-            Cod_Producto.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            Producto.DataPropertyName = "Nom_Producto";
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.DataPropertyName = "Precio_Unitario";
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.DataPropertyName = "Cantidad";
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            SubTotal.DataPropertyName = "SubTotal";
-            SubTotal.HeaderText = "SubTotal";
-            SubTotal.Name = "SubTotal";
-            SubTotal.ReadOnly = true;
+            txtCantidad2.Location = new Point(833, 71);
+            txtCantidad2.Name = "txtCantidad2";
+            txtCantidad2.Size = new Size(84, 35);
+            txtCantidad2.TabIndex = 23;
+            txtCantidad2.Text = "";
             // 
             // frmVentaFacturas
             // 
@@ -511,7 +511,6 @@
         private Label lblDireccion;
         private TextBox textBox1;
         private Label label7;
-        private RichTextBox txtCantidad2;
         private Button btnEliminar;
         private Button button4;
         private DataGridViewTextBoxColumn Cod_Producto;
@@ -519,5 +518,6 @@
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn SubTotal;
+        private RichTextBox txtCantidad2;
     }
 }
