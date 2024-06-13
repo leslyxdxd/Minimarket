@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
+            btnCerrar = new Button();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            label2 = new Label();
+            lblRegistros = new Label();
+            btnGuiasRemision = new Button();
+            btnActualizar = new Button();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Direccion = new DataGridViewTextBoxColumn();
@@ -37,12 +44,7 @@
             Correo = new DataGridViewTextBoxColumn();
             RUC = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
-            btnCerrar = new Button();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            label2 = new Label();
-            lblRegistros = new Label();
-            btnGuiasRemision = new Button();
+            Estado_Proveedor = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -55,17 +57,83 @@
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, Correo, RUC, Estado });
+            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, Correo, RUC, Estado, Estado_Proveedor });
             dtgDatos.Location = new Point(39, 87);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(933, 452);
             dtgDatos.TabIndex = 0;
+            dtgDatos.CellContentClick += dtgDatos_CellContentClick;
             dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(848, 560);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(124, 41);
+            btnCerrar.TabIndex = 1;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(147, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Ingrese filtro por apellidos:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(212, 47);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(297, 23);
+            txtFiltro.TabIndex = 3;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(39, 564);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Registros:";
+            // 
+            // lblRegistros
+            // 
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(108, 560);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 2;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnGuiasRemision
+            // 
+            btnGuiasRemision.Location = new Point(525, 560);
+            btnGuiasRemision.Name = "btnGuiasRemision";
+            btnGuiasRemision.Size = new Size(165, 41);
+            btnGuiasRemision.TabIndex = 4;
+            btnGuiasRemision.Text = "ver detalle";
+            btnGuiasRemision.UseVisualStyleBackColor = true;
+            btnGuiasRemision.Click += button1_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(705, 560);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(124, 41);
+            btnActualizar.TabIndex = 1;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // Id_Proveedor
             // 
@@ -119,60 +187,12 @@
             Estado.ReadOnly = true;
             Estado.Visible = false;
             // 
-            // btnCerrar
+            // Estado_Proveedor
             // 
-            btnCerrar.Location = new Point(848, 560);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 41);
-            btnCerrar.TabIndex = 1;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 50);
-            label1.Name = "label1";
-            label1.Size = new Size(147, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Ingrese filtro por apellidos:";
-            // 
-            // txtFiltro
-            // 
-            txtFiltro.Location = new Point(212, 47);
-            txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(297, 23);
-            txtFiltro.TabIndex = 3;
-            txtFiltro.TextChanged += txtFiltro_TextChanged;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(39, 564);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Registros:";
-            // 
-            // lblRegistros
-            // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(108, 560);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
-            lblRegistros.TabIndex = 2;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // btnGuiasRemision
-            // 
-            btnGuiasRemision.Location = new Point(660, 560);
-            btnGuiasRemision.Name = "btnGuiasRemision";
-            btnGuiasRemision.Size = new Size(165, 41);
-            btnGuiasRemision.TabIndex = 4;
-            btnGuiasRemision.Text = "ver detalle";
-            btnGuiasRemision.UseVisualStyleBackColor = true;
-            btnGuiasRemision.Click += button1_Click;
+            Estado_Proveedor.DataPropertyName = "Estado_Proveedor";
+            Estado_Proveedor.HeaderText = "Estado";
+            Estado_Proveedor.Name = "Estado_Proveedor";
+            Estado_Proveedor.ReadOnly = true;
             // 
             // frmListaProveedores
             // 
@@ -185,6 +205,7 @@
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(btnActualizar);
             Controls.Add(btnCerrar);
             Controls.Add(dtgDatos);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -208,6 +229,7 @@
         private Label label2;
         private Label lblRegistros;
         private Button btnGuiasRemision;
+        private Button btnActualizar;
         private DataGridViewTextBoxColumn Id_Proveedor;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Direccion;
@@ -215,5 +237,6 @@
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn RUC;
         private DataGridViewTextBoxColumn Estado;
+        private DataGridViewTextBoxColumn Estado_Proveedor;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Minimarket_BE;
 using Minimarket_BL;
+using ProyVentas_GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,7 @@ namespace Minimarket_GUI
 {
     public partial class frmListaRemision : Form
     {
-        ProveedorBL objProveedorBL = new ProveedorBL();
-        ProveedorBE objProveedorBE = new ProveedorBE();
+       
         RemisionBL objRemisionBL = new RemisionBL();
         DataView dtv;
 
@@ -56,7 +56,7 @@ namespace Minimarket_GUI
 
         }
 
-        private void CargarDatos(string Nom_Proveedor)
+        private void CargarDatos(String Nom_Proveedor)
         {
             dtv = new DataView(objRemisionBL.ListarRemision());
             dtv.RowFilter = "Nom_Proveedor LIKE '%" + Nom_Proveedor + "%'";
@@ -80,6 +80,27 @@ namespace Minimarket_GUI
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmActualizarRemision Remision = new frmActualizarRemision();
+                //Se toma el valor de la columna cero de la fila seleccionada 
+                //en el datagriv
+                Remision.Id_Remision = dtgRemision.CurrentRow.Cells[0].Value.ToString();
+                Remision.ShowDialog();
+                //Al retornar, resfrescamos la vista y cargamos los datos para ver los cambios 
+                //del proveedor actualizado 
+                dtv = new DataView(objRemisionBL.ListarRemision());
+                CargarDatos(txtFiltro.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+
+            }
         }
     }
 }

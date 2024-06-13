@@ -51,6 +51,37 @@ namespace Minimarket_ADO
 
         }
 
+  
+
+         public DataTable ListarProveedorActivos()
+        {
+
+            try
+            {
+
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ListarProveedorActivos";
+                cmd.Parameters.Clear();
+                DataSet dts = new DataSet();
+                ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Proveedores");
+                return dts.Tables["Proveedores"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
+
+
         public ProveedorBE ConsultarProveedor(String strCodigo)
         {
 

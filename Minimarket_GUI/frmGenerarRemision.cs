@@ -72,10 +72,14 @@ namespace Minimarket_GUI
             cboUm.ValueMember = "Id_UM";
             cboUm.DisplayMember = "Des_UM";
 
-            cboProveeedor.DataSource = objProveedorBL.ListarProveedor();
+
+
+            cboProveeedor.DataSource = objProveedorBL.ListarProveedorActivos();
             cboProveeedor.ValueMember = "Id_Proveedor";
             cboProveeedor.DisplayMember = "Nom_Proveedor";
             cboProveeedor.SelectedValue = strIdCodigo;
+
+
 
             // Para cboProducto
             DataTable productoData = objProveedorBL.ConsultarProductoxProveedor(strIdCodigo);

@@ -138,8 +138,8 @@
             // 
             // cboProveeedor
             // 
-            cboProveeedor.DropDownStyle = ComboBoxStyle.Simple;
             cboProveeedor.FormattingEnabled = true;
+            cboProveeedor.Items.AddRange(new object[] { "---Seleccione---" });
             cboProveeedor.Location = new Point(113, 34);
             cboProveeedor.Name = "cboProveeedor";
             cboProveeedor.Size = new Size(157, 23);

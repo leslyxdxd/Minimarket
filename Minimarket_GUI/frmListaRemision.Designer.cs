@@ -35,6 +35,7 @@
             label1 = new Label();
             txtFiltro = new TextBox();
             btnCerrar = new Button();
+            btnActualizar = new Button();
             Id_Remision = new DataGridViewTextBoxColumn();
             Num_Guia = new DataGridViewTextBoxColumn();
             Id_Proveedor = new DataGridViewTextBoxColumn();
@@ -77,7 +78,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(587, 477);
+            btnGenerar.Location = new Point(443, 477);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(147, 31);
             btnGenerar.TabIndex = 9;
@@ -122,7 +123,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(740, 476);
+            btnCerrar.Location = new Point(772, 476);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(124, 32);
             btnCerrar.TabIndex = 14;
@@ -130,13 +131,22 @@
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += btnCerrar_Click;
             // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(608, 477);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(147, 31);
+            btnActualizar.TabIndex = 9;
+            btnActualizar.Text = "Actualizar Remision";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
             // Id_Remision
             // 
             Id_Remision.DataPropertyName = "Id_Remision";
             Id_Remision.HeaderText = "Codigo Remision";
             Id_Remision.Name = "Id_Remision";
             Id_Remision.ReadOnly = true;
-            Id_Remision.Visible = false;
             // 
             // Num_Guia
             // 
@@ -293,6 +303,7 @@
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(lblRegistros);
+            Controls.Add(btnActualizar);
             Controls.Add(btnGenerar);
             Controls.Add(dtgRemision);
             MaximizeBox = false;
@@ -315,6 +326,7 @@
         private Label label1;
         private TextBox txtFiltro;
         private Button btnCerrar;
+        private Button btnActualizar;
         private DataGridViewTextBoxColumn Id_Remision;
         private DataGridViewTextBoxColumn Num_Guia;
         private DataGridViewTextBoxColumn Id_Proveedor;

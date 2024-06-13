@@ -77,6 +77,11 @@ namespace Minimarket_GUI
         private void dtgDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
             try
             {
                 frmActualizarProveedor prov03 = new frmActualizarProveedor();
@@ -94,6 +99,11 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error : " + ex.Message);
 
             }
+        }
+
+        private void dtgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

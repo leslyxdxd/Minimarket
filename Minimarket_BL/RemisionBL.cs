@@ -23,6 +23,18 @@ namespace Minimarket_BL
         {
             return objRemisionADO.InsertarRemision(objRemisionBE);
         }
+
+        public RemisionBE ConsultarGuiaRemision(String Id_Remision)
+        {
+            return objRemisionADO.ConsultarGuiaRemision(Id_Remision);
+        }
+
+
+        public Boolean ActualizarRemision(RemisionBE objRemisionBE)
+        {
+            return objRemisionADO.ActualizarRemision(objRemisionBE);
+        }
+
         public DataTable ListarRemision()
         {
             return objRemisionADO.ListarRemision();

@@ -58,6 +58,86 @@ namespace Minimarket_ADO
 
 
         }
+
+
+
+        public RemisionBE ConsultarGuiaRemision(String Id_Remision)
+        {
+
+            try
+            {
+                //Codifique
+                RemisionBE objRemisionBE = new RemisionBE();
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ConsultarGuiaRemision";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Remision", Id_Remision);
+
+
+                //Abrimos y ejecutamos...
+                cnx.Open();
+                dtr = cmd.ExecuteReader();
+
+
+
+                if (dtr.HasRows == true)
+                {
+                    dtr.Read();
+
+
+                    objRemisionBE.Id_Detalle = Convert.ToInt16 (dtr["Id_Detalle"]);
+                    objRemisionBE.Id_Proveedor = dtr["Id_Proveedor"].ToString();
+                    objRemisionBE.Nom_Proveedor = dtr["Nom_Proveedor"].ToString();
+                    objRemisionBE.RUC = dtr["RUC"].ToString();
+                    objRemisionBE.Direc_Proveedor = dtr["Direc_Proveedor"].ToString();
+                    objRemisionBE.Telefono = dtr["Telefono"].ToString();
+                    objRemisionBE.Correo = dtr["Correo"].ToString();
+                    objRemisionBE.Id_Producto = dtr["Id_Producto"].ToString();
+                    objRemisionBE.Nom_Producto = dtr["Nom_Producto"].ToString();
+                    objRemisionBE.Marca = dtr["Marca"].ToString();
+                    objRemisionBE.Id_Cat = Convert.ToInt16(dtr["Id_Cat"]);
+                    objRemisionBE.Des_Cat = dtr["Des_cat"].ToString();
+                    objRemisionBE.Id_UM = Convert.ToInt16(dtr["Id_UM"]);
+                    objRemisionBE.Des_UM = dtr["Des_UM"].ToString();
+                    objRemisionBE.Observaciones = dtr["Observaciones"].ToString();
+                    objRemisionBE.FechaIni = Convert.ToDateTime(dtr["FehaIni"]);
+                    objRemisionBE.FechaFin = Convert.ToDateTime(dtr["FechaFin"]);
+                    objRemisionBE.Num_Guia = dtr["Num_Guia"].ToString();
+                    objRemisionBE.Cantidad = Convert.ToInt16(dtr["Cantidad"]);
+                    objRemisionBE.Estado = dtr["Estado"].ToString();
+
+                }
+                dtr.Close();
+                return objRemisionBE;
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
         public Boolean InsertarRemision(RemisionBE objRemisionBE)
         {
 
@@ -87,6 +167,51 @@ namespace Minimarket_ADO
                 cmd.Parameters.AddWithValue("@Usu_Registro", objRemisionBE.Usu_Registro);
 
     
+                //Abrimos y ejecutamos
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException x)
+            {
+                throw new Exception(x.Message);
+                return false;
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
+        }
+
+
+        public Boolean ActualizarRemision(RemisionBE objRemisionBE)
+        {
+
+            try
+            {
+                //Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ActualizarDetalleRemision";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Remision ", objRemisionBE.Id_Proveedor);
+                cmd.Parameters.AddWithValue("@Id_Producto", objRemisionBE.Id_Producto);
+                cmd.Parameters.AddWithValue("@Cantidad", objRemisionBE.Cantidad);
+                cmd.Parameters.AddWithValue("@Observaciones", objRemisionBE.Observaciones);
+                cmd.Parameters.AddWithValue("@Id_UM", objRemisionBE.Id_UM);
+                cmd.Parameters.AddWithValue("@Peso_Carga", objRemisionBE.Peso_Carga);
+                cmd.Parameters.AddWithValue("@Usu_Ult_Mod ", objRemisionBE.Usu_Ult_Mod);
+                cmd.Parameters.AddWithValue("@FechaIni", objRemisionBE.FechaIni);
+                cmd.Parameters.AddWithValue("@FechaFin", objRemisionBE.FechaFin);
+                cmd.Parameters.AddWithValue("@Punto_Partida", objRemisionBE.Punto_Partida);
+                cmd.Parameters.AddWithValue("@Punto_Llegada", objRemisionBE.Punto_Llegada);
+
                 //Abrimos y ejecutamos
 
                 cnx.Open();

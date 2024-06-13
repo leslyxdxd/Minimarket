@@ -32,6 +32,9 @@ namespace Minimarket_BE
 
         public int Estado { get; set; }
 
-       
+        public String Estado_Proveedor { get; set; }
+
+
+
     }
 }
