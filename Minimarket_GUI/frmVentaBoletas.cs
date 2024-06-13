@@ -20,7 +20,7 @@ namespace Minimarket_GUI
 
 
         public string Codigo { get; set; }
-      
+
 
         public frmVentaBoletas()
         {
@@ -122,7 +122,6 @@ namespace Minimarket_GUI
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-
             try
             {
                 // Validación de la cantidad
@@ -155,11 +154,10 @@ namespace Minimarket_GUI
                     MessageBox.Show("La cantidad no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (cantidad == stock) 
+                if (cantidad == stock)
                 {
                     MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-
                 }
 
                 // Si todas las validaciones son correctas, se procede a agregar el producto
@@ -169,7 +167,17 @@ namespace Minimarket_GUI
                 file.Cells[1].Value = lblNombre.Text;
                 file.Cells[2].Value = lblPrecio.Text;
                 file.Cells[3].Value = txtCantidad.Text;
-                file.Cells[4].Value = (float.Parse(lblPrecio.Text) * cantidad).ToString();
+
+                // Calcular el subtotal, IGV y total
+                float precio = float.Parse(lblPrecio.Text);
+                float subtotal = precio * cantidad;
+                float tasaIGV = 0.18f; // Tasa del 18%
+                float igv = subtotal * tasaIGV;
+                float total = subtotal + igv;
+
+                // Asignar los valores a las celdas correspondientes    
+                file.Cells[4].Value = igv.ToString("F2");      // IGV
+                file.Cells[5].Value = total.ToString("F2");    // Total con IGV
 
                 dtgListaProductos.Rows.Add(file);
                 lblRegistros.Text = dtgListaProductos.Rows.Count.ToString();
@@ -182,6 +190,7 @@ namespace Minimarket_GUI
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
         }
 
         public void obtenerTotal()
@@ -193,10 +202,10 @@ namespace Minimarket_GUI
 
             for (int i = 0; i < contador; i++)
             {
-                costot += float.Parse(dtgListaProductos.Rows[i].Cells[4].Value.ToString());
+                costot += float.Parse(dtgListaProductos.Rows[i].Cells[5].Value.ToString());
             }
 
-            lblTotalPagar.Text = costot.ToString();
+            lblTotalPagar.Text = costot.ToString("F2");
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -282,9 +291,14 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error del sistema consulte con TI", ex.Message);
             }
 
-          
+
         }
 
+        private void dtgListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
+
+       
     }
 }

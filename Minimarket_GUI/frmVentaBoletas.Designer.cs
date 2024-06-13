@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             btnRegistrarBoleta = new Button();
             lblTotalPagar = new Label();
             label2 = new Label();
@@ -47,11 +48,6 @@
             label3 = new Label();
             lblCodigo = new Label();
             dtgListaProductos = new DataGridView();
-            Cod_Producto = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
             txtDNI = new TextBox();
             btnBuscarClienteDNI = new Button();
@@ -64,6 +60,12 @@
             lblRegistros = new Label();
             label10 = new Label();
             btnEliminarProducto = new Button();
+            Cod_Producto = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            IGV = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).BeginInit();
             groupBox2.SuspendLayout();
@@ -258,51 +260,16 @@
             dtgListaProductos.AllowUserToDeleteRows = false;
             dtgListaProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgListaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgListaProductos.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, SubTotal });
+            dtgListaProductos.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, IGV, SubTotal });
             dtgListaProductos.Location = new Point(28, 311);
             dtgListaProductos.Margin = new Padding(4, 3, 4, 3);
             dtgListaProductos.Name = "dtgListaProductos";
             dtgListaProductos.ReadOnly = true;
             dtgListaProductos.RowHeadersVisible = false;
             dtgListaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaProductos.Size = new Size(833, 439);
+            dtgListaProductos.Size = new Size(833, 428);
             dtgListaProductos.TabIndex = 9;
-            // 
-            // Cod_Producto
-            // 
-            Cod_Producto.DataPropertyName = "Cod_Producto";
-            Cod_Producto.HeaderText = "Cod.Producto";
-            Cod_Producto.Name = "Cod_Producto";
-            Cod_Producto.ReadOnly = true;
-            Cod_Producto.Resizable = DataGridViewTriState.False;
-            // 
-            // Producto
-            // 
-            Producto.DataPropertyName = "Producto";
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.DataPropertyName = "Precio";
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            Cantidad.DataPropertyName = "Precio";
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            Cantidad.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            SubTotal.DataPropertyName = "SubTotal";
-            SubTotal.HeaderText = "SubTotal";
-            SubTotal.Name = "SubTotal";
-            SubTotal.ReadOnly = true;
+            dtgListaProductos.CellContentClick += dtgListaProductos_CellContentClick;
             // 
             // groupBox2
             // 
@@ -427,6 +394,52 @@
             btnEliminarProducto.UseVisualStyleBackColor = true;
             btnEliminarProducto.Click += btnEliminarProducto_Click;
             // 
+            // Cod_Producto
+            // 
+            Cod_Producto.DataPropertyName = "Cod_Producto";
+            Cod_Producto.HeaderText = "Cod.Producto";
+            Cod_Producto.Name = "Cod_Producto";
+            Cod_Producto.ReadOnly = true;
+            Cod_Producto.Resizable = DataGridViewTriState.False;
+            // 
+            // Producto
+            // 
+            Producto.DataPropertyName = "Producto";
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.DataPropertyName = "Precio";
+            dataGridViewCellStyle1.Format = "F2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle1;
+            Precio.HeaderText = "Precio(S/.)";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            Precio.Resizable = DataGridViewTriState.False;
+            // 
+            // Cantidad
+            // 
+            Cantidad.DataPropertyName = "Precio";
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
+            // 
+            // IGV
+            // 
+            IGV.DataPropertyName = "IGV";
+            IGV.HeaderText = "IGV";
+            IGV.Name = "IGV";
+            IGV.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            SubTotal.DataPropertyName = "SubTotal";
+            SubTotal.HeaderText = "SubTotal(S/.)";
+            SubTotal.Name = "SubTotal";
+            SubTotal.ReadOnly = true;
+            // 
             // frmVentaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -494,6 +507,7 @@
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn IGV;
         private DataGridViewTextBoxColumn SubTotal;
     }
 }
