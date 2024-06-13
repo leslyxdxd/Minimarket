@@ -112,6 +112,61 @@ namespace Minimarket_ADO
             return Respuesta;
         }
 
+        public DataTable ListarFactura()
+        {
+
+            try
+            {
+
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ListarFacturasDetalleProductos";
+                cmd.Parameters.Clear();
+                DataSet dts = new DataSet();
+                ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Factura");
+                return dts.Tables["Factura"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public DataTable ConsultarFactura(string strCodigo)
+        {
+            DataTable dtDetalleFactura = new DataTable();
+
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(MiConexion.GetCnx()))
+                using (SqlCommand cmd = new SqlCommand("sp_ObtenerDetallesFactura", cnx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_Factura", strCodigo);
+
+                    cnx.Open();
+
+                    using (SqlDataReader dtr = cmd.ExecuteReader())
+                    {
+                        dtDetalleFactura.Load(dtr);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al consultar la factura en la base de datos (SQL): " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error general al consultar la factura: " + ex.Message);
+            }
+
+            return dtDetalleFactura;
+        }
 
 
     }

@@ -48,6 +48,9 @@
             generarRemisionToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            comprobantesToolStripMenuItem = new ToolStripMenuItem();
+            boletasToolStripMenuItem = new ToolStripMenuItem();
+            facturasToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
@@ -57,7 +60,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, salirDelSistemasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, salirDelSistemasToolStripMenuItem, comprobantesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 11, 10, 11);
@@ -199,6 +202,28 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
+            // comprobantesToolStripMenuItem
+            // 
+            comprobantesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boletasToolStripMenuItem, facturasToolStripMenuItem });
+            comprobantesToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comprobantesToolStripMenuItem.Name = "comprobantesToolStripMenuItem";
+            comprobantesToolStripMenuItem.Size = new Size(119, 24);
+            comprobantesToolStripMenuItem.Text = "Comprobantes";
+            // 
+            // boletasToolStripMenuItem
+            // 
+            boletasToolStripMenuItem.Name = "boletasToolStripMenuItem";
+            boletasToolStripMenuItem.Size = new Size(180, 24);
+            boletasToolStripMenuItem.Text = "Boletas";
+            boletasToolStripMenuItem.Click += boletasToolStripMenuItem_Click;
+            // 
+            // facturasToolStripMenuItem
+            // 
+            facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            facturasToolStripMenuItem.Size = new Size(180, 24);
+            facturasToolStripMenuItem.Text = "Facturas";
+            facturasToolStripMenuItem.Click += facturasToolStripMenuItem_Click;
+            // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { lbl1, lblUsuario });
@@ -279,5 +304,8 @@
         private ToolStripMenuItem stokAlmacen;
         private ToolStripMenuItem boletaToolStripMenuItem;
         private ToolStripMenuItem facturaToolStripMenuItem;
+        private ToolStripMenuItem comprobantesToolStripMenuItem;
+        private ToolStripMenuItem boletasToolStripMenuItem;
+        private ToolStripMenuItem facturasToolStripMenuItem;
     }
 }

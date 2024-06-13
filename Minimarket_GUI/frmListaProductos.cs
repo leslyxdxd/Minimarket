@@ -19,27 +19,6 @@ namespace Minimarket_GUI
         }
 
 
-        public void ActualizarStockVisual(string codigoProducto, int cantidadRestada)
-        {
-            foreach (DataGridViewRow row in dtgDatos.Rows)
-            {
-                if (row.Cells["Codigo"].Value.ToString() == codigoProducto)
-                {
-                    int stockActual = int.Parse(row.Cells["Stock Tienda"].Value.ToString());
-                    int nuevoStock = stockActual - cantidadRestada;
-                    row.Cells["Stock Tienda"].Value = nuevoStock;
-                    break;
-                }
-            }
-        }
-
-
-
-
-
-
-
-
         public void ActualizarProductos()
         {
             try

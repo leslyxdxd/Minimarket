@@ -198,12 +198,12 @@ namespace ProyVentas_GUI
 
         }
 
-     
+
         private void boletaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        
-   
+
+
             frmVentaBoletas frmBoletas = new frmVentaBoletas();
             frmBoletas.MdiParent = this;
             frmBoletas.Show();
@@ -213,6 +213,22 @@ namespace ProyVentas_GUI
         {
 
             frmVentaFacturas frmFacturas = new frmVentaFacturas();
+            frmFacturas.MdiParent = this;
+            frmFacturas.Show();
+        }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmListaFacturas frmFacturas = new frmListaFacturas();
+            frmFacturas.MdiParent = this;
+            frmFacturas.Show();
+
+        }
+
+        private void boletasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaBoletas frmFacturas = new frmListaBoletas();
             frmFacturas.MdiParent = this;
             frmFacturas.Show();
         }

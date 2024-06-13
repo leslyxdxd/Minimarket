@@ -15,6 +15,8 @@ namespace Minimarket_ADO
         SqlConnection cnx = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         DataView dtv;
+        SqlDataReader dtr;
+        SqlDataAdapter ada;
 
         public bool RegistrarVenta(BoletaBE objBoletaBE, DataTable Detalle_Boleta, out string Mensaje)
         {
@@ -62,6 +64,71 @@ namespace Minimarket_ADO
 
             return Respuesta;
         }
+
+        public DataTable ListarBoleta()
+        {
+            DataTable dtBoleta = new DataTable();
+
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(MiConexion.GetCnx()))
+                using (SqlCommand cmd = new SqlCommand("sp_ListarBoletasDetalleProductos", cnx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cnx.Open();
+
+                    using (SqlDataAdapter ada = new SqlDataAdapter(cmd))
+                    {
+                        ada.Fill(dtBoleta);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al listar las boletas en la base de datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error general al listar las boletas: " + ex.Message);
+            }
+
+            return dtBoleta;
+        }
+        public DataTable ConsultarBoleta(string strCodigo)
+        {
+            DataTable dtDetalleFactura = new DataTable();
+
+            try
+            {
+                using (SqlConnection cnx = new SqlConnection(MiConexion.GetCnx()))
+                using (SqlCommand cmd = new SqlCommand("sp_ObtenerDetallesBoleta", cnx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id_Boleta", strCodigo);
+
+                    cnx.Open();
+
+                    using (SqlDataReader dtr = cmd.ExecuteReader())
+                    {
+                        dtDetalleFactura.Load(dtr);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al consultar la factura en la base de datos (SQL): " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error general al consultar la factura: " + ex.Message);
+            }
+
+            return dtDetalleFactura;
+        }
+
+   
+
 
         public bool SumarStock(String idproducto, int cantidad)
         {

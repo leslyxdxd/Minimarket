@@ -36,7 +36,14 @@ namespace Minimarket_BL
             return objFacturaADO.RegistrarFactura(objFacturaBL, DetalleFactura, out Mensaje);
         }
 
+        public DataTable ListarFactura()
+        {
+            return objFacturaADO.ListarFactura();
+        }
 
-
+        public DataTable ConsultarFactura(String strCodigo)
+        {
+            return objFacturaADO.ConsultarFactura(strCodigo);
+        }
     }
 }
