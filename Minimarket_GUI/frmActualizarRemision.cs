@@ -16,6 +16,7 @@ namespace Minimarket_GUI
         TransportistaBL objTransportistaBL = new TransportistaBL();
         UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
         UnidadMedidaBE objUnidadMedidaBE = new UnidadMedidaBE();
+
         public frmActualizarRemision()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Minimarket_GUI
                 // Cargar datos en los ComboBox de Unidad de Medida
                 DataTable dtUM = objUnidadMedidaBL.ListarUM();
                 DataRow drUM = dtUM.NewRow();
-                drUM["Id_UM"] = 0;
+                drUM["Id_UM"] = DBNull.Value;
                 drUM["Des_UM"] = "--Seleccione--";
                 dtUM.Rows.InsertAt(drUM, 0);
                 cboUm.DataSource = dtUM;
@@ -39,6 +40,10 @@ namespace Minimarket_GUI
 
                 // Cargar datos en los ComboBox de Proveedores
                 DataTable dtProveedor = objProveedorBL.ListarProveedorActivos();
+                DataRow drProveedor = dtProveedor.NewRow();
+                drProveedor["Id_Proveedor"] = DBNull.Value;
+                drProveedor["Nom_Proveedor"] = "--Seleccione--";
+                dtProveedor.Rows.InsertAt(drProveedor, 0);
                 cboProveeedor.DataSource = dtProveedor;
                 cboProveeedor.ValueMember = "Id_Proveedor";
                 cboProveeedor.DisplayMember = "Nom_Proveedor";
@@ -88,19 +93,28 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error al cargar transportistas: " + ex.Message);
             }
         }
+
         private void CargarUM(string Id_Remision)
         {
             try
             {
                 // Cargar datos en el ComboBox de Unidad de Medida en función de la remisión seleccionada
                 DataTable dtUM = objUnidadMedidaBL.ConsultarUMXRemision(Id_Remision);
-                DataRow drUM = dtUM.NewRow();
-                drUM["Id_UM_Remision"] = DBNull.Value;
-                drUM["Des_UM_Remision"] = "--Seleccione--";
-                dtUM.Rows.InsertAt(drUM, 0);
+                if (dtUM == null || dtUM.Rows.Count == 0)
+                {
+                    throw new Exception("No se encontraron datos de unidad de medida para la remisión.");
+                }
+
                 cboUm.DataSource = dtUM;
                 cboUm.ValueMember = "Id_UM_Remision";
                 cboUm.DisplayMember = "Des_UM_Remision";
+
+                // Establecer el texto del ComboBox para mostrar la unidad de medida seleccionada
+                DataRowView selectedItem = (DataRowView)cboUm.SelectedItem;
+                if (selectedItem != null)
+                {
+                    cboUm.Text = selectedItem["Des_UM_Remision"].ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -167,31 +181,29 @@ namespace Minimarket_GUI
                 // Obtener los datos de la remisión a actualizar
                 objRemisionBE = objRemisionBL.ConsultarGuiaRemision(Id_Remision);
 
+                // Cargar y seleccionar la Unidad de Medida
+                CargarUM(Id_Remision);
+
                 // Seleccionar los datos en los ComboBox y otros controles
                 cboProveeedor.SelectedValue = objRemisionBE.Id_Proveedor;
                 CargarProductos(objRemisionBE.Id_Proveedor);
                 cboProducto.SelectedValue = objRemisionBE.Id_Producto;
                 CargarTransportistas(objRemisionBE.Id_Proveedor);
                 cboTransportista.SelectedValue = objRemisionBE.Id_Transporte;
-    
 
-                // Asegúrate de que el combo de Unidad de Medida se cargue primero y luego establece el valor seleccionado
-                cboUm.SelectedValue = objRemisionBE.Id_UM;
-
-                lblNumeroGuia.Text = objRemisionBE.Num_Guia; // Asegúrate de que lblNumeroGuia esté correctamente vinculado en el formulario
+                // Otros datos de la remisión
+                lblNumeroGuia.Text = objRemisionBE.Num_Guia;
                 lblDireccion.Text = objRemisionBE.Direc_Proveedor;
                 lblRuc.Text = objRemisionBE.RUC;
                 lblUnidad.Text = objRemisionBE.Des_UM_Producto;
                 lblMarcas.Text = objRemisionBE.Marca;
                 lblCorreo.Text = objRemisionBE.Correo;
                 lblTel.Text = objRemisionBE.Telefono;
-
                 lblRucTra.Text = objRemisionBE.Ruc_Transporte;
                 lblDirecTrans.Text = objRemisionBE.Direccion_Empresa;
                 lblMarca.Text = objRemisionBE.Marca_Trasporte;
                 lblPlaca.Text = objRemisionBE.Placa_Trasporte;
                 lblLicencia.Text = objRemisionBE.Licencia_Transporte;
-
                 UpdownCantidad.Value = objRemisionBE.Cantidad;
                 txtPeso.Text = objRemisionBE.Peso_Carga.ToString("N2");
                 dtpFecIni.Value = objRemisionBE.FechaIni;
@@ -205,19 +217,14 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
         private void cboUm_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            // Lógica para manejar cambios en la selección del ComboBox de Unidad de Medida si es necesario
+        }
 
-            try
-            {
-                string Id_Remision = cboUm.SelectedValue.ToString();
-                CargarUM(Id_Remision);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cambiar la selección de Unidad de Medida: " + ex.Message);
-            }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
@@ -50,6 +50,8 @@
             label2 = new Label();
             lblRegistros = new Label();
             btnCerrar = new Button();
+            btnInabilitar = new Button();
+            btnHabilitar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -63,20 +65,20 @@
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda, Id_UM, Des_UM });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgDatos.DefaultCellStyle = dataGridViewCellStyle5;
             dtgDatos.Location = new Point(25, 53);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(619, 436);
             dtgDatos.TabIndex = 1;
@@ -98,8 +100,8 @@
             // Precio_Unitario
             // 
             Precio_Unitario.DataPropertyName = "Precio_Unitario";
-            dataGridViewCellStyle1.Format = "N2";
-            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "N2";
+            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle4;
             Precio_Unitario.HeaderText = "Precio U. (Venta)";
             Precio_Unitario.Name = "Precio_Unitario";
             Precio_Unitario.ReadOnly = true;
@@ -220,19 +222,41 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(520, 511);
+            btnCerrar.Location = new Point(557, 516);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.Size = new Size(87, 32);
             btnCerrar.TabIndex = 8;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += btnCerrar_Click;
+            // 
+            // btnInabilitar
+            // 
+            btnInabilitar.Location = new Point(441, 516);
+            btnInabilitar.Name = "btnInabilitar";
+            btnInabilitar.Size = new Size(87, 32);
+            btnInabilitar.TabIndex = 9;
+            btnInabilitar.Text = "Inhabilitar";
+            btnInabilitar.UseVisualStyleBackColor = true;
+            btnInabilitar.Click += btnInabilitar_Click;
+            // 
+            // btnHabilitar
+            // 
+            btnHabilitar.Location = new Point(319, 516);
+            btnHabilitar.Name = "btnHabilitar";
+            btnHabilitar.Size = new Size(93, 32);
+            btnHabilitar.TabIndex = 10;
+            btnHabilitar.Text = "Habilitar";
+            btnHabilitar.UseVisualStyleBackColor = true;
+            btnHabilitar.Click += btnHabilitar_Click;
             // 
             // frmListaProductosTras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(669, 572);
+            Controls.Add(btnHabilitar);
+            Controls.Add(btnInabilitar);
             Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
@@ -272,5 +296,7 @@
         private DataGridViewTextBoxColumn Id_UM;
         private DataGridViewTextBoxColumn Des_UM;
         private Button btnCerrar;
+        private Button btnInabilitar;
+        private Button btnHabilitar;
     }
 }

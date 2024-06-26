@@ -108,7 +108,62 @@ namespace Minimarket_ADO
 
 
         }
-       
+
+        public Boolean InhabilitarProducto(ProductoBE objProductoBE)
+        {
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_InhabilitarProducto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Producto", objProductoBE.Id_Producto);
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
+
+        public Boolean HabilitarProducto(ProductoBE objProductoBE)
+        {
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_HabilitarProducto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Producto", objProductoBE.Id_Producto);
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
 
 
 

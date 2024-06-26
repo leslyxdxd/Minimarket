@@ -44,7 +44,30 @@ namespace Minimarket_ADO
             }
         }
 
+        public DataTable ListarStockDispo()
+        {
 
+            try
+            {
+
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ListarStockProductosDispo";
+                cmd.Parameters.Clear();
+                DataSet dts = new DataSet();
+                ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Stock");
+                return dts.Tables["Stock"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public StockBE ConsultarProducto(String strCodigo)
         {
 

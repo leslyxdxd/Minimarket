@@ -32,6 +32,12 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            label2 = new Label();
+            lblRegistros = new Label();
+            btnCerrar = new Button();
+            btnTraspaso = new Button();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             Precio_Unitario = new DataGridViewTextBoxColumn();
@@ -42,12 +48,6 @@
             Stk_Tienda = new DataGridViewTextBoxColumn();
             Id_UM = new DataGridViewTextBoxColumn();
             Des_UM = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            label2 = new Label();
-            lblRegistros = new Label();
-            btnCerrar = new Button();
-            btnTraspaso = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -80,6 +80,61 @@
             dtgDatos.TabIndex = 1;
             dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(25, 21);
+            label1.Name = "label1";
+            label1.Size = new Size(144, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Ingrese filtro por Nombre:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(175, 18);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(189, 23);
+            txtFiltro.TabIndex = 4;
+            txtFiltro.TextChanged += txtFiltro_TextChanged_1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(25, 520);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 15);
+            label2.TabIndex = 5;
+            label2.Text = "Productos:";
+            // 
+            // lblRegistros
+            // 
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(95, 516);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 6;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(520, 511);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.TabIndex = 8;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // btnTraspaso
+            // 
+            btnTraspaso.Location = new Point(375, 511);
+            btnTraspaso.Name = "btnTraspaso";
+            btnTraspaso.Size = new Size(124, 32);
+            btnTraspaso.TabIndex = 9;
+            btnTraspaso.Text = "Traspasar";
+            btnTraspaso.UseVisualStyleBackColor = true;
+            btnTraspaso.Click += btnTraspaso_Click;
+            // 
             // Nom_Producto
             // 
             Nom_Producto.DataPropertyName = "Nom_Producto";
@@ -93,6 +148,7 @@
             Estado.HeaderText = "Estado";
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
+            Estado.Visible = false;
             // 
             // Precio_Unitario
             // 
@@ -155,61 +211,6 @@
             Des_UM.HeaderText = "U.Medida";
             Des_UM.Name = "Des_UM";
             Des_UM.ReadOnly = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(25, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(144, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Ingrese filtro por Nombre:";
-            // 
-            // txtFiltro
-            // 
-            txtFiltro.Location = new Point(175, 18);
-            txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(189, 23);
-            txtFiltro.TabIndex = 4;
-            txtFiltro.TextChanged += txtFiltro_TextChanged_1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(25, 520);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Productos:";
-            // 
-            // lblRegistros
-            // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(95, 516);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
-            lblRegistros.TabIndex = 6;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(520, 511);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
-            btnCerrar.TabIndex = 8;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnTraspaso
-            // 
-            btnTraspaso.Location = new Point(375, 511);
-            btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(124, 32);
-            btnTraspaso.TabIndex = 9;
-            btnTraspaso.Text = "Traspasar";
-            btnTraspaso.UseVisualStyleBackColor = true;
-            btnTraspaso.Click += btnTraspaso_Click;
             // 
             // frmListaProductos
             // 

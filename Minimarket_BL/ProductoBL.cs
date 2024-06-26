@@ -23,7 +23,17 @@ namespace Minimarket_BL
         {
             return objProductoADO.ConsultarProducto(strCodigo);
         }
-     
+        public Boolean InhabilitarProducto(ProductoBE objProductoBE)
+        {
+            return objProductoADO.InhabilitarProducto(objProductoBE);
+        }
+
+        public Boolean HabilitarProducto(ProductoBE objProductoBE)
+        {
+            return objProductoADO.HabilitarProducto(objProductoBE);
+        }
+
+
 
     }
 }
