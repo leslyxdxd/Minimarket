@@ -199,7 +199,7 @@ namespace Minimarket_GUI
                     fila.CreateCells(dtgProducto);
                     fila.Cells[0].Value = lblCodigo.Text;
                     fila.Cells[1].Value = lblNombre.Text;
-                    fila.Cells[2].Value = lblPrecio.Text;
+                    fila.Cells[2].Value = decimal.Parse(lblPrecio.Text).ToString("N2");
                     fila.Cells[3].Value = txtCantidad2.Text;
 
                     decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);

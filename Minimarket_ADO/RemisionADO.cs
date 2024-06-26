@@ -87,7 +87,7 @@ namespace Minimarket_ADO
                     dtr.Read();
 
 
-                    objRemisionBE.Id_Detalle = Convert.ToInt16 (dtr["Id_Detalle"]);
+                    objRemisionBE.Id_Detalle = Convert.ToInt16(dtr["Id_Detalle"]);
                     objRemisionBE.Id_Proveedor = dtr["Id_Proveedor"].ToString();
                     objRemisionBE.Nom_Proveedor = dtr["Nom_Proveedor"].ToString();
                     objRemisionBE.RUC = dtr["RUC"].ToString();
@@ -99,14 +99,25 @@ namespace Minimarket_ADO
                     objRemisionBE.Marca = dtr["Marca"].ToString();
                     objRemisionBE.Id_Cat = Convert.ToInt16(dtr["Id_Cat"]);
                     objRemisionBE.Des_Cat = dtr["Des_cat"].ToString();
-                    objRemisionBE.Id_UM = Convert.ToInt16(dtr["Id_UM"]);
-                    objRemisionBE.Des_UM = dtr["Des_UM"].ToString();
+                    objRemisionBE.Peso_Carga= Convert.ToInt16(dtr["Peso_Carga"]);
+                    objRemisionBE.Punto_Llegada = dtr["Punto_Llegada"].ToString();
+                    objRemisionBE.Punto_Partida = dtr["Punto_Partida"].ToString();
+                    objRemisionBE.Des_UM_Producto = dtr["Des_UM_Producto"].ToString();
+                    objRemisionBE.Des_UM_Remision = dtr["Des_UM_Remision"].ToString();
                     objRemisionBE.Observaciones = dtr["Observaciones"].ToString();
-                    objRemisionBE.FechaIni = Convert.ToDateTime(dtr["FehaIni"]);
+                    objRemisionBE.FechaIni = Convert.ToDateTime(dtr["FechaIni"]);
                     objRemisionBE.FechaFin = Convert.ToDateTime(dtr["FechaFin"]);
                     objRemisionBE.Num_Guia = dtr["Num_Guia"].ToString();
                     objRemisionBE.Cantidad = Convert.ToInt16(dtr["Cantidad"]);
                     objRemisionBE.Estado = dtr["Estado"].ToString();
+                    objRemisionBE.Id_Transporte = dtr["Id_Transporte"].ToString();
+                    objRemisionBE.Empresa_Transporte = dtr["Empresa_Transporte"].ToString();
+                    objRemisionBE.Direccion_Empresa = dtr["Direccion_Empresa"].ToString();
+                    objRemisionBE.Marca_Trasporte = dtr["Marca_Trasporte"].ToString();
+                    objRemisionBE.Licencia_Transporte = dtr["Licencia_Transporte"].ToString();
+                    objRemisionBE.Placa_Trasporte = dtr["Placa_Trasporte"].ToString();
+                    objRemisionBE.Ruc_Transporte = dtr["Ruc_Transporte"].ToString();
+        
 
                 }
                 dtr.Close();

@@ -241,7 +241,7 @@
             // 
             // Des_UM
             // 
-            Des_UM.DataPropertyName = "Des_UM";
+            Des_UM.DataPropertyName = "Des_UM_Producto";
             Des_UM.HeaderText = "U.M.";
             Des_UM.Name = "Des_UM";
             Des_UM.ReadOnly = true;

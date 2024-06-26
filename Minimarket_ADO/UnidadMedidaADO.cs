@@ -39,5 +39,31 @@ namespace ProyVentas_ADO
             }
 
         }
+
+        public DataTable ConsultarUMXRemision(String strCodigo)
+        {
+            try
+            {
+                
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_UMXRemision";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IdRemision", strCodigo);
+                SqlDataAdapter miada;
+                DataSet dts = new DataSet();
+                miada = new SqlDataAdapter(cmd);
+                miada.Fill(dts, "Transportista");
+                return dts.Tables["Transportista"];
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
     }
 }

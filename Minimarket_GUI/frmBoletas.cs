@@ -86,11 +86,7 @@ namespace Minimarket_GUI
                     HeaderText = "Marca"
                 });
 
-                dtgDatos.Columns.Add(new DataGridViewTextBoxColumn()
-                {
-                    DataPropertyName = "Total",
-                    HeaderText = "Total"
-                });
+                
 
                 dtgDatos.Columns.Add(new DataGridViewTextBoxColumn()
                 {
@@ -104,6 +100,14 @@ namespace Minimarket_GUI
                     DataPropertyName = "Subtotal",
                     HeaderText = "Subtotal",
                     DefaultCellStyle = new DataGridViewCellStyle() { Format = "0.0" } // Formatear Subtotal
+                });
+
+                // Columna Total con formato de un decimal
+                dtgDatos.Columns.Add(new DataGridViewTextBoxColumn()
+                {
+                    DataPropertyName = "Total",
+                    HeaderText = "Total",
+                    DefaultCellStyle = new DataGridViewCellStyle() { Format = "N2" }
                 });
 
                 // Asignar el DataTable como DataSource del DataGridView

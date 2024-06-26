@@ -226,7 +226,8 @@ namespace Minimarket_GUI
                     file.CreateCells(dtgListaProductos);
                     file.Cells[0].Value = lblCodigo.Text;
                     file.Cells[1].Value = lblNombre.Text;
-                    file.Cells[2].Value = lblPrecio.Text;
+                    file.Cells[2].Value = decimal.Parse(lblPrecio.Text).ToString("N2");
+
                     file.Cells[3].Value = txtCantidad.Text;
 
                     // Calcular el subtotal, IGV y total

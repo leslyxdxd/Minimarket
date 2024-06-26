@@ -89,14 +89,7 @@ namespace Minimarket_GUI
                     DefaultCellStyle = new DataGridViewCellStyle { Format = "0.0" } // Formatear como 0.0
                 });
 
-                // Columna Total con formato de un decimal
-                dtgDatos.Columns.Add(new DataGridViewTextBoxColumn()
-                {
-                    DataPropertyName = "Total",
-                    HeaderText = "Total",
-                    DefaultCellStyle = new DataGridViewCellStyle() { Format = "N2" }
-                });
-
+                
                 // Columna IGV con formato de un decimal
                 dtgDatos.Columns.Add(new DataGridViewTextBoxColumn()
                 {
@@ -112,6 +105,14 @@ namespace Minimarket_GUI
                     HeaderText = "Subtotal",
                     DefaultCellStyle = new DataGridViewCellStyle() { Format = "N2" }
                 });
+                // Columna Total con formato de un decimal
+                dtgDatos.Columns.Add(new DataGridViewTextBoxColumn()
+                {
+                    DataPropertyName = "Total",
+                    HeaderText = "Total",
+                    DefaultCellStyle = new DataGridViewCellStyle() { Format = "N2" }
+                });
+
 
                 // Asignar el DataTable como DataSource del DataGridView
                 dtgDatos.DataSource = dtDetallesFactura;

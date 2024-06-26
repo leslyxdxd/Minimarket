@@ -34,6 +34,7 @@ namespace Minimarket_BL
         {
             return objProveedorADO.ConsultarProductoxProveedor(strIdCodigo);
         }
+       
 
         public DataTable ConsultarTransportistaxProveedor(String strIdCodigo)
         {

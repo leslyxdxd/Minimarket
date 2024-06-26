@@ -30,7 +30,7 @@
         {
             label21 = new Label();
             label3 = new Label();
-            btnGenerar = new Button();
+            btnActualizar = new Button();
             groupBox4 = new GroupBox();
             txtPeso = new TextBox();
             label19 = new Label();
@@ -110,15 +110,16 @@
             label3.TabIndex = 46;
             label3.Text = "Nº GUIA :";
             // 
-            // btnGenerar
+            // btnActualizar
             // 
-            btnGenerar.Location = new Point(1006, 471);
-            btnGenerar.Margin = new Padding(4, 3, 4, 3);
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(116, 40);
-            btnGenerar.TabIndex = 53;
-            btnGenerar.Text = "Generar";
-            btnGenerar.UseVisualStyleBackColor = true;
+            btnActualizar.Location = new Point(1006, 471);
+            btnActualizar.Margin = new Padding(4, 3, 4, 3);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(116, 40);
+            btnActualizar.TabIndex = 53;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // groupBox4
             // 
@@ -232,6 +233,7 @@
             cboUm.Name = "cboUm";
             cboUm.Size = new Size(171, 23);
             cboUm.TabIndex = 32;
+            cboUm.SelectionChangeCommitted += cboUm_SelectionChangeCommitted;
             // 
             // label7
             // 
@@ -521,12 +523,14 @@
             // 
             // cboProveeedor
             // 
+            cboProveeedor.Enabled = false;
             cboProveeedor.FormattingEnabled = true;
             cboProveeedor.Items.AddRange(new object[] { "---Seleccione---" });
             cboProveeedor.Location = new Point(113, 34);
             cboProveeedor.Name = "cboProveeedor";
             cboProveeedor.Size = new Size(157, 23);
             cboProveeedor.TabIndex = 29;
+            cboProveeedor.SelectionChangeCommitted += cboProveeedor_SelectionChangeCommitted;
             // 
             // label5
             // 
@@ -640,7 +644,7 @@
             ClientSize = new Size(1163, 531);
             Controls.Add(label21);
             Controls.Add(label3);
-            Controls.Add(btnGenerar);
+            Controls.Add(btnActualizar);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(lblNumeroGuia);
@@ -649,7 +653,7 @@
             Controls.Add(btnCancelar);
             Name = "frmActualizarRemision";
             Text = "ActualizarRemision";
-            Load += ActualizarRemision_Load;
+            Load += frmActualizarRemision_Load_1;
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -667,7 +671,7 @@
 
         private Label label21;
         private Label label3;
-        private Button btnGenerar;
+        private Button btnActualizar;
         private GroupBox groupBox4;
         private TextBox txtPeso;
         private Label label19;
