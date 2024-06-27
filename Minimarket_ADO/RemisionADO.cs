@@ -211,7 +211,7 @@ namespace Minimarket_ADO
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "sp_ActualizarDetalleRemision";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Id_Remision ", objRemisionBE.Id_Proveedor);
+                cmd.Parameters.AddWithValue("@Id_Remision ", objRemisionBE.Id_Remision);
                 cmd.Parameters.AddWithValue("@Id_Producto", objRemisionBE.Id_Producto);
                 cmd.Parameters.AddWithValue("@Cantidad", objRemisionBE.Cantidad);
                 cmd.Parameters.AddWithValue("@Observaciones", objRemisionBE.Observaciones);
