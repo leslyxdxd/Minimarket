@@ -227,6 +227,8 @@
             // cboUm
             // 
             cboUm.BackColor = SystemColors.Window;
+            cboUm.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboUm.Enabled = false;
             cboUm.ForeColor = SystemColors.InactiveCaptionText;
             cboUm.FormattingEnabled = true;
             cboUm.Location = new Point(124, 38);
@@ -450,6 +452,8 @@
             // cboProducto
             // 
             cboProducto.BackColor = SystemColors.Window;
+            cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboProducto.Enabled = false;
             cboProducto.ForeColor = SystemColors.InactiveCaptionText;
             cboProducto.FormattingEnabled = true;
             cboProducto.Location = new Point(86, 37);
@@ -652,6 +656,7 @@
             Controls.Add(groupBox1);
             Controls.Add(btnCancelar);
             Name = "frmActualizarRemision";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ActualizarRemision";
             Load += frmActualizarRemision_Load_1;
             groupBox4.ResumeLayout(false);
