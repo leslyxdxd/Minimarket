@@ -72,7 +72,7 @@ namespace ProyVentas_GUI
 
             if (clsCredenciales.Niv_Usuario == 1)
             {
-                mantenimientosToolStripMenuItem.Visible = true;
+              
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = true;
                 salirDelSistemasToolStripMenuItem.Visible = true;
@@ -84,7 +84,7 @@ namespace ProyVentas_GUI
             else if (clsCredenciales.Niv_Usuario == 2)
             {
 
-                mantenimientosToolStripMenuItem.Visible = false;
+              
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
@@ -99,7 +99,7 @@ namespace ProyVentas_GUI
             else if (clsCredenciales.Niv_Usuario == 3)
             {
 
-                mantenimientosToolStripMenuItem.Visible = false;
+             
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;

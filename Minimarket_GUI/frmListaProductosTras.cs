@@ -157,5 +157,15 @@ namespace Minimarket_GUI
             }
         }
 
+        private void btnMovimiento_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario que deseas abrir
+            frmListaMovimientos frmc1 = new frmListaMovimientos();
+
+            // Mostrar el formulario
+            frmc1.Show();
+        }
+
+
     }
 }

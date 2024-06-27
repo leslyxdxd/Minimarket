@@ -58,7 +58,30 @@ namespace Minimarket_ADO
         }
 
 
+        public DataTable ListarMovimiento()
+        {
 
+            try
+            {
+
+                // Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ListarMovimientosConStock";
+                cmd.Parameters.Clear();
+                DataSet dts = new DataSet();
+                ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Producto");
+                return dts.Tables["Producto"];
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 

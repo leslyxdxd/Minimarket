@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIPrincipal));
             menuStrip1 = new MenuStrip();
-            mantenimientosToolStripMenuItem = new ToolStripMenuItem();
-            vendedoresToolStripMenuItem = new ToolStripMenuItem();
-            productoToolStripMenuItem = new ToolStripMenuItem();
-            proveedoresToolStripMenuItem1 = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
             StokTienda = new ToolStripMenuItem();
             stokAlmacen = new ToolStripMenuItem();
@@ -46,11 +42,11 @@
             boletaToolStripMenuItem = new ToolStripMenuItem();
             facturaToolStripMenuItem = new ToolStripMenuItem();
             generarRemisionToolStripMenuItem = new ToolStripMenuItem();
-            salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
-            salirToolStripMenuItem = new ToolStripMenuItem();
             comprobantesToolStripMenuItem = new ToolStripMenuItem();
             boletasToolStripMenuItem = new ToolStripMenuItem();
             facturasToolStripMenuItem = new ToolStripMenuItem();
+            salirDelSistemasToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
@@ -60,41 +56,13 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { mantenimientosToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, salirDelSistemasToolStripMenuItem, comprobantesToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, comprobantesToolStripMenuItem, salirDelSistemasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 11, 10, 11);
-            menuStrip1.Size = new Size(1059, 46);
+            menuStrip1.Size = new Size(1124, 46);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // mantenimientosToolStripMenuItem
-            // 
-            mantenimientosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendedoresToolStripMenuItem, productoToolStripMenuItem, proveedoresToolStripMenuItem1 });
-            mantenimientosToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
-            mantenimientosToolStripMenuItem.Size = new Size(128, 24);
-            mantenimientosToolStripMenuItem.Text = "Mantenimientos";
-            // 
-            // vendedoresToolStripMenuItem
-            // 
-            vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
-            vendedoresToolStripMenuItem.Size = new Size(160, 24);
-            vendedoresToolStripMenuItem.Text = "Vendedores";
-            vendedoresToolStripMenuItem.Click += vendedoresToolStripMenuItem_Click;
-            // 
-            // productoToolStripMenuItem
-            // 
-            productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            productoToolStripMenuItem.Size = new Size(160, 24);
-            productoToolStripMenuItem.Text = "Producto";
-            productoToolStripMenuItem.Click += productoToolStripMenuItem_Click;
-            // 
-            // proveedoresToolStripMenuItem1
-            // 
-            proveedoresToolStripMenuItem1.Name = "proveedoresToolStripMenuItem1";
-            proveedoresToolStripMenuItem1.Size = new Size(160, 24);
-            proveedoresToolStripMenuItem1.Text = "Proveedores";
             // 
             // consultasToolStripMenuItem
             // 
@@ -107,14 +75,14 @@
             // StokTienda
             // 
             StokTienda.Name = "StokTienda";
-            StokTienda.Size = new Size(118, 24);
+            StokTienda.Size = new Size(180, 24);
             StokTienda.Text = "Stock ";
             StokTienda.Click += facturasClienteToolStripMenuItem_Click;
             // 
             // stokAlmacen
             // 
             stokAlmacen.Name = "stokAlmacen";
-            stokAlmacen.Size = new Size(118, 24);
+            stokAlmacen.Size = new Size(180, 24);
             stokAlmacen.Text = "Stock";
             stokAlmacen.Click += stokAlmacen_Click;
             // 
@@ -187,21 +155,6 @@
             generarRemisionToolStripMenuItem.Text = "Guias de Remision";
             generarRemisionToolStripMenuItem.Click += generarRemisionToolStripMenuItem_Click;
             // 
-            // salirDelSistemasToolStripMenuItem
-            // 
-            salirDelSistemasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
-            salirDelSistemasToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            salirDelSistemasToolStripMenuItem.Name = "salirDelSistemasToolStripMenuItem";
-            salirDelSistemasToolStripMenuItem.Size = new Size(131, 24);
-            salirDelSistemasToolStripMenuItem.Text = "Salir del Sistema";
-            // 
-            // salirToolStripMenuItem
-            // 
-            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(107, 24);
-            salirToolStripMenuItem.Text = "Salir";
-            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
-            // 
             // comprobantesToolStripMenuItem
             // 
             comprobantesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boletasToolStripMenuItem, facturasToolStripMenuItem });
@@ -213,16 +166,31 @@
             // boletasToolStripMenuItem
             // 
             boletasToolStripMenuItem.Name = "boletasToolStripMenuItem";
-            boletasToolStripMenuItem.Size = new Size(180, 24);
+            boletasToolStripMenuItem.Size = new Size(131, 24);
             boletasToolStripMenuItem.Text = "Boletas";
             boletasToolStripMenuItem.Click += boletasToolStripMenuItem_Click;
             // 
             // facturasToolStripMenuItem
             // 
             facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            facturasToolStripMenuItem.Size = new Size(180, 24);
+            facturasToolStripMenuItem.Size = new Size(131, 24);
             facturasToolStripMenuItem.Text = "Facturas";
             facturasToolStripMenuItem.Click += facturasToolStripMenuItem_Click;
+            // 
+            // salirDelSistemasToolStripMenuItem
+            // 
+            salirDelSistemasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
+            salirDelSistemasToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            salirDelSistemasToolStripMenuItem.Name = "salirDelSistemasToolStripMenuItem";
+            salirDelSistemasToolStripMenuItem.Size = new Size(50, 24);
+            salirDelSistemasToolStripMenuItem.Text = "Salir";
+            // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(107, 24);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -230,7 +198,7 @@
             statusStrip1.Location = new Point(0, 553);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(1059, 35);
+            statusStrip1.Size = new Size(1124, 35);
             statusStrip1.TabIndex = 3;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -258,7 +226,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1059, 588);
+            ClientSize = new Size(1124, 588);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
             Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -283,8 +251,6 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem mantenimientosToolStripMenuItem;
-        private ToolStripMenuItem vendedoresToolStripMenuItem;
         private ToolStripMenuItem consultasToolStripMenuItem;
         private ToolStripMenuItem StokTienda;
         private StatusStrip statusStrip1;
@@ -292,8 +258,6 @@
         private ToolStripStatusLabel lblUsuario;
         private ToolStripMenuItem salirDelSistemasToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
-        private ToolStripMenuItem productoToolStripMenuItem;
-        private ToolStripMenuItem proveedoresToolStripMenuItem1;
         private ToolStripMenuItem generarGuiaToolStripMenuItem;
         private ToolStripMenuItem proveedoresToolStripMenuItem;
         private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;

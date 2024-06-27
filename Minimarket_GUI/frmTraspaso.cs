@@ -102,7 +102,7 @@ namespace Minimarket_GUI
                 {
                     MessageBox.Show("Se ha transferido " + cantidad + " productos de la trastienda.");
 
-                   
+
                     this.Close(); // Cerrar el formulario actual
                 }
                 else
@@ -119,6 +119,10 @@ namespace Minimarket_GUI
 
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
   

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Minimarket_BE\Minimarket_BE.csproj" />
     <ProjectReference Include="..\Minimarket_BL\Minimarket_BL.csproj" />
   </ItemGroup>

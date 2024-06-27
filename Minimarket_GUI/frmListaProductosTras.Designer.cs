@@ -44,7 +44,7 @@
             Id_Producto = new DataGridViewTextBoxColumn();
             Stk_Tienda = new DataGridViewTextBoxColumn();
             Id_UM = new DataGridViewTextBoxColumn();
-            Des_UM = new DataGridViewTextBoxColumn();
+           
             label1 = new Label();
             txtFiltro = new TextBox();
             label2 = new Label();
@@ -52,6 +52,7 @@
             btnCerrar = new Button();
             btnInabilitar = new Button();
             btnHabilitar = new Button();
+            btnMovimiento = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda, Id_UM, Des_UM });
+            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda, Id_UM });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = SystemColors.Window;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
@@ -178,13 +179,8 @@
             Id_UM.ReadOnly = true;
             Id_UM.Visible = false;
             // 
-            // Des_UM
-            // 
-            Des_UM.DataPropertyName = "Des_UM";
-            Des_UM.HeaderText = "UNI. MEDIDA";
-            Des_UM.Name = "Des_UM";
-            Des_UM.ReadOnly = true;
-            // 
+          
+         
             // label1
             // 
             label1.AutoSize = true;
@@ -232,7 +228,7 @@
             // 
             // btnInabilitar
             // 
-            btnInabilitar.Location = new Point(441, 516);
+            btnInabilitar.Location = new Point(464, 516);
             btnInabilitar.Name = "btnInabilitar";
             btnInabilitar.Size = new Size(87, 32);
             btnInabilitar.TabIndex = 9;
@@ -242,7 +238,7 @@
             // 
             // btnHabilitar
             // 
-            btnHabilitar.Location = new Point(319, 516);
+            btnHabilitar.Location = new Point(365, 516);
             btnHabilitar.Name = "btnHabilitar";
             btnHabilitar.Size = new Size(93, 32);
             btnHabilitar.TabIndex = 10;
@@ -250,11 +246,22 @@
             btnHabilitar.UseVisualStyleBackColor = true;
             btnHabilitar.Click += btnHabilitar_Click;
             // 
+            // btnMovimiento
+            // 
+            btnMovimiento.Location = new Point(266, 516);
+            btnMovimiento.Name = "btnMovimiento";
+            btnMovimiento.Size = new Size(93, 32);
+            btnMovimiento.TabIndex = 11;
+            btnMovimiento.Text = "Movimientos";
+            btnMovimiento.UseVisualStyleBackColor = true;
+            btnMovimiento.Click += btnMovimiento_Click;
+            // 
             // frmListaProductosTras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(669, 572);
+            Controls.Add(btnMovimiento);
             Controls.Add(btnHabilitar);
             Controls.Add(btnInabilitar);
             Controls.Add(btnCerrar);
@@ -294,9 +301,10 @@
         private DataGridViewTextBoxColumn Id_Producto;
         private DataGridViewTextBoxColumn Stk_Tienda;
         private DataGridViewTextBoxColumn Id_UM;
-        private DataGridViewTextBoxColumn Des_UM;
+
         private Button btnCerrar;
         private Button btnInabilitar;
         private Button btnHabilitar;
+        private Button btnMovimiento;
     }
 }
