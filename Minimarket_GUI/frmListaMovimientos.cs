@@ -43,6 +43,8 @@ namespace Minimarket_GUI
                     //Indicamos que se va a trabajr en la HOJA1
                     ExcelWorksheet ws = pack.Workbook.Worksheets["Hoja1"];
 
+                    ws.Cells["C4"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
                     //Imprimimos en un bucle cada registro del dtpProveedores
                     foreach (DataRow drProveedor in dtMovimiento.Rows)
                     {
@@ -67,10 +69,11 @@ namespace Minimarket_GUI
                     ws.Column(3).Width = 30;
                     ws.Column(4).Width = 40;
                     ws.Column(5).Width = 30;
-                    
+
 
                     //Definimos un nombre para el reporte 
-                    String filename = "ReporteMovimientoAlmacen_" + clsCredenciales.Login_Usuario + ".xlsx";
+                    String timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    String filename = "ReporteMovimientoAlmacen_" + clsCredenciales.Login_Usuario + "-"+ timestamp + ".xlsx";
 
                     //Creamos el archivo (con el nombre de arriba en blanco)
                     FileStream fs = new FileStream(@"E:\EXCEL\" + filename, FileMode.Create);

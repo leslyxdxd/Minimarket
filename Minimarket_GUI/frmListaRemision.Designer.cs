@@ -36,6 +36,7 @@
             txtFiltro = new TextBox();
             btnCerrar = new Button();
             btnActualizar = new Button();
+            btnReporte = new Button();
             Id_Remision = new DataGridViewTextBoxColumn();
             Num_Guia = new DataGridViewTextBoxColumn();
             Id_Proveedor = new DataGridViewTextBoxColumn();
@@ -78,7 +79,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(443, 477);
+            btnGenerar.Location = new Point(466, 477);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(147, 31);
             btnGenerar.TabIndex = 9;
@@ -133,7 +134,7 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(608, 477);
+            btnActualizar.Location = new Point(619, 476);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(147, 31);
             btnActualizar.TabIndex = 9;
@@ -141,12 +142,23 @@
             btnActualizar.UseVisualStyleBackColor = true;
             btnActualizar.Click += btnActualizar_Click;
             // 
+            // btnReporte
+            // 
+            btnReporte.Location = new Point(735, 22);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(150, 33);
+            btnReporte.TabIndex = 15;
+            btnReporte.Text = "Reportes";
+            btnReporte.UseVisualStyleBackColor = true;
+            btnReporte.Click += btnReporte_Click;
+            // 
             // Id_Remision
             // 
             Id_Remision.DataPropertyName = "Id_Remision";
             Id_Remision.HeaderText = "Codigo Remision";
             Id_Remision.Name = "Id_Remision";
             Id_Remision.ReadOnly = true;
+            Id_Remision.Visible = false;
             // 
             // Num_Guia
             // 
@@ -298,6 +310,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 546);
+            Controls.Add(btnReporte);
             Controls.Add(btnCerrar);
             Controls.Add(txtFiltro);
             Controls.Add(label1);
@@ -327,6 +340,7 @@
         private TextBox txtFiltro;
         private Button btnCerrar;
         private Button btnActualizar;
+        private Button btnReporte;
         private DataGridViewTextBoxColumn Id_Remision;
         private DataGridViewTextBoxColumn Num_Guia;
         private DataGridViewTextBoxColumn Id_Proveedor;
