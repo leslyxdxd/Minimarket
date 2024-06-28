@@ -142,7 +142,7 @@ namespace Minimarket_GUI
 
                         ws.Cells[fila1, 5].Value = drRemisionG["Nom_Producto"].ToString();
 
-                        ws.Cells[fila1, 6].Value = drRemisionG["Cantidad"].ToString() + "---"  + drRemisionG["Des_UM"].ToString(); 
+                        ws.Cells[fila1, 6].Value = drRemisionG["Cantidad"].ToString() + "---"  + drRemisionG["Des_UM_Producto"].ToString(); 
 
                       
                         ws.Cells[fila1, 7].Value = drRemisionG["Punto_Partida"].ToString();

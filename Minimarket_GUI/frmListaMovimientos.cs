@@ -28,14 +28,14 @@ namespace Minimarket_GUI
             try
             {
                 //Obtenemos la ruta de la plantilla
-                String rutaarchivo = @"C:\Users\JORDAN\source\repos\leslyxdxd\Minimarket\Minimarket_GUI\Plantillas\Plantilla_Movimiento.xlsx";
+                String rutaarchivo = @"C:\Excel\Plantilla_Movimiento.xlsx";
 
 
                 //Obtenemos la lista de proveedores 
                 DataTable dtMovimiento = objMovimientoBL.ListarMovimiento();
 
                 //definimos la fila de inicio del reporte
-                Int16 fila1 = 4;
+                Int16 fila1 = 7;
 
                 //Cramos un objeto para el excel que se a levantado 
                 using (var pack = new ExcelPackage(new FileInfo(rutaarchivo)))
@@ -76,7 +76,7 @@ namespace Minimarket_GUI
                     String filename = "ReporteMovimientoAlmacen_" + clsCredenciales.Login_Usuario + "-"+ timestamp + ".xlsx";
 
                     //Creamos el archivo (con el nombre de arriba en blanco)
-                    FileStream fs = new FileStream(@"E:\EXCEL\" + filename, FileMode.Create);
+                    FileStream fs = new FileStream(@"C:\PruebaExcel\" + filename, FileMode.Create);
                     pack.SaveAs(fs);
 
                     //Elinamos las instancias 
