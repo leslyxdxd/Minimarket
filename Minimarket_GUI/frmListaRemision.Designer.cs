@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaRemision));
             dtgRemision = new DataGridView();
-            btnGenerar = new Button();
-            lblRegistros = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            btnCerrar = new Button();
-            btnActualizar = new Button();
-            btnReporte = new Button();
             Id_Remision = new DataGridViewTextBoxColumn();
             Num_Guia = new DataGridViewTextBoxColumn();
             Id_Proveedor = new DataGridViewTextBoxColumn();
@@ -57,6 +50,15 @@
             Estado = new DataGridViewTextBoxColumn();
             Fec_Registro = new DataGridViewTextBoxColumn();
             FechaFin = new DataGridViewTextBoxColumn();
+            btnGenerar = new Button();
+            lblRegistros = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            btnCerrar = new Button();
+            btnActualizar = new Button();
+            btnReporte = new Button();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -76,81 +78,6 @@
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgRemision.Size = new Size(869, 370);
             dtgRemision.TabIndex = 8;
-            // 
-            // btnGenerar
-            // 
-            btnGenerar.Location = new Point(466, 477);
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(147, 31);
-            btnGenerar.TabIndex = 9;
-            btnGenerar.Text = "Nueva Remision";
-            btnGenerar.UseVisualStyleBackColor = true;
-            btnGenerar.Click += btnGenerar_Click;
-            // 
-            // lblRegistros
-            // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(102, 489);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
-            lblRegistros.TabIndex = 10;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(27, 493);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 11;
-            label2.Text = "Registros:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(27, 35);
-            label1.Name = "label1";
-            label1.Size = new Size(144, 15);
-            label1.TabIndex = 12;
-            label1.Text = "Ingrese filtro por Nombre:";
-            // 
-            // txtFiltro
-            // 
-            txtFiltro.Location = new Point(177, 32);
-            txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(134, 23);
-            txtFiltro.TabIndex = 13;
-            txtFiltro.TextChanged += txtFiltro_TextChanged;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(772, 476);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
-            btnCerrar.TabIndex = 14;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(619, 476);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(147, 31);
-            btnActualizar.TabIndex = 9;
-            btnActualizar.Text = "Actualizar Remision";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // btnReporte
-            // 
-            btnReporte.Location = new Point(735, 22);
-            btnReporte.Name = "btnReporte";
-            btnReporte.Size = new Size(150, 33);
-            btnReporte.TabIndex = 15;
-            btnReporte.Text = "Reportes";
-            btnReporte.UseVisualStyleBackColor = true;
-            btnReporte.Click += btnReporte_Click;
             // 
             // Id_Remision
             // 
@@ -305,11 +232,96 @@
             FechaFin.Name = "FechaFin";
             FechaFin.ReadOnly = true;
             // 
+            // btnGenerar
+            // 
+            btnGenerar.Location = new Point(466, 477);
+            btnGenerar.Name = "btnGenerar";
+            btnGenerar.Size = new Size(147, 31);
+            btnGenerar.TabIndex = 9;
+            btnGenerar.Text = "Nueva Remision";
+            btnGenerar.UseVisualStyleBackColor = true;
+            btnGenerar.Click += btnGenerar_Click;
+            // 
+            // lblRegistros
+            // 
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(102, 489);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 10;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(27, 493);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Registros:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(144, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Ingrese filtro por Nombre:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(177, 32);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(134, 23);
+            txtFiltro.TabIndex = 13;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(772, 476);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.TabIndex = 14;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(619, 476);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(147, 31);
+            btnActualizar.TabIndex = 9;
+            btnActualizar.Text = "Actualizar Remision";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnReporte
+            // 
+            btnReporte.Location = new Point(740, 17);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(113, 33);
+            btnReporte.TabIndex = 15;
+            btnReporte.Text = "Generar Reporte";
+            btnReporte.UseVisualStyleBackColor = true;
+            btnReporte.Click += btnReporte_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Location = new Point(859, 17);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(37, 33);
+            panel1.TabIndex = 16;
+            // 
             // frmListaRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 546);
+            Controls.Add(panel1);
             Controls.Add(btnReporte);
             Controls.Add(btnCerrar);
             Controls.Add(txtFiltro);
@@ -361,5 +373,6 @@
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Fec_Registro;
         private DataGridViewTextBoxColumn FechaFin;
+        private Panel panel1;
     }
 }

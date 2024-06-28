@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaMovimientos));
             dtgRemision = new DataGridView();
+            Nom_Producto = new DataGridViewTextBoxColumn();
+            Movimiento_Tienda = new DataGridViewTextBoxColumn();
+            Des_UM = new DataGridViewTextBoxColumn();
+            Fec_Registro = new DataGridViewTextBoxColumn();
+            Usu_Registro = new DataGridViewTextBoxColumn();
             txtFiltro = new TextBox();
             label1 = new Label();
             label2 = new Label();
             lblRegistros = new Label();
             btnCerrar = new Button();
             btnGenerar = new Button();
-            Nom_Producto = new DataGridViewTextBoxColumn();
-            Movimiento_Tienda = new DataGridViewTextBoxColumn();
-            Des_UM = new DataGridViewTextBoxColumn();
-            Fec_Registro = new DataGridViewTextBoxColumn();
-            Usu_Registro = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -59,6 +61,41 @@
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgRemision.Size = new Size(869, 377);
             dtgRemision.TabIndex = 9;
+            // 
+            // Nom_Producto
+            // 
+            Nom_Producto.DataPropertyName = "Nom_Producto";
+            Nom_Producto.HeaderText = "Producto";
+            Nom_Producto.Name = "Nom_Producto";
+            Nom_Producto.ReadOnly = true;
+            // 
+            // Movimiento_Tienda
+            // 
+            Movimiento_Tienda.DataPropertyName = "Movimiento_Tienda";
+            Movimiento_Tienda.HeaderText = "Cantidad Transferida";
+            Movimiento_Tienda.Name = "Movimiento_Tienda";
+            Movimiento_Tienda.ReadOnly = true;
+            // 
+            // Des_UM
+            // 
+            Des_UM.DataPropertyName = "Des_UM";
+            Des_UM.HeaderText = "U.M.";
+            Des_UM.Name = "Des_UM";
+            Des_UM.ReadOnly = true;
+            // 
+            // Fec_Registro
+            // 
+            Fec_Registro.DataPropertyName = "Fec_Registro";
+            Fec_Registro.HeaderText = "Fecha Transferida";
+            Fec_Registro.Name = "Fec_Registro";
+            Fec_Registro.ReadOnly = true;
+            // 
+            // Usu_Registro
+            // 
+            Usu_Registro.DataPropertyName = "Usu_Registro";
+            Usu_Registro.HeaderText = "Usuario del Registro";
+            Usu_Registro.Name = "Usu_Registro";
+            Usu_Registro.ReadOnly = true;
             // 
             // txtFiltro
             // 
@@ -107,7 +144,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(624, 477);
+            btnGenerar.Location = new Point(729, 28);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(124, 32);
             btnGenerar.TabIndex = 19;
@@ -115,46 +152,21 @@
             btnGenerar.UseVisualStyleBackColor = true;
             btnGenerar.Click += btnGenerar_Click;
             // 
-            // Nom_Producto
+            // panel1
             // 
-            Nom_Producto.DataPropertyName = "Nom_Producto";
-            Nom_Producto.HeaderText = "Producto";
-            Nom_Producto.Name = "Nom_Producto";
-            Nom_Producto.ReadOnly = true;
-            // 
-            // Movimiento_Tienda
-            // 
-            Movimiento_Tienda.DataPropertyName = "Movimiento_Tienda";
-            Movimiento_Tienda.HeaderText = "Cantidad Transferida";
-            Movimiento_Tienda.Name = "Movimiento_Tienda";
-            Movimiento_Tienda.ReadOnly = true;
-            // 
-            // Des_UM
-            // 
-            Des_UM.DataPropertyName = "Des_UM";
-            Des_UM.HeaderText = "U.M.";
-            Des_UM.Name = "Des_UM";
-            Des_UM.ReadOnly = true;
-            // 
-            // Fec_Registro
-            // 
-            Fec_Registro.DataPropertyName = "Fec_Registro";
-            Fec_Registro.HeaderText = "Fecha Transferida";
-            Fec_Registro.Name = "Fec_Registro";
-            Fec_Registro.ReadOnly = true;
-            // 
-            // Usu_Registro
-            // 
-            Usu_Registro.DataPropertyName = "Usu_Registro";
-            Usu_Registro.HeaderText = "Usuario del Registro";
-            Usu_Registro.Name = "Usu_Registro";
-            Usu_Registro.ReadOnly = true;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Location = new Point(859, 28);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(37, 33);
+            panel1.TabIndex = 20;
             // 
             // frmListaMovimientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(931, 532);
+            Controls.Add(panel1);
             Controls.Add(btnGenerar);
             Controls.Add(btnCerrar);
             Controls.Add(label2);
@@ -187,5 +199,6 @@
         private DataGridViewTextBoxColumn Des_UM;
         private DataGridViewTextBoxColumn Fec_Registro;
         private DataGridViewTextBoxColumn Usu_Registro;
+        private Panel panel1;
     }
 }
