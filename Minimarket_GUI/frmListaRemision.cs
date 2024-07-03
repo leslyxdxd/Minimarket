@@ -33,6 +33,7 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error:" + ex.Message);
             }
         }
+
         private void CargarCombos()
         {
             try
@@ -71,9 +72,6 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error al cargar combos: " + ex.Message);
             }
         }
-
-
-
 
         private void frmListaRemision_Load(object sender, EventArgs e)
         {
@@ -237,18 +235,25 @@ namespace Minimarket_GUI
         {
             try
             {
-                // Obtener el valor seleccionado de cboPro
-                string proveedorSeleccionado = cboPro.SelectedValue != null ? cboPro.SelectedValue.ToString() : "";
-
-                // Obtener el valor seleccionado de cboCantidad
-                int cantidadSeleccionada = 0;
-                if (cboCantidad.SelectedItem != null && cboCantidad.SelectedItem is DataRowView)
+                // Obtener el valor seleccionado del ComboBox de Proveedores
+                string idProveedor = cboPro.SelectedValue?.ToString();
+                if (idProveedor == "--Seleccione--" || string.IsNullOrEmpty(idProveedor))
                 {
-                    cantidadSeleccionada = Convert.ToInt32(((DataRowView)cboCantidad.SelectedItem)["Cantidad"]);
+                    idProveedor = null;
+                }
+
+                // Obtener el valor seleccionado del ComboBox de Cantidad
+                int? cantidadSeleccionada = null;
+                if (cboCantidad.SelectedValue != null && cboCantidad.SelectedValue.ToString() != "--Seleccione--")
+                {
+                    if (int.TryParse(cboCantidad.SelectedValue.ToString(), out int cantidad))
+                    {
+                        cantidadSeleccionada = cantidad;
+                    }
                 }
 
                 // Llamar al método de la capa BL para obtener los datos filtrados
-                DataTable dtResultados = objRemisionBL.ListarRemisionXFiltro(proveedorSeleccionado, cantidadSeleccionada);
+                DataTable dtResultados = objRemisionBL.ListarRemisionXFiltro(idProveedor, cantidadSeleccionada);
 
                 // Mostrar los resultados en el DataGridView
                 dtgRemision.DataSource = dtResultados;
@@ -259,8 +264,5 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error al filtrar datos: " + ex.Message);
             }
         }
-
-
-
     }
 }

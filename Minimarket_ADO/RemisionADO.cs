@@ -263,44 +263,47 @@ namespace Minimarket_ADO
 
         }
 
-        public DataTable ListarRemisionXFiltro(string strIdCodigo, int strCantidad)
+        public DataTable ListarRemisionXFiltro(string strIdCodigo, int? strCantidad)
         {
             try
             {
-                // Crear objetos de conexión y comando
-                SqlConnection cnx = new SqlConnection();
-                SqlCommand cmd = new SqlCommand();
-                cnx.ConnectionString = MiConexion.GetCnx();
-                cmd.Connection = cnx;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "sp_ListarGuiasXRemision";
+                // Crear y configurar la conexión y el comando SQL
+                using (SqlConnection cnx = new SqlConnection(MiConexion.GetCnx()))
+                using (SqlCommand cmd = new SqlCommand("sp_ListarGuiasXRemision", cnx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                // Limpiar los parámetros antes de agregar nuevos
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@Id_Proveedor", strIdCodigo);
-                cmd.Parameters.AddWithValue("@Cantidad", strCantidad);
+                    // Limpiar los parámetros antes de agregar nuevos
+                    cmd.Parameters.Clear();
 
-                // Crear el SqlDataAdapter y DataSet para obtener los datos
-                SqlDataAdapter miada = new SqlDataAdapter(cmd);
-                DataSet dts = new DataSet();
+                    // Agregar parámetro Id_Proveedor con manejo de null
+                    if (!string.IsNullOrEmpty(strIdCodigo))
+                        cmd.Parameters.AddWithValue("@Id_Proveedor", strIdCodigo);
+                    else
+                        cmd.Parameters.AddWithValue("@Id_Proveedor", DBNull.Value);
 
-                // Abrir la conexión, ejecutar el comando y llenar el DataSet
-                cnx.Open();
-                miada.Fill(dts, "Remision");
+                    // Agregar parámetro Cantidad con manejo de null
+                    if (strCantidad.HasValue)
+                        cmd.Parameters.AddWithValue("@Cantidad", strCantidad.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@Cantidad", DBNull.Value);
 
-                // Retornar la tabla "Remision" del DataSet
-                return dts.Tables["Remision"];
+                    // Crear el SqlDataAdapter para obtener los datos
+                    SqlDataAdapter miada = new SqlDataAdapter(cmd);
+                    DataSet dts = new DataSet();
+
+                    // Abrir la conexión, ejecutar el comando y llenar el DataSet
+                    cnx.Open();
+                    miada.Fill(dts, "Remision");
+
+                    // Retornar la tabla "Remision" del DataSet
+                    return dts.Tables["Remision"];
+                }
             }
             catch (SqlException ex)
             {
-                // Capturar la excepción SQL y relanzar como una nueva excepción
+                // Capturar y relanzar la excepción SQL
                 throw new Exception("Error al listar remisiones por filtro: " + ex.Message);
-            }
-            finally
-            {
-                // Asegurar que la conexión se cierre correctamente, incluso si ocurre una excepción
-                if (cnx.State == ConnectionState.Open)
-                    cnx.Close();
             }
         }
 
