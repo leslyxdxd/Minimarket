@@ -78,6 +78,7 @@
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgRemision.Size = new Size(869, 370);
             dtgRemision.TabIndex = 8;
+            dtgRemision.CellDoubleClick += dtgRemision_CellDoubleClick;
             // 
             // Id_Remision
             // 
@@ -271,7 +272,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(177, 32);
+            txtFiltro.Location = new Point(193, 32);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 13;
