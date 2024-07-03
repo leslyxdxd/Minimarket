@@ -72,7 +72,7 @@ namespace ProyVentas_GUI
 
             if (clsCredenciales.Niv_Usuario == 1)
             {
-              
+
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = true;
                 salirDelSistemasToolStripMenuItem.Visible = true;
@@ -84,7 +84,7 @@ namespace ProyVentas_GUI
             else if (clsCredenciales.Niv_Usuario == 2)
             {
 
-              
+
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
@@ -99,7 +99,7 @@ namespace ProyVentas_GUI
             else if (clsCredenciales.Niv_Usuario == 3)
             {
 
-             
+
                 consultasToolStripMenuItem.Visible = true;
                 gestionarUsuariosToolStripMenuItem.Visible = false;
                 salirDelSistemasToolStripMenuItem.Visible = true;
@@ -231,6 +231,11 @@ namespace ProyVentas_GUI
             frmListaBoletas frmFacturas = new frmListaBoletas();
             frmFacturas.MdiParent = this;
             frmFacturas.Show();
+        }
+
+        private void salirDelSistemasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
