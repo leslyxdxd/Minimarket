@@ -59,6 +59,11 @@
             btnActualizar = new Button();
             btnReporte = new Button();
             panel1 = new Panel();
+            cboPro = new ComboBox();
+            label3 = new Label();
+            btnFiltrar = new Button();
+            label4 = new Label();
+            cboCantidad = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -76,7 +81,7 @@
             dtgRemision.ReadOnly = true;
             dtgRemision.RowHeadersVisible = false;
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgRemision.Size = new Size(869, 370);
+            dtgRemision.Size = new Size(1069, 370);
             dtgRemision.TabIndex = 8;
             dtgRemision.CellDoubleClick += dtgRemision_CellDoubleClick;
             // 
@@ -235,7 +240,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(466, 477);
+            btnGenerar.Location = new Point(626, 493);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(147, 31);
             btnGenerar.TabIndex = 9;
@@ -264,15 +269,15 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 35);
+            label1.Location = new Point(46, 9);
             label1.Name = "label1";
-            label1.Size = new Size(144, 15);
+            label1.Size = new Size(95, 15);
             label1.TabIndex = 12;
-            label1.Text = "Ingrese filtro por Nombre:";
+            label1.Text = "Ingrese Nombre:";
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(193, 32);
+            txtFiltro.Location = new Point(46, 31);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 13;
@@ -280,7 +285,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(772, 476);
+            btnCerrar.Location = new Point(973, 492);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(124, 32);
             btnCerrar.TabIndex = 14;
@@ -290,7 +295,7 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(619, 476);
+            btnActualizar.Location = new Point(803, 492);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(147, 31);
             btnActualizar.TabIndex = 9;
@@ -300,7 +305,7 @@
             // 
             // btnReporte
             // 
-            btnReporte.Location = new Point(740, 17);
+            btnReporte.Location = new Point(934, 26);
             btnReporte.Name = "btnReporte";
             btnReporte.Size = new Size(113, 33);
             btnReporte.TabIndex = 15;
@@ -312,16 +317,72 @@
             // 
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Location = new Point(859, 17);
+            panel1.Location = new Point(1053, 26);
             panel1.Name = "panel1";
             panel1.Size = new Size(37, 33);
             panel1.TabIndex = 16;
+            // 
+            // cboPro
+            // 
+            cboPro.BackColor = SystemColors.Window;
+            cboPro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboPro.ForeColor = SystemColors.InactiveCaptionText;
+            cboPro.FormattingEnabled = true;
+            cboPro.Location = new Point(253, 31);
+            cboPro.Name = "cboPro";
+            cboPro.Size = new Size(152, 23);
+            cboPro.TabIndex = 33;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(251, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(154, 15);
+            label3.TabIndex = 34;
+            label3.Text = "Ingrese filtro por Proveedor:";
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Location = new Point(803, 28);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(100, 31);
+            btnFiltrar.TabIndex = 35;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(486, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(145, 15);
+            label4.TabIndex = 36;
+            label4.Text = "Ingrese filtro por Cantidad";
+            // 
+            // cboCantidad
+            // 
+            cboCantidad.BackColor = SystemColors.Window;
+            cboCantidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCantidad.ForeColor = SystemColors.InactiveCaptionText;
+            cboCantidad.FormattingEnabled = true;
+            cboCantidad.Items.AddRange(new object[] { "10", "20", "30", "40", "50", "100", "200" });
+            cboCantidad.Location = new Point(486, 31);
+            cboCantidad.Name = "cboCantidad";
+            cboCantidad.Size = new Size(129, 23);
+            cboCantidad.TabIndex = 37;
             // 
             // frmListaRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(919, 546);
+            ClientSize = new Size(1127, 546);
+            Controls.Add(cboCantidad);
+            Controls.Add(label4);
+            Controls.Add(btnFiltrar);
+            Controls.Add(label3);
+            Controls.Add(cboPro);
             Controls.Add(panel1);
             Controls.Add(btnReporte);
             Controls.Add(btnCerrar);
@@ -375,5 +436,10 @@
         private DataGridViewTextBoxColumn Fec_Registro;
         private DataGridViewTextBoxColumn FechaFin;
         private Panel panel1;
+        private ComboBox cboPro;
+        private Label label3;
+        private Button btnFiltrar;
+        private Label label4;
+        private ComboBox cboCantidad;
     }
 }

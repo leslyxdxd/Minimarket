@@ -99,7 +99,7 @@ namespace Minimarket_ADO
                     objRemisionBE.Marca = dtr["Marca"].ToString();
                     objRemisionBE.Id_Cat = Convert.ToInt16(dtr["Id_Cat"]);
                     objRemisionBE.Des_Cat = dtr["Des_cat"].ToString();
-                    objRemisionBE.Peso_Carga= Convert.ToInt16(dtr["Peso_Carga"]);
+                    objRemisionBE.Peso_Carga = Convert.ToInt16(dtr["Peso_Carga"]);
                     objRemisionBE.Punto_Llegada = dtr["Punto_Llegada"].ToString();
                     objRemisionBE.Punto_Partida = dtr["Punto_Partida"].ToString();
                     objRemisionBE.Des_UM_Producto = dtr["Des_UM_Producto"].ToString();
@@ -117,7 +117,7 @@ namespace Minimarket_ADO
                     objRemisionBE.Licencia_Transporte = dtr["Licencia_Transporte"].ToString();
                     objRemisionBE.Placa_Trasporte = dtr["Placa_Trasporte"].ToString();
                     objRemisionBE.Ruc_Transporte = dtr["Ruc_Transporte"].ToString();
-        
+
 
                 }
                 dtr.Close();
@@ -141,13 +141,6 @@ namespace Minimarket_ADO
 
 
         }
-
-
-
-
-
-
-
 
         public Boolean InsertarRemision(RemisionBE objRemisionBE)
         {
@@ -177,7 +170,7 @@ namespace Minimarket_ADO
 
                 cmd.Parameters.AddWithValue("@Usu_Registro", objRemisionBE.Usu_Registro);
 
-    
+
                 //Abrimos y ejecutamos
 
                 cnx.Open();
@@ -270,14 +263,51 @@ namespace Minimarket_ADO
 
         }
 
+        public DataTable ListarRemisionXFiltro(string strIdCodigo, int strCantidad)
+        {
+            try
+            {
+                // Crear objetos de conexión y comando
+                SqlConnection cnx = new SqlConnection();
+                SqlCommand cmd = new SqlCommand();
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_ListarGuiasXRemision";
+
+                // Limpiar los parámetros antes de agregar nuevos
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Proveedor", strIdCodigo);
+                cmd.Parameters.AddWithValue("@Cantidad", strCantidad);
+
+                // Crear el SqlDataAdapter y DataSet para obtener los datos
+                SqlDataAdapter miada = new SqlDataAdapter(cmd);
+                DataSet dts = new DataSet();
+
+                // Abrir la conexión, ejecutar el comando y llenar el DataSet
+                cnx.Open();
+                miada.Fill(dts, "Remision");
+
+                // Retornar la tabla "Remision" del DataSet
+                return dts.Tables["Remision"];
+            }
+            catch (SqlException ex)
+            {
+                // Capturar la excepción SQL y relanzar como una nueva excepción
+                throw new Exception("Error al listar remisiones por filtro: " + ex.Message);
+            }
+            finally
+            {
+                // Asegurar que la conexión se cierre correctamente, incluso si ocurre una excepción
+                if (cnx.State == ConnectionState.Open)
+                    cnx.Close();
+            }
+        }
+
 
 
 
 
 
     }
-
-
-
-
 }

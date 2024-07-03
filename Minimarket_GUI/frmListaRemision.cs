@@ -12,6 +12,7 @@ namespace Minimarket_GUI
     public partial class frmListaRemision : Form
     {
         RemisionBL objRemisionBL = new RemisionBL();
+        ProveedorBL objProveedorBL = new ProveedorBL();
         DataView dtv;
 
         public frmListaRemision()
@@ -32,11 +33,53 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error:" + ex.Message);
             }
         }
+        private void CargarCombos()
+        {
+            try
+            {
+                // Cargar datos en el ComboBox de Proveedores
+                DataTable dtProveedor = objProveedorBL.ListarProveedorActivos();
+                DataRow drProveedor = dtProveedor.NewRow();
+                drProveedor["Id_Proveedor"] = DBNull.Value;
+                drProveedor["Nom_Proveedor"] = "--Seleccione--";
+                dtProveedor.Rows.InsertAt(drProveedor, 0);
+                cboPro.DataSource = dtProveedor;
+                cboPro.ValueMember = "Id_Proveedor";
+                cboPro.DisplayMember = "Nom_Proveedor";
+
+                // Configurar el ComboBox de Cantidad con los valores especificados
+                DataTable dtCantidad = new DataTable();
+                dtCantidad.Columns.Add("Cantidad", typeof(string)); // Cambiado a tipo string para los valores
+                dtCantidad.Rows.Add("--Seleccione--"); // Agregar "--Seleccione--" como primer elemento
+                dtCantidad.Rows.Add("10");
+                dtCantidad.Rows.Add("20");
+                dtCantidad.Rows.Add("30");
+                dtCantidad.Rows.Add("40");
+                dtCantidad.Rows.Add("50");
+                dtCantidad.Rows.Add("100");
+                dtCantidad.Rows.Add("200");
+
+                cboCantidad.DataSource = dtCantidad;
+                cboCantidad.DisplayMember = "Cantidad";
+                cboCantidad.ValueMember = "Cantidad"; // Asignar el mismo campo como ValueMember
+
+                // Opcional: seleccionar el valor por defecto en el ComboBox de Cantidad
+                cboCantidad.SelectedIndex = 0; // selecciona el primer elemento "--Seleccione--"
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar combos: " + ex.Message);
+            }
+        }
+
+
+
 
         private void frmListaRemision_Load(object sender, EventArgs e)
         {
             try
             {
+                CargarCombos();
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 dtgRemision.AutoGenerateColumns = false;
                 CargarDatos("");
@@ -189,5 +232,35 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el valor seleccionado de cboPro
+                string proveedorSeleccionado = cboPro.SelectedValue != null ? cboPro.SelectedValue.ToString() : "";
+
+                // Obtener el valor seleccionado de cboCantidad
+                int cantidadSeleccionada = 0;
+                if (cboCantidad.SelectedItem != null && cboCantidad.SelectedItem is DataRowView)
+                {
+                    cantidadSeleccionada = Convert.ToInt32(((DataRowView)cboCantidad.SelectedItem)["Cantidad"]);
+                }
+
+                // Llamar al método de la capa BL para obtener los datos filtrados
+                DataTable dtResultados = objRemisionBL.ListarRemisionXFiltro(proveedorSeleccionado, cantidadSeleccionada);
+
+                // Mostrar los resultados en el DataGridView
+                dtgRemision.DataSource = dtResultados;
+                lblRegistros.Text = dtgRemision.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar datos: " + ex.Message);
+            }
+        }
+
+
+
     }
 }

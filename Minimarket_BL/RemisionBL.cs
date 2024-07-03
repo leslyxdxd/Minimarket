@@ -40,7 +40,10 @@ namespace Minimarket_BL
             return objRemisionADO.ListarRemision();
         }
 
-
+        public DataTable ListarRemisionXFiltro(String strIdCodigo, int strCantidad)
+        {
+            return objRemisionADO.ListarRemisionXFiltro(strIdCodigo, strCantidad);
+        }
 
 
 

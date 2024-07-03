@@ -18,6 +18,10 @@ namespace Minimarket_BL
         {
             return objProveedorADO.ListarProveedor();
         }
+        public DataTable ListarNombreProveedor()
+        {
+            return objProveedorADO.ListarNombreProveedor();
+        }
 
         public DataTable ListarProveedorActivos()
         {
