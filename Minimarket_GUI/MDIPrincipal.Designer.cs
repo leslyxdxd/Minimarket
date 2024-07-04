@@ -97,7 +97,7 @@
             StokTienda.Margin = new Padding(0, 10, 0, 0);
             StokTienda.Name = "StokTienda";
             StokTienda.Padding = new Padding(0, 5, 0, 10);
-            StokTienda.Size = new Size(180, 37);
+            StokTienda.Size = new Size(118, 37);
             StokTienda.Text = "Stock ";
             StokTienda.Click += facturasClienteToolStripMenuItem_Click;
             // 
@@ -106,7 +106,7 @@
             stokAlmacen.Margin = new Padding(0, 10, 0, 0);
             stokAlmacen.Name = "stokAlmacen";
             stokAlmacen.Padding = new Padding(0, 5, 0, 10);
-            stokAlmacen.Size = new Size(180, 37);
+            stokAlmacen.Size = new Size(118, 37);
             stokAlmacen.Text = "Stock";
             stokAlmacen.Click += stokAlmacen_Click;
             // 

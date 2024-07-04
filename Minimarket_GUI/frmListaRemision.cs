@@ -151,7 +151,23 @@ namespace Minimarket_GUI
             try
             {
                 String rutaarchivo = @"C:\Excel\Plantilla_ReporteGuia.xlsx";
-                DataTable dtRemision = objRemisionBL.ListarRemision();
+                DataTable dtRemision;
+
+                // Obtener los datos actuales del DataGridView
+                if (dtgRemision.DataSource is DataView)
+                {
+                    dtRemision = ((DataView)dtgRemision.DataSource).ToTable();
+                }
+                else if (dtgRemision.DataSource is DataTable)
+                {
+                    dtRemision = (DataTable)dtgRemision.DataSource;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para generar el reporte.");
+                    return;
+                }
+
                 Int16 fila1 = 8;
 
                 using (var pack = new ExcelPackage(new FileInfo(rutaarchivo)))
@@ -172,6 +188,8 @@ namespace Minimarket_GUI
                         ws.Cells[fila1, 10].Value = drRemisionG["FechaIni"].ToString();
                         ws.Cells[fila1, 11].Value = drRemisionG["FechaFin"].ToString();
                         ws.Cells[fila1, 12].Value = drRemisionG["Usu_Registro"].ToString();
+                        ws.Cells[fila1, 13].Value = drRemisionG["Usu_Ult_Mod"].ToString() + "---" + drRemisionG["Fec_Ult_Mod"].ToString();
+
                         fila1 += 1;
                     }
 
@@ -187,6 +205,7 @@ namespace Minimarket_GUI
                     ws.Column(10).Width = 29;
                     ws.Column(11).Width = 29;
                     ws.Column(12).Width = 29;
+                    ws.Column(13).Width = 32;
 
                     String timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     String filename = "Reporte_GuiasRemision_" + clsCredenciales.Login_Usuario + "_" + timestamp + ".xlsx";
@@ -200,9 +219,10 @@ namespace Minimarket_GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         // Método para manejar el evento CellDoubleClick en el DataGridView
         private void dtgRemision_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
