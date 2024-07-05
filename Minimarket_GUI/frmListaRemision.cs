@@ -167,13 +167,15 @@ namespace Minimarket_GUI
                     MessageBox.Show("No se encontraron datos para generar el reporte.");
                     return;
                 }
+   
 
                 Int16 fila1 = 8;
 
                 using (var pack = new ExcelPackage(new FileInfo(rutaarchivo)))
                 {
                     ExcelWorksheet ws = pack.Workbook.Worksheets["Hoja1"];
-                    ws.Cells["C3"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    ws.Cells["C2"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                   
 
                     foreach (DataRow drRemisionG in dtRemision.Rows)
                     {

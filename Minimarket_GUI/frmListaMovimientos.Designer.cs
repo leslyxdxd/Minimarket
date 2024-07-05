@@ -42,6 +42,8 @@
             btnCerrar = new Button();
             btnGenerar = new Button();
             panel1 = new Panel();
+            label3 = new Label();
+            cboTiempoPeriodo = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -101,7 +103,7 @@
             // 
             txtFiltro.Location = new Point(177, 29);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(134, 23);
+            txtFiltro.Size = new Size(153, 23);
             txtFiltro.TabIndex = 15;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
@@ -144,7 +146,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(729, 28);
+            btnGenerar.Location = new Point(729, 29);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(124, 32);
             btnGenerar.TabIndex = 19;
@@ -161,11 +163,32 @@
             panel1.Size = new Size(37, 33);
             panel1.TabIndex = 20;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(365, 37);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 15);
+            label3.TabIndex = 22;
+            label3.Text = "Tiempo:";
+            // 
+            // cboTiempoPeriodo
+            // 
+            cboTiempoPeriodo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTiempoPeriodo.FormattingEnabled = true;
+            cboTiempoPeriodo.Location = new Point(421, 34);
+            cboTiempoPeriodo.Name = "cboTiempoPeriodo";
+            cboTiempoPeriodo.Size = new Size(157, 23);
+            cboTiempoPeriodo.TabIndex = 30;
+            cboTiempoPeriodo.SelectedIndexChanged += cboTiempoPeriodo_SelectedIndexChanged;
+            // 
             // frmListaMovimientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(931, 532);
+            Controls.Add(cboTiempoPeriodo);
+            Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(btnGenerar);
             Controls.Add(btnCerrar);
@@ -200,5 +223,7 @@
         private DataGridViewTextBoxColumn Fec_Registro;
         private DataGridViewTextBoxColumn Usu_Registro;
         private Panel panel1;
+        private Label label3;
+        private ComboBox cboTiempoPeriodo;
     }
 }

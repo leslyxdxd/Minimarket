@@ -33,7 +33,7 @@
             lblRuc = new Label();
             label6 = new Label();
             label5 = new Label();
-            cboProveeedor = new ComboBox();
+            cboTiempoPeriodo = new ComboBox();
             label1 = new Label();
             label12 = new Label();
             label8 = new Label();
@@ -136,15 +136,15 @@
             label5.TabIndex = 20;
             label5.Text = "Proveeedor";
             // 
-            // cboProveeedor
+            // cboTiempoPeriodo
             // 
-            cboProveeedor.FormattingEnabled = true;
-            cboProveeedor.Items.AddRange(new object[] { "---Seleccione---" });
-            cboProveeedor.Location = new Point(113, 34);
-            cboProveeedor.Name = "cboProveeedor";
-            cboProveeedor.Size = new Size(157, 23);
-            cboProveeedor.TabIndex = 29;
-            cboProveeedor.SelectionChangeCommitted += cboProveeedor_SelectionChangeCommitted;
+            cboTiempoPeriodo.FormattingEnabled = true;
+            cboTiempoPeriodo.Items.AddRange(new object[] { "---Seleccione---" });
+            cboTiempoPeriodo.Location = new Point(113, 34);
+            cboTiempoPeriodo.Name = "cboTiempoPeriodo";
+            cboTiempoPeriodo.Size = new Size(157, 23);
+            cboTiempoPeriodo.TabIndex = 29;
+            cboTiempoPeriodo.SelectionChangeCommitted += cboProveeedor_SelectionChangeCommitted;
             // 
             // label1
             // 
@@ -234,7 +234,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(cboProveeedor);
+            groupBox1.Controls.Add(cboTiempoPeriodo);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(lblDireccion);
             groupBox1.Controls.Add(lblRuc);
@@ -725,5 +725,6 @@
         private ComboBox txtNumeroGuia;
         private Label label3;
         private Label label21;
+        private ComboBox cboTiempoPeriodo;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
@@ -44,7 +44,6 @@
             Id_Producto = new DataGridViewTextBoxColumn();
             Stk_Tienda = new DataGridViewTextBoxColumn();
             Id_UM = new DataGridViewTextBoxColumn();
-           
             label1 = new Label();
             txtFiltro = new TextBox();
             label2 = new Label();
@@ -66,23 +65,24 @@
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda, Id_UM });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dtgDatos.DefaultCellStyle = dataGridViewCellStyle5;
-            dtgDatos.Location = new Point(25, 53);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
+            dtgDatos.Location = new Point(25, 75);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(619, 436);
             dtgDatos.TabIndex = 1;
+            dtgDatos.CellContentClick += dtgDatos_CellContentClick;
             // 
             // Nom_Producto
             // 
@@ -101,8 +101,8 @@
             // Precio_Unitario
             // 
             Precio_Unitario.DataPropertyName = "Precio_Unitario";
-            dataGridViewCellStyle4.Format = "N2";
-            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "N2";
+            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
             Precio_Unitario.HeaderText = "Precio U. (Venta)";
             Precio_Unitario.Name = "Precio_Unitario";
             Precio_Unitario.ReadOnly = true;
@@ -179,8 +179,6 @@
             Id_UM.ReadOnly = true;
             Id_UM.Visible = false;
             // 
-          
-         
             // label1
             // 
             label1.AutoSize = true;
@@ -192,7 +190,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(175, 18);
+            txtFiltro.Location = new Point(191, 18);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 4;
@@ -201,7 +199,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 520);
+            label2.Location = new Point(25, 545);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 5;
@@ -210,7 +208,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(89, 516);
+            lblRegistros.Location = new Point(91, 541);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 6;
@@ -218,7 +216,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(557, 516);
+            btnCerrar.Location = new Point(557, 541);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(87, 32);
             btnCerrar.TabIndex = 8;
@@ -228,7 +226,7 @@
             // 
             // btnInabilitar
             // 
-            btnInabilitar.Location = new Point(464, 516);
+            btnInabilitar.Location = new Point(464, 541);
             btnInabilitar.Name = "btnInabilitar";
             btnInabilitar.Size = new Size(87, 32);
             btnInabilitar.TabIndex = 9;
@@ -238,7 +236,7 @@
             // 
             // btnHabilitar
             // 
-            btnHabilitar.Location = new Point(365, 516);
+            btnHabilitar.Location = new Point(365, 541);
             btnHabilitar.Name = "btnHabilitar";
             btnHabilitar.Size = new Size(93, 32);
             btnHabilitar.TabIndex = 10;
@@ -248,9 +246,9 @@
             // 
             // btnMovimiento
             // 
-            btnMovimiento.Location = new Point(266, 516);
+            btnMovimiento.Location = new Point(502, 12);
             btnMovimiento.Name = "btnMovimiento";
-            btnMovimiento.Size = new Size(93, 32);
+            btnMovimiento.Size = new Size(130, 43);
             btnMovimiento.TabIndex = 11;
             btnMovimiento.Text = "Movimientos";
             btnMovimiento.UseVisualStyleBackColor = true;
@@ -260,7 +258,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(669, 572);
+            ClientSize = new Size(670, 585);
             Controls.Add(btnMovimiento);
             Controls.Add(btnHabilitar);
             Controls.Add(btnInabilitar);

@@ -51,6 +51,7 @@
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
+            fRESHSUPERMARKETToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -72,6 +73,7 @@
             logoToolStripMenuItem.BackColor = SystemColors.ButtonHighlight;
             logoToolStripMenuItem.BackgroundImage = Minimarket_GUI.Properties.Resources._608c596cb1fe4297b368b0f0f0a42dd2__1_;
             logoToolStripMenuItem.BackgroundImageLayout = ImageLayout.Zoom;
+            logoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fRESHSUPERMARKETToolStripMenuItem });
             logoToolStripMenuItem.Enabled = false;
             logoToolStripMenuItem.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             logoToolStripMenuItem.ForeColor = Color.DarkOrange;
@@ -97,7 +99,7 @@
             StokTienda.Margin = new Padding(0, 10, 0, 0);
             StokTienda.Name = "StokTienda";
             StokTienda.Padding = new Padding(0, 5, 0, 10);
-            StokTienda.Size = new Size(118, 37);
+            StokTienda.Size = new Size(180, 37);
             StokTienda.Text = "Stock ";
             StokTienda.Click += facturasClienteToolStripMenuItem_Click;
             // 
@@ -106,7 +108,7 @@
             stokAlmacen.Margin = new Padding(0, 10, 0, 0);
             stokAlmacen.Name = "stokAlmacen";
             stokAlmacen.Padding = new Padding(0, 5, 0, 10);
-            stokAlmacen.Size = new Size(118, 37);
+            stokAlmacen.Size = new Size(180, 37);
             stokAlmacen.Text = "Stock";
             stokAlmacen.Click += stokAlmacen_Click;
             // 
@@ -177,7 +179,7 @@
             boletaToolStripMenuItem.Margin = new Padding(0, 10, 0, 0);
             boletaToolStripMenuItem.Name = "boletaToolStripMenuItem";
             boletaToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            boletaToolStripMenuItem.Size = new Size(125, 37);
+            boletaToolStripMenuItem.Size = new Size(180, 37);
             boletaToolStripMenuItem.Text = "Boleta";
             boletaToolStripMenuItem.Click += boletaToolStripMenuItem_Click;
             // 
@@ -186,7 +188,7 @@
             facturaToolStripMenuItem.Margin = new Padding(0, 10, 0, 0);
             facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
             facturaToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            facturaToolStripMenuItem.Size = new Size(125, 37);
+            facturaToolStripMenuItem.Size = new Size(180, 37);
             facturaToolStripMenuItem.Text = "Factura";
             facturaToolStripMenuItem.Click += facturaToolStripMenuItem_Click;
             // 
@@ -217,7 +219,7 @@
             boletasToolStripMenuItem.Margin = new Padding(0, 20, 0, 0);
             boletasToolStripMenuItem.Name = "boletasToolStripMenuItem";
             boletasToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            boletasToolStripMenuItem.Size = new Size(131, 37);
+            boletasToolStripMenuItem.Size = new Size(180, 37);
             boletasToolStripMenuItem.Text = "Boletas";
             boletasToolStripMenuItem.Click += boletasToolStripMenuItem_Click;
             // 
@@ -226,7 +228,7 @@
             facturasToolStripMenuItem.Margin = new Padding(0, 20, 0, 0);
             facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
             facturasToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            facturasToolStripMenuItem.Size = new Size(131, 37);
+            facturasToolStripMenuItem.Size = new Size(180, 37);
             facturasToolStripMenuItem.Text = "Facturas";
             facturasToolStripMenuItem.Click += facturasToolStripMenuItem_Click;
             // 
@@ -273,6 +275,12 @@
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(37, 30);
             lblUsuario.Text = "....";
+            // 
+            // fRESHSUPERMARKETToolStripMenuItem
+            // 
+            fRESHSUPERMARKETToolStripMenuItem.Name = "fRESHSUPERMARKETToolStripMenuItem";
+            fRESHSUPERMARKETToolStripMenuItem.Size = new Size(263, 22);
+            fRESHSUPERMARKETToolStripMenuItem.Text = "FRESH SUPERMARKET";
             // 
             // MDIPrincipal
             // 
@@ -326,5 +334,6 @@
         private ToolStripMenuItem facturasToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem logoToolStripMenuItem;
+        private ToolStripMenuItem fRESHSUPERMARKETToolStripMenuItem;
     }
 }

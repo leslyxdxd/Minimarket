@@ -23,11 +23,13 @@ namespace Minimarket_GUI
             InitializeComponent();
         }
 
-        private void CargarDatos(string Nom_Producto)
+        private void CargarDatos(String Nom_Producto)
         {
             dtv = new DataView(objStock.ListarStock());
             dtv.RowFilter = "Nom_Producto LIKE '%" + Nom_Producto + "%'";
             dtgDatos.DataSource = dtv;
+
+
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();
         }
 
@@ -166,6 +168,9 @@ namespace Minimarket_GUI
             frmc1.Show();
         }
 
+        private void dtgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }
