@@ -59,10 +59,12 @@
             // 
             menuStrip1.AutoSize = false;
             menuStrip1.Dock = DockStyle.Left;
+            menuStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.Items.AddRange(new ToolStripItem[] { logoToolStripMenuItem, consultasToolStripMenuItem, generarGuiaToolStripMenuItem, gestionarUsuariosToolStripMenuItem, gestionarVentaToolStripMenuItem, generarRemisionToolStripMenuItem, comprobantesToolStripMenuItem, salirDelSistemasToolStripMenuItem, toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(0);
+            menuStrip1.RenderMode = ToolStripRenderMode.Professional;
             menuStrip1.Size = new Size(200, 588);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
@@ -83,8 +85,11 @@
             // 
             // consultasToolStripMenuItem
             // 
+            consultasToolStripMenuItem.BackgroundImageLayout = ImageLayout.Stretch;
             consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { StokTienda, stokAlmacen });
             consultasToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            consultasToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.paquete_o_empaquetar;
+            consultasToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             consultasToolStripMenuItem.Margin = new Padding(0, 10, -3, 0);
             consultasToolStripMenuItem.MergeIndex = 50;
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
@@ -94,6 +99,7 @@
             // 
             // StokTienda
             // 
+            StokTienda.Image = Minimarket_GUI.Properties.Resources.monitor;
             StokTienda.Margin = new Padding(0, 10, 0, 0);
             StokTienda.Name = "StokTienda";
             StokTienda.Padding = new Padding(0, 5, 0, 10);
@@ -103,6 +109,7 @@
             // 
             // stokAlmacen
             // 
+            stokAlmacen.Image = Minimarket_GUI.Properties.Resources.almacen;
             stokAlmacen.Margin = new Padding(0, 10, 0, 0);
             stokAlmacen.Name = "stokAlmacen";
             stokAlmacen.Padding = new Padding(0, 5, 0, 10);
@@ -114,6 +121,8 @@
             // 
             generarGuiaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { proveedoresToolStripMenuItem });
             generarGuiaToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            generarGuiaToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.mensajero;
+            generarGuiaToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             generarGuiaToolStripMenuItem.Margin = new Padding(0, 5, -3, 0);
             generarGuiaToolStripMenuItem.MergeIndex = 50;
             generarGuiaToolStripMenuItem.Name = "generarGuiaToolStripMenuItem";
@@ -123,6 +132,7 @@
             // 
             // proveedoresToolStripMenuItem
             // 
+            proveedoresToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.cliente;
             proveedoresToolStripMenuItem.Margin = new Padding(0, 25, 0, 20);
             proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             proveedoresToolStripMenuItem.Padding = new Padding(0, 15, 0, 5);
@@ -134,6 +144,8 @@
             // 
             gestionarUsuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuariosToolStripMenuItem, agregarUsuarioToolStripMenuItem });
             gestionarUsuariosToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            gestionarUsuariosToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.agregar_usuario;
+            gestionarUsuariosToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             gestionarUsuariosToolStripMenuItem.Margin = new Padding(0, 5, -3, 0);
             gestionarUsuariosToolStripMenuItem.MergeIndex = 50;
             gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
@@ -144,6 +156,7 @@
             // 
             // usuariosToolStripMenuItem
             // 
+            usuariosToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.agregar;
             usuariosToolStripMenuItem.Margin = new Padding(0, 20, 0, 0);
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             usuariosToolStripMenuItem.Padding = new Padding(0, 10, 0, 10);
@@ -153,6 +166,7 @@
             // 
             // agregarUsuarioToolStripMenuItem
             // 
+            agregarUsuarioToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.nuevo;
             agregarUsuarioToolStripMenuItem.Margin = new Padding(0, 20, 0, 0);
             agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
             agregarUsuarioToolStripMenuItem.Padding = new Padding(0, 10, 0, 10);
@@ -164,6 +178,8 @@
             // 
             gestionarVentaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boletaToolStripMenuItem, facturaToolStripMenuItem });
             gestionarVentaToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            gestionarVentaToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.punto_de_venta;
+            gestionarVentaToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             gestionarVentaToolStripMenuItem.Margin = new Padding(0, 15, -3, 0);
             gestionarVentaToolStripMenuItem.MergeIndex = 50;
             gestionarVentaToolStripMenuItem.Name = "gestionarVentaToolStripMenuItem";
@@ -174,25 +190,29 @@
             // 
             // boletaToolStripMenuItem
             // 
+            boletaToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.proyecto_de_ley;
             boletaToolStripMenuItem.Margin = new Padding(0, 10, 0, 0);
             boletaToolStripMenuItem.Name = "boletaToolStripMenuItem";
             boletaToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            boletaToolStripMenuItem.Size = new Size(125, 37);
+            boletaToolStripMenuItem.Size = new Size(180, 37);
             boletaToolStripMenuItem.Text = "Boleta";
             boletaToolStripMenuItem.Click += boletaToolStripMenuItem_Click;
             // 
             // facturaToolStripMenuItem
             // 
+            facturaToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.cuenta;
             facturaToolStripMenuItem.Margin = new Padding(0, 10, 0, 0);
             facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
             facturaToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            facturaToolStripMenuItem.Size = new Size(125, 37);
+            facturaToolStripMenuItem.Size = new Size(180, 37);
             facturaToolStripMenuItem.Text = "Factura";
             facturaToolStripMenuItem.Click += facturaToolStripMenuItem_Click;
             // 
             // generarRemisionToolStripMenuItem
             // 
             generarRemisionToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            generarRemisionToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.contrato;
+            generarRemisionToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             generarRemisionToolStripMenuItem.Margin = new Padding(0, 5, -3, 0);
             generarRemisionToolStripMenuItem.MergeIndex = 50;
             generarRemisionToolStripMenuItem.Name = "generarRemisionToolStripMenuItem";
@@ -205,6 +225,8 @@
             // 
             comprobantesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { boletasToolStripMenuItem, facturasToolStripMenuItem });
             comprobantesToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comprobantesToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.comprobado;
+            comprobantesToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             comprobantesToolStripMenuItem.Margin = new Padding(0, 5, -3, 0);
             comprobantesToolStripMenuItem.MergeIndex = 50;
             comprobantesToolStripMenuItem.Name = "comprobantesToolStripMenuItem";
@@ -214,25 +236,29 @@
             // 
             // boletasToolStripMenuItem
             // 
+            boletasToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.proyecto_de_ley1;
             boletasToolStripMenuItem.Margin = new Padding(0, 20, 0, 0);
             boletasToolStripMenuItem.Name = "boletasToolStripMenuItem";
             boletasToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            boletasToolStripMenuItem.Size = new Size(131, 37);
+            boletasToolStripMenuItem.Size = new Size(180, 37);
             boletasToolStripMenuItem.Text = "Boletas";
             boletasToolStripMenuItem.Click += boletasToolStripMenuItem_Click;
             // 
             // facturasToolStripMenuItem
             // 
+            facturasToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.cuenta1;
             facturasToolStripMenuItem.Margin = new Padding(0, 20, 0, 0);
             facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
             facturasToolStripMenuItem.Padding = new Padding(0, 10, 0, 5);
-            facturasToolStripMenuItem.Size = new Size(131, 37);
+            facturasToolStripMenuItem.Size = new Size(180, 37);
             facturasToolStripMenuItem.Text = "Facturas";
             facturasToolStripMenuItem.Click += facturasToolStripMenuItem_Click;
             // 
             // salirDelSistemasToolStripMenuItem
             // 
             salirDelSistemasToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            salirDelSistemasToolStripMenuItem.Image = Minimarket_GUI.Properties.Resources.cerrar_sesion;
+            salirDelSistemasToolStripMenuItem.ImageAlign = ContentAlignment.MiddleRight;
             salirDelSistemasToolStripMenuItem.Margin = new Padding(0, 5, -3, 0);
             salirDelSistemasToolStripMenuItem.MergeIndex = 50;
             salirDelSistemasToolStripMenuItem.Name = "salirDelSistemasToolStripMenuItem";
