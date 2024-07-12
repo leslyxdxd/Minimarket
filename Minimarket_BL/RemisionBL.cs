@@ -40,10 +40,12 @@ namespace Minimarket_BL
             return objRemisionADO.ListarRemision();
         }
 
-        public DataTable ListarRemisionXFiltro(String strIdCodigo, int strCantidad)
+        public DataTable ListarRemisionXFiltro(string strIdCodigo, int? strCantidad)
         {
+            // Llamada al método en la capa DAL con parámetros opcionales
             return objRemisionADO.ListarRemisionXFiltro(strIdCodigo, strCantidad);
         }
+
 
 
 

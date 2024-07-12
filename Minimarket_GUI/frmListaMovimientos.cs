@@ -4,7 +4,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using OfficeOpenXml;
-using Microsoft.Extensions.FileProviders;
+using Minimarket_BE;
 
 namespace Minimarket_GUI
 {
@@ -25,75 +25,82 @@ namespace Minimarket_GUI
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+
             try
             {
-                //Obtenemos la ruta de la plantilla
-                String rutaarchivo = @"C:\Excel\Plantilla_Movimiento.xlsx";
+                // Obtenemos la ruta de la plantilla
+                string rutaarchivo = @"C:\Excel\Plantilla_Movimiento.xlsx";
 
+                DataTable dtRemision = new DataTable();
 
-                //Obtenemos la lista de proveedores 
-                DataTable dtMovimiento = objMovimientoBL.ListarMovimiento();
+                // Obtener los datos actuales del DataGridView
+                if (dtgRemision.DataSource is DataView dataView)
+                {
+                    dtRemision = dataView.ToTable();
+                }
+                else if (dtgRemision.DataSource is DataTable dataTable)
+                {
+                    dtRemision = dataTable;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para generar el reporte.");
+                    return;
+                }
 
-                //definimos la fila de inicio del reporte
-                Int16 fila1 = 7;
+                // Obtenemos la selección del ComboBox
+                string periodoSeleccionado = cboTiempoPeriodo.SelectedItem.ToString();
 
-                //Cramos un objeto para el excel que se a levantado 
+                // Definimos la fila de inicio del reporte
+                int fila1 = 7;
+
+                // Creamos un objeto para el excel que se ha levantado 
                 using (var pack = new ExcelPackage(new FileInfo(rutaarchivo)))
                 {
-                    //Indicamos que se va a trabajr en la HOJA1
+                    // Indicamos que se va a trabajar en la HOJA1
                     ExcelWorksheet ws = pack.Workbook.Worksheets["Hoja1"];
+
+                    ws.Cells["F4"].Value = $"{periodoSeleccionado}";
 
                     ws.Cells["C4"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-                    //Imprimimos en un bucle cada registro del dtpProveedores
-                    foreach (DataRow drProveedor in dtMovimiento.Rows)
+                    // Imprimimos en un bucle cada registro del dtRemision
+                    foreach (DataRow drMovimiento in dtRemision.Rows)
                     {
+                        ws.Cells[fila1, 2].Value = drMovimiento["Nom_Producto"].ToString();
+                        ws.Cells[fila1, 3].Value = drMovimiento["Movimiento_Tienda"].ToString();
+                        ws.Cells[fila1, 4].Value = drMovimiento["Des_UM"].ToString();
+                        ws.Cells[fila1, 5].Value = drMovimiento["Fec_Registro"].ToString();
+                        ws.Cells[fila1, 6].Value = drMovimiento["Usu_Registro"].ToString();
 
-                        ws.Cells[fila1, 2].Value = drProveedor["Nom_Producto"].ToString();
-
-                        ws.Cells[fila1, 3].Value = drProveedor["Movimiento_Tienda"].ToString();
-
-                        ws.Cells[fila1, 4].Value = drProveedor["Des_UM"].ToString();
-
-                        ws.Cells[fila1, 5].Value = drProveedor["Fec_Registro"].ToString();
-
-                        ws.Cells[fila1, 6].Value = drProveedor["Usu_Registro"].ToString();
-
-                        //Se incrementa +1 para imprimir la fila 6 y asi ira imprimiento fila por fila
+                        // Se incrementa +1 para imprimir la siguiente fila
                         fila1 += 1;
                     }
 
-                    //Modificamos el ancho de las columnas
-                    ws.Column(1).Width = 30;//Columna A..
-                    ws.Column(2).Width = 30;//Columna B...
+                    // Modificamos el ancho de las columnas
+                    ws.Column(1).Width = 30; // Columna A..
+                    ws.Column(2).Width = 30; // Columna B...
                     ws.Column(3).Width = 30;
                     ws.Column(4).Width = 40;
                     ws.Column(5).Width = 30;
 
+                    // Definimos un nombre para el reporte 
+                    string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    string filename = $"ReporteMovimientoAlmacen_{clsCredenciales.Login_Usuario}-{timestamp}.xlsx";
 
-                    //Definimos un nombre para el reporte 
-                    String timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                    String filename = "ReporteMovimientoAlmacen_" + clsCredenciales.Login_Usuario + "-"+ timestamp + ".xlsx";
+                    // Creamos el archivo (con el nombre de arriba en blanco)
+                    using (var fs = new FileStream($@"C:\PruebaExcel\{filename}", FileMode.Create))
+                    {
+                        pack.SaveAs(fs);
+                    }
 
-                    //Creamos el archivo (con el nombre de arriba en blanco)
-                    FileStream fs = new FileStream(@"C:\PruebaExcel\" + filename, FileMode.Create);
-                    pack.SaveAs(fs);
-
-                    //Elinamos las instancias 
-                    pack.Dispose();
-                    fs.Dispose();//se destruye para que evite siguiendo en memoria
-
-                    //Mandamos el mensajeal usuario..
-                    MessageBox.Show("El listado se ha generado satisfactoriamente ");
-
+                    // Mandamos el mensaje al usuario
+                    MessageBox.Show("El listado se ha generado satisfactoriamente.");
                 }
-
-
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -101,6 +108,23 @@ namespace Minimarket_GUI
         {
             try
             {
+                // Añadir opciones al ComboBox
+                cboTiempoPeriodo.Items.Add("--Seleccione--");
+                cboTiempoPeriodo.Items.Add("Esta semana");
+                cboTiempoPeriodo.Items.Add("Última semana");
+                cboTiempoPeriodo.Items.Add("Este mes");
+                cboTiempoPeriodo.Items.Add("El mes anterior");
+                cboTiempoPeriodo.Items.Add("Hace dos meses");
+                cboTiempoPeriodo.Items.Add("Este año");
+                cboTiempoPeriodo.Items.Add("El año anterior");
+       
+
+                // Establecer la opción predeterminada
+                cboTiempoPeriodo.SelectedIndex = 0;
+
+                // Asignar el evento SelectedIndexChanged al ComboBox
+                cboTiempoPeriodo.SelectedIndexChanged += cboTiempoPeriodo_SelectedIndexChanged;
+
                 dtgRemision.AutoGenerateColumns = false;
                 CargarDatos("");
             }
@@ -128,6 +152,67 @@ namespace Minimarket_GUI
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void cboTiempoPeriodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTiempoPeriodo.SelectedIndex == 0)
+            {
+                // Si la selección es "--Seleccione--", cargar todos los datos
+                dtgRemision.AutoGenerateColumns = false;
+                CargarDatos("");
+                return;
+            }
+
+            string seleccionTiempo = cboTiempoPeriodo.SelectedItem.ToString();
+            DateTime startDate = DateTime.Now;
+            DateTime endDate = DateTime.Now;
+
+            switch (seleccionTiempo)
+            {
+                case "Esta semana":
+                    startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
+                    endDate = DateTime.Now;
+                    break;
+                case "Última semana":
+                    startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek - 7);
+                    endDate = startDate.AddDays(7);
+                    break;
+                case "Este mes":
+                    startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                    endDate = DateTime.Now;
+                    break;
+                case "El mes anterior":
+                    startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
+                    endDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1);
+                    break;
+             
+                case "Hace dos meses":
+                    var twoMonthsAgo = DateTime.Now.AddMonths(-2);
+                    startDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, 1);
+                    endDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, DateTime.DaysInMonth(twoMonthsAgo.Year, twoMonthsAgo.Month));
+                    break;
+                case "Este año":
+                    startDate = new DateTime(DateTime.Now.Year, 1, 1);
+                    endDate = DateTime.Now;
+                    break;
+                case "El año anterior":
+                    startDate = new DateTime(DateTime.Now.Year - 1, 1, 1);
+                    endDate = new DateTime(DateTime.Now.Year - 1, 12, 31);
+                    break;
+                
+            }
+
+            CargarDatosFiltrados(startDate, endDate);
+        }
+
+        private void CargarDatosFiltrados(DateTime startDate, DateTime endDate)
+        {
+            DataTable dtMovimiento = objMovimientoBL.ListarMovimiento();
+            DataView dv = new DataView(dtMovimiento);
+            dv.RowFilter = $"Fec_Registro >= #{startDate:yyyy/MM/dd}# AND Fec_Registro <= #{endDate:yyyy/MM/dd}#";
+            dtgRemision.DataSource = dv;
+            lblRegistros.Text = dv.Count.ToString();
         }
     }
 }

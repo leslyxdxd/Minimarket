@@ -30,6 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaRemision));
             dtgRemision = new DataGridView();
+            btnGenerar = new Button();
+            lblRegistros = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            btnCerrar = new Button();
+            btnActualizar = new Button();
+            btnReporte = new Button();
+            panel1 = new Panel();
+            cboPro = new ComboBox();
+            label3 = new Label();
+            btnFiltrar = new Button();
+            label4 = new Label();
+            cboCantidad = new ComboBox();
             Id_Remision = new DataGridViewTextBoxColumn();
             Num_Guia = new DataGridViewTextBoxColumn();
             Id_Proveedor = new DataGridViewTextBoxColumn();
@@ -50,20 +64,8 @@
             Estado = new DataGridViewTextBoxColumn();
             Fec_Registro = new DataGridViewTextBoxColumn();
             FechaFin = new DataGridViewTextBoxColumn();
-            btnGenerar = new Button();
-            lblRegistros = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            btnCerrar = new Button();
-            btnActualizar = new Button();
-            btnReporte = new Button();
-            panel1 = new Panel();
-            cboPro = new ComboBox();
-            label3 = new Label();
-            btnFiltrar = new Button();
-            label4 = new Label();
-            cboCantidad = new ComboBox();
+            Fec_Ult_Mod = new DataGridViewTextBoxColumn();
+            Usu_Ult_Mod = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             dtgRemision.Anchor = AnchorStyles.Left;
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, Num_Guia, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, FechaIni, Des_Cat, Cantidad, Des_UM, PrecioUnitario, total, Observaciones, Estado, Fec_Registro, FechaFin });
+            dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, Num_Guia, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, FechaIni, Des_Cat, Cantidad, Des_UM, PrecioUnitario, total, Observaciones, Estado, Fec_Registro, FechaFin, Fec_Ult_Mod, Usu_Ult_Mod });
             dtgRemision.Location = new Point(27, 79);
             dtgRemision.Margin = new Padding(4, 3, 4, 3);
             dtgRemision.Name = "dtgRemision";
@@ -84,6 +86,141 @@
             dtgRemision.Size = new Size(1069, 370);
             dtgRemision.TabIndex = 8;
             dtgRemision.CellDoubleClick += dtgRemision_CellDoubleClick;
+            // 
+            // btnGenerar
+            // 
+            btnGenerar.Location = new Point(626, 493);
+            btnGenerar.Name = "btnGenerar";
+            btnGenerar.Size = new Size(147, 31);
+            btnGenerar.TabIndex = 9;
+            btnGenerar.Text = "Nueva Remision";
+            btnGenerar.UseVisualStyleBackColor = true;
+            btnGenerar.Click += btnGenerar_Click;
+            // 
+            // lblRegistros
+            // 
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(102, 489);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 10;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(27, 493);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Registros:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Ingrese Nombre:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(27, 33);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(134, 23);
+            txtFiltro.TabIndex = 13;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(973, 492);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.TabIndex = 14;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(803, 492);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(147, 31);
+            btnActualizar.TabIndex = 9;
+            btnActualizar.Text = "Actualizar Remision";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnReporte
+            // 
+            btnReporte.Location = new Point(920, 26);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(127, 33);
+            btnReporte.TabIndex = 15;
+            btnReporte.Text = "Generar Reporte";
+            btnReporte.UseVisualStyleBackColor = true;
+            btnReporte.Click += btnReporte_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Location = new Point(1053, 26);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(37, 33);
+            panel1.TabIndex = 16;
+            // 
+            // cboPro
+            // 
+            cboPro.BackColor = SystemColors.Window;
+            cboPro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboPro.ForeColor = SystemColors.InactiveCaptionText;
+            cboPro.FormattingEnabled = true;
+            cboPro.Location = new Point(253, 31);
+            cboPro.Name = "cboPro";
+            cboPro.Size = new Size(152, 23);
+            cboPro.TabIndex = 33;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(251, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(154, 15);
+            label3.TabIndex = 34;
+            label3.Text = "Ingrese filtro por Proveedor:";
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Location = new Point(782, 28);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(100, 31);
+            btnFiltrar.TabIndex = 35;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(486, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(145, 15);
+            label4.TabIndex = 36;
+            label4.Text = "Ingrese filtro por Cantidad";
+            // 
+            // cboCantidad
+            // 
+            cboCantidad.BackColor = SystemColors.Window;
+            cboCantidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCantidad.ForeColor = SystemColors.InactiveCaptionText;
+            cboCantidad.FormattingEnabled = true;
+            cboCantidad.Items.AddRange(new object[] { "10", "20", "30", "40", "50", "100", "200" });
+            cboCantidad.Location = new Point(486, 31);
+            cboCantidad.Name = "cboCantidad";
+            cboCantidad.Size = new Size(129, 23);
+            cboCantidad.TabIndex = 37;
             // 
             // Id_Remision
             // 
@@ -238,140 +375,21 @@
             FechaFin.Name = "FechaFin";
             FechaFin.ReadOnly = true;
             // 
-            // btnGenerar
+            // Fec_Ult_Mod
             // 
-            btnGenerar.Location = new Point(626, 493);
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(147, 31);
-            btnGenerar.TabIndex = 9;
-            btnGenerar.Text = "Nueva Remision";
-            btnGenerar.UseVisualStyleBackColor = true;
-            btnGenerar.Click += btnGenerar_Click;
+            Fec_Ult_Mod.DataPropertyName = "Fec_Ult_Mod";
+            Fec_Ult_Mod.HeaderText = "Fec_Ult_Mod";
+            Fec_Ult_Mod.Name = "Fec_Ult_Mod";
+            Fec_Ult_Mod.ReadOnly = true;
+            Fec_Ult_Mod.Visible = false;
             // 
-            // lblRegistros
+            // Usu_Ult_Mod
             // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(102, 489);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
-            lblRegistros.TabIndex = 10;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(27, 493);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 11;
-            label2.Text = "Registros:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(46, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(95, 15);
-            label1.TabIndex = 12;
-            label1.Text = "Ingrese Nombre:";
-            // 
-            // txtFiltro
-            // 
-            txtFiltro.Location = new Point(46, 31);
-            txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(134, 23);
-            txtFiltro.TabIndex = 13;
-            txtFiltro.TextChanged += txtFiltro_TextChanged;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(973, 492);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
-            btnCerrar.TabIndex = 14;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(803, 492);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(147, 31);
-            btnActualizar.TabIndex = 9;
-            btnActualizar.Text = "Actualizar Remision";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
-            // btnReporte
-            // 
-            btnReporte.Location = new Point(934, 26);
-            btnReporte.Name = "btnReporte";
-            btnReporte.Size = new Size(113, 33);
-            btnReporte.TabIndex = 15;
-            btnReporte.Text = "Generar Reporte";
-            btnReporte.UseVisualStyleBackColor = true;
-            btnReporte.Click += btnReporte_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Location = new Point(1053, 26);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(37, 33);
-            panel1.TabIndex = 16;
-            // 
-            // cboPro
-            // 
-            cboPro.BackColor = SystemColors.Window;
-            cboPro.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboPro.ForeColor = SystemColors.InactiveCaptionText;
-            cboPro.FormattingEnabled = true;
-            cboPro.Location = new Point(253, 31);
-            cboPro.Name = "cboPro";
-            cboPro.Size = new Size(152, 23);
-            cboPro.TabIndex = 33;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(251, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(154, 15);
-            label3.TabIndex = 34;
-            label3.Text = "Ingrese filtro por Proveedor:";
-            // 
-            // btnFiltrar
-            // 
-            btnFiltrar.Location = new Point(803, 28);
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(100, 31);
-            btnFiltrar.TabIndex = 35;
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.UseVisualStyleBackColor = true;
-            btnFiltrar.Click += btnFiltrar_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(486, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(145, 15);
-            label4.TabIndex = 36;
-            label4.Text = "Ingrese filtro por Cantidad";
-            // 
-            // cboCantidad
-            // 
-            cboCantidad.BackColor = SystemColors.Window;
-            cboCantidad.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboCantidad.ForeColor = SystemColors.InactiveCaptionText;
-            cboCantidad.FormattingEnabled = true;
-            cboCantidad.Items.AddRange(new object[] { "10", "20", "30", "40", "50", "100", "200" });
-            cboCantidad.Location = new Point(486, 31);
-            cboCantidad.Name = "cboCantidad";
-            cboCantidad.Size = new Size(129, 23);
-            cboCantidad.TabIndex = 37;
+            Usu_Ult_Mod.DataPropertyName = "Usu_Ult_Mod";
+            Usu_Ult_Mod.HeaderText = "Usu_Ult_Mod";
+            Usu_Ult_Mod.Name = "Usu_Ult_Mod";
+            Usu_Ult_Mod.ReadOnly = true;
+            Usu_Ult_Mod.Visible = false;
             // 
             // frmListaRemision
             // 
@@ -415,6 +433,12 @@
         private Button btnCerrar;
         private Button btnActualizar;
         private Button btnReporte;
+        private Panel panel1;
+        private ComboBox cboPro;
+        private Label label3;
+        private Button btnFiltrar;
+        private Label label4;
+        private ComboBox cboCantidad;
         private DataGridViewTextBoxColumn Id_Remision;
         private DataGridViewTextBoxColumn Num_Guia;
         private DataGridViewTextBoxColumn Id_Proveedor;
@@ -435,11 +459,7 @@
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Fec_Registro;
         private DataGridViewTextBoxColumn FechaFin;
-        private Panel panel1;
-        private ComboBox cboPro;
-        private Label label3;
-        private Button btnFiltrar;
-        private Label label4;
-        private ComboBox cboCantidad;
+        private DataGridViewTextBoxColumn Fec_Ult_Mod;
+        private DataGridViewTextBoxColumn Usu_Ult_Mod;
     }
 }

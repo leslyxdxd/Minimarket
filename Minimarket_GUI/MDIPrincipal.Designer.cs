@@ -51,6 +51,7 @@
             statusStrip1 = new StatusStrip();
             lbl1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
+            fRESHSUPERMARKETToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -74,6 +75,7 @@
             logoToolStripMenuItem.BackColor = SystemColors.ButtonHighlight;
             logoToolStripMenuItem.BackgroundImage = Minimarket_GUI.Properties.Resources._608c596cb1fe4297b368b0f0f0a42dd2__1_;
             logoToolStripMenuItem.BackgroundImageLayout = ImageLayout.Zoom;
+            logoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fRESHSUPERMARKETToolStripMenuItem });
             logoToolStripMenuItem.Enabled = false;
             logoToolStripMenuItem.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             logoToolStripMenuItem.ForeColor = Color.DarkOrange;
@@ -300,6 +302,12 @@
             lblUsuario.Size = new Size(37, 30);
             lblUsuario.Text = "....";
             // 
+            // fRESHSUPERMARKETToolStripMenuItem
+            // 
+            fRESHSUPERMARKETToolStripMenuItem.Name = "fRESHSUPERMARKETToolStripMenuItem";
+            fRESHSUPERMARKETToolStripMenuItem.Size = new Size(263, 22);
+            fRESHSUPERMARKETToolStripMenuItem.Text = "FRESH SUPERMARKET";
+            // 
             // MDIPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -352,5 +360,6 @@
         private ToolStripMenuItem facturasToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem logoToolStripMenuItem;
+        private ToolStripMenuItem fRESHSUPERMARKETToolStripMenuItem;
     }
 }

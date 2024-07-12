@@ -33,6 +33,7 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error:" + ex.Message);
             }
         }
+
         private void CargarCombos()
         {
             try
@@ -71,9 +72,6 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error al cargar combos: " + ex.Message);
             }
         }
-
-
-
 
         private void frmListaRemision_Load(object sender, EventArgs e)
         {
@@ -153,13 +151,31 @@ namespace Minimarket_GUI
             try
             {
                 String rutaarchivo = @"C:\Excel\Plantilla_ReporteGuia.xlsx";
-                DataTable dtRemision = objRemisionBL.ListarRemision();
+                DataTable dtRemision;
+
+                // Obtener los datos actuales del DataGridView
+                if (dtgRemision.DataSource is DataView)
+                {
+                    dtRemision = ((DataView)dtgRemision.DataSource).ToTable();
+                }
+                else if (dtgRemision.DataSource is DataTable)
+                {
+                    dtRemision = (DataTable)dtgRemision.DataSource;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para generar el reporte.");
+                    return;
+                }
+   
+
                 Int16 fila1 = 8;
 
                 using (var pack = new ExcelPackage(new FileInfo(rutaarchivo)))
                 {
                     ExcelWorksheet ws = pack.Workbook.Worksheets["Hoja1"];
-                    ws.Cells["C3"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    ws.Cells["C2"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                   
 
                     foreach (DataRow drRemisionG in dtRemision.Rows)
                     {
@@ -174,6 +190,8 @@ namespace Minimarket_GUI
                         ws.Cells[fila1, 10].Value = drRemisionG["FechaIni"].ToString();
                         ws.Cells[fila1, 11].Value = drRemisionG["FechaFin"].ToString();
                         ws.Cells[fila1, 12].Value = drRemisionG["Usu_Registro"].ToString();
+                        ws.Cells[fila1, 13].Value = drRemisionG["Usu_Ult_Mod"].ToString() + "---" + drRemisionG["Fec_Ult_Mod"].ToString();
+
                         fila1 += 1;
                     }
 
@@ -189,6 +207,7 @@ namespace Minimarket_GUI
                     ws.Column(10).Width = 29;
                     ws.Column(11).Width = 29;
                     ws.Column(12).Width = 29;
+                    ws.Column(13).Width = 32;
 
                     String timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     String filename = "Reporte_GuiasRemision_" + clsCredenciales.Login_Usuario + "_" + timestamp + ".xlsx";
@@ -202,9 +221,10 @@ namespace Minimarket_GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         // Método para manejar el evento CellDoubleClick en el DataGridView
         private void dtgRemision_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -237,18 +257,25 @@ namespace Minimarket_GUI
         {
             try
             {
-                // Obtener el valor seleccionado de cboPro
-                string proveedorSeleccionado = cboPro.SelectedValue != null ? cboPro.SelectedValue.ToString() : "";
-
-                // Obtener el valor seleccionado de cboCantidad
-                int cantidadSeleccionada = 0;
-                if (cboCantidad.SelectedItem != null && cboCantidad.SelectedItem is DataRowView)
+                // Obtener el valor seleccionado del ComboBox de Proveedores
+                string idProveedor = cboPro.SelectedValue?.ToString();
+                if (idProveedor == "--Seleccione--" || string.IsNullOrEmpty(idProveedor))
                 {
-                    cantidadSeleccionada = Convert.ToInt32(((DataRowView)cboCantidad.SelectedItem)["Cantidad"]);
+                    idProveedor = null;
+                }
+
+                // Obtener el valor seleccionado del ComboBox de Cantidad
+                int? cantidadSeleccionada = null;
+                if (cboCantidad.SelectedValue != null && cboCantidad.SelectedValue.ToString() != "--Seleccione--")
+                {
+                    if (int.TryParse(cboCantidad.SelectedValue.ToString(), out int cantidad))
+                    {
+                        cantidadSeleccionada = cantidad;
+                    }
                 }
 
                 // Llamar al método de la capa BL para obtener los datos filtrados
-                DataTable dtResultados = objRemisionBL.ListarRemisionXFiltro(proveedorSeleccionado, cantidadSeleccionada);
+                DataTable dtResultados = objRemisionBL.ListarRemisionXFiltro(idProveedor, cantidadSeleccionada);
 
                 // Mostrar los resultados en el DataGridView
                 dtgRemision.DataSource = dtResultados;
@@ -259,8 +286,5 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error al filtrar datos: " + ex.Message);
             }
         }
-
-
-
     }
 }
