@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             lblTotalPagar = new Label();
             label2 = new Label();
             btnAgregar = new Button();
@@ -69,8 +69,8 @@
             radioButtonTarjeta = new RadioButton();
             radiobuttonEfectivo = new RadioButton();
             btnRegistrarBoleta = new Button();
-            richTextBox1 = new RichTextBox();
-            label5 = new Label();
+            rtxtbEfectivo = new RichTextBox();
+            lblDevolucion = new Label();
             label8 = new Label();
             label12 = new Label();
             groupBox1.SuspendLayout();
@@ -291,8 +291,8 @@
             // Precio
             // 
             Precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle2.Format = "F2";
-            Precio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Format = "F2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle3;
             Precio.HeaderText = "Precio(S/.)";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
@@ -465,6 +465,7 @@
             radioButtonTarjeta.TabStop = true;
             radioButtonTarjeta.Text = "TARJETA";
             radioButtonTarjeta.UseVisualStyleBackColor = true;
+            radioButtonTarjeta.CheckedChanged += radioButtonTarjeta_CheckedChanged;
             // 
             // radiobuttonEfectivo
             // 
@@ -476,6 +477,7 @@
             radiobuttonEfectivo.TabStop = true;
             radiobuttonEfectivo.Text = "EFECTIVO";
             radiobuttonEfectivo.UseVisualStyleBackColor = true;
+           
             // 
             // btnRegistrarBoleta
             // 
@@ -487,24 +489,26 @@
             btnRegistrarBoleta.UseVisualStyleBackColor = true;
             btnRegistrarBoleta.Click += btnRegistrarBoleta_Click;
             // 
-            // richTextBox1
+            // rtxtbEfectivo
             // 
-            richTextBox1.Location = new Point(1052, 573);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(134, 37);
-            richTextBox1.TabIndex = 54;
-            richTextBox1.Text = "";
+            rtxtbEfectivo.Location = new Point(1052, 573);
+            rtxtbEfectivo.Name = "rtxtbEfectivo";
+            rtxtbEfectivo.Size = new Size(134, 37);
+            rtxtbEfectivo.TabIndex = 54;
+            rtxtbEfectivo.Text = "";
+            rtxtbEfectivo.TextChanged += rtxtbEfectivo_TextChanged;
+            rtxtbEfectivo.KeyPress += rtxtbEfectivo_KeyPress;
             // 
-            // label5
+            // lblDevolucion
             // 
-            label5.BorderStyle = BorderStyle.FixedSingle;
-            label5.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(1052, 650);
-            label5.Name = "label5";
-            label5.Size = new Size(134, 35);
-            label5.TabIndex = 55;
-            label5.TextAlign = ContentAlignment.MiddleRight;
+            lblDevolucion.BorderStyle = BorderStyle.FixedSingle;
+            lblDevolucion.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDevolucion.ForeColor = Color.Red;
+            lblDevolucion.Location = new Point(1052, 650);
+            lblDevolucion.Name = "lblDevolucion";
+            lblDevolucion.Size = new Size(134, 35);
+            lblDevolucion.TabIndex = 55;
+            lblDevolucion.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label8
             // 
@@ -534,8 +538,8 @@
             ClientSize = new Size(1287, 817);
             Controls.Add(label12);
             Controls.Add(label8);
-            Controls.Add(label5);
-            Controls.Add(richTextBox1);
+            Controls.Add(lblDevolucion);
+            Controls.Add(rtxtbEfectivo);
             Controls.Add(btnRegistrarBoleta);
             Controls.Add(groupBox3);
             Controls.Add(btnEliminarProducto);
@@ -554,6 +558,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de compra";
             FormClosing += frmVentaBoletas_FormClosing;
+            Load += frmVentaBoletas_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).EndInit();
@@ -606,8 +611,8 @@
         private RadioButton radioButtonTarjeta;
         private RadioButton radiobuttonEfectivo;
         private Button btnRegistrarBoleta;
-        private RichTextBox richTextBox1;
-        private Label label5;
+        private RichTextBox rtxtbEfectivo;
+        private Label lblDevolucion;
         private Label label8;
         private Label label12;
     }

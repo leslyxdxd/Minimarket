@@ -5,6 +5,9 @@ using Minimarket_BE;
 using System.Data;
 using ProyVentas_BL;
 using Minimarket_ADO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace Minimarket_GUI
 {
@@ -354,17 +357,34 @@ namespace Minimarket_GUI
                     Detalle_Boleta.Rows.Add(dataRow);
                 }
 
+
                 BoletaBE BoletaBE = new BoletaBE
                 {
                     Dni_Cliente = txtDNI.Text,
                     Nombres_Cliente = lblNombres.Text,
                     Apellidos_Cliente = lblApellidos.Text,
+                    Usu_Registro = clsCredenciales.Login_Usuario,
+                    MetodoPago = Convert.ToInt16(radiobuttonEfectivo.Checked ? 1 : 0),
+                    EfectivoRecibido = Convert.ToDecimal(rtxtbEfectivo.Text)
 
-                    Usu_Registro = clsCredenciales.Login_Usuario
                 };
 
+                // Asignar el método de pago
+                if (radiobuttonEfectivo.Checked == true)
+                {
+                    BoletaBE.MetodoPago = 1; // Efectivo
+                    BoletaBE.EfectivoRecibido = Convert.ToDecimal(rtxtbEfectivo.Text); // Asumimos que txtEfectivo es un TextBox para el monto recibido
+                }
+                else
+                {
+                    BoletaBE.MetodoPago = 0; // Tarjeta
+                    BoletaBE.EfectivoRecibido = 0; // No se recibe efectivo cuando se paga con tarjeta
+                   
+                }
+
+
                 string mensaje = string.Empty;
-                bool respuesta = new BoletaBL().Registrar(BoletaBE, Detalle_Boleta, out mensaje);
+                bool respuesta = new BoletaBL().RegistrarBoletaPrueba(BoletaBE, Detalle_Boleta, out mensaje);
                 if (respuesta)
                 {
                     MessageBox.Show("El registro de la boleta se realizo con exito");
@@ -378,6 +398,8 @@ namespace Minimarket_GUI
                     txtCantidad.Text = "";
                     lblRegistros.Text = "";
                     lblTotalPagar.Text = "";
+                    rtxtbEfectivo.Text = "";
+                    lblDevolucion.Text = "";
                     dtgListaProductos.Rows.Clear();
                 }
                 else
@@ -443,6 +465,84 @@ namespace Minimarket_GUI
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void rtxtbEfectivo_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(rtxtbEfectivo.Text))
+            {
+                lblDevolucion.Text = "";
+                return;
+            }
+
+            try
+            {
+                float efectivo = float.Parse(rtxtbEfectivo.Text);
+                float totalPagar = float.Parse(lblTotalPagar.Text);
+                float devolucion = efectivo - totalPagar;
+                lblDevolucion.Text = Math.Round(devolucion, 2).ToString(); // Redondear a 2 decimales
+            }
+            catch (FormatException)
+            {
+                // Manejar el error de formato, por ejemplo, si el texto ingresado no es un número válido
+                MessageBox.Show("Ingrese un valor numérico válido.");
+                lblDevolucion.Text = "";
+            }
+            catch (Exception ex)
+            {
+                // Manejar otras excepciones si es necesario
+                MessageBox.Show("Consulte con TI: " + ex.Message);
+                lblDevolucion.Text = "";
+            }
+
+        }
+
+
+
+        private void rtxtbEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                // Permitir solo números y un solo punto decimal
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+                {
+                    e.Handled = true;
+                }
+
+                // Solo permitir un punto decimal
+                if ((e.KeyChar == ',') && ((sender as RichTextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Consulte con TI");
+            }
+
+        }
+
+        private void frmVentaBoletas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void radioButtonTarjeta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonTarjeta.Checked)
+            {
+                rtxtbEfectivo.Enabled = false;
+                lblDevolucion.Enabled = false;
+            }
+            else
+              
+            {
+                rtxtbEfectivo.Enabled = true;
+                lblDevolucion.Enabled = true;
+            }
         }
     }
 }

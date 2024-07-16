@@ -18,6 +18,13 @@ namespace Minimarket_BL
         {
             return objBoletaADO.RegistrarVenta(objBoletaBE, Detalle_Boleta, out Mensaje);
         }
+
+
+        public bool RegistrarBoletaPrueba(BoletaBE objBoletaBE, DataTable Detalle_Boleta, out string Mensaje)
+        {
+            return objBoletaADO.RegistrarVentaPrueba(objBoletaBE, Detalle_Boleta, out Mensaje);
+        }
+
         public DataTable ListarBoleta()
         {
             return objBoletaADO.ListarBoleta();
