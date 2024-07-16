@@ -39,6 +39,7 @@ namespace Minimarket_GUI
             dtv.RowFilter = "Nom_Producto LIKE '%" + Nom_Producto + "%'";
             dtgDatos.DataSource = dtv;
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();
+
         }
 
         private void frmListaProductos_Load(object sender, EventArgs e)

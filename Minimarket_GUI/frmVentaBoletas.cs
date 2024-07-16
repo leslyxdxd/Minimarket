@@ -536,6 +536,7 @@ namespace Minimarket_GUI
               
                {
                   rtxtbEfectivo.Enabled = true;
+                    lblDevolucion .Enabled = true;  
                 }
             }
             catch (Exception)

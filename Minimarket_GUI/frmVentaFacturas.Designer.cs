@@ -299,6 +299,7 @@
             txtCantidad2.Size = new Size(91, 35);
             txtCantidad2.TabIndex = 23;
             txtCantidad2.Text = "";
+            txtCantidad2.TextChanged += txtCantidad2_TextChanged;
             // 
             // label7
             // 

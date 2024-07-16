@@ -141,7 +141,7 @@ namespace Minimarket_GUI
                     return;
                 }
 
-               
+
                 int cantidadExistente = 0;
 
                 // Verificar si el producto ya existe en el DataGridView
@@ -164,9 +164,9 @@ namespace Minimarket_GUI
                         {
                             int nuevaCantidad = cantidadExistente + cantidad;
 
-                            if (nuevaCantidad > stock)
+                            if ( nuevaCantidad > stock)
                             {
-                                MessageBox.Show("La cantidad total no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("La cantidad a agregar no puede ser mayor .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                             if (nuevaCantidad == stock)
@@ -346,13 +346,27 @@ namespace Minimarket_GUI
                     direccion_completa = lblDireccion.Text,
                     estado = lblEstado.Text,
                     Usu_Registro = clsCredenciales.Login_Usuario,
-                    
+                    MetodoPago = Convert.ToInt16(rbtnEfectivo.Checked ? 1 : 0)
+
                 };
 
-               
+                if (rbtnEfectivo.Checked)
+                {
+                    factura.MetodoPago = 1; // Efectivo
+                    factura.EfectivoRecibido = Convert.ToDecimal(rtxtEfectivo.Text); // Asumimos que rtxtbEfectivo es un RichTextBox para el monto recibido
+                }
+                else
+                {
+                    factura.MetodoPago = 0; // Tarjeta
+                    factura.EfectivoRecibido = 0; // No se recibe efectivo cuando se paga con tarjeta
+                    rtxtEfectivo.Text = "";
+                    lblDevolucion.Text = "";
+
+                }
+
 
                 string mensaje;
-                bool registrado = objFacturaBL.RegistrarFactura(factura, detalleVenta, out mensaje);
+                bool registrado = objFacturaBL.RegistrarFacturaPrueba(factura, detalleVenta, out mensaje);
 
                 if (registrado)
                 {
@@ -387,7 +401,6 @@ namespace Minimarket_GUI
             lblTotal.Text = "";
             rtxtEfectivo.Text = "";
             lblDevolucion.Text = "";
-           
             dtgProducto.Rows.Clear();
         }
 
@@ -498,6 +511,7 @@ namespace Minimarket_GUI
 
                 {
                     rtxtEfectivo.Enabled = true;
+                    lblDevolucion.Enabled = true;
                 }
             }
             catch (Exception)
@@ -505,6 +519,11 @@ namespace Minimarket_GUI
 
                 throw new Exception("Consulta con TI");
             }
+        }
+
+        private void txtCantidad2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
