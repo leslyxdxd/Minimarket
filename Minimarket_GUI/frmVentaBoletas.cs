@@ -346,7 +346,6 @@ namespace Minimarket_GUI
                 Detalle_Boleta.Columns.Add("Id_Producto", typeof(string));
                 Detalle_Boleta.Columns.Add("Cantidad", typeof(int));
 
-
                 foreach (DataGridViewRow row in dtgListaProductos.Rows)
                 {
                     if (row.IsNewRow) continue;
@@ -357,31 +356,26 @@ namespace Minimarket_GUI
                     Detalle_Boleta.Rows.Add(dataRow);
                 }
 
-
                 BoletaBE BoletaBE = new BoletaBE
                 {
                     Dni_Cliente = txtDNI.Text,
                     Nombres_Cliente = lblNombres.Text,
                     Apellidos_Cliente = lblApellidos.Text,
                     Usu_Registro = clsCredenciales.Login_Usuario,
-                    MetodoPago = Convert.ToInt16(radiobuttonEfectivo.Checked ? 1 : 0),
-                    EfectivoRecibido = Convert.ToDecimal(rtxtbEfectivo.Text)
-
+                    MetodoPago = Convert.ToInt16(radiobuttonEfectivo.Checked ? 1 : 0)
                 };
 
-                // Asignar el método de pago
-                if (radiobuttonEfectivo.Checked == true)
+                // Asignar el método de pago y el valor de efectivo recibido
+                if (radiobuttonEfectivo.Checked)
                 {
                     BoletaBE.MetodoPago = 1; // Efectivo
-                    BoletaBE.EfectivoRecibido = Convert.ToDecimal(rtxtbEfectivo.Text); // Asumimos que txtEfectivo es un TextBox para el monto recibido
+                    BoletaBE.EfectivoRecibido = Convert.ToDecimal(rtxtbEfectivo.Text); // Asumimos que rtxtbEfectivo es un RichTextBox para el monto recibido
                 }
                 else
                 {
                     BoletaBE.MetodoPago = 0; // Tarjeta
                     BoletaBE.EfectivoRecibido = 0; // No se recibe efectivo cuando se paga con tarjeta
-                   
                 }
-
 
                 string mensaje = string.Empty;
                 bool respuesta = new BoletaBL().RegistrarBoletaPrueba(BoletaBE, Detalle_Boleta, out mensaje);
@@ -409,7 +403,6 @@ namespace Minimarket_GUI
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error del sistema consulte con TI", ex.Message);
             }
 
