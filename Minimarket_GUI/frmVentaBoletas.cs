@@ -349,7 +349,7 @@ namespace Minimarket_GUI
                     if (row.IsNewRow) continue;
 
                     DataRow dataRow = Detalle_Boleta.NewRow();
-                    dataRow["Id_Producto"] = row.Cells["Cod_Producto"].Value.ToString().Trim(); // Aquí asignamos el Id_Producto de la fila actual
+                    dataRow["Id_Producto"] = row.Cells["Cod_Producto"].Value.ToString().Trim();
                     dataRow["Cantidad"] = Convert.ToInt16(row.Cells["Cantidad"].Value);
                     Detalle_Boleta.Rows.Add(dataRow);
                 }
@@ -359,6 +359,7 @@ namespace Minimarket_GUI
                     Dni_Cliente = txtDNI.Text,
                     Nombres_Cliente = lblNombres.Text,
                     Apellidos_Cliente = lblApellidos.Text,
+
                     Usu_Registro = clsCredenciales.Login_Usuario
                 };
 

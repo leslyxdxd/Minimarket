@@ -9,6 +9,14 @@ namespace Minimarket_BE
         public string Id_Producto { get; set; }
         public decimal Total { get; set; }
         public Int16 Cantidad { get; set; }
+
+        //Agregados
+        public Int16 MetodoPago { get; set; }
+        public float EfectivoRecibido { get; set; }
+        public float Devolucion { get; set; }
+
+
+
         public float Igv { get; set; }
         public float Subtotal { get; set; }
         public DateTime Fecha { get; set; }

@@ -22,6 +22,11 @@
 
         public String Dni_Cliente { get; set; }
 
+        //Agregados
+        public Int16 MetodoPago { get; set; }
+        public float EfectivoRecibido { get; set; }
+        public float Devolucion { get; set; }
+
         public List<Detalle_BoletaBE> Detalle_Boleta {  get; set; }
 
     }

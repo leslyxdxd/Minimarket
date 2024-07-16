@@ -25,10 +25,10 @@ namespace Minimarket_GUI
             InitializeComponent();
             // Establecer DropDownStyle para que los ComboBox sean solo de lectura
             cboUm.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboProveeedor.DropDownStyle = ComboBoxStyle.DropDownList;
+            //cboProveeedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTransportista.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            cboProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             // Establecer el valor predeterminado y agregar el controlador de eventos KeyPress y TextChanged
             txtNumeroGuia.Text = "001-";
             txtNumeroGuia.KeyPress += new KeyPressEventHandler(txtNumeroGuia_KeyPress);
@@ -72,14 +72,10 @@ namespace Minimarket_GUI
             cboUm.ValueMember = "Id_UM";
             cboUm.DisplayMember = "Des_UM";
 
-
-
-            cboProveeedor.DataSource = objProveedorBL.ListarProveedorActivos();
-            cboProveeedor.ValueMember = "Id_Proveedor";
-            cboProveeedor.DisplayMember = "Nom_Proveedor";
-            cboProveeedor.SelectedValue = strIdCodigo;
-
-
+            cboProveedor.DataSource = objProveedorBL.ListarProveedorActivos();
+            cboProveedor.ValueMember = "Id_Proveedor";
+            cboProveedor.DisplayMember = "Nom_Proveedor";
+            cboProveedor.SelectedValue = strIdCodigo;
 
             // Para cboProducto
             DataTable productoData = objProveedorBL.ConsultarProductoxProveedor(strIdCodigo);
@@ -224,7 +220,7 @@ namespace Minimarket_GUI
 
         private void cboProveeedor_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string codigoProveedorSeleccionado = cboProveeedor.SelectedValue.ToString();
+            string codigoProveedorSeleccionado = cboProveedor.SelectedValue.ToString();
             LimpiarLabels(); // Llamar al método para limpiar los labels
             CargarCombos(codigoProveedorSeleccionado);
             CargarProveedor(codigoProveedorSeleccionado);
