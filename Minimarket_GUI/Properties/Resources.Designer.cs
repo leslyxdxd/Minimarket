@@ -63,6 +63,16 @@ namespace Minimarket_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3565075 {
+            get {
+                object obj = ResourceManager.GetObject("3565075", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _608c596cb1fe4297b368b0f0f0a42dd2__1_ {
             get {
                 object obj = ResourceManager.GetObject("608c596cb1fe4297b368b0f0f0a42dd2 (1)", resourceCulture);
