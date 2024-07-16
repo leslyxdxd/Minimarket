@@ -24,6 +24,10 @@ namespace Minimarket_BE
         public String Des_UM { get; set; }
         public Decimal Igv { get; set; }
 
+        //Agregados
+        public Int16 MetodoPago { get; set; }
+        public Decimal EfectivoRecibido { get; set; }
+        public float Devolucion { get; set; }
         public Decimal Subtotal { get; set; }
 
     }

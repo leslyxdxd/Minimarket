@@ -112,6 +112,69 @@ namespace Minimarket_ADO
             return Respuesta;
         }
 
+
+
+        public bool RegistrarFacturaPrueba(FacturaBE objFacturaBE, DataTable Detalle_FacturaBE, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                // Configuración de la conexión y comando
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_RegistrarFacturaPrueba";
+                cmd.Parameters.Clear();
+
+                // Agregar parámetros para la factura
+                cmd.Parameters.AddWithValue("@Ruc", objFacturaBE.ruc);
+                cmd.Parameters.AddWithValue("@RazonSocial", objFacturaBE.nombre_o_razon_social);
+                cmd.Parameters.AddWithValue("@Estado", objFacturaBE.estado);
+                cmd.Parameters.AddWithValue("@Direccion", objFacturaBE.direccion_completa);
+                cmd.Parameters.AddWithValue("@Usu_Registro", objFacturaBE.Usu_Registro);
+
+                cmd.Parameters.AddWithValue("@MetodoPago", objFacturaBE.MetodoPago);
+                cmd.Parameters.AddWithValue("@EfectivoRecibido", objFacturaBE.EfectivoRecibido);
+
+                // Agregar parámetro para los detalles de la factura como tipo estructurado
+                SqlParameter paramDetalle = new SqlParameter("@DetalleFactura", SqlDbType.Structured);
+                paramDetalle.TypeName = "EDetalle_Factura"; // Asegúrate que este sea el tipo definido en SQL Server
+                paramDetalle.Value = Detalle_FacturaBE;
+
+                cmd.Parameters.Add(paramDetalle);
+
+                // Agregar parámetros de salida
+                cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                // Abrir conexión y ejecutar
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+
+                // Obtener resultados de los parámetros de salida
+                Respuesta = Convert.ToBoolean(cmd.Parameters["@Resultado"].Value);
+                Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            finally
+            {
+                // Asegurar que la conexión se cierra
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+
+            return Respuesta;
+        }
+
         public DataTable ListarFactura()
         {
 

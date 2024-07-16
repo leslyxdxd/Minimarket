@@ -89,7 +89,7 @@ namespace Minimarket_GUI
                     objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);
                     lblCodigo.Text = objProductoBE.Id_Producto;
                     lblNombre.Text = objProductoBE.Nom_Producto;
-                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString();
+                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString("0.00,###");
                     lblUM.Text = objUnidadMedidaBE.Des_UM;
                     lblStock.Text = objStockBE.Stk_Tienda.ToString();
                 }
@@ -103,6 +103,7 @@ namespace Minimarket_GUI
         // Método para agregar productos a la lista de la factura
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            bool producto_existe = false;
             try
             {
                 if (string.IsNullOrEmpty(txtCantidad2.Text))
@@ -134,14 +135,13 @@ namespace Minimarket_GUI
                     MessageBox.Show("La cantidad no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 if (cantidad == stock)
                 {
-                    MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La cantidad no puede ser igual que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                bool producto_existe = false;
+               
                 int cantidadExistente = 0;
 
                 // Verificar si el producto ya existe en el DataGridView
@@ -169,12 +169,12 @@ namespace Minimarket_GUI
                                 MessageBox.Show("La cantidad total no puede ser mayor que el stock disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
-
                             if (nuevaCantidad == stock)
                             {
-                                MessageBox.Show("La cantidad no puede ser igual al stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("La cantidad no puede ser igual que el Stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
+
                             fila.Cells["Cantidad"].Value = nuevaCantidad;
 
                             decimal precioUnitario = Convert.ToDecimal(lblPrecio.Text);
@@ -186,8 +186,11 @@ namespace Minimarket_GUI
                             fila.Cells["IGV"].Value = igv;
                             fila.Cells["SubTotal"].Value = total;
 
-                            // Restar el stock del nuevo producto agregado
-                            bool respuesta = new BoletaADO().RestarStock(lblCodigo.Text, cantidad);
+
+                            // Restar el stock
+                            bool respuesta = new BoletaADO().RestarStock(
+                                Convert.ToString(lblCodigo.Text), Convert.ToInt16(txtCantidad2.Text)
+                            );
                             break;
                         }
                     }
@@ -208,13 +211,15 @@ namespace Minimarket_GUI
                     decimal igv = subtotal * tasaIGV;
                     decimal total = subtotal + igv;
 
-                    fila.Cells[4].Value = igv;
-                    fila.Cells[5].Value = total;
+                    fila.Cells[4].Value = igv.ToString("F2");
+                    fila.Cells[5].Value = total.ToString("F2");
 
                     dtgProducto.Rows.Add(fila);
 
-                    // Restar el stock del nuevo producto agregado
-                    bool respuesta = new BoletaADO().RestarStock(lblCodigo.Text, cantidad);
+                    // Restar el stock
+                    bool respuesta = new BoletaADO().RestarStock(
+                        Convert.ToString(lblCodigo.Text), Convert.ToInt16(txtCantidad2.Text)
+                    );
                 }
 
                 lblRegistros.Text = dtgProducto.Rows.Count.ToString();
@@ -279,6 +284,10 @@ namespace Minimarket_GUI
         private void CalcularTotal()
         {
             total = 0;
+            int contador = 0;
+
+            contador = dtgProducto.RowCount;
+
             foreach (DataGridViewRow fila in dtgProducto.Rows)
             {
                 if (fila.Cells[5].Value != null)
@@ -336,8 +345,11 @@ namespace Minimarket_GUI
                     nombre_o_razon_social = lblRazonSocial.Text,
                     direccion_completa = lblDireccion.Text,
                     estado = lblEstado.Text,
-                    Usu_Registro = clsCredenciales.Login_Usuario
+                    Usu_Registro = clsCredenciales.Login_Usuario,
+                    
                 };
+
+               
 
                 string mensaje;
                 bool registrado = objFacturaBL.RegistrarFactura(factura, detalleVenta, out mensaje);
@@ -373,6 +385,9 @@ namespace Minimarket_GUI
             txtCantidad2.Text = "";
             lblRegistros.Text = "";
             lblTotal.Text = "";
+            rtxtEfectivo.Text = "";
+            lblDevolucion.Text = "";
+           
             dtgProducto.Rows.Clear();
         }
 
@@ -408,11 +423,87 @@ namespace Minimarket_GUI
 
                 // Limpiar todas las filas del DataGridView
                 dtgProducto.Rows.Clear();
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Consulte con TI: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void rtxtEfectivo_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(rtxtEfectivo.Text))
+            {
+                lblDevolucion.Text = "";
+                return;
+            }
+
+            try
+            {
+                float efectivo = float.Parse(rtxtEfectivo.Text);
+                float totalPagar = float.Parse(lblTotal.Text);
+                float devolucion = efectivo - totalPagar;
+                lblDevolucion.Text = Math.Round(devolucion, 2).ToString(); // Redondear a 2 decimales
+            }
+            catch (FormatException)
+            {
+                // Manejar el error de formato, por ejemplo, si el texto ingresado no es un número válido
+                MessageBox.Show("Ingrese un valor numérico válido.");
+                lblDevolucion.Text = "";
+            }
+            catch (Exception ex)
+            {
+                // Manejar otras excepciones si es necesario
+                MessageBox.Show("Consulte con TI: " + ex.Message);
+                lblDevolucion.Text = "";
+            }
+        }
+
+        private void rtxtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                // Permitir solo números y un solo punto decimal
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+                {
+                    e.Handled = true;
+                }
+
+                // Solo permitir un punto decimal
+                if ((e.KeyChar == ',') && ((sender as RichTextBox).Text.IndexOf(',') > -1))
+                {
+                    e.Handled = true;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Consulte con TI");
+            }
+
+        }
+
+        private void rbtnTarjeta_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rbtnTarjeta.Checked)
+                {
+                    rtxtEfectivo.Enabled = false;
+                    lblDevolucion.Enabled = false;
+                }
+                else
+
+                {
+                    rtxtEfectivo.Enabled = true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Consulta con TI");
             }
         }
     }

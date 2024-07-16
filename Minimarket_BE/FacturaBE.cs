@@ -25,6 +25,11 @@ namespace Minimarket_BE
 
         public String Usu_Ult_Mod { get; set; }
 
+        //Agregados
+        public Int16 MetodoPago { get; set; }
+        public Decimal EfectivoRecibido { get; set; }
+        public float Devolucion { get; set; }
+
         public List<Detalle_FacturaBE> Detalle_Factura { get; set; }
     }
 }

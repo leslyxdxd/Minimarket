@@ -68,12 +68,12 @@
             btnRegistrar = new Button();
             btnEliminar = new Button();
             groupBox3 = new GroupBox();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            rbtnTarjeta = new RadioButton();
+            rbtnEfectivo = new RadioButton();
             label5 = new Label();
             label8 = new Label();
-            label13 = new Label();
-            richTextBox1 = new RichTextBox();
+            lblDevolucion = new Label();
+            rtxtEfectivo = new RichTextBox();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -469,8 +469,8 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(radioButton2);
-            groupBox3.Controls.Add(radioButton1);
+            groupBox3.Controls.Add(rbtnTarjeta);
+            groupBox3.Controls.Add(rbtnEfectivo);
             groupBox3.Location = new Point(992, 61);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(256, 111);
@@ -478,27 +478,28 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "METODO DE PAGO";
             // 
-            // radioButton2
+            // rbtnTarjeta
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(145, 50);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(68, 19);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "TARJETA";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbtnTarjeta.AutoSize = true;
+            rbtnTarjeta.Location = new Point(145, 50);
+            rbtnTarjeta.Name = "rbtnTarjeta";
+            rbtnTarjeta.Size = new Size(68, 19);
+            rbtnTarjeta.TabIndex = 1;
+            rbtnTarjeta.TabStop = true;
+            rbtnTarjeta.Text = "TARJETA";
+            rbtnTarjeta.UseVisualStyleBackColor = true;
+            rbtnTarjeta.CheckedChanged += rbtnTarjeta_CheckedChanged;
             // 
-            // radioButton1
+            // rbtnEfectivo
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(26, 50);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(76, 19);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "EFECTIVO";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbtnEfectivo.AutoSize = true;
+            rbtnEfectivo.Location = new Point(26, 50);
+            rbtnEfectivo.Name = "rbtnEfectivo";
+            rbtnEfectivo.Size = new Size(76, 19);
+            rbtnEfectivo.TabIndex = 0;
+            rbtnEfectivo.TabStop = true;
+            rbtnEfectivo.Text = "EFECTIVO";
+            rbtnEfectivo.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -520,24 +521,26 @@
             label8.TabIndex = 63;
             label8.Text = "EFECTIVO:";
             // 
-            // label13
+            // lblDevolucion
             // 
-            label13.BorderStyle = BorderStyle.FixedSingle;
-            label13.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.Red;
-            label13.Location = new Point(1054, 656);
-            label13.Name = "label13";
-            label13.Size = new Size(147, 35);
-            label13.TabIndex = 62;
-            label13.TextAlign = ContentAlignment.MiddleRight;
+            lblDevolucion.BorderStyle = BorderStyle.FixedSingle;
+            lblDevolucion.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDevolucion.ForeColor = Color.Red;
+            lblDevolucion.Location = new Point(1054, 656);
+            lblDevolucion.Name = "lblDevolucion";
+            lblDevolucion.Size = new Size(147, 35);
+            lblDevolucion.TabIndex = 62;
+            lblDevolucion.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // richTextBox1
+            // rtxtEfectivo
             // 
-            richTextBox1.Location = new Point(1054, 586);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(147, 37);
-            richTextBox1.TabIndex = 61;
-            richTextBox1.Text = "";
+            rtxtEfectivo.Location = new Point(1054, 586);
+            rtxtEfectivo.Name = "rtxtEfectivo";
+            rtxtEfectivo.Size = new Size(147, 37);
+            rtxtEfectivo.TabIndex = 61;
+            rtxtEfectivo.Text = "";
+            rtxtEfectivo.TextChanged += rtxtEfectivo_TextChanged;
+            rtxtEfectivo.KeyPress += rtxtEfectivo_KeyPress;
             // 
             // frmVentaFacturas
             // 
@@ -546,8 +549,8 @@
             ClientSize = new Size(1270, 818);
             Controls.Add(label5);
             Controls.Add(label8);
-            Controls.Add(label13);
-            Controls.Add(richTextBox1);
+            Controls.Add(lblDevolucion);
+            Controls.Add(rtxtEfectivo);
             Controls.Add(groupBox3);
             Controls.Add(btnEliminar);
             Controls.Add(lblRegistros);
@@ -621,11 +624,11 @@
         private DataGridViewTextBoxColumn IGV;
         private DataGridViewTextBoxColumn SubTotal;
         private GroupBox groupBox3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton rbtnTarjeta;
+        private RadioButton rbtnEfectivo;
         private Label label5;
         private Label label8;
-        private Label label13;
-        private RichTextBox richTextBox1;
+        private Label lblDevolucion;
+        private RichTextBox rtxtEfectivo;
     }
 }

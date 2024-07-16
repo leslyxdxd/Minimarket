@@ -36,6 +36,13 @@ namespace Minimarket_BL
             return objFacturaADO.RegistrarFactura(objFacturaBL, DetalleFactura, out Mensaje);
         }
 
+
+        public bool RegistrarFacturaPrueba(FacturaBE objFacturaBL, DataTable DetalleFactura, out string Mensaje)
+        {
+            return objFacturaADO.RegistrarFacturaPrueba(objFacturaBL, DetalleFactura, out Mensaje);
+        }
+
+
         public DataTable ListarFactura()
         {
             return objFacturaADO.ListarFactura();

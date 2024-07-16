@@ -5,9 +5,7 @@ using Minimarket_BE;
 using System.Data;
 using ProyVentas_BL;
 using Minimarket_ADO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+
 
 namespace Minimarket_GUI
 {
@@ -525,17 +523,27 @@ namespace Minimarket_GUI
 
         private void radioButtonTarjeta_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonTarjeta.Checked)
+
+            try
             {
+
+              if (radioButtonTarjeta.Checked)
+               {
                 rtxtbEfectivo.Enabled = false;
                 lblDevolucion.Enabled = false;
-            }
-            else
+               }
+                else
               
-            {
-                rtxtbEfectivo.Enabled = true;
-                lblDevolucion.Enabled = true;
+               {
+                  rtxtbEfectivo.Enabled = true;
+                }
             }
+            catch (Exception)
+            {
+
+                throw new Exception("Consulta con TI");
+            }
+          
         }
     }
 }
