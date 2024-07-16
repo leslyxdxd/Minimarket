@@ -5,6 +5,8 @@ using Minimarket_BE;
 using System.Data;
 using ProyVentas_BL;
 using Minimarket_ADO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 
 namespace Minimarket_GUI
@@ -334,6 +336,9 @@ namespace Minimarket_GUI
         {
             try
             {
+
+                GenerarBoleta();
+            
                 if (dtgListaProductos.Rows.Count < 1)
                 {
                     MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -404,8 +409,86 @@ namespace Minimarket_GUI
                 MessageBox.Show("Error del sistema consulte con TI", ex.Message);
             }
 
+        }
+
+
+        private void GenerarBoleta() 
+        {
+            try
+            {
+                // Generar el PDF
+                Document doc = new Document(PageSize.A4);
+                PdfWriter.GetInstance(doc, new FileStream(@"C:\Tickets\Ticket.pdf", FileMode.Create));
+                doc.Open();
+
+                doc.Add(new Paragraph("Empresa"));
+                doc.Add(new Paragraph("**********************************"));
+                doc.Add(new Paragraph("Boleta de Venta"));     
+                doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString()));
+                doc.Add(new Paragraph("Le Atendio:" + clsCredenciales.Login_Usuario));
+                doc.Add(new Paragraph("**********************************"));
+                doc.Add(new Paragraph("Prod            Cant   Precio    Total"));
+                doc.Add(new Paragraph("----------------------------------------"));
+
+                // Verificar si hay productos en la lista
+                if (dtgListaProductos.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow r in dtgListaProductos.Rows)
+                    {
+                        // Verificar que las celdas no estén vacías y convertir sus valores adecuadamente
+                        if (
+                            r.Cells["Producto"].Value != null &&
+                            r.Cells["Precio"].Value != null &&
+                            r.Cells["Cantidad"].Value != null &&
+                            r.Cells["SubTotal"].Value != null)
+                        {
+                            
+                            string producto = r.Cells["Producto"].Value.ToString();
+                            float precio = float.Parse(r.Cells["Precio"].Value.ToString());
+                            int cant = int.Parse(r.Cells["Cantidad"].Value.ToString());
+                            float subtotal = float.Parse(r.Cells["SubTotal"].Value.ToString());
+
+                            // Agregar producto al PDF
+                            doc.Add(new Paragraph($" {producto}   {cant}   {precio:F2}   {subtotal:F2}"));
+                        }
+                    }
+                }
+                else
+                {
+                    doc.Add(new Paragraph("No hay productos en la lista."));
+                }
+
+                doc.Add(new Paragraph("----------------------------------------"));
+                doc.Add(new Paragraph($"Total: {lblTotalPagar.Text}"));
+                doc.Add(new Paragraph($"Efectivo Entregado: {rtxtbEfectivo.Text}"));
+                doc.Add(new Paragraph($"Efectivo Devuelto: {lblDevolucion.Text}"));
+                doc.Add(new Paragraph("**********************************"));
+                doc.Add(new Paragraph("*     Gracias por preferirnos    *"));
+                doc.Add(new Paragraph("**********************************"));
+
+                doc.Close();
+
+                MessageBox.Show("PDF generado exitosamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar PDF: " + ex.Message);
+            }
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void dtgListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
