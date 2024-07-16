@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Minimarket_BE;
 using Minimarket_BL;
+using Minimarket_GUI;
 using static System.Net.Mime.MediaTypeNames;
 
 
@@ -39,7 +40,7 @@ namespace ProyVentas_GUI
         }
         private void CategoriaMan01_Load(object sender, EventArgs e)
         {
-           
+
 
             try
             {
@@ -180,7 +181,7 @@ namespace ProyVentas_GUI
             }
         }
 
-     
+
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             try
@@ -193,6 +194,13 @@ namespace ProyVentas_GUI
             {
                 MessageBox.Show("Error:" + ex.Message);
             }
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            frmInsertarUsuario frmGenerar = new frmInsertarUsuario();
+
+            frmGenerar.Show();
         }
     }
 }

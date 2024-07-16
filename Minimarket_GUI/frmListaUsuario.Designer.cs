@@ -47,6 +47,7 @@ namespace ProyVentas_GUI
             label1 = new Label();
             btnInhabilitar = new Button();
             button1 = new Button();
+            btnInsertar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -226,11 +227,25 @@ namespace ProyVentas_GUI
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // btnInsertar
+            // 
+            btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInsertar.Font = new Font("Segoe UI", 9.75F);
+            btnInsertar.Location = new Point(572, 21);
+            btnInsertar.Margin = new Padding(4, 3, 4, 3);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(134, 32);
+            btnInsertar.TabIndex = 17;
+            btnInsertar.Text = "Registrar Usuario";
+            btnInsertar.UseVisualStyleBackColor = true;
+            btnInsertar.Click += btnInsertar_Click;
+            // 
             // frmListaUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(741, 469);
+            Controls.Add(btnInsertar);
             Controls.Add(button1);
             Controls.Add(btnInhabilitar);
             Controls.Add(txtFiltro);
@@ -272,5 +287,6 @@ namespace ProyVentas_GUI
         private DataGridViewTextBoxColumn Usu_Ult_Mod;
         private Button btnInhabilitar;
         private Button button1;
+        private Button btnInsertar;
     }
 }
