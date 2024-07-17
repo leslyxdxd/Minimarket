@@ -25,6 +25,9 @@ namespace Minimarket_GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
+
+
             if (txtLogin.Text.Trim() != "" && txtPassword.Text.Trim() != "")
             {
                 objUsuariosBE = objUsuariosBL.ConsultarUsuarios(txtLogin.Text.Trim());
@@ -36,7 +39,8 @@ namespace Minimarket_GUI
                     MessageBox.Show("Usuario no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (objUsuariosBE.Login_Usuario == txtLogin.Text.Trim() && objUsuariosBE.Pass_Usuario == txtPassword.Text.Trim())
-                {
+                { 
+
                     if (objUsuariosBE.Est_Usuario == 1) // Verifica si el usuario está habilitado
                     {
                         this.Hide();
@@ -46,8 +50,11 @@ namespace Minimarket_GUI
                         clsCredenciales.Niv_Usuario = objUsuariosBE.Niv_Usuario;
                         clsCredenciales.Pass_Usuario = objUsuariosBE.Pass_Usuario;
 
+
                         MDIPrincipal mdi = new MDIPrincipal();
                         mdi.ShowDialog();
+                        
+
                     }
                     else
                     {

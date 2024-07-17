@@ -7,6 +7,12 @@ using ProyVentas_BL;
 using Minimarket_ADO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Rectangle = iTextSharp.text.Rectangle;
+using Minimarket_GUI;
+
+
+
+
 
 
 namespace Minimarket_GUI
@@ -19,6 +25,8 @@ namespace Minimarket_GUI
         StockBL objStockBL = new StockBL();
         UnidadMedidaBE objUnidadMedidaBE = new UnidadMedidaBE();
         UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
+        MinimarketBE objminimarketBE = new MinimarketBE();
+        MinimarketBL objminimarketBL = new MinimarketBL();  
         ClienteBL objClienteBL = new ClienteBL();
 
 
@@ -411,24 +419,50 @@ namespace Minimarket_GUI
 
         }
 
-
-        private void GenerarBoleta() 
+        private void GenerarBoleta()
         {
             try
-            {
+            {          
+                MinimarketBE minimarket = objminimarketBL.ObtenerDatosMinimarket();
+
                 // Generar el PDF
-                Document doc = new Document(PageSize.A4);
+                Document doc = new Document(PageSize.A3);
                 PdfWriter.GetInstance(doc, new FileStream(@"C:\Tickets\Ticket.pdf", FileMode.Create));
                 doc.Open();
 
-                doc.Add(new Paragraph("Empresa"));
-                doc.Add(new Paragraph("**********************************"));
-                doc.Add(new Paragraph("Boleta de Venta"));     
+                // Encabezados
+
+                doc.Add(new Paragraph("Boleta de Venta"));
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph("Empresa: " + minimarket.Nombre));
+                doc.Add(new Paragraph("Dirección: " + minimarket.Direccion));
+                doc.Add(new Paragraph("RUC: " + minimarket.Ruc));
+                doc.Add(new Paragraph("--------------------------------------------------"));            
                 doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString()));
-                doc.Add(new Paragraph("Le Atendio:" + clsCredenciales.Login_Usuario));
-                doc.Add(new Paragraph("**********************************"));
-                doc.Add(new Paragraph("Prod            Cant   Precio    Total"));
-                doc.Add(new Paragraph("----------------------------------------"));
+                doc.Add(new Paragraph("--------------------------------------------------"));
+
+                // Crear la tabla con 4 columnas
+                PdfPTable table = new PdfPTable(4);
+                table.WidthPercentage = 40; // Ajusta el ancho de la tabla al 50% del ancho de la página
+                table.HorizontalAlignment = Element.ALIGN_LEFT; // Alinea la tabla a la izquierda
+               
+
+                // Configurar los encabezados de la tabla
+                PdfPCell cell = new PdfPCell(new Phrase("Producto"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("Cantidad"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("Precio"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("Total"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
 
                 // Verificar si hay productos en la lista
                 if (dtgListaProductos.Rows.Count > 0)
@@ -442,41 +476,61 @@ namespace Minimarket_GUI
                             r.Cells["Cantidad"].Value != null &&
                             r.Cells["SubTotal"].Value != null)
                         {
-                            
                             string producto = r.Cells["Producto"].Value.ToString();
                             float precio = float.Parse(r.Cells["Precio"].Value.ToString());
                             int cant = int.Parse(r.Cells["Cantidad"].Value.ToString());
                             float subtotal = float.Parse(r.Cells["SubTotal"].Value.ToString());
 
-                            // Agregar producto al PDF
-                            doc.Add(new Paragraph($" {producto}   {cant}   {precio:F2}   {subtotal:F2}"));
+                            // Agregar producto a la tabla
+                            cell = new PdfPCell(new Phrase(producto));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+                            cell = new PdfPCell(new Phrase(cant.ToString()));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+                            cell = new PdfPCell(new Phrase(precio.ToString("F2")));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+                            cell = new PdfPCell(new Phrase(subtotal.ToString("F2")));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
                         }
                     }
                 }
                 else
                 {
-                    doc.Add(new Paragraph("No hay productos en la lista."));
+                    cell = new PdfPCell(new Phrase("No hay productos en la lista."));
+                    cell.Colspan = 4;
+                    cell.Border = Rectangle.NO_BORDER;
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
                 }
 
-                doc.Add(new Paragraph("----------------------------------------"));
-                doc.Add(new Paragraph($"Total: {lblTotalPagar.Text}"));
-                doc.Add(new Paragraph($"Efectivo Entregado: {rtxtbEfectivo.Text}"));
-                doc.Add(new Paragraph($"Efectivo Devuelto: {lblDevolucion.Text}"));
-                doc.Add(new Paragraph("**********************************"));
-                doc.Add(new Paragraph("*     Gracias por preferirnos    *"));
-                doc.Add(new Paragraph("**********************************"));
+                // Agregar la tabla al documento
+                doc.Add(table);
+
+                // Totales y agradecimiento
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph($"Total: S/.{float.Parse(lblTotalPagar.Text):F2}"));
+                doc.Add(new Paragraph($"Efectivo Entregado: S/.{float.Parse(rtxtbEfectivo.Text):F2}"));
+                doc.Add(new Paragraph($"Efectivo Devuelto: S/.{float.Parse(lblDevolucion.Text):F2}"));
+
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph("Atendido por:" + clsCredenciales.Login_Usuario));
+                doc.Add(new Paragraph("--------------------------------------------------"));
 
                 doc.Close();
 
-                MessageBox.Show("PDF generado exitosamente");
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al generar PDF: " + ex.Message);
             }
-
         }
-
 
 
 
