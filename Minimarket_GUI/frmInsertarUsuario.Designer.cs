@@ -43,10 +43,10 @@
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 9.75F);
-            txtPassword.Location = new Point(130, 70);
+            txtPassword.Location = new Point(151, 75);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(118, 25);
+            txtPassword.Size = new Size(152, 25);
             txtPassword.TabIndex = 9;
             txtPassword.TextChanged += txtPassword_TextChanged;
             // 
@@ -54,35 +54,35 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F);
-            label4.Location = new Point(38, 78);
+            label4.Location = new Point(59, 78);
             label4.Name = "label4";
-            label4.Size = new Size(74, 17);
+            label4.Size = new Size(77, 17);
             label4.TabIndex = 8;
-            label4.Text = "Contraseña";
+            label4.Text = "Contraseña:";
             // 
             // txtNombre
             // 
             txtNombre.Font = new Font("Segoe UI", 9.75F);
-            txtNombre.Location = new Point(130, 32);
+            txtNombre.Location = new Point(151, 32);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(115, 25);
+            txtNombre.Size = new Size(152, 25);
             txtNombre.TabIndex = 7;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F);
-            label1.Location = new Point(52, 35);
+            label1.Location = new Point(80, 35);
             label1.Name = "label1";
-            label1.Size = new Size(53, 17);
+            label1.Size = new Size(56, 17);
             label1.TabIndex = 6;
-            label1.Text = "Usuario";
+            label1.Text = "Usuario:";
             // 
             // btnGrabar
             // 
             btnGrabar.BackColor = Color.SeaShell;
             btnGrabar.Font = new Font("Segoe UI", 9.75F);
-            btnGrabar.Location = new Point(38, 212);
+            btnGrabar.Location = new Point(74, 212);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(112, 31);
             btnGrabar.TabIndex = 22;
@@ -94,17 +94,17 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F);
-            label2.Location = new Point(25, 139);
+            label2.Location = new Point(28, 143);
             label2.Name = "label2";
-            label2.Size = new Size(105, 17);
+            label2.Size = new Size(108, 17);
             label2.TabIndex = 11;
-            label2.Text = "Nivel de Usuario";
+            label2.Text = "Nivel de Usuario:";
             // 
             // otpGerenteTienda
             // 
             otpGerenteTienda.AutoSize = true;
             otpGerenteTienda.Font = new Font("Segoe UI", 9.75F);
-            otpGerenteTienda.Location = new Point(130, 156);
+            otpGerenteTienda.Location = new Point(151, 163);
             otpGerenteTienda.Name = "otpGerenteTienda";
             otpGerenteTienda.Size = new Size(131, 21);
             otpGerenteTienda.TabIndex = 25;
@@ -116,7 +116,7 @@
             // 
             otpGerenteAlmacen.AutoSize = true;
             otpGerenteAlmacen.Font = new Font("Segoe UI", 9.75F);
-            otpGerenteAlmacen.Location = new Point(130, 120);
+            otpGerenteAlmacen.Location = new Point(151, 121);
             otpGerenteAlmacen.Name = "otpGerenteAlmacen";
             otpGerenteAlmacen.Size = new Size(147, 21);
             otpGerenteAlmacen.TabIndex = 25;
@@ -129,16 +129,16 @@
             panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.usuario;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Location = new Point(319, 32);
+            panel1.Location = new Point(326, 32);
             panel1.Name = "panel1";
-            panel1.Size = new Size(172, 186);
+            panel1.Size = new Size(178, 211);
             panel1.TabIndex = 26;
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = SystemColors.ControlLightLight;
             btnCancelar.Font = new Font("Segoe UI", 9.75F);
-            btnCancelar.Location = new Point(171, 212);
+            btnCancelar.Location = new Point(192, 212);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(111, 31);
             btnCancelar.TabIndex = 27;
@@ -165,7 +165,7 @@
             MinimizeBox = false;
             Name = "frmInsertarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "InsertarUsuario";
+            Text = "Registrar Nuevo Usuario";
             Load += frmInsertarUsuario_Load;
             ResumeLayout(false);
             PerformLayout();

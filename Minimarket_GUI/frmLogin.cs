@@ -40,7 +40,7 @@ namespace Minimarket_GUI
                     if (objUsuariosBE.Est_Usuario == 1) // Verifica si el usuario está habilitado
                     {
                         this.Hide();
-                        timer1.Enabled = false;
+                        
 
                         clsCredenciales.Login_Usuario = objUsuariosBE.Login_Usuario;
                         clsCredenciales.Niv_Usuario = objUsuariosBE.Niv_Usuario;
@@ -84,28 +84,11 @@ namespace Minimarket_GUI
         }
 
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            // Cada segundo se decrementa la variable tiempo  en menos 1, reflejando esto en el texto del formulario
-            // para que el usuario sepa cuantos segundos le van restando para ingresar sus credenciales.
-            tiempo -= 1;
-            this.Text = "Ingrese su Usuario y contraseña. Le quedan..." + tiempo;
-
-            // Si la variable tiempo llega a 0 , se le indica que el tiempo expiro y saldremos de la aplicacion.
-            if (tiempo == 0)
-            {
-                timer1.Enabled = false;
-                MessageBox.Show("Lo sentimos, sobrepaso el tiempo de espera.", "Mensaje",
-                                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Application.Exit();
-
-            }
-
-        }
+     
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            timer1.Enabled = false;
+          
             Application.Exit();
 
         }

@@ -77,6 +77,13 @@ namespace Minimarket_GUI
         {
             try
             {
+                guna2ImageButton3.HoverState.ImageSize = guna2ImageButton3.ImageSize;
+
+                guna2ImageButton3.PressedState.ImageSize = new Size(
+                    (int)(guna2ImageButton3.ImageSize.Width * 1.5),  // Incrementar el tamaño en un 10%
+                    (int)(guna2ImageButton3.ImageSize.Height * 1.5)  // Incrementar el tamaño en un 10%
+                );
+
                 CargarCombos();
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 dtgRemision.AutoGenerateColumns = false;

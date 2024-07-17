@@ -51,7 +51,7 @@
             btnCerrar = new Button();
             btnInabilitar = new Button();
             btnHabilitar = new Button();
-            btnMovimiento = new Button();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -73,14 +73,14 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgDatos.Location = new Point(25, 75);
+            dtgDatos.Location = new Point(25, 137);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(619, 436);
+            dtgDatos.Size = new Size(571, 436);
             dtgDatos.TabIndex = 1;
             dtgDatos.CellContentClick += dtgDatos_CellContentClick;
             // 
@@ -182,33 +182,33 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 21);
+            label1.Location = new Point(25, 96);
             label1.Name = "label1";
-            label1.Size = new Size(144, 15);
+            label1.Size = new Size(92, 15);
             label1.TabIndex = 3;
-            label1.Text = "Ingrese filtro por Nombre:";
+            label1.Text = "Filtro / Nombre:";
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(191, 18);
+            txtFiltro.Location = new Point(151, 93);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(134, 23);
+            txtFiltro.Size = new Size(166, 23);
             txtFiltro.TabIndex = 4;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 545);
+            label2.Location = new Point(25, 604);
             label2.Name = "label2";
-            label2.Size = new Size(58, 15);
+            label2.Size = new Size(64, 15);
             label2.TabIndex = 5;
-            label2.Text = "Registros:";
+            label2.Text = "Productos:";
             // 
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(91, 541);
+            lblRegistros.Location = new Point(111, 600);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 6;
@@ -216,7 +216,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(557, 541);
+            btnCerrar.Location = new Point(509, 595);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(87, 32);
             btnCerrar.TabIndex = 8;
@@ -226,7 +226,7 @@
             // 
             // btnInabilitar
             // 
-            btnInabilitar.Location = new Point(464, 541);
+            btnInabilitar.Location = new Point(401, 595);
             btnInabilitar.Name = "btnInabilitar";
             btnInabilitar.Size = new Size(87, 32);
             btnInabilitar.TabIndex = 9;
@@ -236,7 +236,7 @@
             // 
             // btnHabilitar
             // 
-            btnHabilitar.Location = new Point(365, 541);
+            btnHabilitar.Location = new Point(289, 595);
             btnHabilitar.Name = "btnHabilitar";
             btnHabilitar.Size = new Size(93, 32);
             btnHabilitar.TabIndex = 10;
@@ -244,22 +244,24 @@
             btnHabilitar.UseVisualStyleBackColor = true;
             btnHabilitar.Click += btnHabilitar_Click;
             // 
-            // btnMovimiento
+            // label21
             // 
-            btnMovimiento.Location = new Point(502, 12);
-            btnMovimiento.Name = "btnMovimiento";
-            btnMovimiento.Size = new Size(130, 43);
-            btnMovimiento.TabIndex = 11;
-            btnMovimiento.Text = "Movimientos";
-            btnMovimiento.UseVisualStyleBackColor = true;
-            btnMovimiento.Click += btnMovimiento_Click;
+            label21.AutoSize = true;
+            label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.FromArgb(64, 64, 64);
+            label21.Location = new Point(25, 26);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(313, 32);
+            label21.TabIndex = 55;
+            label21.Text = "PRODUCTOS ALMACÉN";
             // 
             // frmListaProductosTras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(670, 585);
-            Controls.Add(btnMovimiento);
+            ClientSize = new Size(619, 650);
+            Controls.Add(label21);
             Controls.Add(btnHabilitar);
             Controls.Add(btnInabilitar);
             Controls.Add(btnCerrar);
@@ -268,7 +270,7 @@
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(dtgDatos);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmListaProductosTras";
@@ -304,5 +306,6 @@
         private Button btnInabilitar;
         private Button btnHabilitar;
         private Button btnMovimiento;
+        private Label label21;
     }
 }

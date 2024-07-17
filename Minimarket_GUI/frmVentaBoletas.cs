@@ -338,7 +338,7 @@ namespace Minimarket_GUI
             {
 
                 GenerarBoleta();
-            
+
                 if (dtgListaProductos.Rows.Count < 1)
                 {
                     MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -412,7 +412,7 @@ namespace Minimarket_GUI
         }
 
 
-        private void GenerarBoleta() 
+        private void GenerarBoleta()
         {
             try
             {
@@ -423,7 +423,7 @@ namespace Minimarket_GUI
 
                 doc.Add(new Paragraph("Empresa"));
                 doc.Add(new Paragraph("**********************************"));
-                doc.Add(new Paragraph("Boleta de Venta"));     
+                doc.Add(new Paragraph("Boleta de Venta"));
                 doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString()));
                 doc.Add(new Paragraph("Le Atendio:" + clsCredenciales.Login_Usuario));
                 doc.Add(new Paragraph("**********************************"));
@@ -442,7 +442,7 @@ namespace Minimarket_GUI
                             r.Cells["Cantidad"].Value != null &&
                             r.Cells["SubTotal"].Value != null)
                         {
-                            
+
                             string producto = r.Cells["Producto"].Value.ToString();
                             float precio = float.Parse(r.Cells["Precio"].Value.ToString());
                             int cant = int.Parse(r.Cells["Cantidad"].Value.ToString());
@@ -610,16 +610,16 @@ namespace Minimarket_GUI
             try
             {
 
-              if (radioButtonTarjeta.Checked)
-               {
-                rtxtbEfectivo.Enabled = false;
-                lblDevolucion.Enabled = false;
-               }
+                if (radioButtonTarjeta.Checked)
+                {
+                    rtxtbEfectivo.Enabled = false;
+                    lblDevolucion.Enabled = false;
+                }
                 else
-              
-               {
-                  rtxtbEfectivo.Enabled = true;
-                    lblDevolucion .Enabled = true;  
+
+                {
+                    rtxtbEfectivo.Enabled = true;
+                    lblDevolucion.Enabled = true;
                 }
             }
             catch (Exception)
@@ -627,7 +627,12 @@ namespace Minimarket_GUI
 
                 throw new Exception("Consulta con TI");
             }
-          
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
