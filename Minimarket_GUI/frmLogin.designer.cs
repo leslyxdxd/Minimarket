@@ -43,12 +43,12 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(64, 40);
+            label1.Location = new Point(29, 28);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(66, 18);
+            label1.Size = new Size(59, 16);
             label1.TabIndex = 0;
             label1.Text = "Usuario:";
             // 
@@ -56,7 +56,7 @@
             // 
             txtLogin.BackColor = Color.WhiteSmoke;
             txtLogin.Font = new Font("Segoe UI", 9.75F);
-            txtLogin.Location = new Point(138, 39);
+            txtLogin.Location = new Point(106, 28);
             txtLogin.Margin = new Padding(4, 3, 4, 3);
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(163, 25);
@@ -66,12 +66,12 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(33, 81);
+            label2.Location = new Point(12, 71);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(97, 18);
+            label2.Size = new Size(86, 16);
             label2.TabIndex = 0;
             label2.Text = "Contraseña:";
             // 
@@ -79,7 +79,7 @@
             // 
             txtPassword.BackColor = Color.WhiteSmoke;
             txtPassword.Font = new Font("Segoe UI", 9.75F);
-            txtPassword.Location = new Point(138, 81);
+            txtPassword.Location = new Point(106, 67);
             txtPassword.Margin = new Padding(4, 3, 4, 3);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -91,10 +91,10 @@
             btnAceptar.BackColor = Color.Teal;
             btnAceptar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAceptar.ForeColor = Color.White;
-            btnAceptar.Location = new Point(64, 139);
+            btnAceptar.Location = new Point(80, 119);
             btnAceptar.Margin = new Padding(4, 3, 4, 3);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(237, 39);
+            btnAceptar.Size = new Size(135, 39);
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "INGRESAR";
             btnAceptar.UseVisualStyleBackColor = false;
@@ -105,10 +105,10 @@
             btnCancelar.BackColor = Color.Tomato;
             btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(64, 184);
+            btnCancelar.Location = new Point(80, 163);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(237, 39);
+            btnCancelar.Size = new Size(135, 39);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "SALIR";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Location = new Point(-2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(365, 331);
+            panel1.Size = new Size(292, 260);
             panel1.TabIndex = 6;
             // 
             // panel2
@@ -133,9 +133,9 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(btnAceptar);
             panel2.Controls.Add(txtPassword);
-            panel2.Location = new Point(-2, 329);
+            panel2.Location = new Point(1, 258);
             panel2.Name = "panel2";
-            panel2.Size = new Size(365, 309);
+            panel2.Size = new Size(289, 222);
             panel2.TabIndex = 7;
             // 
             // frmLogin
@@ -143,7 +143,7 @@
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(360, 584);
+            ClientSize = new Size(290, 472);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Century Gothic", 8F);
