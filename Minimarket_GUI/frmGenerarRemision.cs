@@ -187,7 +187,7 @@ namespace Minimarket_GUI
         {
             try
             {
-                objRemisionBE.Id_Proveedor = Convert.ToString(cboProveeedor.SelectedValue);
+                objRemisionBE.Id_Proveedor = Convert.ToString(cboProveedor.SelectedValue);
                 objRemisionBE.Id_Producto = Convert.ToString(cboProducto.SelectedValue);
                 objRemisionBE.Id_Transporte = Convert.ToString(cboTransportista.SelectedValue);
                 objRemisionBE.Id_UM = Convert.ToInt16(cboUm.SelectedValue);

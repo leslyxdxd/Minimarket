@@ -71,7 +71,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(85, 216);
+            label2.Location = new Point(27, 212);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(89, 15);
@@ -81,7 +81,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(395, 212);
+            label3.Location = new Point(378, 212);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(76, 15);
@@ -91,29 +91,29 @@
             // dtpFecIni
             // 
             dtpFecIni.Format = DateTimePickerFormat.Short;
-            dtpFecIni.Location = new Point(186, 210);
+            dtpFecIni.Location = new Point(134, 210);
             dtpFecIni.Margin = new Padding(4, 3, 4, 3);
             dtpFecIni.Name = "dtpFecIni";
-            dtpFecIni.Size = new Size(148, 23);
+            dtpFecIni.Size = new Size(192, 23);
             dtpFecIni.TabIndex = 3;
             // 
             // dtpFecFin
             // 
             dtpFecFin.Format = DateTimePickerFormat.Short;
-            dtpFecFin.Location = new Point(479, 210);
+            dtpFecFin.Location = new Point(462, 210);
             dtpFecFin.Margin = new Padding(4, 3, 4, 3);
             dtpFecFin.Name = "dtpFecFin";
-            dtpFecFin.Size = new Size(148, 23);
+            dtpFecFin.Size = new Size(182, 23);
             dtpFecFin.TabIndex = 5;
             // 
             // lblRegistros
             // 
             lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(101, 653);
+            lblRegistros.Location = new Point(101, 639);
             lblRegistros.Margin = new Padding(4, 0, 4, 0);
             lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(57, 26);
+            lblRegistros.Size = new Size(153, 26);
             lblRegistros.TabIndex = 9;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -122,7 +122,7 @@
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(27, 657);
+            label4.Location = new Point(27, 643);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(66, 17);
@@ -135,9 +135,10 @@
             dtgFacturas.AllowUserToDeleteRows = false;
             dtgFacturas.Anchor = AnchorStyles.Left;
             dtgFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgFacturas.BackgroundColor = SystemColors.ControlLight;
             dtgFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgFacturas.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, FechaIni, FechaFin, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, Des_Cat, Cantidad, Observaciones, Estado });
-            dtgFacturas.Location = new Point(27, 260);
+            dtgFacturas.Location = new Point(27, 256);
             dtgFacturas.Margin = new Padding(4, 3, 4, 3);
             dtgFacturas.Name = "dtgFacturas";
             dtgFacturas.ReadOnly = true;
@@ -395,10 +396,10 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(688, 198);
+            btnConsultar.Location = new Point(782, 196);
             btnConsultar.Margin = new Padding(4, 3, 4, 3);
             btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(138, 42);
+            btnConsultar.Size = new Size(167, 47);
             btnConsultar.TabIndex = 15;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
@@ -407,7 +408,8 @@
             // frmGuiaRemision
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(984, 703);
+            BackColor = Color.White;
+            ClientSize = new Size(984, 678);
             Controls.Add(btnConsultar);
             Controls.Add(label1);
             Controls.Add(lblCodigo);

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             btnTraspaso = new Button();
             btnCerrar = new Button();
             lblRegistros = new Label();
@@ -50,9 +50,9 @@
             // 
             // btnTraspaso
             // 
-            btnTraspaso.Location = new Point(601, 551);
+            btnTraspaso.Location = new Point(781, 641);
             btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(124, 32);
+            btnTraspaso.Size = new Size(149, 46);
             btnTraspaso.TabIndex = 23;
             btnTraspaso.Text = "Ver detalle";
             btnTraspaso.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(763, 551);
+            btnCerrar.Location = new Point(982, 641);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.Size = new Size(145, 46);
             btnCerrar.TabIndex = 22;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(104, 547);
+            lblRegistros.Location = new Point(91, 651);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 21;
@@ -80,7 +80,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(23, 551);
+            label2.Location = new Point(23, 655);
             label2.Name = "label2";
             label2.Size = new Size(48, 15);
             label2.TabIndex = 20;
@@ -88,16 +88,16 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(135, 99);
+            txtFiltro.Location = new Point(115, 89);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(189, 23);
+            txtFiltro.Size = new Size(242, 23);
             txtFiltro.TabIndex = 19;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 102);
+            label1.Location = new Point(23, 92);
             label1.Name = "label1";
             label1.Size = new Size(68, 15);
             label1.TabIndex = 18;
@@ -110,25 +110,25 @@
             dtgDatos.AllowUserToResizeColumns = false;
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
+            dtgDatos.BackgroundColor = SystemColors.ControlLight;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Numero_Factura, RazonSocial, Fec_Factura, Ruc, Id_Boleta, Fecha, Usu_Registro });
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dtgDatos.DefaultCellStyle = dataGridViewCellStyle1;
-            dtgDatos.Location = new Point(23, 137);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgDatos.DefaultCellStyle = dataGridViewCellStyle5;
+            dtgDatos.Location = new Point(23, 150);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(864, 375);
+            dtgDatos.Size = new Size(1104, 466);
             dtgDatos.TabIndex = 17;
             // 
             // Numero_Factura
@@ -186,7 +186,7 @@
             label21.AutoSize = true;
             label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.FromArgb(64, 64, 64);
-            label21.Location = new Point(23, 30);
+            label21.Location = new Point(23, 22);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
             label21.Size = new Size(124, 32);
@@ -197,7 +197,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 614);
+            BackColor = Color.White;
+            ClientSize = new Size(1157, 717);
             Controls.Add(label21);
             Controls.Add(btnTraspaso);
             Controls.Add(btnCerrar);

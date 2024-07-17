@@ -55,15 +55,16 @@
             dtgRemision.AllowUserToDeleteRows = false;
             dtgRemision.Anchor = AnchorStyles.Left;
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgRemision.BackgroundColor = SystemColors.ControlLight;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Movimiento_Tienda, Des_UM, Fec_Registro, Usu_Registro });
-            dtgRemision.Location = new Point(27, 154);
+            dtgRemision.Location = new Point(27, 157);
             dtgRemision.Margin = new Padding(4, 3, 4, 3);
             dtgRemision.Name = "dtgRemision";
             dtgRemision.ReadOnly = true;
             dtgRemision.RowHeadersVisible = false;
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgRemision.Size = new Size(869, 358);
+            dtgRemision.Size = new Size(1098, 463);
             dtgRemision.TabIndex = 9;
             // 
             // Nom_Producto
@@ -103,7 +104,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(134, 114);
+            txtFiltro.Location = new Point(143, 106);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(153, 23);
             txtFiltro.TabIndex = 15;
@@ -112,7 +113,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(36, 117);
+            label1.Location = new Point(27, 109);
             label1.Name = "label1";
             label1.Size = new Size(92, 15);
             label1.TabIndex = 14;
@@ -121,7 +122,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 540);
+            label2.Location = new Point(27, 673);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 17;
@@ -130,17 +131,17 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(102, 538);
+            lblRegistros.Location = new Point(103, 669);
             lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.Size = new Size(161, 22);
             lblRegistros.TabIndex = 16;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(772, 538);
+            btnCerrar.Location = new Point(975, 642);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.Size = new Size(150, 49);
             btnCerrar.TabIndex = 18;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -149,7 +150,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(305, 120);
+            label3.Location = new Point(358, 109);
             label3.Name = "label3";
             label3.Size = new Size(88, 15);
             label3.TabIndex = 22;
@@ -159,18 +160,19 @@
             // 
             cboTiempoPeriodo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTiempoPeriodo.FormattingEnabled = true;
-            cboTiempoPeriodo.Location = new Point(408, 114);
+            cboTiempoPeriodo.Location = new Point(465, 106);
             cboTiempoPeriodo.Name = "cboTiempoPeriodo";
-            cboTiempoPeriodo.Size = new Size(157, 23);
+            cboTiempoPeriodo.Size = new Size(210, 23);
             cboTiempoPeriodo.TabIndex = 30;
             cboTiempoPeriodo.SelectedIndexChanged += cboTiempoPeriodo_SelectedIndexChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = SystemColors.ButtonHighlight;
             label5.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(641, 51);
+            label5.ForeColor = Color.Teal;
+            label5.Location = new Point(863, 50);
             label5.Name = "label5";
             label5.Size = new Size(181, 25);
             label5.TabIndex = 52;
@@ -185,7 +187,7 @@
             guna2ImageButton3.ImageOffset = new Point(0, 0);
             guna2ImageButton3.ImageRotate = 0F;
             guna2ImageButton3.ImageSize = new Size(37, 37);
-            guna2ImageButton3.Location = new Point(837, 44);
+            guna2ImageButton3.Location = new Point(1050, 44);
             guna2ImageButton3.Name = "guna2ImageButton3";
             guna2ImageButton3.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges1;
@@ -198,7 +200,7 @@
             label21.AutoSize = true;
             label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.FromArgb(64, 64, 64);
-            label21.Location = new Point(27, 44);
+            label21.Location = new Point(27, 31);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
             label21.Size = new Size(382, 32);
@@ -209,8 +211,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(926, 584);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(1157, 717);
             Controls.Add(label21);
             Controls.Add(label5);
             Controls.Add(guna2ImageButton3);

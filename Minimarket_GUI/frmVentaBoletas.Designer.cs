@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTotalPagar = new Label();
             label2 = new Label();
             btnAgregar = new Button();
@@ -61,7 +63,6 @@
             label1 = new Label();
             lblApellidos = new Label();
             lblNombres = new Label();
-            label21 = new Label();
             lblRegistros = new Label();
             label10 = new Label();
             btnEliminarProducto = new Button();
@@ -74,6 +75,7 @@
             label8 = new Label();
             label12 = new Label();
             button1 = new Button();
+            label5 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).BeginInit();
             groupBox2.SuspendLayout();
@@ -278,9 +280,25 @@
             dtgListaProductos.AllowUserToAddRows = false;
             dtgListaProductos.AllowUserToDeleteRows = false;
             dtgListaProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgListaProductos.BackgroundColor = Color.Ivory;
+            dtgListaProductos.BackgroundColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgListaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgListaProductos.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, IGV, SubTotal });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dtgListaProductos.DefaultCellStyle = dataGridViewCellStyle3;
             dtgListaProductos.GridColor = SystemColors.ButtonHighlight;
             dtgListaProductos.Location = new Point(28, 278);
             dtgListaProductos.Margin = new Padding(4, 3, 4, 3);
@@ -310,8 +328,8 @@
             // Precio
             // 
             Precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle1.Format = "F2";
-            Precio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "F2";
+            Precio.DefaultCellStyle = dataGridViewCellStyle2;
             Precio.HeaderText = "Precio(S/.)";
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
@@ -429,17 +447,6 @@
             lblNombres.Size = new Size(389, 27);
             lblNombres.TabIndex = 17;
             lblNombres.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(28, 9);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(296, 33);
-            label21.TabIndex = 46;
-            label21.Text = "BOLETA ELECTRONICA";
             // 
             // lblRegistros
             // 
@@ -582,13 +589,26 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(64, 64, 64);
+            label5.Location = new Point(28, 0);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(298, 32);
+            label5.TabIndex = 59;
+            label5.Text = "BOLETA ELECTRONICA";
+            // 
             // frmVentaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(label5);
             Controls.Add(button1);
             Controls.Add(label12);
             Controls.Add(label8);
@@ -601,7 +621,6 @@
             Controls.Add(label2);
             Controls.Add(label10);
             Controls.Add(lblTotalPagar);
-            Controls.Add(label21);
             Controls.Add(dtgListaProductos);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -650,7 +669,6 @@
         private Label lblNombres;
         private Label label16;
         private Label label15;
-        private Label label21;
         private Label lblStock;
         private Label lblRegistros;
         private Label label10;
@@ -673,5 +691,6 @@
         private Label label8;
         private Label label12;
         private Button button1;
+        private Label label5;
     }
 }

@@ -50,7 +50,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(85, 259);
+            lblRegistros.Location = new Point(83, 278);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 7;
@@ -59,7 +59,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 263);
+            label2.Location = new Point(12, 282);
             label2.Name = "label2";
             label2.Size = new Size(64, 15);
             label2.TabIndex = 8;
@@ -67,9 +67,9 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(819, 250);
+            btnCerrar.Location = new Point(819, 267);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 41);
+            btnCerrar.Size = new Size(124, 45);
             btnCerrar.TabIndex = 6;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             dtgDatos.AllowUserToResizeColumns = false;
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
+            dtgDatos.BackgroundColor = SystemColors.ControlLight;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Numero_Factura, RUC, RazonSocial, Column1, Column2, Column3, Cantidad, Column6, Column5, Column4, Fec_Factura });
             dtgDatos.Location = new Point(10, 12);
@@ -92,7 +92,7 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(933, 222);
+            dtgDatos.Size = new Size(933, 237);
             dtgDatos.TabIndex = 5;
             // 
             // Numero_Factura

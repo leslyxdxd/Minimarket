@@ -80,7 +80,7 @@
             btnGenerar = new Button();
             txtNumeroGuia = new ComboBox();
             label3 = new Label();
-            label21 = new Label();
+            label23 = new Label();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -91,16 +91,17 @@
             // lblTel
             // 
             lblTel.BorderStyle = BorderStyle.FixedSingle;
-            lblTel.Location = new Point(381, 70);
+            lblTel.Font = new Font("Century Gothic", 9F);
+            lblTel.Location = new Point(388, 107);
             lblTel.Margin = new Padding(4, 0, 4, 0);
             lblTel.Name = "lblTel";
-            lblTel.Size = new Size(166, 17);
+            lblTel.Size = new Size(166, 29);
             lblTel.TabIndex = 24;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(296, 71);
+            label10.Location = new Point(295, 108);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(55, 13);
@@ -110,16 +111,17 @@
             // lblRuc
             // 
             lblRuc.BorderStyle = BorderStyle.FixedSingle;
-            lblRuc.Location = new Point(381, 37);
+            lblRuc.Font = new Font("Century Gothic", 9F);
+            lblRuc.Location = new Point(381, 41);
             lblRuc.Margin = new Padding(4, 0, 4, 0);
             lblRuc.Name = "lblRuc";
-            lblRuc.Size = new Size(166, 18);
+            lblRuc.Size = new Size(166, 29);
             lblRuc.TabIndex = 25;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(318, 37);
+            label6.Location = new Point(318, 41);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(32, 13);
@@ -129,7 +131,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(28, 37);
+            label5.Location = new Point(28, 41);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 13);
@@ -138,9 +140,11 @@
             // 
             // cboProveedor
             // 
+            cboProveedor.BackColor = SystemColors.ControlLight;
+            cboProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboProveedor.FormattingEnabled = true;
             cboProveedor.Items.AddRange(new object[] { "---Seleccione---" });
-            cboProveedor.Location = new Point(123, 34);
+            cboProveedor.Location = new Point(123, 38);
             cboProveedor.Name = "cboProveedor";
             cboProveedor.Size = new Size(157, 21);
             cboProveedor.TabIndex = 29;
@@ -149,7 +153,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 38);
+            label1.Location = new Point(12, 44);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(54, 13);
@@ -159,7 +163,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(46, 69);
+            label12.Location = new Point(48, 107);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(45, 13);
@@ -169,7 +173,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(36, 101);
+            label8.Location = new Point(35, 169);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(58, 13);
@@ -179,35 +183,40 @@
             // lblCorreo
             // 
             lblCorreo.BorderStyle = BorderStyle.FixedSingle;
-            lblCorreo.Location = new Point(123, 71);
+            lblCorreo.Font = new Font("Century Gothic", 9F);
+            lblCorreo.Location = new Point(123, 101);
             lblCorreo.Margin = new Padding(4, 0, 4, 0);
             lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(157, 16);
+            lblCorreo.Size = new Size(157, 29);
             lblCorreo.TabIndex = 22;
             // 
             // lblDireccion
             // 
             lblDireccion.BorderStyle = BorderStyle.FixedSingle;
-            lblDireccion.Location = new Point(123, 103);
+            lblDireccion.Font = new Font("Century Gothic", 9F);
+            lblDireccion.Location = new Point(123, 163);
             lblDireccion.Margin = new Padding(4, 0, 4, 0);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(216, 16);
+            lblDireccion.Size = new Size(216, 29);
             lblDireccion.TabIndex = 21;
             // 
             // cboProducto
             // 
-            cboProducto.BackColor = SystemColors.Window;
+            cboProducto.BackColor = SystemColors.ControlLight;
+            cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboProducto.Font = new Font("Century Gothic", 9F);
             cboProducto.ForeColor = SystemColors.InactiveCaptionText;
             cboProducto.FormattingEnabled = true;
-            cboProducto.Location = new Point(95, 37);
+            cboProducto.Location = new Point(95, 41);
             cboProducto.Name = "cboProducto";
-            cboProducto.Size = new Size(129, 21);
+            cboProducto.Size = new Size(129, 25);
             cboProducto.TabIndex = 32;
             cboProducto.SelectionChangeCommitted += cboProducto_SelectionChangeCommitted;
             // 
             // UpdownCantidad
             // 
-            UpdownCantidad.Location = new Point(324, 36);
+            UpdownCantidad.Font = new Font("Century Gothic", 9F);
+            UpdownCantidad.Location = new Point(324, 40);
             UpdownCantidad.Name = "UpdownCantidad";
             UpdownCantidad.Size = new Size(120, 22);
             UpdownCantidad.TabIndex = 35;
@@ -215,7 +224,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(164, 147);
+            label2.Location = new Point(164, 167);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(82, 13);
@@ -225,7 +234,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(242, 40);
+            label4.Location = new Point(242, 46);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(54, 13);
@@ -245,27 +254,30 @@
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label8);
             groupBox1.Font = new Font("Segoe UI", 8F);
-            groupBox1.Location = new Point(19, 97);
+            groupBox1.Location = new Point(12, 109);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(561, 139);
+            groupBox1.Size = new Size(561, 208);
             groupBox1.TabIndex = 40;
             groupBox1.TabStop = false;
             groupBox1.Text = "INFORMACION PROVEEDOR";
             // 
             // txtObservacion
             // 
-            txtObservacion.Location = new Point(7, 165);
+            txtObservacion.BackColor = SystemColors.ControlLight;
+            txtObservacion.Font = new Font("Century Gothic", 9F);
+            txtObservacion.Location = new Point(18, 185);
             txtObservacion.Name = "txtObservacion";
-            txtObservacion.Size = new Size(426, 106);
+            txtObservacion.Size = new Size(426, 120);
             txtObservacion.TabIndex = 41;
             txtObservacion.Text = "";
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(862, 488);
+            btnCancelar.Font = new Font("Century Gothic", 9F);
+            btnCancelar.Location = new Point(748, 638);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(116, 40);
+            btnCancelar.Size = new Size(178, 54);
             btnCancelar.TabIndex = 31;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -283,9 +295,9 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(UpdownCantidad);
             groupBox2.Font = new Font("Segoe UI", 8F);
-            groupBox2.Location = new Point(20, 242);
+            groupBox2.Location = new Point(13, 339);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(488, 286);
+            groupBox2.Size = new Size(470, 319);
             groupBox2.TabIndex = 42;
             groupBox2.TabStop = false;
             groupBox2.Text = "INFORMACION DEL PRODUCTO";
@@ -293,16 +305,17 @@
             // lblMarcas
             // 
             lblMarcas.BorderStyle = BorderStyle.FixedSingle;
-            lblMarcas.Location = new Point(324, 92);
+            lblMarcas.Font = new Font("Century Gothic", 9F);
+            lblMarcas.Location = new Point(324, 104);
             lblMarcas.Margin = new Padding(4, 0, 4, 0);
             lblMarcas.Name = "lblMarcas";
-            lblMarcas.Size = new Size(129, 16);
+            lblMarcas.Size = new Size(129, 29);
             lblMarcas.TabIndex = 53;
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(253, 91);
+            label22.Location = new Point(253, 103);
             label22.Margin = new Padding(4, 0, 4, 0);
             label22.Name = "label22";
             label22.Size = new Size(41, 13);
@@ -312,16 +325,17 @@
             // lblUnidad
             // 
             lblUnidad.BorderStyle = BorderStyle.FixedSingle;
-            lblUnidad.Location = new Point(95, 90);
+            lblUnidad.Font = new Font("Century Gothic", 9F);
+            lblUnidad.Location = new Point(95, 102);
             lblUnidad.Margin = new Padding(4, 0, 4, 0);
             lblUnidad.Name = "lblUnidad";
-            lblUnidad.Size = new Size(129, 16);
+            lblUnidad.Size = new Size(129, 29);
             lblUnidad.TabIndex = 30;
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(12, 88);
+            label20.Location = new Point(12, 100);
             label20.Margin = new Padding(4, 0, 4, 0);
             label20.Name = "label20";
             label20.Size = new Size(60, 13);
@@ -343,9 +357,9 @@
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
             groupBox3.Font = new Font("Segoe UI", 8F);
-            groupBox3.Location = new Point(600, 97);
+            groupBox3.Location = new Point(585, 109);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(572, 139);
+            groupBox3.Size = new Size(560, 208);
             groupBox3.TabIndex = 41;
             groupBox3.TabStop = false;
             groupBox3.Text = "INFORMACION TRANSPORTISTA";
@@ -353,7 +367,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(277, 104);
+            label9.Location = new Point(280, 156);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(61, 13);
@@ -363,16 +377,19 @@
             // lblLicencia
             // 
             lblLicencia.BorderStyle = BorderStyle.FixedSingle;
-            lblLicencia.Location = new Point(385, 103);
+            lblLicencia.Font = new Font("Century Gothic", 9F);
+            lblLicencia.Location = new Point(380, 149);
             lblLicencia.Margin = new Padding(4, 0, 4, 0);
             lblLicencia.Name = "lblLicencia";
-            lblLicencia.Size = new Size(157, 16);
+            lblLicencia.Size = new Size(157, 29);
             lblLicencia.TabIndex = 30;
             // 
             // cboTransportista
             // 
+            cboTransportista.BackColor = SystemColors.ControlLight;
+            cboTransportista.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTransportista.FormattingEnabled = true;
-            cboTransportista.Location = new Point(110, 32);
+            cboTransportista.Location = new Point(110, 36);
             cboTransportista.Name = "cboTransportista";
             cboTransportista.Size = new Size(157, 21);
             cboTransportista.TabIndex = 29;
@@ -381,7 +398,7 @@
             // Transporte
             // 
             Transporte.AutoSize = true;
-            Transporte.Location = new Point(20, 35);
+            Transporte.Location = new Point(20, 39);
             Transporte.Margin = new Padding(4, 0, 4, 0);
             Transporte.Name = "Transporte";
             Transporte.Size = new Size(62, 13);
@@ -391,25 +408,27 @@
             // lblDirecTrans
             // 
             lblDirecTrans.BorderStyle = BorderStyle.FixedSingle;
-            lblDirecTrans.Location = new Point(110, 69);
+            lblDirecTrans.Font = new Font("Century Gothic", 9F);
+            lblDirecTrans.Location = new Point(110, 95);
             lblDirecTrans.Margin = new Padding(4, 0, 4, 0);
             lblDirecTrans.Name = "lblDirecTrans";
-            lblDirecTrans.Size = new Size(175, 16);
-            lblDirecTrans.TabIndex = 21;
+            lblDirecTrans.Size = new Size(175, 29);
+            lblDirecTrans.TabIndex = 1;
             // 
             // lblRucTra
             // 
             lblRucTra.BorderStyle = BorderStyle.FixedSingle;
-            lblRucTra.Location = new Point(383, 34);
+            lblRucTra.Font = new Font("Century Gothic", 9F);
+            lblRucTra.Location = new Point(383, 38);
             lblRucTra.Margin = new Padding(4, 0, 4, 0);
             lblRucTra.Name = "lblRucTra";
-            lblRucTra.Size = new Size(163, 15);
+            lblRucTra.Size = new Size(163, 29);
             lblRucTra.TabIndex = 25;
             // 
             // lblRucTrans
             // 
             lblRucTrans.AutoSize = true;
-            lblRucTrans.Location = new Point(309, 37);
+            lblRucTrans.Location = new Point(309, 41);
             lblRucTrans.Margin = new Padding(4, 0, 4, 0);
             lblRucTrans.Name = "lblRucTrans";
             lblRucTrans.Size = new Size(32, 13);
@@ -419,16 +438,17 @@
             // lblPlaca
             // 
             lblPlaca.BorderStyle = BorderStyle.FixedSingle;
-            lblPlaca.Location = new Point(110, 104);
+            lblPlaca.Font = new Font("Century Gothic", 9F);
+            lblPlaca.Location = new Point(110, 155);
             lblPlaca.Margin = new Padding(4, 0, 4, 0);
             lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(135, 16);
+            lblPlaca.Size = new Size(135, 29);
             lblPlaca.TabIndex = 22;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(44, 102);
+            label14.Location = new Point(46, 164);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new Size(36, 13);
@@ -438,16 +458,17 @@
             // lblMarca
             // 
             lblMarca.BorderStyle = BorderStyle.FixedSingle;
-            lblMarca.Location = new Point(383, 70);
+            lblMarca.Font = new Font("Century Gothic", 9F);
+            lblMarca.Location = new Point(383, 95);
             lblMarca.Margin = new Padding(4, 0, 4, 0);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(159, 16);
+            lblMarca.Size = new Size(159, 29);
             lblMarca.TabIndex = 24;
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(302, 70);
+            label16.Location = new Point(303, 102);
             label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
             label16.Size = new Size(38, 13);
@@ -457,7 +478,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(22, 69);
+            label17.Location = new Point(24, 102);
             label17.Margin = new Padding(4, 0, 4, 0);
             label17.Name = "label17";
             label17.Size = new Size(58, 13);
@@ -479,25 +500,25 @@
             groupBox4.Controls.Add(label7);
             groupBox4.Controls.Add(label15);
             groupBox4.Font = new Font("Segoe UI", 8F);
-            groupBox4.Location = new Point(514, 242);
+            groupBox4.Location = new Point(503, 339);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(658, 220);
+            groupBox4.Size = new Size(643, 270);
             groupBox4.TabIndex = 43;
             groupBox4.TabStop = false;
             groupBox4.Text = "INFORMACION DE CARGA";
             // 
             // txtPeso
             // 
-            txtPeso.Font = new Font("Segoe UI", 9.75F);
-            txtPeso.Location = new Point(480, 34);
+            txtPeso.Font = new Font("Century Gothic", 9F);
+            txtPeso.Location = new Point(480, 38);
             txtPeso.Name = "txtPeso";
-            txtPeso.Size = new Size(84, 25);
+            txtPeso.Size = new Size(84, 22);
             txtPeso.TabIndex = 49;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(334, 147);
+            label19.Location = new Point(320, 167);
             label19.Margin = new Padding(4, 0, 4, 0);
             label19.Name = "label19";
             label19.Size = new Size(100, 13);
@@ -507,7 +528,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(21, 147);
+            label18.Location = new Point(19, 156);
             label18.Margin = new Padding(4, 0, 4, 0);
             label18.Name = "label18";
             label18.Size = new Size(93, 13);
@@ -516,24 +537,25 @@
             // 
             // txtLlegada
             // 
-            txtLlegada.Font = new Font("Segoe UI", 9.75F);
-            txtLlegada.Location = new Point(334, 174);
+            txtLlegada.Font = new Font("Century Gothic", 9F);
+            txtLlegada.Location = new Point(320, 199);
             txtLlegada.Name = "txtLlegada";
-            txtLlegada.Size = new Size(312, 25);
+            txtLlegada.Size = new Size(268, 22);
             txtLlegada.TabIndex = 46;
             // 
             // txtPartida
             // 
-            txtPartida.Font = new Font("Segoe UI", 9.75F);
-            txtPartida.Location = new Point(21, 174);
+            txtPartida.Font = new Font("Century Gothic", 9F);
+            txtPartida.Location = new Point(19, 199);
             txtPartida.Name = "txtPartida";
-            txtPartida.Size = new Size(266, 25);
+            txtPartida.Size = new Size(266, 22);
             txtPartida.TabIndex = 45;
             // 
             // dtpFecFin
             // 
+            dtpFecFin.Font = new Font("Century Gothic", 9F);
             dtpFecFin.Format = DateTimePickerFormat.Short;
-            dtpFecFin.Location = new Point(480, 87);
+            dtpFecFin.Location = new Point(480, 99);
             dtpFecFin.Margin = new Padding(4, 3, 4, 3);
             dtpFecFin.Name = "dtpFecFin";
             dtpFecFin.Size = new Size(148, 22);
@@ -542,7 +564,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(27, 41);
+            label13.Location = new Point(27, 47);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
             label13.Size = new Size(87, 13);
@@ -552,7 +574,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(334, 93);
+            label11.Location = new Point(334, 105);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(99, 13);
@@ -561,8 +583,9 @@
             // 
             // dtpFecIni
             // 
+            dtpFecIni.Font = new Font("Century Gothic", 9F);
             dtpFecIni.Format = DateTimePickerFormat.Short;
-            dtpFecIni.Location = new Point(151, 87);
+            dtpFecIni.Location = new Point(151, 99);
             dtpFecIni.Margin = new Padding(4, 3, 4, 3);
             dtpFecIni.Name = "dtpFecIni";
             dtpFecIni.Size = new Size(157, 22);
@@ -570,18 +593,20 @@
             // 
             // cboUm
             // 
-            cboUm.BackColor = SystemColors.Window;
+            cboUm.BackColor = SystemColors.ControlLight;
+            cboUm.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboUm.Font = new Font("Century Gothic", 9F);
             cboUm.ForeColor = SystemColors.InactiveCaptionText;
             cboUm.FormattingEnabled = true;
-            cboUm.Location = new Point(151, 38);
+            cboUm.Location = new Point(151, 44);
             cboUm.Name = "cboUm";
-            cboUm.Size = new Size(171, 21);
+            cboUm.Size = new Size(171, 25);
             cboUm.TabIndex = 32;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(352, 39);
+            label7.Location = new Point(352, 45);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(81, 13);
@@ -591,7 +616,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(19, 92);
+            label15.Location = new Point(19, 104);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
             label15.Size = new Size(95, 13);
@@ -600,10 +625,11 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(1030, 488);
+            btnGenerar.Font = new Font("Century Gothic", 9F);
+            btnGenerar.Location = new Point(971, 638);
             btnGenerar.Margin = new Padding(4, 3, 4, 3);
             btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(116, 40);
+            btnGenerar.Size = new Size(156, 55);
             btnGenerar.TabIndex = 44;
             btnGenerar.Text = "Generar";
             btnGenerar.UseVisualStyleBackColor = true;
@@ -613,10 +639,10 @@
             // 
             txtNumeroGuia.DropDownStyle = ComboBoxStyle.Simple;
             txtNumeroGuia.FormattingEnabled = true;
-            txtNumeroGuia.Location = new Point(978, 38);
+            txtNumeroGuia.Location = new Point(965, 44);
             txtNumeroGuia.MaxLength = 10;
             txtNumeroGuia.Name = "txtNumeroGuia";
-            txtNumeroGuia.Size = new Size(144, 23);
+            txtNumeroGuia.Size = new Size(144, 27);
             txtNumeroGuia.TabIndex = 30;
             txtNumeroGuia.KeyPress += txtNumeroGuia_KeyPress;
             // 
@@ -624,30 +650,32 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(882, 37);
+            label3.Location = new Point(882, 41);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(78, 20);
             label3.TabIndex = 30;
             label3.Text = "Nº GUIA :";
             // 
-            // label21
+            // label23
             // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(13, 23);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(399, 37);
-            label21.TabIndex = 45;
-            label21.Text = " GUIA DE REMISION REMITENTE";
+            label23.AutoSize = true;
+            label23.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.FromArgb(64, 64, 64);
+            label23.Location = new Point(12, 20);
+            label23.Margin = new Padding(4, 0, 4, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(399, 32);
+            label23.TabIndex = 60;
+            label23.Text = "GUIA DE REMISIÓN REMITENTE";
             // 
             // frmGenerarRemision
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1196, 563);
-            Controls.Add(label21);
+            BackColor = Color.White;
+            ClientSize = new Size(1157, 717);
+            Controls.Add(label23);
             Controls.Add(label3);
             Controls.Add(txtNumeroGuia);
             Controls.Add(btnGenerar);
@@ -656,6 +684,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnCancelar);
+            Font = new Font("Century Gothic", 9F);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -729,7 +758,7 @@
         private Button btnGenerar;
         private ComboBox txtNumeroGuia;
         private Label label3;
-        private Label label21;
         private ComboBox cboProveedor;
+        private Label label23;
     }
 }

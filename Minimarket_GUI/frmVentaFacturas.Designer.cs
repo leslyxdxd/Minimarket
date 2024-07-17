@@ -30,7 +30,6 @@
         {
             lblRegistros = new Label();
             label10 = new Label();
-            label21 = new Label();
             dtgProducto = new DataGridView();
             Cod_Producto = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
@@ -74,7 +73,7 @@
             label8 = new Label();
             lblDevolucion = new Label();
             rtxtEfectivo = new RichTextBox();
-            button1 = new Button();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgProducto).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -101,22 +100,12 @@
             label10.TabIndex = 57;
             label10.Text = "REGISTROS";
             // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(26, 9);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(303, 37);
-            label21.TabIndex = 56;
-            label21.Text = "FACTURA ELECTRONICA";
-            // 
             // dtgProducto
             // 
             dtgProducto.AllowUserToAddRows = false;
             dtgProducto.AllowUserToDeleteRows = false;
             dtgProducto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgProducto.BackgroundColor = SystemColors.ControlLight;
             dtgProducto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgProducto.Columns.AddRange(new DataGridViewColumn[] { Cod_Producto, Producto, Precio, Cantidad, IGV, SubTotal });
             dtgProducto.Location = new Point(26, 300);
@@ -580,24 +569,25 @@
             rtxtEfectivo.TextChanged += rtxtEfectivo_TextChanged;
             rtxtEfectivo.KeyPress += rtxtEfectivo_KeyPress;
             // 
-            // button1
+            // label13
             // 
-            button1.BackColor = SystemColors.Control;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(248, 674);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 31);
-            button1.TabIndex = 65;
-            button1.Text = "Cerrar";
-            button1.UseVisualStyleBackColor = false;
+            label13.AutoSize = true;
+            label13.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(64, 64, 64);
+            label13.Location = new Point(26, 0);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(321, 32);
+            label13.TabIndex = 65;
+            label13.Text = "FACTURA ELECTRONICA";
             // 
             // frmVentaFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1157, 717);
-            Controls.Add(button1);
+            Controls.Add(label13);
             Controls.Add(label5);
             Controls.Add(label8);
             Controls.Add(lblDevolucion);
@@ -606,7 +596,6 @@
             Controls.Add(btnEliminar);
             Controls.Add(lblRegistros);
             Controls.Add(label10);
-            Controls.Add(label21);
             Controls.Add(dtgProducto);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -639,7 +628,6 @@
 
         private Label lblRegistros;
         private Label label10;
-        private Label label21;
         private DataGridView dtgProducto;
         private GroupBox groupBox2;
         private Label label16;
@@ -685,5 +673,6 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn IGV;
         private DataGridViewTextBoxColumn SubTotal;
+        private Label label13;
     }
 }

@@ -56,7 +56,7 @@
             dtgDatos.AllowUserToResizeColumns = false;
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
+            dtgDatos.BackgroundColor = SystemColors.ControlLight;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, Correo, RUC, Estado, Estado_Proveedor });
             dtgDatos.Location = new Point(33, 141);
@@ -66,7 +66,7 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(933, 452);
+            dtgDatos.Size = new Size(1089, 479);
             dtgDatos.TabIndex = 0;
             dtgDatos.CellContentClick += dtgDatos_CellContentClick;
             dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
@@ -132,9 +132,9 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(842, 616);
+            btnCerrar.Location = new Point(971, 636);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 41);
+            btnCerrar.Size = new Size(151, 46);
             btnCerrar.TabIndex = 1;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 106);
+            label1.Location = new Point(33, 91);
             label1.Name = "label1";
             label1.Size = new Size(71, 15);
             label1.TabIndex = 2;
@@ -151,7 +151,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(209, 103);
+            txtFiltro.Location = new Point(156, 88);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(281, 23);
             txtFiltro.TabIndex = 3;
@@ -160,7 +160,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(33, 624);
+            label2.Location = new Point(33, 652);
             label2.Name = "label2";
             label2.Size = new Size(75, 15);
             label2.TabIndex = 2;
@@ -169,17 +169,17 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(156, 624);
+            lblRegistros.Location = new Point(141, 648);
             lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.Size = new Size(107, 22);
             lblRegistros.TabIndex = 2;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnGuiasRemision
             // 
-            btnGuiasRemision.Location = new Point(519, 616);
+            btnGuiasRemision.Location = new Point(940, 78);
             btnGuiasRemision.Name = "btnGuiasRemision";
-            btnGuiasRemision.Size = new Size(165, 41);
+            btnGuiasRemision.Size = new Size(182, 41);
             btnGuiasRemision.TabIndex = 4;
             btnGuiasRemision.Text = "Consultar Proveedor";
             btnGuiasRemision.UseVisualStyleBackColor = true;
@@ -187,9 +187,9 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(699, 616);
+            btnActualizar.Location = new Point(781, 638);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(124, 41);
+            btnActualizar.Size = new Size(155, 44);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -200,7 +200,7 @@
             label21.AutoSize = true;
             label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.FromArgb(64, 64, 64);
-            label21.Location = new Point(33, 33);
+            label21.Location = new Point(33, 31);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
             label21.Size = new Size(201, 32);
@@ -211,8 +211,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Menu;
-            ClientSize = new Size(1002, 684);
+            BackColor = Color.White;
+            ClientSize = new Size(1157, 717);
             Controls.Add(label21);
             Controls.Add(btnGuiasRemision);
             Controls.Add(txtFiltro);

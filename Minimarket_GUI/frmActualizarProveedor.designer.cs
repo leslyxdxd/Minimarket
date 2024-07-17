@@ -73,7 +73,7 @@
             grpDatos.Size = new Size(463, 401);
             grpDatos.TabIndex = 1;
             grpDatos.TabStop = false;
-            grpDatos.Text = "Datos";
+            grpDatos.Text = "DATOS DEL PROVEEDOR";
             // 
             // chkEstado
             // 

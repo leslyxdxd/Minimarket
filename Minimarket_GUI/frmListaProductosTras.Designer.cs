@@ -62,7 +62,7 @@
             dtgDatos.AllowUserToResizeColumns = false;
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
+            dtgDatos.BackgroundColor = SystemColors.ControlLight;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda, Id_UM });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -80,7 +80,7 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(571, 436);
+            dtgDatos.Size = new Size(1093, 484);
             dtgDatos.TabIndex = 1;
             dtgDatos.CellContentClick += dtgDatos_CellContentClick;
             // 
@@ -182,7 +182,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 96);
+            label1.Location = new Point(25, 93);
             label1.Name = "label1";
             label1.Size = new Size(92, 15);
             label1.TabIndex = 3;
@@ -190,7 +190,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(151, 93);
+            txtFiltro.Location = new Point(150, 90);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(166, 23);
             txtFiltro.TabIndex = 4;
@@ -199,7 +199,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 604);
+            label2.Location = new Point(25, 673);
             label2.Name = "label2";
             label2.Size = new Size(64, 15);
             label2.TabIndex = 5;
@@ -208,17 +208,17 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(111, 600);
+            lblRegistros.Location = new Point(114, 669);
             lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.Size = new Size(118, 22);
             lblRegistros.TabIndex = 6;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(509, 595);
+            btnCerrar.Location = new Point(978, 646);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(87, 32);
+            btnCerrar.Size = new Size(140, 45);
             btnCerrar.TabIndex = 8;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -226,9 +226,9 @@
             // 
             // btnInabilitar
             // 
-            btnInabilitar.Location = new Point(401, 595);
+            btnInabilitar.Location = new Point(789, 646);
             btnInabilitar.Name = "btnInabilitar";
-            btnInabilitar.Size = new Size(87, 32);
+            btnInabilitar.Size = new Size(159, 45);
             btnInabilitar.TabIndex = 9;
             btnInabilitar.Text = "Inhabilitar";
             btnInabilitar.UseVisualStyleBackColor = true;
@@ -236,9 +236,9 @@
             // 
             // btnHabilitar
             // 
-            btnHabilitar.Location = new Point(289, 595);
+            btnHabilitar.Location = new Point(618, 646);
             btnHabilitar.Name = "btnHabilitar";
-            btnHabilitar.Size = new Size(93, 32);
+            btnHabilitar.Size = new Size(141, 45);
             btnHabilitar.TabIndex = 10;
             btnHabilitar.Text = "Habilitar";
             btnHabilitar.UseVisualStyleBackColor = true;
@@ -260,7 +260,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 650);
+            BackColor = Color.White;
+            ClientSize = new Size(1157, 717);
             Controls.Add(label21);
             Controls.Add(btnHabilitar);
             Controls.Add(btnInabilitar);

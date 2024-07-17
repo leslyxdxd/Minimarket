@@ -49,7 +49,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(92, 250);
+            lblRegistros.Location = new Point(82, 271);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 11;
@@ -58,7 +58,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 254);
+            label2.Location = new Point(12, 275);
             label2.Name = "label2";
             label2.Size = new Size(64, 15);
             label2.TabIndex = 12;
@@ -66,9 +66,9 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(821, 250);
+            btnCerrar.Location = new Point(814, 255);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 31);
+            btnCerrar.Size = new Size(131, 41);
             btnCerrar.TabIndex = 10;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             dtgDatos.AllowUserToResizeColumns = false;
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
+            dtgDatos.BackgroundColor = SystemColors.ControlLight;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Numero_Factura, RazonSocial, Column1, Column2, Column3, Cantidad, Column6, Column5, Column4, Fec_Factura });
             dtgDatos.Location = new Point(12, 12);
@@ -168,7 +168,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(961, 297);
+            ClientSize = new Size(961, 308);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(btnCerrar);

@@ -76,16 +76,16 @@
             dtgRemision.AllowUserToDeleteRows = false;
             dtgRemision.Anchor = AnchorStyles.Left;
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgRemision.BackgroundColor = Color.AliceBlue;
+            dtgRemision.BackgroundColor = SystemColors.ControlLight;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, Num_Guia, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, FechaIni, Des_Cat, Cantidad, Des_UM, PrecioUnitario, total, Observaciones, Estado, Fec_Registro, FechaFin, Fec_Ult_Mod, Usu_Ult_Mod });
-            dtgRemision.Location = new Point(27, 170);
+            dtgRemision.Location = new Point(27, 193);
             dtgRemision.Margin = new Padding(4, 3, 4, 3);
             dtgRemision.Name = "dtgRemision";
             dtgRemision.ReadOnly = true;
             dtgRemision.RowHeadersVisible = false;
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgRemision.Size = new Size(1069, 370);
+            dtgRemision.Size = new Size(1092, 428);
             dtgRemision.TabIndex = 8;
             dtgRemision.CellDoubleClick += dtgRemision_CellDoubleClick;
             // 
@@ -261,7 +261,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(115, 558);
+            lblRegistros.Location = new Point(118, 658);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 10;
@@ -270,7 +270,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 559);
+            label2.Location = new Point(27, 662);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 11;
@@ -287,7 +287,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(147, 121);
+            txtFiltro.Location = new Point(166, 121);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 13;
@@ -295,9 +295,9 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(972, 558);
+            btnCerrar.Location = new Point(966, 639);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.Size = new Size(153, 52);
             btnCerrar.TabIndex = 14;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -305,9 +305,9 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(805, 559);
+            btnActualizar.Location = new Point(745, 639);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(147, 31);
+            btnActualizar.Size = new Size(183, 52);
             btnActualizar.TabIndex = 9;
             btnActualizar.Text = "Actualizar Remision";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(302, 127);
+            label3.Location = new Point(319, 127);
             label3.Name = "label3";
             label3.Size = new Size(102, 15);
             label3.TabIndex = 34;
@@ -335,7 +335,7 @@
             // 
             // btnFiltrar
             // 
-            btnFiltrar.Location = new Point(964, 124);
+            btnFiltrar.Location = new Point(987, 119);
             btnFiltrar.Name = "btnFiltrar";
             btnFiltrar.Size = new Size(132, 31);
             btnFiltrar.TabIndex = 35;
@@ -359,9 +359,9 @@
             cboCantidad.ForeColor = SystemColors.InactiveCaptionText;
             cboCantidad.FormattingEnabled = true;
             cboCantidad.Items.AddRange(new object[] { "10", "20", "30", "40", "50", "100", "200" });
-            cboCantidad.Location = new Point(805, 127);
+            cboCantidad.Location = new Point(800, 124);
             cboCantidad.Name = "cboCantidad";
-            cboCantidad.Size = new Size(107, 23);
+            cboCantidad.Size = new Size(141, 23);
             cboCantidad.TabIndex = 37;
             // 
             // label21
@@ -369,7 +369,7 @@
             label21.AutoSize = true;
             label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.FromArgb(64, 64, 64);
-            label21.Location = new Point(27, 38);
+            label21.Location = new Point(27, 42);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
             label21.Size = new Size(273, 32);
@@ -385,7 +385,7 @@
             guna2ImageButton3.ImageOffset = new Point(0, 0);
             guna2ImageButton3.ImageRotate = 0F;
             guna2ImageButton3.ImageSize = new Size(37, 37);
-            guna2ImageButton3.Location = new Point(1037, 38);
+            guna2ImageButton3.Location = new Point(1060, 27);
             guna2ImageButton3.Name = "guna2ImageButton3";
             guna2ImageButton3.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges1;
@@ -398,7 +398,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.DarkGreen;
-            label5.Location = new Point(850, 49);
+            label5.Location = new Point(883, 42);
             label5.Name = "label5";
             label5.Size = new Size(181, 25);
             label5.TabIndex = 50;
@@ -409,7 +409,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1127, 606);
+            ClientSize = new Size(1157, 717);
             Controls.Add(label5);
             Controls.Add(guna2ImageButton3);
             Controls.Add(label21);

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label21 = new Label();
             label3 = new Label();
             btnActualizar = new Button();
             groupBox4 = new GroupBox();
@@ -81,23 +80,13 @@
             label8 = new Label();
             btnCancelar = new Button();
             lblNumeroGuia = new Label();
+            label23 = new Label();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(13, 19);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(499, 37);
-            label21.TabIndex = 54;
-            label21.Text = "ACTUALIZACIÓN DE GUIA DE REMISION ";
             // 
             // label3
             // 
@@ -226,7 +215,7 @@
             // 
             // cboUm
             // 
-            cboUm.BackColor = SystemColors.Window;
+            cboUm.BackColor = SystemColors.ControlLight;
             cboUm.DropDownStyle = ComboBoxStyle.DropDownList;
             cboUm.Enabled = false;
             cboUm.ForeColor = SystemColors.InactiveCaptionText;
@@ -299,6 +288,8 @@
             // 
             // cboTransportista
             // 
+            cboTransportista.BackColor = SystemColors.ControlLight;
+            cboTransportista.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTransportista.Enabled = false;
             cboTransportista.FormattingEnabled = true;
             cboTransportista.Location = new Point(101, 34);
@@ -451,7 +442,7 @@
             // 
             // cboProducto
             // 
-            cboProducto.BackColor = SystemColors.Window;
+            cboProducto.BackColor = SystemColors.ControlLight;
             cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cboProducto.Enabled = false;
             cboProducto.ForeColor = SystemColors.InactiveCaptionText;
@@ -483,6 +474,7 @@
             // 
             // txtObservacion
             // 
+            txtObservacion.BackColor = SystemColors.ControlLight;
             txtObservacion.Location = new Point(7, 165);
             txtObservacion.Name = "txtObservacion";
             txtObservacion.Size = new Size(426, 106);
@@ -527,6 +519,8 @@
             // 
             // cboProveeedor
             // 
+            cboProveeedor.BackColor = SystemColors.ControlLight;
+            cboProveeedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboProveeedor.Enabled = false;
             cboProveeedor.FormattingEnabled = true;
             cboProveeedor.Items.AddRange(new object[] { "---Seleccione---" });
@@ -641,12 +635,25 @@
             lblNumeroGuia.Size = new Size(192, 28);
             lblNumeroGuia.TabIndex = 25;
             // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.FromArgb(64, 64, 64);
+            label23.Location = new Point(13, 14);
+            label23.Margin = new Padding(4, 0, 4, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(524, 32);
+            label23.TabIndex = 60;
+            label23.Text = "ACTUALIZACIÓN DE GUIA DE REMISIÓN";
+            // 
             // frmActualizarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1163, 531);
-            Controls.Add(label21);
+            Controls.Add(label23);
             Controls.Add(label3);
             Controls.Add(btnActualizar);
             Controls.Add(groupBox4);
@@ -672,8 +679,6 @@
         }
 
         #endregion
-
-        private Label label21;
         private Label label3;
         private Button btnActualizar;
         private GroupBox groupBox4;
@@ -726,5 +731,6 @@
         private Label label8;
         private Button btnCancelar;
         private Label lblNumeroGuia;
+        private Label label23;
     }
 }
