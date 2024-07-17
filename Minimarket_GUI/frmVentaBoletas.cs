@@ -346,7 +346,7 @@ namespace Minimarket_GUI
             {
 
                 GenerarBoleta();
-            
+
                 if (dtgListaProductos.Rows.Count < 1)
                 {
                     MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -664,16 +664,16 @@ namespace Minimarket_GUI
             try
             {
 
-              if (radioButtonTarjeta.Checked)
-               {
-                rtxtbEfectivo.Enabled = false;
-                lblDevolucion.Enabled = false;
-               }
+                if (radioButtonTarjeta.Checked)
+                {
+                    rtxtbEfectivo.Enabled = false;
+                    lblDevolucion.Enabled = false;
+                }
                 else
-              
-               {
-                  rtxtbEfectivo.Enabled = true;
-                    lblDevolucion .Enabled = true;  
+
+                {
+                    rtxtbEfectivo.Enabled = true;
+                    lblDevolucion.Enabled = true;
                 }
             }
             catch (Exception)
@@ -681,7 +681,12 @@ namespace Minimarket_GUI
 
                 throw new Exception("Consulta con TI");
             }
-          
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

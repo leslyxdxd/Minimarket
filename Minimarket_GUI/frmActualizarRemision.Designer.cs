@@ -657,7 +657,6 @@
             Controls.Add(btnCancelar);
             Name = "frmActualizarRemision";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ActualizarRemision";
             Load += frmActualizarRemision_Load_1;
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();

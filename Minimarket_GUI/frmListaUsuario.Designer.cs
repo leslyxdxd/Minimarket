@@ -48,6 +48,7 @@ namespace ProyVentas_GUI
             btnInhabilitar = new Button();
             button1 = new Button();
             btnInsertar = new Button();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -58,13 +59,13 @@ namespace ProyVentas_GUI
             dtgUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgUsuario.Columns.AddRange(new DataGridViewColumn[] { Login_Usuario, Pass_usuario, Niv_Usuario, Credenciales, Est_Usuario, Estado, Fec_Registro, Usu_Registro, Fec_Ult_Mod, Usu_Ult_Mod });
-            dtgUsuario.Location = new Point(14, 74);
+            dtgUsuario.Location = new Point(22, 118);
             dtgUsuario.Margin = new Padding(4, 3, 4, 3);
             dtgUsuario.Name = "dtgUsuario";
             dtgUsuario.ReadOnly = true;
             dtgUsuario.RowHeadersVisible = false;
             dtgUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgUsuario.Size = new Size(702, 306);
+            dtgUsuario.Size = new Size(692, 306);
             dtgUsuario.TabIndex = 0;
             dtgUsuario.DoubleClick += dtgCategoria_DoubleClick;
             // 
@@ -149,7 +150,7 @@ namespace ProyVentas_GUI
             lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
             lblRegistros.Font = new Font("Segoe UI", 9.75F);
-            lblRegistros.Location = new Point(90, 419);
+            lblRegistros.Location = new Point(92, 455);
             lblRegistros.Margin = new Padding(4, 0, 4, 0);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(92, 25);
@@ -160,18 +161,18 @@ namespace ProyVentas_GUI
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F);
-            label2.Location = new Point(16, 420);
+            label2.Location = new Point(22, 458);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(66, 17);
+            label2.Size = new Size(62, 17);
             label2.TabIndex = 12;
-            label2.Text = "Registros:";
+            label2.Text = "Usuarios:";
             // 
             // btnSalir
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalir.Font = new Font("Segoe UI", 9.75F);
-            btnSalir.Location = new Point(614, 409);
+            btnSalir.Location = new Point(612, 445);
             btnSalir.Margin = new Padding(4, 3, 4, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(102, 38);
@@ -183,7 +184,7 @@ namespace ProyVentas_GUI
             // txtFiltro
             // 
             txtFiltro.Font = new Font("Segoe UI", 9.75F);
-            txtFiltro.Location = new Point(122, 28);
+            txtFiltro.Location = new Point(137, 74);
             txtFiltro.Margin = new Padding(4, 3, 4, 3);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(196, 25);
@@ -194,18 +195,18 @@ namespace ProyVentas_GUI
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F);
-            label1.Location = new Point(14, 31);
+            label1.Location = new Point(22, 77);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(100, 17);
+            label1.Size = new Size(107, 17);
             label1.TabIndex = 13;
-            label1.Text = "Ingrese Usuario";
+            label1.Text = "Buscar / Usuario:";
             // 
             // btnInhabilitar
             // 
             btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnInhabilitar.Font = new Font("Segoe UI", 9.75F);
-            btnInhabilitar.Location = new Point(480, 406);
+            btnInhabilitar.Location = new Point(493, 445);
             btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
             btnInhabilitar.Name = "btnInhabilitar";
             btnInhabilitar.Size = new Size(102, 38);
@@ -218,7 +219,7 @@ namespace ProyVentas_GUI
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Font = new Font("Segoe UI", 9.75F);
-            button1.Location = new Point(358, 406);
+            button1.Location = new Point(372, 445);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(102, 38);
@@ -231,20 +232,33 @@ namespace ProyVentas_GUI
             // 
             btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnInsertar.Font = new Font("Segoe UI", 9.75F);
-            btnInsertar.Location = new Point(572, 21);
+            btnInsertar.Location = new Point(580, 69);
             btnInsertar.Margin = new Padding(4, 3, 4, 3);
             btnInsertar.Name = "btnInsertar";
             btnInsertar.Size = new Size(134, 32);
             btnInsertar.TabIndex = 17;
-            btnInsertar.Text = "Registrar Usuario";
+            btnInsertar.Text = "Añadir Usuario";
             btnInsertar.UseVisualStyleBackColor = true;
             btnInsertar.Click += btnInsertar_Click;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.FromArgb(64, 64, 64);
+            label21.Location = new Point(22, 22);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(153, 32);
+            label21.TabIndex = 49;
+            label21.Text = "USUARIOS:";
             // 
             // frmListaUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(741, 469);
+            ClientSize = new Size(741, 507);
+            Controls.Add(label21);
             Controls.Add(btnInsertar);
             Controls.Add(button1);
             Controls.Add(btnInhabilitar);
@@ -254,7 +268,7 @@ namespace ProyVentas_GUI
             Controls.Add(label2);
             Controls.Add(btnSalir);
             Controls.Add(dtgUsuario);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -288,5 +302,6 @@ namespace ProyVentas_GUI
         private Button btnInhabilitar;
         private Button button1;
         private Button btnInsertar;
+        private Label label21;
     }
 }

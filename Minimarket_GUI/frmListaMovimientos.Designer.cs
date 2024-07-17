@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaMovimientos));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dtgRemision = new DataGridView();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Movimiento_Tienda = new DataGridViewTextBoxColumn();
@@ -40,10 +41,11 @@
             label2 = new Label();
             lblRegistros = new Label();
             btnCerrar = new Button();
-            btnGenerar = new Button();
-            panel1 = new Panel();
             label3 = new Label();
             cboTiempoPeriodo = new ComboBox();
+            label5 = new Label();
+            guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -55,13 +57,13 @@
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Movimiento_Tienda, Des_UM, Fec_Registro, Usu_Registro });
-            dtgRemision.Location = new Point(27, 81);
+            dtgRemision.Location = new Point(27, 154);
             dtgRemision.Margin = new Padding(4, 3, 4, 3);
             dtgRemision.Name = "dtgRemision";
             dtgRemision.ReadOnly = true;
             dtgRemision.RowHeadersVisible = false;
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgRemision.Size = new Size(869, 377);
+            dtgRemision.Size = new Size(869, 358);
             dtgRemision.TabIndex = 9;
             // 
             // Nom_Producto
@@ -101,7 +103,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(177, 29);
+            txtFiltro.Location = new Point(134, 114);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(153, 23);
             txtFiltro.TabIndex = 15;
@@ -110,16 +112,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 32);
+            label1.Location = new Point(36, 117);
             label1.Name = "label1";
-            label1.Size = new Size(144, 15);
+            label1.Size = new Size(92, 15);
             label1.TabIndex = 14;
-            label1.Text = "Ingrese filtro por Nombre:";
+            label1.Text = "Filtro / Nombre:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 486);
+            label2.Location = new Point(27, 540);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 17;
@@ -128,7 +130,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(91, 482);
+            lblRegistros.Location = new Point(102, 538);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 16;
@@ -136,7 +138,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(772, 477);
+            btnCerrar.Location = new Point(772, 538);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(124, 32);
             btnCerrar.TabIndex = 18;
@@ -144,59 +146,83 @@
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += btnCerrar_Click;
             // 
-            // btnGenerar
-            // 
-            btnGenerar.Location = new Point(729, 29);
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(124, 32);
-            btnGenerar.TabIndex = 19;
-            btnGenerar.Text = "Generar Reporte";
-            btnGenerar.UseVisualStyleBackColor = true;
-            btnGenerar.Click += btnGenerar_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Location = new Point(859, 28);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(37, 33);
-            panel1.TabIndex = 20;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(365, 37);
+            label3.Location = new Point(305, 120);
             label3.Name = "label3";
-            label3.Size = new Size(50, 15);
+            label3.Size = new Size(88, 15);
             label3.TabIndex = 22;
-            label3.Text = "Tiempo:";
+            label3.Text = "Filtro / Tiempo:";
             // 
             // cboTiempoPeriodo
             // 
             cboTiempoPeriodo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTiempoPeriodo.FormattingEnabled = true;
-            cboTiempoPeriodo.Location = new Point(421, 34);
+            cboTiempoPeriodo.Location = new Point(408, 114);
             cboTiempoPeriodo.Name = "cboTiempoPeriodo";
             cboTiempoPeriodo.Size = new Size(157, 23);
             cboTiempoPeriodo.TabIndex = 30;
             cboTiempoPeriodo.SelectedIndexChanged += cboTiempoPeriodo_SelectedIndexChanged;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(641, 51);
+            label5.Name = "label5";
+            label5.Size = new Size(181, 25);
+            label5.TabIndex = 52;
+            label5.Text = "Generar Reporte";
+            // 
+            // guna2ImageButton3
+            // 
+            guna2ImageButton3.CheckedState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.Cursor = Cursors.Hand;
+            guna2ImageButton3.HoverState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.Image = (Image)resources.GetObject("guna2ImageButton3.Image");
+            guna2ImageButton3.ImageOffset = new Point(0, 0);
+            guna2ImageButton3.ImageRotate = 0F;
+            guna2ImageButton3.ImageSize = new Size(37, 37);
+            guna2ImageButton3.Location = new Point(837, 44);
+            guna2ImageButton3.Name = "guna2ImageButton3";
+            guna2ImageButton3.PressedState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            guna2ImageButton3.Size = new Size(59, 47);
+            guna2ImageButton3.TabIndex = 51;
+            guna2ImageButton3.Click += btnGenerar_Click;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.FromArgb(64, 64, 64);
+            label21.Location = new Point(27, 44);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(382, 32);
+            label21.TabIndex = 53;
+            label21.Text = "MOVIMIENTOS DE ALMACEN";
+            // 
             // frmListaMovimientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(931, 532);
+            BackColor = SystemColors.ControlLight;
+            ClientSize = new Size(926, 584);
+            Controls.Add(label21);
+            Controls.Add(label5);
+            Controls.Add(guna2ImageButton3);
             Controls.Add(cboTiempoPeriodo);
             Controls.Add(label3);
-            Controls.Add(panel1);
-            Controls.Add(btnGenerar);
             Controls.Add(btnCerrar);
             Controls.Add(label2);
             Controls.Add(lblRegistros);
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(dtgRemision);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmListaMovimientos";
@@ -216,14 +242,15 @@
         private Label label2;
         private Label lblRegistros;
         private Button btnCerrar;
-        private Button btnGenerar;
         private DataGridViewTextBoxColumn Nom_Producto;
         private DataGridViewTextBoxColumn Movimiento_Tienda;
         private DataGridViewTextBoxColumn Des_UM;
         private DataGridViewTextBoxColumn Fec_Registro;
         private DataGridViewTextBoxColumn Usu_Registro;
-        private Panel panel1;
         private Label label3;
         private ComboBox cboTiempoPeriodo;
+        private Label label5;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
+        private Label label21;
     }
 }

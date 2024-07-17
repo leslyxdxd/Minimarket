@@ -28,16 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
-            label1 = new Label();
-            txtFiltro = new TextBox();
-            label2 = new Label();
-            lblRegistros = new Label();
-            btnCerrar = new Button();
-            btnTraspaso = new Button();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             Precio_Unitario = new DataGridViewTextBoxColumn();
@@ -48,6 +42,13 @@
             Stk_Tienda = new DataGridViewTextBoxColumn();
             Id_UM = new DataGridViewTextBoxColumn();
             Des_UM = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            txtFiltro = new TextBox();
+            label2 = new Label();
+            lblRegistros = new Label();
+            btnCerrar = new Button();
+            btnTraspaso = new Button();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -61,79 +62,24 @@
             dtgDatos.BackgroundColor = SystemColors.ActiveBorder;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Id_Producto, Stk_Tienda, Id_UM, Des_UM });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgDatos.Location = new Point(25, 56);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgDatos.DefaultCellStyle = dataGridViewCellStyle5;
+            dtgDatos.Location = new Point(27, 143);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(619, 436);
+            dtgDatos.Size = new Size(603, 326);
             dtgDatos.TabIndex = 1;
             dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(25, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(144, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Ingrese filtro por Nombre:";
-            // 
-            // txtFiltro
-            // 
-            txtFiltro.Location = new Point(175, 18);
-            txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(189, 23);
-            txtFiltro.TabIndex = 4;
-            txtFiltro.TextChanged += txtFiltro_TextChanged_1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(25, 520);
-            label2.Name = "label2";
-            label2.Size = new Size(64, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Productos:";
-            // 
-            // lblRegistros
-            // 
-            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(95, 516);
-            lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(78, 22);
-            lblRegistros.TabIndex = 6;
-            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(520, 511);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 32);
-            btnCerrar.TabIndex = 8;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnTraspaso
-            // 
-            btnTraspaso.Location = new Point(375, 511);
-            btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(124, 32);
-            btnTraspaso.TabIndex = 9;
-            btnTraspaso.Text = "Traspasar";
-            btnTraspaso.UseVisualStyleBackColor = true;
-            btnTraspaso.Click += btnTraspaso_Click;
             // 
             // Nom_Producto
             // 
@@ -153,8 +99,8 @@
             // Precio_Unitario
             // 
             Precio_Unitario.DataPropertyName = "Precio_Unitario";
-            dataGridViewCellStyle1.Format = "N2";
-            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "N2";
+            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle4;
             Precio_Unitario.HeaderText = "Precio U. (Venta)";
             Precio_Unitario.Name = "Precio_Unitario";
             Precio_Unitario.ReadOnly = true;
@@ -212,11 +158,79 @@
             Des_UM.Name = "Des_UM";
             Des_UM.ReadOnly = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(27, 103);
+            label1.Name = "label1";
+            label1.Size = new Size(92, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Filtro / Nombre:";
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(125, 100);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(189, 23);
+            txtFiltro.TabIndex = 4;
+            txtFiltro.TextChanged += txtFiltro_TextChanged_1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(27, 508);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 15);
+            label2.TabIndex = 5;
+            label2.Text = "Productos:";
+            // 
+            // lblRegistros
+            // 
+            lblRegistros.BorderStyle = BorderStyle.FixedSingle;
+            lblRegistros.Location = new Point(109, 504);
+            lblRegistros.Name = "lblRegistros";
+            lblRegistros.Size = new Size(78, 22);
+            lblRegistros.TabIndex = 6;
+            lblRegistros.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Location = new Point(506, 499);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(124, 32);
+            btnCerrar.TabIndex = 8;
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
+            // 
+            // btnTraspaso
+            // 
+            btnTraspaso.Location = new Point(356, 499);
+            btnTraspaso.Name = "btnTraspaso";
+            btnTraspaso.Size = new Size(124, 32);
+            btnTraspaso.TabIndex = 9;
+            btnTraspaso.Text = "Traspasar";
+            btnTraspaso.UseVisualStyleBackColor = true;
+            btnTraspaso.Click += btnTraspaso_Click;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.FromArgb(64, 64, 64);
+            label21.Location = new Point(27, 37);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(274, 32);
+            label21.TabIndex = 54;
+            label21.Text = "PRODUCTOS TIENDA";
+            // 
             // frmListaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(685, 572);
+            ClientSize = new Size(655, 557);
+            Controls.Add(label21);
             Controls.Add(btnTraspaso);
             Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
@@ -224,7 +238,7 @@
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(dtgDatos);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmListaProductos";
@@ -255,5 +269,6 @@
         private DataGridViewTextBoxColumn Stk_Tienda;
         private DataGridViewTextBoxColumn Id_UM;
         private DataGridViewTextBoxColumn Des_UM;
+        private Label label21;
     }
 }

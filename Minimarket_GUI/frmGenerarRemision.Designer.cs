@@ -91,7 +91,7 @@
             // lblTel
             // 
             lblTel.BorderStyle = BorderStyle.FixedSingle;
-            lblTel.Location = new Point(359, 68);
+            lblTel.Location = new Point(381, 70);
             lblTel.Margin = new Padding(4, 0, 4, 0);
             lblTel.Name = "lblTel";
             lblTel.Size = new Size(166, 17);
@@ -100,7 +100,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(296, 70);
+            label10.Location = new Point(296, 71);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(55, 15);
@@ -110,16 +110,16 @@
             // lblRuc
             // 
             lblRuc.BorderStyle = BorderStyle.FixedSingle;
-            lblRuc.Location = new Point(337, 34);
+            lblRuc.Location = new Point(381, 37);
             lblRuc.Margin = new Padding(4, 0, 4, 0);
             lblRuc.Name = "lblRuc";
-            lblRuc.Size = new Size(188, 18);
+            lblRuc.Size = new Size(166, 18);
             lblRuc.TabIndex = 25;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(296, 37);
+            label6.Location = new Point(318, 37);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(33, 15);
@@ -140,7 +140,7 @@
             // 
             cboProveedor.FormattingEnabled = true;
             cboProveedor.Items.AddRange(new object[] { "---Seleccione---" });
-            cboProveedor.Location = new Point(113, 34);
+            cboProveedor.Location = new Point(123, 34);
             cboProveedor.Name = "cboProveedor";
             cboProveedor.Size = new Size(157, 23);
             cboProveedor.TabIndex = 29;
@@ -179,7 +179,7 @@
             // lblCorreo
             // 
             lblCorreo.BorderStyle = BorderStyle.FixedSingle;
-            lblCorreo.Location = new Point(113, 68);
+            lblCorreo.Location = new Point(123, 71);
             lblCorreo.Margin = new Padding(4, 0, 4, 0);
             lblCorreo.Name = "lblCorreo";
             lblCorreo.Size = new Size(157, 16);
@@ -188,7 +188,7 @@
             // lblDireccion
             // 
             lblDireccion.BorderStyle = BorderStyle.FixedSingle;
-            lblDireccion.Location = new Point(113, 100);
+            lblDireccion.Location = new Point(123, 103);
             lblDireccion.Margin = new Padding(4, 0, 4, 0);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(216, 16);
@@ -199,7 +199,7 @@
             cboProducto.BackColor = SystemColors.Window;
             cboProducto.ForeColor = SystemColors.InactiveCaptionText;
             cboProducto.FormattingEnabled = true;
-            cboProducto.Location = new Point(86, 37);
+            cboProducto.Location = new Point(95, 37);
             cboProducto.Name = "cboProducto";
             cboProducto.Size = new Size(129, 23);
             cboProducto.TabIndex = 32;
@@ -207,7 +207,7 @@
             // 
             // UpdownCantidad
             // 
-            UpdownCantidad.Location = new Point(304, 36);
+            UpdownCantidad.Location = new Point(324, 36);
             UpdownCantidad.Name = "UpdownCantidad";
             UpdownCantidad.Size = new Size(120, 23);
             UpdownCantidad.TabIndex = 35;
@@ -244,9 +244,9 @@
             groupBox1.Controls.Add(lblTel);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label8);
-            groupBox1.Location = new Point(12, 70);
+            groupBox1.Location = new Point(19, 97);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(546, 139);
+            groupBox1.Size = new Size(561, 139);
             groupBox1.TabIndex = 40;
             groupBox1.TabStop = false;
             groupBox1.Text = "INFORMACION PROVEEDOR";
@@ -261,7 +261,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(848, 461);
+            btnCancelar.Location = new Point(862, 488);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 40);
@@ -281,9 +281,9 @@
             groupBox2.Controls.Add(txtObservacion);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(UpdownCantidad);
-            groupBox2.Location = new Point(13, 215);
+            groupBox2.Location = new Point(20, 242);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(450, 286);
+            groupBox2.Size = new Size(488, 286);
             groupBox2.TabIndex = 42;
             groupBox2.TabStop = false;
             groupBox2.Text = "INFORMACION DEL PRODUCTO";
@@ -291,7 +291,7 @@
             // lblMarcas
             // 
             lblMarcas.BorderStyle = BorderStyle.FixedSingle;
-            lblMarcas.Location = new Point(304, 90);
+            lblMarcas.Location = new Point(324, 92);
             lblMarcas.Margin = new Padding(4, 0, 4, 0);
             lblMarcas.Name = "lblMarcas";
             lblMarcas.Size = new Size(129, 16);
@@ -310,7 +310,7 @@
             // lblUnidad
             // 
             lblUnidad.BorderStyle = BorderStyle.FixedSingle;
-            lblUnidad.Location = new Point(86, 88);
+            lblUnidad.Location = new Point(95, 90);
             lblUnidad.Margin = new Padding(4, 0, 4, 0);
             lblUnidad.Name = "lblUnidad";
             lblUnidad.Size = new Size(129, 16);
@@ -340,9 +340,9 @@
             groupBox3.Controls.Add(lblMarca);
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
-            groupBox3.Location = new Point(573, 70);
+            groupBox3.Location = new Point(600, 97);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(566, 139);
+            groupBox3.Size = new Size(572, 139);
             groupBox3.TabIndex = 41;
             groupBox3.TabStop = false;
             groupBox3.Text = "INFORMACION TRANSPORTISTA";
@@ -350,7 +350,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(261, 103);
+            label9.Location = new Point(277, 104);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(65, 15);
@@ -360,7 +360,7 @@
             // lblLicencia
             // 
             lblLicencia.BorderStyle = BorderStyle.FixedSingle;
-            lblLicencia.Location = new Point(334, 103);
+            lblLicencia.Location = new Point(385, 103);
             lblLicencia.Margin = new Padding(4, 0, 4, 0);
             lblLicencia.Name = "lblLicencia";
             lblLicencia.Size = new Size(157, 16);
@@ -369,7 +369,7 @@
             // cboTransportista
             // 
             cboTransportista.FormattingEnabled = true;
-            cboTransportista.Location = new Point(101, 34);
+            cboTransportista.Location = new Point(110, 32);
             cboTransportista.Name = "cboTransportista";
             cboTransportista.Size = new Size(157, 23);
             cboTransportista.TabIndex = 29;
@@ -378,7 +378,7 @@
             // Transporte
             // 
             Transporte.AutoSize = true;
-            Transporte.Location = new Point(28, 37);
+            Transporte.Location = new Point(20, 35);
             Transporte.Margin = new Padding(4, 0, 4, 0);
             Transporte.Name = "Transporte";
             Transporte.Size = new Size(62, 15);
@@ -388,7 +388,7 @@
             // lblDirecTrans
             // 
             lblDirecTrans.BorderStyle = BorderStyle.FixedSingle;
-            lblDirecTrans.Location = new Point(101, 69);
+            lblDirecTrans.Location = new Point(110, 69);
             lblDirecTrans.Margin = new Padding(4, 0, 4, 0);
             lblDirecTrans.Name = "lblDirecTrans";
             lblDirecTrans.Size = new Size(175, 16);
@@ -397,7 +397,7 @@
             // lblRucTra
             // 
             lblRucTra.BorderStyle = BorderStyle.FixedSingle;
-            lblRucTra.Location = new Point(323, 36);
+            lblRucTra.Location = new Point(383, 34);
             lblRucTra.Margin = new Padding(4, 0, 4, 0);
             lblRucTra.Name = "lblRucTra";
             lblRucTra.Size = new Size(163, 15);
@@ -406,7 +406,7 @@
             // lblRucTrans
             // 
             lblRucTrans.AutoSize = true;
-            lblRucTrans.Location = new Point(282, 37);
+            lblRucTrans.Location = new Point(309, 37);
             lblRucTrans.Margin = new Padding(4, 0, 4, 0);
             lblRucTrans.Name = "lblRucTrans";
             lblRucTrans.Size = new Size(33, 15);
@@ -416,7 +416,7 @@
             // lblPlaca
             // 
             lblPlaca.BorderStyle = BorderStyle.FixedSingle;
-            lblPlaca.Location = new Point(101, 101);
+            lblPlaca.Location = new Point(110, 104);
             lblPlaca.Margin = new Padding(4, 0, 4, 0);
             lblPlaca.Name = "lblPlaca";
             lblPlaca.Size = new Size(135, 16);
@@ -425,7 +425,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(44, 101);
+            label14.Location = new Point(44, 102);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new Size(38, 15);
@@ -435,7 +435,7 @@
             // lblMarca
             // 
             lblMarca.BorderStyle = BorderStyle.FixedSingle;
-            lblMarca.Location = new Point(350, 69);
+            lblMarca.Location = new Point(383, 70);
             lblMarca.Margin = new Padding(4, 0, 4, 0);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(159, 16);
@@ -454,7 +454,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(30, 69);
+            label17.Location = new Point(22, 69);
             label17.Margin = new Padding(4, 0, 4, 0);
             label17.Name = "label17";
             label17.Size = new Size(60, 15);
@@ -475,9 +475,9 @@
             groupBox4.Controls.Add(cboUm);
             groupBox4.Controls.Add(label7);
             groupBox4.Controls.Add(label15);
-            groupBox4.Location = new Point(469, 215);
+            groupBox4.Location = new Point(514, 242);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(671, 220);
+            groupBox4.Size = new Size(658, 220);
             groupBox4.TabIndex = 43;
             groupBox4.TabStop = false;
             groupBox4.Text = "INFORMACION DE CARGA";
@@ -485,7 +485,7 @@
             // txtPeso
             // 
             txtPeso.Font = new Font("Segoe UI", 9.75F);
-            txtPeso.Location = new Point(439, 34);
+            txtPeso.Location = new Point(480, 34);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(84, 25);
             txtPeso.TabIndex = 49;
@@ -529,7 +529,7 @@
             // dtpFecFin
             // 
             dtpFecFin.Format = DateTimePickerFormat.Short;
-            dtpFecFin.Location = new Point(439, 86);
+            dtpFecFin.Location = new Point(480, 87);
             dtpFecFin.Margin = new Padding(4, 3, 4, 3);
             dtpFecFin.Name = "dtpFecFin";
             dtpFecFin.Size = new Size(148, 23);
@@ -548,7 +548,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(319, 92);
+            label11.Location = new Point(334, 93);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(101, 15);
@@ -558,7 +558,7 @@
             // dtpFecIni
             // 
             dtpFecIni.Format = DateTimePickerFormat.Short;
-            dtpFecIni.Location = new Point(124, 86);
+            dtpFecIni.Location = new Point(151, 87);
             dtpFecIni.Margin = new Padding(4, 3, 4, 3);
             dtpFecIni.Name = "dtpFecIni";
             dtpFecIni.Size = new Size(157, 23);
@@ -569,7 +569,7 @@
             cboUm.BackColor = SystemColors.Window;
             cboUm.ForeColor = SystemColors.InactiveCaptionText;
             cboUm.FormattingEnabled = true;
-            cboUm.Location = new Point(124, 38);
+            cboUm.Location = new Point(151, 38);
             cboUm.Name = "cboUm";
             cboUm.Size = new Size(171, 23);
             cboUm.TabIndex = 32;
@@ -577,7 +577,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(337, 40);
+            label7.Location = new Point(352, 39);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(83, 15);
@@ -596,7 +596,7 @@
             // 
             // btnGenerar
             // 
-            btnGenerar.Location = new Point(999, 461);
+            btnGenerar.Location = new Point(1030, 488);
             btnGenerar.Margin = new Padding(4, 3, 4, 3);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(116, 40);
@@ -609,7 +609,7 @@
             // 
             txtNumeroGuia.DropDownStyle = ComboBoxStyle.Simple;
             txtNumeroGuia.FormattingEnabled = true;
-            txtNumeroGuia.Location = new Point(969, 24);
+            txtNumeroGuia.Location = new Point(978, 38);
             txtNumeroGuia.MaxLength = 10;
             txtNumeroGuia.Name = "txtNumeroGuia";
             txtNumeroGuia.Size = new Size(144, 23);
@@ -620,7 +620,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(884, 26);
+            label3.Location = new Point(882, 37);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(78, 20);
@@ -631,7 +631,7 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(6, 9);
+            label21.Location = new Point(13, 23);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
             label21.Size = new Size(399, 37);
@@ -642,7 +642,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1151, 535);
+            ClientSize = new Size(1196, 563);
             Controls.Add(label21);
             Controls.Add(label3);
             Controls.Add(txtNumeroGuia);
@@ -652,6 +652,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(btnCancelar);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmGenerarRemision";

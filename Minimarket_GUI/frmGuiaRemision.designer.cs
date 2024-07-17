@@ -436,7 +436,7 @@
             Name = "frmGuiaRemision";
             RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Guia de Remision";
+            Text = "s";
             Load += frmConsFacturasCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).EndInit();
             ResumeLayout(false);

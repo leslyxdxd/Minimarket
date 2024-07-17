@@ -44,12 +44,13 @@
             Id_Boleta = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
             Usu_Registro = new DataGridViewTextBoxColumn();
+            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
             // btnTraspaso
             // 
-            btnTraspaso.Location = new Point(383, 518);
+            btnTraspaso.Location = new Point(601, 551);
             btnTraspaso.Name = "btnTraspaso";
             btnTraspaso.Size = new Size(124, 32);
             btnTraspaso.TabIndex = 23;
@@ -59,7 +60,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(533, 518);
+            btnCerrar.Location = new Point(763, 551);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(124, 32);
             btnCerrar.TabIndex = 22;
@@ -70,7 +71,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(82, 518);
+            lblRegistros.Location = new Point(104, 547);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 21;
@@ -79,7 +80,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(22, 522);
+            label2.Location = new Point(23, 551);
             label2.Name = "label2";
             label2.Size = new Size(48, 15);
             label2.TabIndex = 20;
@@ -87,7 +88,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(184, 16);
+            txtFiltro.Location = new Point(135, 99);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(189, 23);
             txtFiltro.TabIndex = 19;
@@ -96,11 +97,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 19);
+            label1.Location = new Point(23, 102);
             label1.Name = "label1";
-            label1.Size = new Size(120, 15);
+            label1.Size = new Size(68, 15);
             label1.TabIndex = 18;
-            label1.Text = "Ingrese filtro por DNI:";
+            label1.Text = "Filtro / DNI:";
             // 
             // dtgDatos
             // 
@@ -120,14 +121,14 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dtgDatos.DefaultCellStyle = dataGridViewCellStyle1;
-            dtgDatos.Location = new Point(22, 57);
+            dtgDatos.Location = new Point(23, 137);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
             dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgDatos.Size = new Size(635, 436);
+            dtgDatos.Size = new Size(864, 375);
             dtgDatos.TabIndex = 17;
             // 
             // Numero_Factura
@@ -180,11 +181,24 @@
             Usu_Registro.Name = "Usu_Registro";
             Usu_Registro.ReadOnly = true;
             // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.FromArgb(64, 64, 64);
+            label21.Location = new Point(23, 30);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(124, 32);
+            label21.TabIndex = 56;
+            label21.Text = "BOLETAS";
+            // 
             // frmListaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(683, 584);
+            ClientSize = new Size(914, 614);
+            Controls.Add(label21);
             Controls.Add(btnTraspaso);
             Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
@@ -192,6 +206,7 @@
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(dtgDatos);
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmListaBoletas";
@@ -220,5 +235,6 @@
         private DataGridViewTextBoxColumn Id_Boleta;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Usu_Registro;
+        private Label label21;
     }
 }
