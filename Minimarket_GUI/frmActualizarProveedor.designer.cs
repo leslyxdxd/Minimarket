@@ -227,7 +227,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(512, 447);
             Controls.Add(grpDatos);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;

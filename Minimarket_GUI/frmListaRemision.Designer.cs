@@ -260,7 +260,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(91, 552);
+            lblRegistros.Location = new Point(115, 558);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 10;
@@ -286,7 +286,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(133, 121);
+            txtFiltro.Location = new Point(147, 121);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 13;
@@ -318,7 +318,7 @@
             cboPro.DropDownStyle = ComboBoxStyle.DropDownList;
             cboPro.ForeColor = SystemColors.InactiveCaptionText;
             cboPro.FormattingEnabled = true;
-            cboPro.Location = new Point(430, 124);
+            cboPro.Location = new Point(456, 124);
             cboPro.Name = "cboPro";
             cboPro.Size = new Size(178, 23);
             cboPro.TabIndex = 33;
@@ -326,7 +326,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(309, 126);
+            label3.Location = new Point(302, 127);
             label3.Name = "label3";
             label3.Size = new Size(102, 15);
             label3.TabIndex = 34;
@@ -334,7 +334,7 @@
             // 
             // btnFiltrar
             // 
-            btnFiltrar.Location = new Point(964, 118);
+            btnFiltrar.Location = new Point(964, 124);
             btnFiltrar.Name = "btnFiltrar";
             btnFiltrar.Size = new Size(132, 31);
             btnFiltrar.TabIndex = 35;
@@ -345,7 +345,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(646, 132);
+            label4.Location = new Point(666, 129);
             label4.Name = "label4";
             label4.Size = new Size(93, 15);
             label4.TabIndex = 36;
@@ -358,7 +358,7 @@
             cboCantidad.ForeColor = SystemColors.InactiveCaptionText;
             cboCantidad.FormattingEnabled = true;
             cboCantidad.Items.AddRange(new object[] { "10", "20", "30", "40", "50", "100", "200" });
-            cboCantidad.Location = new Point(760, 129);
+            cboCantidad.Location = new Point(805, 127);
             cboCantidad.Name = "cboCantidad";
             cboCantidad.Size = new Size(107, 23);
             cboCantidad.TabIndex = 37;
