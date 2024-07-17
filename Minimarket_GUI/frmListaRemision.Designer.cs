@@ -76,6 +76,7 @@
             dtgRemision.AllowUserToDeleteRows = false;
             dtgRemision.Anchor = AnchorStyles.Left;
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgRemision.BackgroundColor = Color.AliceBlue;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, Num_Guia, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, FechaIni, Des_Cat, Cantidad, Des_UM, PrecioUnitario, total, Observaciones, Estado, Fec_Registro, FechaFin, Fec_Ult_Mod, Usu_Ult_Mod });
             dtgRemision.Location = new Point(27, 170);
@@ -396,7 +397,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.DarkGreen;
             label5.Location = new Point(850, 49);
             label5.Name = "label5";
             label5.Size = new Size(181, 25);
@@ -407,7 +408,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1127, 606);
             Controls.Add(label5);
             Controls.Add(guna2ImageButton3);

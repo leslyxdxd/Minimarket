@@ -2,12 +2,17 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using Minimarket_BE;
+using Minimarket_BL;
 using Minimarket_GUI;
 
 namespace ProyVentas_GUI
 {
     public partial class MDIPrincipal : Form
     {
+
+        MinimarketBE objminimarketBE = new MinimarketBE();
+        MinimarketBL objminimarketBL = new MinimarketBL();
         public MDIPrincipal()
         {
             InitializeComponent();
@@ -15,6 +20,12 @@ namespace ProyVentas_GUI
 
         private void MDIPrincipal_Load(object sender, EventArgs e)
         {
+
+            // Obtener los datos del minimarket desde la base de datos
+            MinimarketBE minimarket = objminimarketBL.ObtenerDatosMinimarket();
+            lblNombre.Text = minimarket.Nombre.ToString();
+
+
             guna2ImageButton2.HoverState.ImageSize = guna2ImageButton2.ImageSize;
 
             guna2ImageButton2.PressedState.ImageSize = new Size(

@@ -429,7 +429,7 @@ namespace Minimarket_GUI
 
                 // Generar el nombre del archivo con la fecha y hora actual
                 string fechaHora = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                string nombreArchivo = $@"C:\Tickets\Ticket_{fechaHora}.pdf";
+                string nombreArchivo = $@"C:\Tickets\Boleta_{fechaHora}.pdf";
 
                 // Generar el PDF
                 Document doc = new Document(PageSize.A3);
@@ -540,7 +540,7 @@ namespace Minimarket_GUI
 
                 doc.Close();
 
-                MessageBox.Show("PDF generado exitosamente.");
+               
             }
             catch (Exception ex)
             {

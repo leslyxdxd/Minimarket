@@ -80,9 +80,9 @@
             // 
             // btnGrabar
             // 
-            btnGrabar.BackColor = Color.SeaShell;
+            btnGrabar.BackColor = Color.Gold;
             btnGrabar.Font = new Font("Segoe UI", 9.75F);
-            btnGrabar.Location = new Point(74, 212);
+            btnGrabar.Location = new Point(59, 212);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(112, 31);
             btnGrabar.TabIndex = 22;
@@ -129,9 +129,9 @@
             panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.usuario;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Location = new Point(326, 32);
+            panel1.Location = new Point(325, 47);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 211);
+            panel1.Size = new Size(175, 168);
             panel1.TabIndex = 26;
             // 
             // btnCancelar

@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using Minimarket_ADO;
 using Minimarket_BE;
 using Minimarket_BL;
 using ProyVentas_BL;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Rectangle = iTextSharp.text.Rectangle;
 
 namespace Minimarket_GUI
 {
@@ -17,6 +22,8 @@ namespace Minimarket_GUI
         StockBL objStockBL = new StockBL();
         UnidadMedidaBE objUnidadMedidaBE = new UnidadMedidaBE();
         UnidadMedidaBL objUnidadMedidaBL = new UnidadMedidaBL();
+        MinimarketBE objminimarketBE = new MinimarketBE();
+        MinimarketBL objminimarketBL = new MinimarketBL();
 
         decimal total = 0; // Variable para almacenar el total de los subtotales
 
@@ -314,6 +321,8 @@ namespace Minimarket_GUI
         {
             try
             {
+                GenerarFactura(); 
+
                 if (dtgProducto.Rows.Count < 1)
                 {
                     MessageBox.Show("Debe agregar al menos un producto a la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -403,6 +412,149 @@ namespace Minimarket_GUI
             lblDevolucion.Text = "";
             dtgProducto.Rows.Clear();
         }
+
+        private void GenerarFactura()
+        {
+            try
+            {
+                // Obtener los datos del minimarket desde la base de datos
+                MinimarketBE minimarket = objminimarketBL.ObtenerDatosMinimarket();
+
+                // Generar el nombre del archivo con la fecha y hora actual
+                string fechaHora = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string nombreArchivo = $@"C:\Tickets\Factura_{fechaHora}.pdf";
+
+                // Generar el PDF
+                Document doc = new Document(PageSize.A3);
+                PdfWriter.GetInstance(doc, new FileStream(nombreArchivo, FileMode.Create));
+                doc.Open();
+
+                // Encabezados
+                doc.Add(new Paragraph("Factura Electronica"));
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph(minimarket.Nombre));
+                doc.Add(new Paragraph("Dirección: " + minimarket.Direccion));
+                doc.Add(new Paragraph("RUC: " + minimarket.Ruc));
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString()));
+                
+                doc.Add(new Paragraph("RUC: " + txtRuc.Text.Trim()));
+                doc.Add(new Paragraph("Cliente: " + lblRazonSocial.Text.Trim()));
+                doc.Add(new Paragraph("Direción: " + lblDireccion.Text.Trim()));
+
+                doc.Add(new Paragraph("--------------------------------------------------"));
+
+                // Crear la tabla con 4 columnas
+                PdfPTable table = new PdfPTable(5);
+                table.WidthPercentage = 40;
+                table.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                // Configurar los encabezados de la tabla
+                PdfPCell cell = new PdfPCell(new Phrase("Producto"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("Cantidad"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("Precio"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("IGV%"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                cell = new PdfPCell(new Phrase("Total"));
+                cell.Border = Rectangle.NO_BORDER;
+                table.AddCell(cell);
+
+                // Verificar si hay productos en la lista
+                if (dtgProducto.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow r in dtgProducto.Rows)
+                    {
+                        // Verificar que las celdas no estén vacías y convertir sus valores adecuadamente
+                        if (r.Cells["Producto"].Value != null &&
+                            r.Cells["Precio"].Value != null &&
+                            r.Cells["Cantidad"].Value != null &&
+                            r.Cells["IGV"].Value != null &&
+                            r.Cells["SubTotal"].Value != null)
+                        {
+                            string producto = r.Cells["Producto"].Value.ToString();
+                            float precio = float.Parse(r.Cells["Precio"].Value.ToString());
+                            int cant = int.Parse(r.Cells["Cantidad"].Value.ToString());
+                            decimal igv = decimal.Parse(r.Cells["IGV"].Value.ToString()); // Corregido a decimal.Parse
+                            float subtotal = float.Parse(r.Cells["SubTotal"].Value.ToString());
+
+                            // Agregar producto a la tabla
+                            cell = new PdfPCell(new Phrase(producto));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+                            cell = new PdfPCell(new Phrase(cant.ToString()));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+                            cell = new PdfPCell(new Phrase(precio.ToString("F2")));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+
+                            cell = new PdfPCell(new Phrase(igv.ToString("F2"))); // Corregido para formato decimal
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+
+                          
+                            cell = new PdfPCell(new Phrase(subtotal.ToString("F2")));
+                            cell.Border = Rectangle.NO_BORDER;
+                            table.AddCell(cell);
+                        }
+                    }
+                }
+                else
+                {
+                    cell = new PdfPCell(new Phrase("No hay productos en la lista."));
+                    cell.Colspan = 5;
+                    cell.Border = Rectangle.NO_BORDER;
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.AddCell(cell);
+                }
+
+                // Agregar la tabla al documento
+                doc.Add(table);
+
+                // Determinar el método de pago
+                String metodoPago = rbtnEfectivo.Checked ? "Efectivo" : rbtnTarjeta.Checked ? "Tarjeta" : "Otro";
+
+                if (metodoPago == "Tarjeta")
+                {
+                    rtxtEfectivo.Text = lblTotal.Text;
+                    lblDevolucion.Text = "0.00";
+                }
+
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph($"Total: S/.{float.Parse(lblTotal.Text):F2}"));
+                doc.Add(new Paragraph($"Efectivo Entregado: S/.{float.Parse(rtxtEfectivo.Text):F2}"));
+                doc.Add(new Paragraph($"Efectivo Devuelto: S/.{float.Parse(lblDevolucion.Text):F2}"));
+
+                doc.Add(new Paragraph("--------------------------------------------------"));
+                doc.Add(new Paragraph("Atendido por:" + clsCredenciales.Login_Usuario));
+                doc.Add(new Paragraph("Método de pago: " + metodoPago));
+                doc.Add(new Paragraph("--------------------------------------------------"));
+
+                doc.Close();
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar PDF: " + ex.Message);
+            }
+        }
+
+
 
         private void frmVentaFacturas_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -145,9 +145,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(33, 106);
             label1.Name = "label1";
-            label1.Size = new Size(97, 15);
+            label1.Size = new Size(71, 15);
             label1.TabIndex = 2;
-            label1.Text = "Filtro / Apellidos:";
+            label1.Text = "Filtro / RUC:";
             // 
             // txtFiltro
             // 
