@@ -405,6 +405,7 @@ namespace Minimarket_GUI
                     lblTotalPagar.Text = "";
                     rtxtbEfectivo.Text = "";
                     lblDevolucion.Text = "";
+                    radiobuttonEfectivo.Checked = true; 
                     dtgListaProductos.Rows.Clear();
                 }
                 else
@@ -422,30 +423,37 @@ namespace Minimarket_GUI
         private void GenerarBoleta()
         {
             try
-            {          
+            {
+                // Obtener los datos del minimarket desde la base de datos
                 MinimarketBE minimarket = objminimarketBL.ObtenerDatosMinimarket();
+
+                // Generar el nombre del archivo con la fecha y hora actual
+                string fechaHora = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string nombreArchivo = $@"C:\Tickets\Ticket_{fechaHora}.pdf";
 
                 // Generar el PDF
                 Document doc = new Document(PageSize.A3);
-                PdfWriter.GetInstance(doc, new FileStream(@"C:\Tickets\Ticket.pdf", FileMode.Create));
+                PdfWriter.GetInstance(doc, new FileStream(nombreArchivo, FileMode.Create));
                 doc.Open();
 
                 // Encabezados
-
                 doc.Add(new Paragraph("Boleta de Venta"));
                 doc.Add(new Paragraph("--------------------------------------------------"));
                 doc.Add(new Paragraph("Empresa: " + minimarket.Nombre));
                 doc.Add(new Paragraph("Dirección: " + minimarket.Direccion));
                 doc.Add(new Paragraph("RUC: " + minimarket.Ruc));
-                doc.Add(new Paragraph("--------------------------------------------------"));            
+                doc.Add(new Paragraph("--------------------------------------------------"));
                 doc.Add(new Paragraph("Fecha: " + DateTime.Now.ToShortDateString() + " Hora: " + DateTime.Now.ToShortTimeString()));
+
+                doc.Add(new Paragraph("Cliente: " + lblNombres.Text.Trim() +lblApellidos.Text.Trim()));
+                doc.Add(new Paragraph("DNI: " + txtDNI.Text.Trim()));
+              
                 doc.Add(new Paragraph("--------------------------------------------------"));
 
                 // Crear la tabla con 4 columnas
                 PdfPTable table = new PdfPTable(4);
-                table.WidthPercentage = 40; // Ajusta el ancho de la tabla al 50% del ancho de la página
-                table.HorizontalAlignment = Element.ALIGN_LEFT; // Alinea la tabla a la izquierda
-               
+                table.WidthPercentage = 40; 
+                table.HorizontalAlignment = Element.ALIGN_LEFT; 
 
                 // Configurar los encabezados de la tabla
                 PdfPCell cell = new PdfPCell(new Phrase("Producto"));
@@ -470,8 +478,7 @@ namespace Minimarket_GUI
                     foreach (DataGridViewRow r in dtgListaProductos.Rows)
                     {
                         // Verificar que las celdas no estén vacías y convertir sus valores adecuadamente
-                        if (
-                            r.Cells["Producto"].Value != null &&
+                        if (r.Cells["Producto"].Value != null &&
                             r.Cells["Precio"].Value != null &&
                             r.Cells["Cantidad"].Value != null &&
                             r.Cells["SubTotal"].Value != null)
@@ -512,7 +519,15 @@ namespace Minimarket_GUI
                 // Agregar la tabla al documento
                 doc.Add(table);
 
-                // Totales y agradecimiento
+                // Determinar el método de pago
+                String metodoPago = radiobuttonEfectivo.Checked ? "Efectivo" : radioButtonTarjeta.Checked ? "Tarjeta" : "Otro";
+                
+                if (metodoPago == "Tarjeta")
+                {
+                    rtxtbEfectivo.Text = lblTotalPagar.Text;
+                    lblDevolucion.Text = "0.00";
+                }
+     
                 doc.Add(new Paragraph("--------------------------------------------------"));
                 doc.Add(new Paragraph($"Total: S/.{float.Parse(lblTotalPagar.Text):F2}"));
                 doc.Add(new Paragraph($"Efectivo Entregado: S/.{float.Parse(rtxtbEfectivo.Text):F2}"));
@@ -520,28 +535,18 @@ namespace Minimarket_GUI
 
                 doc.Add(new Paragraph("--------------------------------------------------"));
                 doc.Add(new Paragraph("Atendido por:" + clsCredenciales.Login_Usuario));
+                doc.Add(new Paragraph("Método de pago: " + metodoPago));
                 doc.Add(new Paragraph("--------------------------------------------------"));
 
                 doc.Close();
 
-                
+                MessageBox.Show("PDF generado exitosamente.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al generar PDF: " + ex.Message);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
         private void dtgListaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
