@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIPrincipal));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIPrincipal));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -93,7 +93,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DarkCyan;
+            panel1.BackColor = Color.CadetBlue;
             panel1.Controls.Add(lblUsuario);
             panel1.Controls.Add(guna2ImageButton2);
             panel1.Controls.Add(guna2ImageButton3);
@@ -124,7 +124,7 @@
             guna2ImageButton2.Cursor = Cursors.Hand;
             guna2ImageButton2.Dock = DockStyle.Right;
             guna2ImageButton2.HoverState.ImageSize = new Size(64, 64);
-            guna2ImageButton2.Image = (Image)resources.GetObject("guna2ImageButton2.Image");
+            guna2ImageButton2.Image = Minimarket_GUI.Properties.Resources.usuario__1_3;
             guna2ImageButton2.ImageOffset = new Point(0, 0);
             guna2ImageButton2.ImageRotate = 0F;
             guna2ImageButton2.ImageSize = new Size(30, 30);
@@ -137,6 +137,7 @@
             // 
             // guna2ImageButton3
             // 
+            guna2ImageButton3.BackColor = Color.CadetBlue;
             guna2ImageButton3.CheckedState.ImageSize = new Size(64, 64);
             guna2ImageButton3.Cursor = Cursors.Hand;
             guna2ImageButton3.Dock = DockStyle.Right;
@@ -155,17 +156,19 @@
             // 
             // guna2ImageButton1
             // 
+            guna2ImageButton1.BackColor = Color.CadetBlue;
+            guna2ImageButton1.BackgroundImage = Minimarket_GUI.Properties.Resources.image1;
+            guna2ImageButton1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
             guna2ImageButton1.HoverState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
             guna2ImageButton1.ImageOffset = new Point(0, 0);
             guna2ImageButton1.ImageRotate = 0F;
             guna2ImageButton1.ImageSize = new Size(30, 30);
-            guna2ImageButton1.Location = new Point(37, 14);
+            guna2ImageButton1.Location = new Point(37, 3);
             guna2ImageButton1.Name = "guna2ImageButton1";
             guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            guna2ImageButton1.Size = new Size(30, 26);
+            guna2ImageButton1.Size = new Size(48, 49);
             guna2ImageButton1.TabIndex = 10;
             // 
             // lblNombre
