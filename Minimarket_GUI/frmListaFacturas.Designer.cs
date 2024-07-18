@@ -30,7 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            btnCerrar = new Button();
             lblRegistros = new Label();
             label2 = new Label();
             txtFiltro = new TextBox();
@@ -42,19 +41,11 @@
             Ruc = new DataGridViewTextBoxColumn();
             Fec_Factura = new DataGridViewTextBoxColumn();
             Usu_Registro = new DataGridViewTextBoxColumn();
-            btnTraspaso = new Button();
             label21 = new Label();
+            btnFiltrar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(975, 628);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(151, 49);
-            btnCerrar.TabIndex = 15;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
             // 
             // lblRegistros
             // 
@@ -99,6 +90,7 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Numero_Factura, Id_Factura, RazonSocial, Ruc, Fec_Factura, Usu_Registro });
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -162,16 +154,6 @@
             Usu_Registro.Name = "Usu_Registro";
             Usu_Registro.ReadOnly = true;
             // 
-            // btnTraspaso
-            // 
-            btnTraspaso.Location = new Point(791, 628);
-            btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(166, 49);
-            btnTraspaso.TabIndex = 16;
-            btnTraspaso.Text = "Ver detalle";
-            btnTraspaso.UseVisualStyleBackColor = true;
-            btnTraspaso.Click += btnTraspaso_Click;
-            // 
             // label21
             // 
             label21.AutoSize = true;
@@ -184,15 +166,42 @@
             label21.TabIndex = 56;
             label21.Text = "FACTURAS";
             // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(742, 627);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(173, 48);
+            btnFiltrar.TabIndex = 57;
+            btnFiltrar.Text = "Ver detalle";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnTraspaso_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(975, 628);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(151, 48);
+            btnCancelar.TabIndex = 62;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // frmListaFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnFiltrar);
             Controls.Add(label21);
-            Controls.Add(btnTraspaso);
-            Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(txtFiltro);
@@ -211,14 +220,11 @@
         }
 
         #endregion
-
-        private Button btnCerrar;
         private Label lblRegistros;
         private Label label2;
         private TextBox txtFiltro;
         private Label label1;
         private DataGridView dtgDatos;
-        private Button btnTraspaso;
         private DataGridViewTextBoxColumn Numero_Factura;
         private DataGridViewTextBoxColumn Id_Factura;
         private DataGridViewTextBoxColumn RazonSocial;
@@ -226,5 +232,7 @@
         private DataGridViewTextBoxColumn Fec_Factura;
         private DataGridViewTextBoxColumn Usu_Registro;
         private Label label21;
+        private Button btnFiltrar;
+        internal Button btnCancelar;
     }
 }

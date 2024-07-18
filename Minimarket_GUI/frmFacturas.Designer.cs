@@ -31,7 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblRegistros = new Label();
             label2 = new Label();
-            btnCerrar = new Button();
             dtgDatos = new DataGridView();
             Numero_Factura = new DataGridViewTextBoxColumn();
             RUC = new DataGridViewTextBoxColumn();
@@ -44,13 +43,14 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Fec_Factura = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(83, 278);
+            lblRegistros.Location = new Point(105, 278);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 7;
@@ -65,16 +65,6 @@
             label2.TabIndex = 8;
             label2.Text = "Productos:";
             // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(819, 267);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(124, 45);
-            btnCerrar.TabIndex = 6;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // dtgDatos
             // 
             dtgDatos.AllowUserToAddRows = false;
@@ -83,6 +73,7 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Numero_Factura, RUC, RazonSocial, Column1, Column2, Column3, Cantidad, Column6, Column5, Column4, Fec_Factura });
             dtgDatos.Location = new Point(10, 12);
@@ -172,15 +163,30 @@
             Fec_Factura.Name = "Fec_Factura";
             Fec_Factura.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Tomato;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(801, 267);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(142, 45);
+            button1.TabIndex = 62;
+            button1.Text = "Salir";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnCerrar_Click;
+            // 
             // frmFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(964, 324);
+            Controls.Add(button1);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
-            Controls.Add(btnCerrar);
             Controls.Add(dtgDatos);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmFacturas";
@@ -195,7 +201,6 @@
         #endregion
         private Label lblRegistros;
         private Label label2;
-        private Button btnCerrar;
         private DataGridView dtgDatos;
         private DataGridViewTextBoxColumn Numero_Factura;
         private DataGridViewTextBoxColumn RUC;
@@ -208,5 +213,6 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Fec_Factura;
+        internal Button button1;
     }
 }

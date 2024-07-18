@@ -89,8 +89,14 @@ namespace Minimarket_GUI
         // Método para cargar datos iniciales en el formulario
         private void frmVentaFacturas_Load(object sender, EventArgs e)
         {
+            guna2ImageButton3.HoverState.ImageSize = guna2ImageButton3.ImageSize;
+            guna2ImageButton3.PressedState.ImageSize = new Size(
+          (int)(guna2ImageButton3.ImageSize.Width * 1.1),  // Incrementar el tamaño en un 10%
+          (int)(guna2ImageButton3.ImageSize.Height * 1.1)  // Incrementar el tamaño en un 10%
+      );
             try
             {
+               
                 if (!string.IsNullOrEmpty(this.Codigo))
                 {
                     objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);

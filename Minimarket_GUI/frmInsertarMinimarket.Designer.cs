@@ -31,34 +31,34 @@
             grpDatos = new GroupBox();
             txtRuc = new TextBox();
             txtTelefono = new MaskedTextBox();
-            btnGrabar = new Button();
             label6 = new Label();
             txtDireccion = new TextBox();
             txtNombre = new TextBox();
             label1 = new Label();
             Label2 = new Label();
             Label3 = new Label();
-            btnCancelar = new Button();
+            btnInhabilitar = new Button();
+            button1 = new Button();
             grpDatos.SuspendLayout();
             SuspendLayout();
             // 
             // grpDatos
             // 
+            grpDatos.Controls.Add(btnInhabilitar);
+            grpDatos.Controls.Add(button1);
             grpDatos.Controls.Add(txtRuc);
             grpDatos.Controls.Add(txtTelefono);
-            grpDatos.Controls.Add(btnGrabar);
             grpDatos.Controls.Add(label6);
             grpDatos.Controls.Add(txtDireccion);
             grpDatos.Controls.Add(txtNombre);
             grpDatos.Controls.Add(label1);
             grpDatos.Controls.Add(Label2);
             grpDatos.Controls.Add(Label3);
-            grpDatos.Controls.Add(btnCancelar);
             grpDatos.Location = new Point(23, 21);
             grpDatos.Margin = new Padding(4, 3, 4, 3);
             grpDatos.Name = "grpDatos";
             grpDatos.Padding = new Padding(4, 3, 4, 3);
-            grpDatos.Size = new Size(467, 317);
+            grpDatos.Size = new Size(467, 291);
             grpDatos.TabIndex = 3;
             grpDatos.TabStop = false;
             grpDatos.Text = "DATOS DEL MINIMARKET";
@@ -79,16 +79,6 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(150, 23);
             txtTelefono.TabIndex = 7;
-            // 
-            // btnGrabar
-            // 
-            btnGrabar.Location = new Point(59, 241);
-            btnGrabar.Margin = new Padding(4, 3, 4, 3);
-            btnGrabar.Name = "btnGrabar";
-            btnGrabar.Size = new Size(145, 47);
-            btnGrabar.TabIndex = 5;
-            btnGrabar.Text = "Grabar";
-            btnGrabar.Click += btnGrabar_Click;
             // 
             // label6
             // 
@@ -142,23 +132,48 @@
             Label3.TabIndex = 3;
             Label3.Text = "Telefono:";
             // 
-            // btnCancelar
+            // btnInhabilitar
             // 
-            btnCancelar.Location = new Point(236, 241);
-            btnCancelar.Margin = new Padding(4, 3, 4, 3);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(133, 47);
-            btnCancelar.TabIndex = 6;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.Click += btnCancelar_Click;
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(234, 235);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(118, 37);
+            btnInhabilitar.TabIndex = 65;
+            btnInhabilitar.Text = "Cancelar";
+            btnInhabilitar.UseVisualStyleBackColor = false;
+            btnInhabilitar.Click += btnCancelar_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.Teal;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(89, 235);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(122, 37);
+            button1.TabIndex = 64;
+            button1.Text = "Grabar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnGrabar_Click;
             // 
             // frmInsertarMinimarket
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 353);
+            ClientSize = new Size(517, 336);
             Controls.Add(grpDatos);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmInsertarMinimarket";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Nuevo Minimarket";
             grpDatos.ResumeLayout(false);
             grpDatos.PerformLayout();
             ResumeLayout(false);
@@ -168,14 +183,14 @@
 
         internal GroupBox grpDatos;
         private MaskedTextBox txtTelefono;
-        internal Button btnGrabar;
         internal Label label6;
         internal TextBox txtDireccion;
         internal TextBox txtNombre;
         internal Label label1;
         internal Label Label2;
         internal Label Label3;
-        internal Button btnCancelar;
         internal TextBox txtRuc;
+        private Button btnInhabilitar;
+        private Button button1;
     }
 }

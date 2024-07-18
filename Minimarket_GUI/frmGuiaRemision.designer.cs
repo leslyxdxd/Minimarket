@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
             label3 = new Label();
             dtpFecIni = new DateTimePicker();
@@ -64,7 +66,7 @@
             lblEstados = new Label();
             lblCodigo = new Label();
             label1 = new Label();
-            btnConsultar = new Button();
+            btnFiltrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).BeginInit();
             SuspendLayout();
             // 
@@ -133,6 +135,8 @@
             // 
             dtgFacturas.AllowUserToAddRows = false;
             dtgFacturas.AllowUserToDeleteRows = false;
+            dtgFacturas.AllowUserToResizeColumns = false;
+            dtgFacturas.AllowUserToResizeRows = false;
             dtgFacturas.Anchor = AnchorStyles.Left;
             dtgFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgFacturas.BackgroundColor = SystemColors.ControlLight;
@@ -142,7 +146,17 @@
             dtgFacturas.Margin = new Padding(4, 3, 4, 3);
             dtgFacturas.Name = "dtgFacturas";
             dtgFacturas.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgFacturas.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgFacturas.RowHeadersVisible = false;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgFacturas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgFacturas.Size = new Size(922, 369);
             dtgFacturas.TabIndex = 7;
@@ -394,23 +408,25 @@
             label1.TabIndex = 14;
             label1.Text = "Codigo";
             // 
-            // btnConsultar
+            // btnFiltrar
             // 
-            btnConsultar.Location = new Point(782, 196);
-            btnConsultar.Margin = new Padding(4, 3, 4, 3);
-            btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(167, 47);
-            btnConsultar.TabIndex = 15;
-            btnConsultar.Text = "Consultar";
-            btnConsultar.UseVisualStyleBackColor = true;
-            btnConsultar.Click += btnConsultar_Click;
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(802, 199);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(147, 39);
+            btnFiltrar.TabIndex = 36;
+            btnFiltrar.Text = "Consultar";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnConsultar_Click;
             // 
             // frmGuiaRemision
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             ClientSize = new Size(984, 678);
-            Controls.Add(btnConsultar);
+            Controls.Add(btnFiltrar);
             Controls.Add(label1);
             Controls.Add(lblCodigo);
             Controls.Add(lblDireccion);
@@ -432,13 +448,16 @@
             Controls.Add(dtpFecIni);
             Controls.Add(label3);
             Controls.Add(label2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
             MaximumSize = new Size(1000, 900);
+            MinimizeBox = false;
             MinimumSize = new Size(907, 548);
             Name = "frmGuiaRemision";
             RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "s";
+            Text = "Detalle Proveedor";
             Load += frmConsFacturasCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dtgFacturas).EndInit();
             ResumeLayout(false);
@@ -467,7 +486,6 @@
         private System.Windows.Forms.Label lblEstados;
         private Label lblCodigo;
         private Label label1;
-        private Button btnConsultar;
         private DataGridViewTextBoxColumn Id_Remision;
         private DataGridViewTextBoxColumn FechaIni;
         private DataGridViewTextBoxColumn FechaFin;
@@ -483,5 +501,6 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Observaciones;
         private DataGridViewTextBoxColumn Estado;
+        private Button btnFiltrar;
     }
 }

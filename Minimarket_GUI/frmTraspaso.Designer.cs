@@ -38,7 +38,7 @@
             label2 = new Label();
             label4 = new Label();
             btnTransferir = new Button();
-            btnCancelar = new Button();
+            button1 = new Button();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Cantidad).BeginInit();
             SuspendLayout();
@@ -134,34 +134,41 @@
             // 
             // btnTransferir
             // 
-            btnTransferir.Location = new Point(331, 198);
+            btnTransferir.BackColor = Color.Teal;
+            btnTransferir.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTransferir.ForeColor = Color.White;
+            btnTransferir.Location = new Point(317, 198);
             btnTransferir.Margin = new Padding(4, 3, 4, 3);
             btnTransferir.Name = "btnTransferir";
             btnTransferir.Size = new Size(120, 34);
             btnTransferir.TabIndex = 44;
             btnTransferir.Text = "Transferir";
-            btnTransferir.UseVisualStyleBackColor = true;
+            btnTransferir.UseVisualStyleBackColor = false;
             btnTransferir.Click += btnTransferir_Click;
             // 
-            // btnCancelar
+            // button1
             // 
-            btnCancelar.Location = new Point(459, 198);
-            btnCancelar.Margin = new Padding(4, 3, 4, 3);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(120, 34);
-            btnCancelar.TabIndex = 45;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            button1.BackColor = Color.Tomato;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(459, 198);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 34);
+            button1.TabIndex = 51;
+            button1.Text = "Cancelar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnCancelar_Click;
             // 
             // frmTraspaso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(604, 257);
-            Controls.Add(btnCancelar);
+            Controls.Add(button1);
             Controls.Add(btnTransferir);
             Controls.Add(groupBox2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmTraspaso";
@@ -185,6 +192,6 @@
         private Label lblUNI;
         private Label lblStockDis;
         private Button btnTransferir;
-        private Button btnCancelar;
+        internal Button button1;
     }
 }

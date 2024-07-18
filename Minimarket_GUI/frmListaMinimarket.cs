@@ -136,7 +136,15 @@ namespace Minimarket_GUI
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+           
+            frmInsertarMinimarket listausu = new frmInsertarMinimarket();
+         
+            listausu.Show();
         }
     }
 }

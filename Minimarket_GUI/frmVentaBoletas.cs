@@ -58,29 +58,6 @@ namespace Minimarket_GUI
             }
         }
 
-        private void frmVentaProductos_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                // Aquí se puede cargar información inicial si es necesario
-
-                // Cargamos los combos...
-                // Codifique para cargar los datos del producto si ya se ha seleccionado un código anteriormente
-                if (!string.IsNullOrEmpty(this.Codigo))
-                {
-                    objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);
-                    lblCodigo.Text = objProductoBE.Id_Producto;
-                    lblNombre.Text = objProductoBE.Nom_Producto;
-                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString("0.00,###");
-                    lblUM.Text = objUnidadMedidaBE.Des_UM;
-                    lblStock.Text = objStockBE.Stk_Tienda.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -659,7 +636,30 @@ namespace Minimarket_GUI
 
         private void frmVentaBoletas_Load(object sender, EventArgs e)
         {
+            guna2ImageButton3.HoverState.ImageSize = guna2ImageButton3.ImageSize;
+            guna2ImageButton3.PressedState.ImageSize = new Size(
+          (int)(guna2ImageButton3.ImageSize.Width * 1.1),  // Incrementar el tamaño en un 10%
+          (int)(guna2ImageButton3.ImageSize.Height * 1.1)  // Incrementar el tamaño en un 10%
+      );
+            try
+            {
 
+
+                // Cargamos los combos...
+                if (!string.IsNullOrEmpty(this.Codigo))
+                {
+                    objProductoBE = objProductoBL.ConsultarProducto(this.Codigo);
+                    lblCodigo.Text = objProductoBE.Id_Producto;
+                    lblNombre.Text = objProductoBE.Nom_Producto;
+                    lblPrecio.Text = objProductoBE.Precio_Unitario.ToString("0.00,###");
+                    lblUM.Text = objUnidadMedidaBE.Des_UM;
+                    lblStock.Text = objStockBE.Stk_Tienda.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
 

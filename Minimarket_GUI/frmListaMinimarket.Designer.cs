@@ -38,13 +38,14 @@
             estado = new DataGridViewTextBoxColumn();
             des_estado = new DataGridViewTextBoxColumn();
             Telefono = new DataGridViewTextBoxColumn();
-            btnCerrar = new Button();
             lblRegistros = new Label();
             label2 = new Label();
             label21 = new Label();
             txtFiltro = new TextBox();
             label1 = new Label();
+            btnCancelar = new Button();
             btnInhabilitar = new Button();
+            btnFiltrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatosMinimarket).BeginInit();
             SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             dtgDatosMinimarket.AllowUserToResizeRows = false;
             dtgDatosMinimarket.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatosMinimarket.BackgroundColor = SystemColors.ControlLight;
+            dtgDatosMinimarket.BorderStyle = BorderStyle.Fixed3D;
             dtgDatosMinimarket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatosMinimarket.Columns.AddRange(new DataGridViewColumn[] { Id_Empresa, Nombre, Direccion, Ruc, estado, des_estado, Telefono });
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -128,19 +130,10 @@
             Telefono.Name = "Telefono";
             Telefono.ReadOnly = true;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(958, 517);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(159, 54);
-            btnCerrar.TabIndex = 11;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            // 
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(96, 547);
+            lblRegistros.Location = new Point(124, 543);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(78, 22);
             lblRegistros.TabIndex = 13;
@@ -169,7 +162,7 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(140, 87);
+            txtFiltro.Location = new Point(162, 87);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(239, 23);
             txtFiltro.TabIndex = 57;
@@ -184,30 +177,65 @@
             label1.TabIndex = 56;
             label1.Text = "Filtro / Nombre:";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(966, 523);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(151, 48);
+            btnCancelar.TabIndex = 61;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCerrar_Click;
+            // 
             // btnInhabilitar
             // 
-            btnInhabilitar.Location = new Point(755, 517);
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(757, 524);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
             btnInhabilitar.Name = "btnInhabilitar";
-            btnInhabilitar.Size = new Size(169, 54);
-            btnInhabilitar.TabIndex = 59;
+            btnInhabilitar.Size = new Size(156, 45);
+            btnInhabilitar.TabIndex = 62;
             btnInhabilitar.Text = "Inhabilitar";
-            btnInhabilitar.UseVisualStyleBackColor = true;
+            btnInhabilitar.UseVisualStyleBackColor = false;
             btnInhabilitar.Click += btnInhabilitar_Click;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(933, 53);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(184, 43);
+            btnFiltrar.TabIndex = 63;
+            btnFiltrar.Text = "Añadir Minimarket";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // frmListaMinimarket
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1141, 595);
+            Controls.Add(btnFiltrar);
             Controls.Add(btnInhabilitar);
+            Controls.Add(btnCancelar);
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(label21);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
-            Controls.Add(btnCerrar);
             Controls.Add(dtgDatosMinimarket);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmListaMinimarket";
+            StartPosition = FormStartPosition.CenterScreen;
             Load += frmListaMinimarket_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatosMinimarket).EndInit();
             ResumeLayout(false);
@@ -217,7 +245,6 @@
         #endregion
 
         private DataGridView dtgDatosMinimarket;
-        private Button btnCerrar;
         private Label lblRegistros;
         private Label label2;
         private Label label21;
@@ -231,6 +258,8 @@
         private DataGridViewTextBoxColumn estado;
         private DataGridViewTextBoxColumn des_estado;
         private DataGridViewTextBoxColumn Telefono;
+        internal Button btnCancelar;
         private Button btnInhabilitar;
+        private Button btnFiltrar;
     }
 }

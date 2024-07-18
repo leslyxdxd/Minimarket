@@ -30,10 +30,13 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentaBoletas));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblTotalPagar = new Label();
             label2 = new Label();
-            btnAgregar = new Button();
             button3 = new Button();
             groupBox1 = new GroupBox();
             txtCantidad = new RichTextBox();
@@ -56,8 +59,8 @@
             IGV = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             groupBox2 = new GroupBox();
+            guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             txtDNI = new TextBox();
-            btnBuscarClienteDNI = new Button();
             label16 = new Label();
             label15 = new Label();
             label1 = new Label();
@@ -65,17 +68,17 @@
             lblNombres = new Label();
             lblRegistros = new Label();
             label10 = new Label();
-            btnEliminarProducto = new Button();
             groupBox3 = new GroupBox();
             radioButtonTarjeta = new RadioButton();
             radiobuttonEfectivo = new RadioButton();
-            btnRegistrarBoleta = new Button();
             rtxtbEfectivo = new RichTextBox();
             lblDevolucion = new Label();
             label8 = new Label();
             label12 = new Label();
-            button1 = new Button();
             label5 = new Label();
+            btnInsertar = new Button();
+            btnInhabilitar = new Button();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).BeginInit();
             groupBox2.SuspendLayout();
@@ -105,22 +108,11 @@
             label2.TabIndex = 5;
             label2.Text = "TOTAL A PAGAR";
             // 
-            // btnAgregar
-            // 
-            btnAgregar.BackColor = SystemColors.Control;
-            btnAgregar.BackgroundImageLayout = ImageLayout.Stretch;
-            btnAgregar.Location = new Point(1004, 159);
-            btnAgregar.Margin = new Padding(4, 3, 4, 3);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(126, 51);
-            btnAgregar.TabIndex = 6;
-            btnAgregar.Text = "Agregar Producto";
-            btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
             // button3
             // 
-            button3.BackColor = Color.White;
+            button3.BackColor = Color.Teal;
+            button3.Font = new Font("Century Gothic", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
             button3.Location = new Point(112, 67);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
@@ -279,8 +271,11 @@
             // 
             dtgListaProductos.AllowUserToAddRows = false;
             dtgListaProductos.AllowUserToDeleteRows = false;
+            dtgListaProductos.AllowUserToResizeColumns = false;
+            dtgListaProductos.AllowUserToResizeRows = false;
             dtgListaProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgListaProductos.BackgroundColor = SystemColors.ControlLight;
+            dtgListaProductos.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -304,7 +299,17 @@
             dtgListaProductos.Margin = new Padding(4, 3, 4, 3);
             dtgListaProductos.Name = "dtgListaProductos";
             dtgListaProductos.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dtgListaProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dtgListaProductos.RowHeadersVisible = false;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgListaProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dtgListaProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgListaProductos.Size = new Size(957, 374);
             dtgListaProductos.TabIndex = 9;
@@ -358,8 +363,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(guna2ImageButton3);
             groupBox2.Controls.Add(txtDNI);
-            groupBox2.Controls.Add(btnBuscarClienteDNI);
             groupBox2.Controls.Add(label16);
             groupBox2.Controls.Add(label15);
             groupBox2.Controls.Add(label1);
@@ -376,6 +381,24 @@
             groupBox2.Text = "INFORMACIÓN DEL COMPRADOR";
             groupBox2.Enter += groupBox2_Enter;
             // 
+            // guna2ImageButton3
+            // 
+            guna2ImageButton3.BackColor = Color.White;
+            guna2ImageButton3.CheckedState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.Cursor = Cursors.Hand;
+            guna2ImageButton3.HoverState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.Image = (Image)resources.GetObject("guna2ImageButton3.Image");
+            guna2ImageButton3.ImageOffset = new Point(0, 0);
+            guna2ImageButton3.ImageRotate = 0F;
+            guna2ImageButton3.ImageSize = new Size(28, 28);
+            guna2ImageButton3.Location = new Point(210, 21);
+            guna2ImageButton3.Name = "guna2ImageButton3";
+            guna2ImageButton3.PressedState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            guna2ImageButton3.Size = new Size(40, 35);
+            guna2ImageButton3.TabIndex = 27;
+            guna2ImageButton3.Click += btnBuscarClienteDNI_Click;
+            // 
             // txtDNI
             // 
             txtDNI.Location = new Point(49, 32);
@@ -384,19 +407,6 @@
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(154, 22);
             txtDNI.TabIndex = 21;
-            // 
-            // btnBuscarClienteDNI
-            // 
-            btnBuscarClienteDNI.BackColor = SystemColors.ButtonFace;
-            btnBuscarClienteDNI.BackgroundImage = Properties.Resources.lupa;
-            btnBuscarClienteDNI.BackgroundImageLayout = ImageLayout.Stretch;
-            btnBuscarClienteDNI.Location = new Point(209, 27);
-            btnBuscarClienteDNI.Margin = new Padding(4, 3, 4, 3);
-            btnBuscarClienteDNI.Name = "btnBuscarClienteDNI";
-            btnBuscarClienteDNI.Size = new Size(33, 33);
-            btnBuscarClienteDNI.TabIndex = 18;
-            btnBuscarClienteDNI.UseVisualStyleBackColor = false;
-            btnBuscarClienteDNI.Click += btnBuscarClienteDNI_Click;
             // 
             // label16
             // 
@@ -468,19 +478,6 @@
             label10.TabIndex = 47;
             label10.Text = "REGISTROS";
             // 
-            // btnEliminarProducto
-            // 
-            btnEliminarProducto.BackColor = SystemColors.Control;
-            btnEliminarProducto.BackgroundImageLayout = ImageLayout.Stretch;
-            btnEliminarProducto.Location = new Point(1004, 218);
-            btnEliminarProducto.Margin = new Padding(4, 3, 4, 3);
-            btnEliminarProducto.Name = "btnEliminarProducto";
-            btnEliminarProducto.Size = new Size(127, 54);
-            btnEliminarProducto.TabIndex = 49;
-            btnEliminarProducto.Text = "Eliminar Producto";
-            btnEliminarProducto.UseVisualStyleBackColor = false;
-            btnEliminarProducto.Click += btnEliminarProducto_Click;
-            // 
             // groupBox3
             // 
             groupBox3.Controls.Add(radioButtonTarjeta);
@@ -519,17 +516,6 @@
             radiobuttonEfectivo.TabStop = true;
             radiobuttonEfectivo.Text = "EFECTIVO";
             radiobuttonEfectivo.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrarBoleta
-            // 
-            btnRegistrarBoleta.Location = new Point(1007, 594);
-            btnRegistrarBoleta.Margin = new Padding(4, 3, 4, 3);
-            btnRegistrarBoleta.Name = "btnRegistrarBoleta";
-            btnRegistrarBoleta.Size = new Size(127, 58);
-            btnRegistrarBoleta.TabIndex = 53;
-            btnRegistrarBoleta.Text = "REGISTRAR COMPROBANTE";
-            btnRegistrarBoleta.UseVisualStyleBackColor = true;
-            btnRegistrarBoleta.Click += btnRegistrarBoleta_Click;
             // 
             // rtxtbEfectivo
             // 
@@ -576,19 +562,6 @@
             label12.TabIndex = 57;
             label12.Text = "DEVOLUCIÓN";
             // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.Control;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(264, 668);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 31);
-            button1.TabIndex = 58;
-            button1.Text = "Cerrar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -601,6 +574,51 @@
             label5.TabIndex = 59;
             label5.Text = "BOLETA ELECTRONICA";
             // 
+            // btnInsertar
+            // 
+            btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInsertar.BackColor = Color.Teal;
+            btnInsertar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(1004, 160);
+            btnInsertar.Margin = new Padding(4, 3, 4, 3);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(127, 54);
+            btnInsertar.TabIndex = 25;
+            btnInsertar.Text = "Agregar Producto";
+            btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnAgregar_Click;
+            // 
+            // btnInhabilitar
+            // 
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(1004, 219);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(127, 54);
+            btnInhabilitar.TabIndex = 25;
+            btnInhabilitar.Text = "Eliminar Producto";
+            btnInhabilitar.UseVisualStyleBackColor = false;
+            btnInhabilitar.Click += btnEliminarProducto_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.ForestGreen;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1007, 584);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 68);
+            button1.TabIndex = 61;
+            button1.Text = "Registrar Comprobante";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnRegistrarBoleta_Click;
+            // 
             // frmVentaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -608,15 +626,15 @@
             AutoSize = true;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
-            Controls.Add(label5);
             Controls.Add(button1);
+            Controls.Add(btnInhabilitar);
+            Controls.Add(btnInsertar);
+            Controls.Add(label5);
             Controls.Add(label12);
             Controls.Add(label8);
             Controls.Add(lblDevolucion);
             Controls.Add(rtxtbEfectivo);
-            Controls.Add(btnRegistrarBoleta);
             Controls.Add(groupBox3);
-            Controls.Add(btnEliminarProducto);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(label10);
@@ -624,7 +642,6 @@
             Controls.Add(dtgListaProductos);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(btnAgregar);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
@@ -649,7 +666,6 @@
         #endregion
         private Label lblTotalPagar;
         private Label label2;
-        private Button btnAgregar;
         private Button button3;
         private GroupBox groupBox1;
         private Label lblNombre;
@@ -672,9 +688,7 @@
         private Label lblStock;
         private Label lblRegistros;
         private Label label10;
-        private Button btnBuscarClienteDNI;
         private TextBox txtDNI;
-        private Button btnEliminarProducto;
         private DataGridViewTextBoxColumn Cod_Producto;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
@@ -685,12 +699,14 @@
         private GroupBox groupBox3;
         private RadioButton radioButtonTarjeta;
         private RadioButton radiobuttonEfectivo;
-        private Button btnRegistrarBoleta;
         private RichTextBox rtxtbEfectivo;
         private Label lblDevolucion;
         private Label label8;
         private Label label12;
-        private Button button1;
         private Label label5;
+        private Button btnInsertar;
+        private Button btnInhabilitar;
+        private Button button1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
     }
 }

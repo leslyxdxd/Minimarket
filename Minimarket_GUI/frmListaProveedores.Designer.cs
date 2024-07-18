@@ -38,14 +38,14 @@
             RUC = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             Estado_Proveedor = new DataGridViewTextBoxColumn();
-            btnCerrar = new Button();
             label1 = new Label();
             txtFiltro = new TextBox();
             label2 = new Label();
             lblRegistros = new Label();
-            btnGuiasRemision = new Button();
-            btnActualizar = new Button();
             label21 = new Label();
+            btnInsertar = new Button();
+            btnCancelar = new Button();
+            btnFiltrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -57,6 +57,7 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Id_Proveedor, Nombre, Direccion, Telefono, Correo, RUC, Estado, Estado_Proveedor });
             dtgDatos.Location = new Point(33, 141);
@@ -130,16 +131,6 @@
             Estado_Proveedor.Name = "Estado_Proveedor";
             Estado_Proveedor.ReadOnly = true;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(971, 636);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(151, 46);
-            btnCerrar.TabIndex = 1;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -175,26 +166,6 @@
             lblRegistros.TabIndex = 2;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnGuiasRemision
-            // 
-            btnGuiasRemision.Location = new Point(940, 78);
-            btnGuiasRemision.Name = "btnGuiasRemision";
-            btnGuiasRemision.Size = new Size(182, 41);
-            btnGuiasRemision.TabIndex = 4;
-            btnGuiasRemision.Text = "Consultar Proveedor";
-            btnGuiasRemision.UseVisualStyleBackColor = true;
-            btnGuiasRemision.Click += button1_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(781, 638);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(155, 44);
-            btnActualizar.TabIndex = 1;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
             // label21
             // 
             label21.AutoSize = true;
@@ -207,20 +178,62 @@
             label21.TabIndex = 49;
             label21.Text = "PROVEEDORES";
             // 
+            // btnInsertar
+            // 
+            btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInsertar.BackColor = Color.Teal;
+            btnInsertar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(726, 637);
+            btnInsertar.Margin = new Padding(4, 3, 4, 3);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(211, 45);
+            btnInsertar.TabIndex = 52;
+            btnInsertar.Text = "Actualizar Proveedor";
+            btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnActualizar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(979, 637);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(143, 45);
+            btnCancelar.TabIndex = 53;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCerrar_Click;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(938, 68);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(184, 43);
+            btnFiltrar.TabIndex = 54;
+            btnFiltrar.Text = "Consultar Proveedor";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += button1_Click;
+            // 
             // frmListaProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnFiltrar);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnInsertar);
             Controls.Add(label21);
-            Controls.Add(btnGuiasRemision);
             Controls.Add(txtFiltro);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnActualizar);
-            Controls.Add(btnCerrar);
             Controls.Add(dtgDatos);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
@@ -238,13 +251,10 @@
         #endregion
 
         private DataGridView dtgDatos;
-        private Button btnCerrar;
         private Label label1;
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
-        private Button btnGuiasRemision;
-        private Button btnActualizar;
         private DataGridViewTextBoxColumn Id_Proveedor;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Direccion;
@@ -254,5 +264,8 @@
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Estado_Proveedor;
         private Label label21;
+        private Button btnInsertar;
+        internal Button btnCancelar;
+        private Button btnFiltrar;
     }
 }

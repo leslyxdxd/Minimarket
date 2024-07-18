@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Nom_Producto = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
@@ -46,9 +46,9 @@
             txtFiltro = new TextBox();
             label2 = new Label();
             lblRegistros = new Label();
-            btnCerrar = new Button();
-            btnTraspaso = new Button();
             label21 = new Label();
+            btnFiltrar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -60,22 +60,23 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Id_Producto, Stk_Tienda, Id_UM, Des_UM });
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dtgDatos.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
             dtgDatos.Location = new Point(27, 132);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1091, 398);
             dtgDatos.TabIndex = 1;
@@ -99,8 +100,8 @@
             // Precio_Unitario
             // 
             Precio_Unitario.DataPropertyName = "Precio_Unitario";
-            dataGridViewCellStyle10.Format = "N2";
-            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Format = "N2";
+            Precio_Unitario.DefaultCellStyle = dataGridViewCellStyle1;
             Precio_Unitario.HeaderText = "Precio U. (Venta)";
             Precio_Unitario.Name = "Precio_Unitario";
             Precio_Unitario.ReadOnly = true;
@@ -169,9 +170,9 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(139, 90);
+            txtFiltro.Location = new Point(153, 95);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(239, 23);
+            txtFiltro.Size = new Size(220, 23);
             txtFiltro.TabIndex = 4;
             txtFiltro.TextChanged += txtFiltro_TextChanged_1;
             // 
@@ -193,26 +194,6 @@
             lblRegistros.TabIndex = 6;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(959, 557);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(159, 54);
-            btnCerrar.TabIndex = 8;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnTraspaso
-            // 
-            btnTraspaso.Location = new Point(744, 557);
-            btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(176, 54);
-            btnTraspaso.TabIndex = 9;
-            btnTraspaso.Text = "Traspasar";
-            btnTraspaso.UseVisualStyleBackColor = true;
-            btnTraspaso.Click += btnTraspaso_Click;
-            // 
             // label21
             // 
             label21.AutoSize = true;
@@ -225,15 +206,42 @@
             label21.TabIndex = 54;
             label21.Text = "PRODUCTOS TIENDA";
             // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(749, 563);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(163, 48);
+            btnFiltrar.TabIndex = 55;
+            btnFiltrar.Text = "Traspasar";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnTraspaso_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(967, 563);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(151, 48);
+            btnCancelar.TabIndex = 59;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCerrar_Click;
+            // 
             // frmListaProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 634);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnFiltrar);
             Controls.Add(label21);
-            Controls.Add(btnTraspaso);
-            Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(txtFiltro);
@@ -258,8 +266,6 @@
         private TextBox txtFiltro;
         private Label label2;
         private Label lblRegistros;
-        private Button btnCerrar;
-        private Button btnTraspaso;
         private DataGridViewTextBoxColumn Nom_Producto;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Precio_Unitario;
@@ -271,5 +277,7 @@
         private DataGridViewTextBoxColumn Id_UM;
         private DataGridViewTextBoxColumn Des_UM;
         private Label label21;
+        private Button btnFiltrar;
+        internal Button btnCancelar;
     }
 }

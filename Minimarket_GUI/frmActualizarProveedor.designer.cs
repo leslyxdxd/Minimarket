@@ -97,12 +97,16 @@
             // 
             // btnGrabar
             // 
-            btnGrabar.Location = new Point(88, 338);
+            btnGrabar.BackColor = Color.Teal;
+            btnGrabar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGrabar.ForeColor = Color.White;
+            btnGrabar.Location = new Point(97, 338);
             btnGrabar.Margin = new Padding(4, 3, 4, 3);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(117, 35);
             btnGrabar.TabIndex = 5;
             btnGrabar.Text = "Grabar";
+            btnGrabar.UseVisualStyleBackColor = false;
             btnGrabar.Click += btnGrabar_Click;
             // 
             // lblRuc
@@ -213,12 +217,16 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(261, 338);
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(242, 338);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(115, 35);
             btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click_1;
             // 
             // frmActualizarProveedor
@@ -227,6 +235,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 445);
             Controls.Add(grpDatos);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;

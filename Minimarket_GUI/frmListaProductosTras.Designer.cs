@@ -48,10 +48,10 @@
             txtFiltro = new TextBox();
             label2 = new Label();
             lblRegistros = new Label();
-            btnCerrar = new Button();
-            btnInabilitar = new Button();
-            btnHabilitar = new Button();
             label21 = new Label();
+            button1 = new Button();
+            btnInhabilitar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Estado, Precio_Unitario, Id_Stock, Stk_Trastienda, Movimiento_Tras, Total_Mov_Tras, Movimiento_Venta, Total_Mov_Ven, Id_Producto, Stk_Tienda, Id_UM });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -73,7 +74,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dtgDatos.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgDatos.Location = new Point(25, 137);
+            dtgDatos.Location = new Point(25, 136);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
@@ -199,7 +200,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(25, 673);
+            label2.Location = new Point(25, 658);
             label2.Name = "label2";
             label2.Size = new Size(64, 15);
             label2.TabIndex = 5;
@@ -208,41 +209,11 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(114, 669);
+            lblRegistros.Location = new Point(141, 658);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(118, 22);
             lblRegistros.TabIndex = 6;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(978, 646);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(140, 45);
-            btnCerrar.TabIndex = 8;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnInabilitar
-            // 
-            btnInabilitar.Location = new Point(789, 646);
-            btnInabilitar.Name = "btnInabilitar";
-            btnInabilitar.Size = new Size(159, 45);
-            btnInabilitar.TabIndex = 9;
-            btnInabilitar.Text = "Inhabilitar";
-            btnInabilitar.UseVisualStyleBackColor = true;
-            btnInabilitar.Click += btnInabilitar_Click;
-            // 
-            // btnHabilitar
-            // 
-            btnHabilitar.Location = new Point(618, 646);
-            btnHabilitar.Name = "btnHabilitar";
-            btnHabilitar.Size = new Size(141, 45);
-            btnHabilitar.TabIndex = 10;
-            btnHabilitar.Text = "Habilitar";
-            btnHabilitar.UseVisualStyleBackColor = true;
-            btnHabilitar.Click += btnHabilitar_Click;
             // 
             // label21
             // 
@@ -256,16 +227,60 @@
             label21.TabIndex = 55;
             label21.Text = "PRODUCTOS ALMACÉN";
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.ForestGreen;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(546, 642);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(142, 44);
+            button1.TabIndex = 56;
+            button1.Text = "Habilitar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnHabilitar_Click;
+            // 
+            // btnInhabilitar
+            // 
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(715, 643);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(132, 45);
+            btnInhabilitar.TabIndex = 57;
+            btnInhabilitar.Text = "Inhabilitar";
+            btnInhabilitar.UseVisualStyleBackColor = false;
+            btnInhabilitar.Click += btnInabilitar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(986, 643);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(132, 45);
+            btnCancelar.TabIndex = 58;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCerrar_Click;
+            // 
             // frmListaProductosTras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnInhabilitar);
+            Controls.Add(button1);
             Controls.Add(label21);
-            Controls.Add(btnHabilitar);
-            Controls.Add(btnInabilitar);
-            Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(txtFiltro);
@@ -302,11 +317,10 @@
         private DataGridViewTextBoxColumn Id_Producto;
         private DataGridViewTextBoxColumn Stk_Tienda;
         private DataGridViewTextBoxColumn Id_UM;
-
-        private Button btnCerrar;
-        private Button btnInabilitar;
-        private Button btnHabilitar;
         private Button btnMovimiento;
         private Label label21;
+        private Button button1;
+        private Button btnInhabilitar;
+        internal Button btnCancelar;
     }
 }

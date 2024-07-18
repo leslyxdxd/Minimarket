@@ -238,6 +238,9 @@ namespace Minimarket_GUI
             CargarTransportista(codigoTransportistaSeleccionado);
         }
 
-    
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

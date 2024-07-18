@@ -45,7 +45,6 @@
             label4 = new Label();
             groupBox1 = new GroupBox();
             txtObservacion = new RichTextBox();
-            btnCancelar = new Button();
             groupBox2 = new GroupBox();
             lblMarcas = new Label();
             label22 = new Label();
@@ -77,10 +76,11 @@
             cboUm = new ComboBox();
             label7 = new Label();
             label15 = new Label();
-            btnGenerar = new Button();
             txtNumeroGuia = new ComboBox();
             label3 = new Label();
             label23 = new Label();
+            button1 = new Button();
+            btnInsertar = new Button();
             ((System.ComponentModel.ISupportInitialize)UpdownCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -270,17 +270,6 @@
             txtObservacion.Size = new Size(426, 120);
             txtObservacion.TabIndex = 41;
             txtObservacion.Text = "";
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.Font = new Font("Century Gothic", 9F);
-            btnCancelar.Location = new Point(748, 638);
-            btnCancelar.Margin = new Padding(4, 3, 4, 3);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(178, 54);
-            btnCancelar.TabIndex = 31;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -623,23 +612,11 @@
             label15.TabIndex = 41;
             label15.Text = "Fecha de Partida:";
             // 
-            // btnGenerar
-            // 
-            btnGenerar.Font = new Font("Century Gothic", 9F);
-            btnGenerar.Location = new Point(971, 638);
-            btnGenerar.Margin = new Padding(4, 3, 4, 3);
-            btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(156, 55);
-            btnGenerar.TabIndex = 44;
-            btnGenerar.Text = "Generar";
-            btnGenerar.UseVisualStyleBackColor = true;
-            btnGenerar.Click += btnGenerar_Click;
-            // 
             // txtNumeroGuia
             // 
             txtNumeroGuia.DropDownStyle = ComboBoxStyle.Simple;
             txtNumeroGuia.FormattingEnabled = true;
-            txtNumeroGuia.Location = new Point(965, 44);
+            txtNumeroGuia.Location = new Point(968, 34);
             txtNumeroGuia.MaxLength = 10;
             txtNumeroGuia.Name = "txtNumeroGuia";
             txtNumeroGuia.Size = new Size(144, 27);
@@ -669,21 +646,50 @@
             label23.TabIndex = 60;
             label23.Text = "GUIA DE REMISIÓN REMITENTE";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Tomato;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(983, 638);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(161, 55);
+            button1.TabIndex = 61;
+            button1.Text = "Salir";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // btnInsertar
+            // 
+            btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInsertar.BackColor = Color.Teal;
+            btnInsertar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(749, 638);
+            btnInsertar.Margin = new Padding(4, 3, 4, 3);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(211, 55);
+            btnInsertar.TabIndex = 62;
+            btnInsertar.Text = "Generar Remision";
+            btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnGenerar_Click;
+            // 
             // frmGenerarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnInsertar);
+            Controls.Add(button1);
             Controls.Add(label23);
             Controls.Add(label3);
             Controls.Add(txtNumeroGuia);
-            Controls.Add(btnGenerar);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(btnCancelar);
             Font = new Font("Century Gothic", 9F);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
@@ -723,7 +729,6 @@
         private Label label4;
         private GroupBox groupBox1;
         private RichTextBox txtObservacion;
-        private Button btnCancelar;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private ComboBox cboTransportista;
@@ -755,10 +760,11 @@
         private Label label22;
         private Label lblUnidad;
         private Label lblMarcas;
-        private Button btnGenerar;
         private ComboBox txtNumeroGuia;
         private Label label3;
         private ComboBox cboProveedor;
         private Label label23;
+        internal Button button1;
+        private Button btnInsertar;
     }
 }

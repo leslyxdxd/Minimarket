@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaMovimientos));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dtgRemision = new DataGridView();
@@ -40,12 +42,12 @@
             label1 = new Label();
             label2 = new Label();
             lblRegistros = new Label();
-            btnCerrar = new Button();
             label3 = new Label();
             cboTiempoPeriodo = new ComboBox();
             label5 = new Label();
             guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             label21 = new Label();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -53,16 +55,29 @@
             // 
             dtgRemision.AllowUserToAddRows = false;
             dtgRemision.AllowUserToDeleteRows = false;
+            dtgRemision.AllowUserToResizeColumns = false;
+            dtgRemision.AllowUserToResizeRows = false;
             dtgRemision.Anchor = AnchorStyles.Left;
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgRemision.BackgroundColor = SystemColors.ControlLight;
+            dtgRemision.BorderStyle = BorderStyle.Fixed3D;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Nom_Producto, Movimiento_Tienda, Des_UM, Fec_Registro, Usu_Registro });
             dtgRemision.Location = new Point(27, 157);
             dtgRemision.Margin = new Padding(4, 3, 4, 3);
             dtgRemision.Name = "dtgRemision";
             dtgRemision.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgRemision.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgRemision.RowHeadersVisible = false;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgRemision.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgRemision.Size = new Size(1098, 463);
             dtgRemision.TabIndex = 9;
@@ -137,16 +152,6 @@
             lblRegistros.TabIndex = 16;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(975, 642);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(150, 49);
-            btnCerrar.TabIndex = 18;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -203,9 +208,23 @@
             label21.Location = new Point(27, 31);
             label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
-            label21.Size = new Size(382, 32);
+            label21.Size = new Size(502, 32);
             label21.TabIndex = 53;
-            label21.Text = "MOVIMIENTOS DE ALMACEN";
+            label21.Text = "MOVIMIENTOS DE ALMACEN / TIENDA";
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(974, 640);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(151, 48);
+            btnCancelar.TabIndex = 60;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCerrar_Click;
             // 
             // frmListaMovimientos
             // 
@@ -213,12 +232,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnCancelar);
             Controls.Add(label21);
             Controls.Add(label5);
             Controls.Add(guna2ImageButton3);
             Controls.Add(cboTiempoPeriodo);
             Controls.Add(label3);
-            Controls.Add(btnCerrar);
             Controls.Add(label2);
             Controls.Add(lblRegistros);
             Controls.Add(txtFiltro);
@@ -243,7 +262,6 @@
         private Label label1;
         private Label label2;
         private Label lblRegistros;
-        private Button btnCerrar;
         private DataGridViewTextBoxColumn Nom_Producto;
         private DataGridViewTextBoxColumn Movimiento_Tienda;
         private DataGridViewTextBoxColumn Des_UM;
@@ -254,5 +272,6 @@
         private Label label5;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Label label21;
+        internal Button btnCancelar;
     }
 }

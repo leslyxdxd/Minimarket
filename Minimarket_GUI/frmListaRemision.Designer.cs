@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaRemision));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dtgRemision = new DataGridView();
@@ -57,8 +59,6 @@
             label2 = new Label();
             label1 = new Label();
             txtFiltro = new TextBox();
-            btnCerrar = new Button();
-            btnActualizar = new Button();
             cboPro = new ComboBox();
             label3 = new Label();
             btnFiltrar = new Button();
@@ -67,6 +67,8 @@
             label21 = new Label();
             guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             label5 = new Label();
+            btnInsertar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgRemision).BeginInit();
             SuspendLayout();
             // 
@@ -74,16 +76,29 @@
             // 
             dtgRemision.AllowUserToAddRows = false;
             dtgRemision.AllowUserToDeleteRows = false;
+            dtgRemision.AllowUserToResizeColumns = false;
+            dtgRemision.AllowUserToResizeRows = false;
             dtgRemision.Anchor = AnchorStyles.Left;
             dtgRemision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgRemision.BackgroundColor = SystemColors.ControlLight;
+            dtgRemision.BorderStyle = BorderStyle.Fixed3D;
             dtgRemision.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgRemision.Columns.AddRange(new DataGridViewColumn[] { Id_Remision, Num_Guia, Id_Proveedor, Nom_Proveedor, RUC, Telefono, Correo, Id_Producto, Nom_Producto, Id_Cat, FechaIni, Des_Cat, Cantidad, Des_UM, PrecioUnitario, total, Observaciones, Estado, Fec_Registro, FechaFin, Fec_Ult_Mod, Usu_Ult_Mod });
             dtgRemision.Location = new Point(27, 193);
             dtgRemision.Margin = new Padding(4, 3, 4, 3);
             dtgRemision.Name = "dtgRemision";
             dtgRemision.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgRemision.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgRemision.RowHeadersVisible = false;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgRemision.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgRemision.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgRemision.Size = new Size(1092, 428);
             dtgRemision.TabIndex = 8;
@@ -287,31 +302,11 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(166, 121);
+            txtFiltro.Location = new Point(166, 124);
             txtFiltro.Name = "txtFiltro";
             txtFiltro.Size = new Size(134, 23);
             txtFiltro.TabIndex = 13;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(966, 639);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(153, 52);
-            btnCerrar.TabIndex = 14;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(745, 639);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(183, 52);
-            btnActualizar.TabIndex = 9;
-            btnActualizar.Text = "Actualizar Remision";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
             // 
             // cboPro
             // 
@@ -335,12 +330,15 @@
             // 
             // btnFiltrar
             // 
-            btnFiltrar.Location = new Point(987, 119);
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(987, 113);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(132, 31);
+            btnFiltrar.Size = new Size(132, 39);
             btnFiltrar.TabIndex = 35;
             btnFiltrar.Text = "Filtrar";
-            btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.UseVisualStyleBackColor = false;
             btnFiltrar.Click += btnFiltrar_Click;
             // 
             // label4
@@ -404,12 +402,43 @@
             label5.TabIndex = 50;
             label5.Text = "Generar Reporte";
             // 
+            // btnInsertar
+            // 
+            btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInsertar.BackColor = Color.Teal;
+            btnInsertar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(730, 642);
+            btnInsertar.Margin = new Padding(4, 3, 4, 3);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(211, 45);
+            btnInsertar.TabIndex = 51;
+            btnInsertar.Text = "Actualizar Remision";
+            btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnActualizar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(987, 642);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(132, 45);
+            btnCancelar.TabIndex = 52;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCerrar_Click;
+            // 
             // frmListaRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnInsertar);
             Controls.Add(label5);
             Controls.Add(guna2ImageButton3);
             Controls.Add(label21);
@@ -418,12 +447,10 @@
             Controls.Add(btnFiltrar);
             Controls.Add(label3);
             Controls.Add(cboPro);
-            Controls.Add(btnCerrar);
             Controls.Add(txtFiltro);
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(lblRegistros);
-            Controls.Add(btnActualizar);
             Controls.Add(dtgRemision);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
@@ -444,8 +471,6 @@
         private Label label2;
         private Label label1;
         private TextBox txtFiltro;
-        private Button btnCerrar;
-        private Button btnActualizar;
         private ComboBox cboPro;
         private Label label3;
         private Button btnFiltrar;
@@ -476,5 +501,7 @@
         private Label label21;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Label label5;
+        private Button btnInsertar;
+        internal Button btnCancelar;
     }
 }

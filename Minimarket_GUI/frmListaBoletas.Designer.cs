@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            btnTraspaso = new Button();
-            btnCerrar = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblRegistros = new Label();
             label2 = new Label();
             txtFiltro = new TextBox();
@@ -45,28 +43,10 @@
             Fecha = new DataGridViewTextBoxColumn();
             Usu_Registro = new DataGridViewTextBoxColumn();
             label21 = new Label();
+            btnCancelar = new Button();
+            btnFiltrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
-            // 
-            // btnTraspaso
-            // 
-            btnTraspaso.Location = new Point(781, 641);
-            btnTraspaso.Name = "btnTraspaso";
-            btnTraspaso.Size = new Size(149, 46);
-            btnTraspaso.TabIndex = 23;
-            btnTraspaso.Text = "Ver detalle";
-            btnTraspaso.UseVisualStyleBackColor = true;
-            btnTraspaso.Click += btnTraspaso_Click;
-            // 
-            // btnCerrar
-            // 
-            btnCerrar.Location = new Point(982, 641);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(145, 46);
-            btnCerrar.TabIndex = 22;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Click += btnCerrar_Click;
             // 
             // lblRegistros
             // 
@@ -111,22 +91,23 @@
             dtgDatos.AllowUserToResizeRows = false;
             dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Columns.AddRange(new DataGridViewColumn[] { Numero_Factura, RazonSocial, Fec_Factura, Ruc, Id_Boleta, Fecha, Usu_Registro });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dtgDatos.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dtgDatos.DefaultCellStyle = dataGridViewCellStyle1;
             dtgDatos.Location = new Point(23, 150);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1104, 466);
             dtgDatos.TabIndex = 17;
@@ -193,15 +174,42 @@
             label21.TabIndex = 56;
             label21.Text = "BOLETAS";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(976, 642);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(151, 48);
+            btnCancelar.TabIndex = 63;
+            btnCancelar.Text = "Salir";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.SteelBlue;
+            btnFiltrar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = Color.White;
+            btnFiltrar.Location = new Point(747, 641);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(173, 48);
+            btnFiltrar.TabIndex = 64;
+            btnFiltrar.Text = "Ver detalle";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnTraspaso_Click;
+            // 
             // frmListaBoletas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnFiltrar);
+            Controls.Add(btnCancelar);
             Controls.Add(label21);
-            Controls.Add(btnTraspaso);
-            Controls.Add(btnCerrar);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
             Controls.Add(txtFiltro);
@@ -220,9 +228,6 @@
         }
 
         #endregion
-
-        private Button btnTraspaso;
-        private Button btnCerrar;
         private Label lblRegistros;
         private Label label2;
         private TextBox txtFiltro;
@@ -237,5 +242,7 @@
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Usu_Registro;
         private Label label21;
+        internal Button btnCancelar;
+        private Button btnFiltrar;
     }
 }

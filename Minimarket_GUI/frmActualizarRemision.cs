@@ -140,8 +140,8 @@ namespace Minimarket_GUI
                 objRemisionBE.Punto_Partida = txtPartida.Text.Trim();
                 objRemisionBE.Punto_Llegada = txtLlegada.Text.Trim();
                 objRemisionBE.Observaciones = txtObservacion.Text.Trim();
-                
-                objRemisionBE.Usu_Ult_Mod = clsCredenciales.Login_Usuario;   
+
+                objRemisionBE.Usu_Ult_Mod = clsCredenciales.Login_Usuario;
                 if (objRemisionBL.ActualizarRemision(objRemisionBE))
                 {
                     MessageBox.Show("Remisión actualizada correctamente.");
@@ -223,7 +223,9 @@ namespace Minimarket_GUI
             // Lógica para manejar cambios en la selección del ComboBox de Unidad de Medida si es necesario
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+ 
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

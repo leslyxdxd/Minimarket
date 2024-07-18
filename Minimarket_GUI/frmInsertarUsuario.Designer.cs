@@ -32,12 +32,12 @@
             label4 = new Label();
             txtNombre = new TextBox();
             label1 = new Label();
-            btnGrabar = new Button();
             label2 = new Label();
             otpGerenteTienda = new RadioButton();
             otpGerenteAlmacen = new RadioButton();
             panel1 = new Panel();
-            btnCancelar = new Button();
+            button1 = new Button();
+            btnInhabilitar = new Button();
             SuspendLayout();
             // 
             // txtPassword
@@ -77,18 +77,6 @@
             label1.Size = new Size(56, 17);
             label1.TabIndex = 6;
             label1.Text = "Usuario:";
-            // 
-            // btnGrabar
-            // 
-            btnGrabar.BackColor = Color.Gold;
-            btnGrabar.Font = new Font("Segoe UI", 9.75F);
-            btnGrabar.Location = new Point(59, 212);
-            btnGrabar.Name = "btnGrabar";
-            btnGrabar.Size = new Size(112, 31);
-            btnGrabar.TabIndex = 22;
-            btnGrabar.Text = "Grabar";
-            btnGrabar.UseVisualStyleBackColor = false;
-            btnGrabar.Click += btnGrabar_Click;
             // 
             // label2
             // 
@@ -134,38 +122,55 @@
             panel1.Size = new Size(175, 168);
             panel1.TabIndex = 26;
             // 
-            // btnCancelar
+            // button1
             // 
-            btnCancelar.BackColor = SystemColors.ControlLightLight;
-            btnCancelar.Font = new Font("Segoe UI", 9.75F);
-            btnCancelar.Location = new Point(192, 212);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(111, 31);
-            btnCancelar.TabIndex = 27;
-            btnCancelar.Text = "cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.Teal;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(38, 210);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(123, 37);
+            button1.TabIndex = 62;
+            button1.Text = "Grabar";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // btnInhabilitar
+            // 
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(176, 210);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(127, 37);
+            btnInhabilitar.TabIndex = 63;
+            btnInhabilitar.Text = "Cancelar";
+            btnInhabilitar.UseVisualStyleBackColor = false;
             // 
             // frmInsertarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(528, 269);
-            Controls.Add(btnCancelar);
+            Controls.Add(btnInhabilitar);
+            Controls.Add(button1);
             Controls.Add(panel1);
             Controls.Add(otpGerenteAlmacen);
             Controls.Add(otpGerenteTienda);
             Controls.Add(label2);
-            Controls.Add(btnGrabar);
             Controls.Add(txtPassword);
             Controls.Add(label4);
             Controls.Add(txtNombre);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmInsertarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar Nuevo Usuario";
+            Text = " Nuevo Usuario";
             Load += frmInsertarUsuario_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -177,11 +182,11 @@
         private Label label4;
         private TextBox txtNombre;
         private Label label1;
-        private Button btnGrabar;
         private Label label2;
         private RadioButton otpGerenteTienda;
         private RadioButton otpGerenteAlmacen;
         private Panel panel1;
-        private Button btnCancelar;
+        private Button button1;
+        private Button btnInhabilitar;
     }
 }

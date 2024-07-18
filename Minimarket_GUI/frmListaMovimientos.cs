@@ -172,39 +172,38 @@ namespace Minimarket_GUI
             {
                 case "Esta semana":
                     startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
-                    endDate = DateTime.Now;
+                    endDate = startDate.AddDays(6).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
                 case "Última semana":
                     startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek - 7);
-                    endDate = startDate.AddDays(7);
+                    endDate = startDate.AddDays(6).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
                 case "Este mes":
                     startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                    endDate = DateTime.Now;
+                    endDate = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
                 case "El mes anterior":
                     startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
-                    endDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1);
+                    endDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
-             
                 case "Hace dos meses":
                     var twoMonthsAgo = DateTime.Now.AddMonths(-2);
                     startDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, 1);
-                    endDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, DateTime.DaysInMonth(twoMonthsAgo.Year, twoMonthsAgo.Month));
+                    endDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, DateTime.DaysInMonth(twoMonthsAgo.Year, twoMonthsAgo.Month)).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
                 case "Este año":
                     startDate = new DateTime(DateTime.Now.Year, 1, 1);
-                    endDate = DateTime.Now;
+                    endDate = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
                 case "El año anterior":
                     startDate = new DateTime(DateTime.Now.Year - 1, 1, 1);
-                    endDate = new DateTime(DateTime.Now.Year - 1, 12, 31);
+                    endDate = new DateTime(DateTime.Now.Year - 1, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
-                
             }
 
             CargarDatosFiltrados(startDate, endDate);
         }
+
 
         private void CargarDatosFiltrados(DateTime startDate, DateTime endDate)
         {

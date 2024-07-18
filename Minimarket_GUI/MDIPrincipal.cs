@@ -89,11 +89,26 @@ namespace ProyVentas_GUI
             }
             else if (clsCredenciales.Niv_Usuario == 2)
             {
-                // Lógica para nivel de usuario 2
+                btnAProductos.Visible = false;
+                btnMinimarket.Visible = false;
+                btnUsuarios.Visible = false;
+                lblAdministrar.Visible = false;
+                guna2Button7.Visible = false;
+                lblGuia.Visible = false;
+                guna2Button11.Visible = false;
+                guna2Button2.Visible = false;
             }
             else if (clsCredenciales.Niv_Usuario == 3)
             {
-                // Lógica para nivel de usuario 3
+                btnAProductos.Visible = false;
+                btnMinimarket.Visible = false;
+                btnUsuarios.Visible = false;
+                lblAdministrar.Visible = false;
+                guna2Button5.Visible = false;
+                guna2Button6.Visible = false;
+                lblVenta.Visible = false;
+                guna2Button3.Visible = false;
+                guna2Button4.Visible = false;
             }
         }
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label3 = new Label();
-            btnActualizar = new Button();
             groupBox4 = new GroupBox();
             txtPeso = new TextBox();
             label19 = new Label();
@@ -78,9 +77,10 @@
             lblTel = new Label();
             label10 = new Label();
             label8 = new Label();
-            btnCancelar = new Button();
             lblNumeroGuia = new Label();
             label23 = new Label();
+            button1 = new Button();
+            btnInsertar = new Button();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -98,17 +98,6 @@
             label3.Size = new Size(78, 20);
             label3.TabIndex = 46;
             label3.Text = "Nº GUIA :";
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(1006, 471);
-            btnActualizar.Margin = new Padding(4, 3, 4, 3);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(116, 40);
-            btnActualizar.TabIndex = 53;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
             // 
             // groupBox4
             // 
@@ -616,16 +605,6 @@
             label8.TabIndex = 15;
             label8.Text = "Direccion:";
             // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(855, 471);
-            btnCancelar.Margin = new Padding(4, 3, 4, 3);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(116, 40);
-            btnCancelar.TabIndex = 48;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            // 
             // lblNumeroGuia
             // 
             lblNumeroGuia.BorderStyle = BorderStyle.FixedSingle;
@@ -647,21 +626,53 @@
             label23.TabIndex = 60;
             label23.Text = "ACTUALIZACIÓN DE GUIA DE REMISIÓN";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Tomato;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1008, 471);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(142, 43);
+            button1.TabIndex = 64;
+            button1.Text = "Salir";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // btnInsertar
+            // 
+            btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInsertar.BackColor = Color.Teal;
+            btnInsertar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(795, 471);
+            btnInsertar.Margin = new Padding(4, 3, 4, 3);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(187, 43);
+            btnInsertar.TabIndex = 65;
+            btnInsertar.Text = "Actualizar Remision";
+            btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnActualizar_Click;
+            // 
             // frmActualizarRemision
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1163, 531);
+            Controls.Add(btnInsertar);
+            Controls.Add(button1);
             Controls.Add(label23);
             Controls.Add(label3);
-            Controls.Add(btnActualizar);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(lblNumeroGuia);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(btnCancelar);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmActualizarRemision";
             StartPosition = FormStartPosition.CenterScreen;
             Load += frmActualizarRemision_Load_1;
@@ -680,7 +691,6 @@
 
         #endregion
         private Label label3;
-        private Button btnActualizar;
         private GroupBox groupBox4;
         private TextBox txtPeso;
         private Label label19;
@@ -729,8 +739,9 @@
         private Label lblTel;
         private Label label10;
         private Label label8;
-        private Button btnCancelar;
         private Label lblNumeroGuia;
         private Label label23;
+        internal Button button1;
+        private Button btnInsertar;
     }
 }

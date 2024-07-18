@@ -29,6 +29,8 @@ namespace ProyVentas_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dtgUsuario = new DataGridView();
             Login_Usuario = new DataGridViewTextBoxColumn();
             Pass_usuario = new DataGridViewTextBoxColumn();
@@ -42,13 +44,13 @@ namespace ProyVentas_GUI
             Usu_Ult_Mod = new DataGridViewTextBoxColumn();
             lblRegistros = new Label();
             label2 = new Label();
-            btnSalir = new Button();
             txtFiltro = new TextBox();
             label1 = new Label();
             btnInhabilitar = new Button();
             button1 = new Button();
             btnInsertar = new Button();
             label21 = new Label();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -56,15 +58,28 @@ namespace ProyVentas_GUI
             // 
             dtgUsuario.AllowUserToAddRows = false;
             dtgUsuario.AllowUserToDeleteRows = false;
+            dtgUsuario.AllowUserToResizeColumns = false;
+            dtgUsuario.AllowUserToResizeRows = false;
             dtgUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgUsuario.BackgroundColor = SystemColors.ControlLight;
+            dtgUsuario.BorderStyle = BorderStyle.Fixed3D;
             dtgUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgUsuario.Columns.AddRange(new DataGridViewColumn[] { Login_Usuario, Pass_usuario, Niv_Usuario, Credenciales, Est_Usuario, Estado, Fec_Registro, Usu_Registro, Fec_Ult_Mod, Usu_Ult_Mod });
             dtgUsuario.Location = new Point(22, 133);
             dtgUsuario.Margin = new Padding(4, 3, 4, 3);
             dtgUsuario.Name = "dtgUsuario";
             dtgUsuario.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgUsuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgUsuario.RowHeadersVisible = false;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgUsuario.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgUsuario.Size = new Size(1107, 494);
             dtgUsuario.TabIndex = 0;
@@ -169,19 +184,6 @@ namespace ProyVentas_GUI
             label2.TabIndex = 12;
             label2.Text = "Usuarios:";
             // 
-            // btnSalir
-            // 
-            btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSalir.Font = new Font("Segoe UI", 9.75F);
-            btnSalir.Location = new Point(986, 648);
-            btnSalir.Margin = new Padding(4, 3, 4, 3);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(143, 45);
-            btnSalir.TabIndex = 9;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
-            btnSalir.Click += btnSalir_Click;
-            // 
             // txtFiltro
             // 
             txtFiltro.Font = new Font("Segoe UI", 9.75F);
@@ -206,40 +208,46 @@ namespace ProyVentas_GUI
             // btnInhabilitar
             // 
             btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnInhabilitar.Font = new Font("Segoe UI", 9.75F);
-            btnInhabilitar.Location = new Point(825, 648);
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(757, 652);
             btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
             btnInhabilitar.Name = "btnInhabilitar";
             btnInhabilitar.Size = new Size(132, 45);
             btnInhabilitar.TabIndex = 15;
             btnInhabilitar.Text = "Inhabilitar";
-            btnInhabilitar.UseVisualStyleBackColor = true;
+            btnInhabilitar.UseVisualStyleBackColor = false;
             btnInhabilitar.Click += btnInhabilitar_Click;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Font = new Font("Segoe UI", 9.75F);
-            button1.Location = new Point(640, 648);
+            button1.BackColor = Color.ForestGreen;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(592, 652);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
-            button1.Size = new Size(157, 48);
+            button1.Size = new Size(142, 44);
             button1.TabIndex = 16;
             button1.Text = "Habilitar";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // btnInsertar
             // 
             btnInsertar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnInsertar.Font = new Font("Segoe UI", 9.75F);
-            btnInsertar.Location = new Point(901, 54);
+            btnInsertar.BackColor = Color.Teal;
+            btnInsertar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(918, 54);
             btnInsertar.Margin = new Padding(4, 3, 4, 3);
             btnInsertar.Name = "btnInsertar";
             btnInsertar.Size = new Size(211, 45);
             btnInsertar.TabIndex = 17;
             btnInsertar.Text = "Añadir Usuario";
-            btnInsertar.UseVisualStyleBackColor = true;
+            btnInsertar.UseVisualStyleBackColor = false;
             btnInsertar.Click += btnInsertar_Click;
             // 
             // label21
@@ -254,12 +262,27 @@ namespace ProyVentas_GUI
             label21.TabIndex = 49;
             label21.Text = "USUARIOS:";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.Tomato;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(997, 651);
+            btnCancelar.Margin = new Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(132, 45);
+            btnCancelar.TabIndex = 50;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnSalir_Click;
+            // 
             // frmListaUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(btnCancelar);
             Controls.Add(label21);
             Controls.Add(btnInsertar);
             Controls.Add(button1);
@@ -268,7 +291,6 @@ namespace ProyVentas_GUI
             Controls.Add(label1);
             Controls.Add(lblRegistros);
             Controls.Add(label2);
-            Controls.Add(btnSalir);
             Controls.Add(dtgUsuario);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
@@ -288,7 +310,6 @@ namespace ProyVentas_GUI
         private System.Windows.Forms.DataGridView dtgUsuario;
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
         private DataGridViewTextBoxColumn Login_Usuario;
@@ -305,5 +326,6 @@ namespace ProyVentas_GUI
         private Button button1;
         private Button btnInsertar;
         private Label label21;
+        internal Button btnCancelar;
     }
 }
