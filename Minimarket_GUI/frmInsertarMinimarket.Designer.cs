@@ -109,7 +109,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(111, 45);
+            txtNombre.Location = new Point(111, 43);
             txtNombre.Margin = new Padding(4, 3, 4, 3);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(326, 23);
