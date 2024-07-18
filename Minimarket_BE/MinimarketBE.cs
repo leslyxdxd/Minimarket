@@ -15,7 +15,7 @@ namespace Minimarket_BE
 
         public String Ruc { get; set; }
 
-
+        public String Telefono { get; set; }
         public Int16 Estado { get; set; }
 
 

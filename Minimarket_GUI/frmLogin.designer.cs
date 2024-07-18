@@ -143,7 +143,7 @@
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(290, 472);
+            ClientSize = new Size(290, 477);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Century Gothic", 8F);

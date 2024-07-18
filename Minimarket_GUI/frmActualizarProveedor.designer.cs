@@ -66,7 +66,7 @@
             grpDatos.Controls.Add(label8);
             grpDatos.Controls.Add(Label3);
             grpDatos.Controls.Add(btnCancelar);
-            grpDatos.Location = new Point(23, 24);
+            grpDatos.Location = new Point(28, 22);
             grpDatos.Margin = new Padding(4, 3, 4, 3);
             grpDatos.Name = "grpDatos";
             grpDatos.Padding = new Padding(4, 3, 4, 3);

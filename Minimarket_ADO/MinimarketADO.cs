@@ -110,6 +110,33 @@ namespace Minimarket_ADO
         }
 
 
+        public Boolean InhabilitarMinimarket(MinimarketBE objMinimarketBE)
+        {
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_InhabilitarMinimarket";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Id_Empresa", objMinimarketBE.Id_Empresa);
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+            }
+        }
 
 
 
@@ -126,9 +153,10 @@ namespace Minimarket_ADO
                 cmd.CommandText = "sp_CrearMinimarket";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Nombre", objMinimarketBE.Nombre);
-                cmd.Parameters.AddWithValue("@Estado", objMinimarketBE.Estado);
+               
                 cmd.Parameters.AddWithValue("@Direccion",objMinimarketBE.Direccion);
                 cmd.Parameters.AddWithValue("@Ruc", objMinimarketBE.Ruc);
+                cmd.Parameters.AddWithValue("@Telefono", objMinimarketBE.Telefono);
 
                 //Abrimos y ejecutamos
 
@@ -174,10 +202,13 @@ namespace Minimarket_ADO
                     dtr.Read();
                     objMinimarketBE.Id_Empresa = Convert.ToInt16(dtr["Id_Empresa"].ToString());
                     objMinimarketBE.Nombre = dtr["Nombre"].ToString();
-                    objMinimarketBE.Estado = Convert.ToInt16(dtr["estado"]);
-                    objMinimarketBE.Ruc = dtr["Ruc"].ToString();
-                    objMinimarketBE.des_estado = dtr["des_estado"].ToString();
                     objMinimarketBE.Direccion = dtr["Direccion"].ToString();
+                    objMinimarketBE.Ruc = dtr["Ruc"].ToString();
+                    objMinimarketBE.Estado = Convert.ToInt16(dtr["estado"]);
+                    objMinimarketBE.Direccion = dtr["Telefono"].ToString();
+                    objMinimarketBE.des_estado = dtr["des_estado"].ToString();
+                 
+                    
                 }
                 dtr.Close();
                 return objMinimarketBE;
@@ -216,7 +247,8 @@ namespace Minimarket_ADO
                 cmd.Parameters.AddWithValue("@Nombre", objMinimarketBE.Nombre);
                 cmd.Parameters.AddWithValue("@Estado", objMinimarketBE.Estado);
                 cmd.Parameters.AddWithValue("@Direccion", objMinimarketBE.Direccion);
-                
+                cmd.Parameters.AddWithValue("@Telefono", objMinimarketBE.Direccion);
+
                 //Abrimos y ejecutamos
 
                 cnx.Open();

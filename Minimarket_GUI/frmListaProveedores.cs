@@ -105,5 +105,10 @@ namespace Minimarket_GUI
         {
 
         }
+
+        private void frmListaProveedores_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

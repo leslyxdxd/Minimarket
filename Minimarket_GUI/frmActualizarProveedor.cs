@@ -60,15 +60,15 @@ namespace ProyVentas_GUI
             try
            {
             //    Validar que este con valor la razon social
-                //if (txtRS.Text.Trim() == String.Empty)
-              //{
-            //    throw new Exception("La razon social es obligatoria");
-            //    }
-            //   Validamos que el ruc este lleno
-            //  if (mskRuc.MaskFull == false)
-            //    {
-            //        throw new Exception("El ruc debe tener 11 caracteres");
-            //    }
+                if (txtDir.Text.Trim() == String.Empty)
+              {
+               throw new Exception("Ladireccion es obligatoria");
+               }
+            // Validamos que el ruc este lleno
+             if (txtCorreo.Text.Trim() == String.Empty)
+                {
+                    throw new Exception("El correo no debe estar vacio");
+                }
 
             //    Pasamos los valores a las propiedades de la instancia
             
@@ -82,8 +82,7 @@ namespace ProyVentas_GUI
             //    objProveedorBE.Id_Ubigeo = cboDepartamento.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() +
             //    cboProvincia.SelectedValue.ToString();
 
-             ///  Se le asignara por ahora el usuario jleon como usuario de registro
-                objProveedorBE.Usu_Ult_Mod = clsCredenciales.Login_Usuario;
+                  objProveedorBE.Usu_Ult_Mod = clsCredenciales.Login_Usuario;
 
                 //Checked
                objProveedorBE.Estado = Convert.ToInt16(chkEstado.Checked);

@@ -21,9 +21,26 @@ namespace ProyVentas_GUI
         private void MDIPrincipal_Load(object sender, EventArgs e)
         {
 
-            // Obtener los datos del minimarket desde la base de datos
-            MinimarketBE minimarket = objminimarketBL.ObtenerDatosMinimarket();
-            lblNombre.Text = minimarket.Nombre.ToString();
+            try
+            {
+                // Obtener los datos del minimarket desde la base de datos
+                MinimarketBE minimarket = objminimarketBL.ObtenerDatosMinimarket();
+
+                // Verificar si se obtuvieron los datos del minimarket
+                if (minimarket != null)
+                {
+                    lblNombre.Text = minimarket.Nombre.ToString();
+                }
+                else
+                {
+                    lblNombre.Text = "No hay minimarkets activos";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Mostrar el error en un cuadro de mensaje
+                MessageBox.Show($"Ocurrió un error al obtener los datos del minimarket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
             guna2ImageButton2.HoverState.ImageSize = guna2ImageButton2.ImageSize;
@@ -194,6 +211,15 @@ namespace ProyVentas_GUI
                 frmLogin loginForm = new frmLogin();
                 loginForm.Show();
             }
+        }
+
+        private void guna2Button8_Click_1(object sender, EventArgs e)
+        {
+            CloseAllChildForms();
+            frmListaMinimarket frmc1 = new frmListaMinimarket();
+            frmc1.MdiParent = this;
+            frmc1.Show();
+
         }
     }
 }

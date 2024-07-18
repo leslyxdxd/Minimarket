@@ -229,6 +229,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista de Proveedores";
             Load += frmListaUsuarios_Load;
+            TextChanged += frmListaProveedores_TextChanged;
             ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();

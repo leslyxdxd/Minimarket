@@ -44,5 +44,12 @@ namespace Minimarket_BL
         {
             return objMinimarketADO.ConsultarMinimarket(strCodigo);
         }
+
+
+        public Boolean InhabilitarMinimarket(MinimarketBE objMinimarketBE)
+        {
+            return objMinimarketADO.InhabilitarMinimarket(objMinimarketBE);
+        }
+        
     }
 }
