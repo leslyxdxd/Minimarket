@@ -135,6 +135,7 @@
             button1.TabIndex = 62;
             button1.Text = "Grabar";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += btnGrabar_Click;
             // 
             // btnInhabilitar
             // 
@@ -149,6 +150,7 @@
             btnInhabilitar.TabIndex = 63;
             btnInhabilitar.Text = "Cancelar";
             btnInhabilitar.UseVisualStyleBackColor = false;
+            btnInhabilitar.Click += btnCancelar_Click;
             // 
             // frmInsertarUsuario
             // 

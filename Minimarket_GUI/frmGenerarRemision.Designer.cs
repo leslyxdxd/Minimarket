@@ -104,7 +104,7 @@
             label10.Location = new Point(295, 108);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(55, 13);
+            label10.Size = new Size(61, 17);
             label10.TabIndex = 18;
             label10.Text = "Telefono:";
             // 
@@ -124,7 +124,7 @@
             label6.Location = new Point(318, 41);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(32, 13);
+            label6.Size = new Size(36, 17);
             label6.TabIndex = 19;
             label6.Text = "RUC:";
             // 
@@ -134,7 +134,7 @@
             label5.Location = new Point(28, 41);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(65, 13);
+            label5.Size = new Size(76, 17);
             label5.TabIndex = 20;
             label5.Text = "Proveeedor";
             // 
@@ -146,7 +146,7 @@
             cboProveedor.Items.AddRange(new object[] { "---Seleccione---" });
             cboProveedor.Location = new Point(123, 38);
             cboProveedor.Name = "cboProveedor";
-            cboProveedor.Size = new Size(157, 21);
+            cboProveedor.Size = new Size(157, 25);
             cboProveedor.TabIndex = 29;
             cboProveedor.SelectionChangeCommitted += cboProveeedor_SelectionChangeCommitted;
             // 
@@ -156,7 +156,7 @@
             label1.Location = new Point(12, 44);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(54, 13);
+            label1.Size = new Size(61, 17);
             label1.TabIndex = 30;
             label1.Text = "Producto";
             // 
@@ -166,7 +166,7 @@
             label12.Location = new Point(48, 107);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(45, 13);
+            label12.Size = new Size(52, 17);
             label12.TabIndex = 17;
             label12.Text = "Correo:";
             // 
@@ -176,7 +176,7 @@
             label8.Location = new Point(35, 169);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(58, 13);
+            label8.Size = new Size(65, 17);
             label8.TabIndex = 15;
             label8.Text = "Direccion:";
             // 
@@ -227,7 +227,7 @@
             label2.Location = new Point(164, 167);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(82, 13);
+            label2.Size = new Size(94, 17);
             label2.TabIndex = 37;
             label2.Text = "Observaciones";
             // 
@@ -237,7 +237,7 @@
             label4.Location = new Point(242, 46);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(54, 13);
+            label4.Size = new Size(60, 17);
             label4.TabIndex = 39;
             label4.Text = "Cantidad";
             // 
@@ -253,7 +253,7 @@
             groupBox1.Controls.Add(lblTel);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label8);
-            groupBox1.Font = new Font("Segoe UI", 8F);
+            groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 109);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(561, 208);
@@ -283,7 +283,7 @@
             groupBox2.Controls.Add(txtObservacion);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(UpdownCantidad);
-            groupBox2.Font = new Font("Segoe UI", 8F);
+            groupBox2.Font = new Font("Segoe UI", 9.75F);
             groupBox2.Location = new Point(13, 339);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(470, 319);
@@ -307,7 +307,7 @@
             label22.Location = new Point(253, 103);
             label22.Margin = new Padding(4, 0, 4, 0);
             label22.Name = "label22";
-            label22.Size = new Size(41, 13);
+            label22.Size = new Size(48, 17);
             label22.TabIndex = 52;
             label22.Text = "Marca:";
             // 
@@ -327,7 +327,7 @@
             label20.Location = new Point(12, 100);
             label20.Margin = new Padding(4, 0, 4, 0);
             label20.Name = "label20";
-            label20.Size = new Size(60, 13);
+            label20.Size = new Size(69, 17);
             label20.TabIndex = 51;
             label20.Text = "U. Medida";
             // 
@@ -345,7 +345,7 @@
             groupBox3.Controls.Add(lblMarca);
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
-            groupBox3.Font = new Font("Segoe UI", 8F);
+            groupBox3.Font = new Font("Segoe UI", 9.75F);
             groupBox3.Location = new Point(585, 109);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(560, 208);
@@ -359,7 +359,7 @@
             label9.Location = new Point(280, 156);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(61, 13);
+            label9.Size = new Size(70, 17);
             label9.TabIndex = 31;
             label9.Text = "N. Licencia";
             // 
@@ -380,7 +380,7 @@
             cboTransportista.FormattingEnabled = true;
             cboTransportista.Location = new Point(110, 36);
             cboTransportista.Name = "cboTransportista";
-            cboTransportista.Size = new Size(157, 21);
+            cboTransportista.Size = new Size(157, 25);
             cboTransportista.TabIndex = 29;
             cboTransportista.SelectionChangeCommitted += cboTransportista_SelectionChangeCommitted;
             // 
@@ -390,7 +390,7 @@
             Transporte.Location = new Point(20, 39);
             Transporte.Margin = new Padding(4, 0, 4, 0);
             Transporte.Name = "Transporte";
-            Transporte.Size = new Size(62, 13);
+            Transporte.Size = new Size(71, 17);
             Transporte.TabIndex = 20;
             Transporte.Text = "Transporte";
             // 
@@ -420,7 +420,7 @@
             lblRucTrans.Location = new Point(309, 41);
             lblRucTrans.Margin = new Padding(4, 0, 4, 0);
             lblRucTrans.Name = "lblRucTrans";
-            lblRucTrans.Size = new Size(32, 13);
+            lblRucTrans.Size = new Size(36, 17);
             lblRucTrans.TabIndex = 19;
             lblRucTrans.Text = "RUC:";
             // 
@@ -440,7 +440,7 @@
             label14.Location = new Point(46, 164);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(36, 13);
+            label14.Size = new Size(41, 17);
             label14.TabIndex = 17;
             label14.Text = "Placa:";
             // 
@@ -460,7 +460,7 @@
             label16.Location = new Point(303, 102);
             label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(38, 13);
+            label16.Size = new Size(45, 17);
             label16.TabIndex = 18;
             label16.Text = "Marca";
             // 
@@ -470,7 +470,7 @@
             label17.Location = new Point(24, 102);
             label17.Margin = new Padding(4, 0, 4, 0);
             label17.Name = "label17";
-            label17.Size = new Size(58, 13);
+            label17.Size = new Size(65, 17);
             label17.TabIndex = 15;
             label17.Text = "Direccion:";
             // 
@@ -488,7 +488,7 @@
             groupBox4.Controls.Add(cboUm);
             groupBox4.Controls.Add(label7);
             groupBox4.Controls.Add(label15);
-            groupBox4.Font = new Font("Segoe UI", 8F);
+            groupBox4.Font = new Font("Segoe UI", 9.75F);
             groupBox4.Location = new Point(503, 339);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(643, 270);
@@ -510,7 +510,7 @@
             label19.Location = new Point(320, 167);
             label19.Margin = new Padding(4, 0, 4, 0);
             label19.Name = "label19";
-            label19.Size = new Size(100, 13);
+            label19.Size = new Size(113, 17);
             label19.TabIndex = 48;
             label19.Text = "Punto de Llegada:";
             // 
@@ -520,7 +520,7 @@
             label18.Location = new Point(19, 156);
             label18.Margin = new Padding(4, 0, 4, 0);
             label18.Name = "label18";
-            label18.Size = new Size(93, 13);
+            label18.Size = new Size(105, 17);
             label18.TabIndex = 47;
             label18.Text = "Punto de Partida";
             // 
@@ -556,7 +556,7 @@
             label13.Location = new Point(27, 47);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(87, 13);
+            label13.Size = new Size(101, 17);
             label13.TabIndex = 40;
             label13.Text = "U. Medida Peso";
             // 
@@ -566,7 +566,7 @@
             label11.Location = new Point(334, 105);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(99, 13);
+            label11.Size = new Size(113, 17);
             label11.TabIndex = 43;
             label11.Text = "Fecha de Llegada:";
             // 
@@ -598,7 +598,7 @@
             label7.Location = new Point(352, 45);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(81, 13);
+            label7.Size = new Size(95, 17);
             label7.TabIndex = 30;
             label7.Text = "Peso de carga:";
             // 
@@ -608,7 +608,7 @@
             label15.Location = new Point(19, 104);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new Size(95, 13);
+            label15.Size = new Size(108, 17);
             label15.TabIndex = 41;
             label15.Text = "Fecha de Partida:";
             // 

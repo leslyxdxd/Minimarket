@@ -201,6 +201,21 @@ namespace ProyVentas_GUI
             frmInsertarUsuario frmGenerar = new frmInsertarUsuario();
 
             frmGenerar.Show();
+            // Llama al método para actualizar la lista de productos
+            ActualizarProductos();
         }
+        public void ActualizarProductos()
+        {
+            try
+            {
+                // Vuelve a cargar los datos en el DataGridView
+                CargarDatos("");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar los productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
