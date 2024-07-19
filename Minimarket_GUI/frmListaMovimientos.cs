@@ -112,10 +112,7 @@ namespace Minimarket_GUI
                 cboTiempoPeriodo.Items.Add("--Seleccione--");
                 cboTiempoPeriodo.Items.Add("Esta semana");
            
-                cboTiempoPeriodo.Items.Add("Este mes");
-                cboTiempoPeriodo.Items.Add("El mes anterior");
-               
-                cboTiempoPeriodo.Items.Add("Este año");
+             
 
                 // Establecer la opción predeterminada
                 cboTiempoPeriodo.SelectedIndex = 0;
@@ -172,21 +169,7 @@ namespace Minimarket_GUI
                     startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
                     endDate = startDate.AddDays(6).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
-              
-                case "Este mes":
-                    startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                    endDate = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                    break;
-                case "El mes anterior":
-                    startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
-                    endDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                    break;
-                
-                case "Este año":
-                    startDate = new DateTime(DateTime.Now.Year, 1, 1);
-                    endDate = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                    break;
-             
+          
             }
 
             CargarDatosFiltrados(startDate, endDate);
