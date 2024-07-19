@@ -45,7 +45,46 @@ namespace Minimarket_ADO
             }
         }
 
-      
+        public Boolean InsertarProducto(ProductoBE objProductoBE)
+        {
+
+
+            try
+            {
+                //Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_InsertarNuevoProducto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Nom_Producto", objProductoBE.Nom_Producto);
+                cmd.Parameters.AddWithValue("@Id_UM", objProductoBE.Id_UM);
+                cmd.Parameters.AddWithValue("@Id_Cat", objProductoBE.Id_Cat);
+                cmd.Parameters.AddWithValue("@Id_Proveedor", objProductoBE.Id_Proveedor);
+                cmd.Parameters.AddWithValue("@Precio_Unitario", objProductoBE.Precio_Unitario);
+                cmd.Parameters.AddWithValue("@Marca", objProductoBE.Marca);
+                cmd.Parameters.AddWithValue("@Usu_Registro", objProductoBE.Usu_Registro);
+
+                //Abrimos y ejecutamos
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException x)
+            {
+                throw new Exception(x.Message);
+                return false;
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
+        }
 
 
         public ProductoBE ConsultarProducto(String strCodigo)

@@ -216,7 +216,7 @@
             // UpdownCantidad
             // 
             UpdownCantidad.Font = new Font("Century Gothic", 9F);
-            UpdownCantidad.Location = new Point(324, 40);
+            UpdownCantidad.Location = new Point(324, 44);
             UpdownCantidad.Name = "UpdownCantidad";
             UpdownCantidad.Size = new Size(120, 22);
             UpdownCantidad.TabIndex = 35;

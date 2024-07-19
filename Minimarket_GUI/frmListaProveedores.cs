@@ -74,11 +74,6 @@ namespace Minimarket_GUI
             actualizarUsuario.ShowDialog();
         }
 
-        private void dtgDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -101,14 +96,13 @@ namespace Minimarket_GUI
             }
         }
 
-        private void dtgDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    
+
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void frmListaProveedores_TextChanged(object sender, EventArgs e)
-        {
-
+            frmInsertarProductoPro actualizarUsuario = new frmInsertarProductoPro();
+            actualizarUsuario.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
+            actualizarUsuario.ShowDialog();
         }
     }
 }

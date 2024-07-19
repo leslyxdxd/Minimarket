@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -46,6 +46,7 @@
             btnInsertar = new Button();
             btnCancelar = new Button();
             btnFiltrar = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -64,13 +65,12 @@
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1089, 479);
             dtgDatos.TabIndex = 0;
-            dtgDatos.CellContentClick += dtgDatos_CellContentClick;
-            dtgDatos.CellDoubleClick += dtgDatos_CellDoubleClick;
+        
             // 
             // Id_Proveedor
             // 
@@ -151,7 +151,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(33, 652);
+            label2.Location = new Point(33, 668);
             label2.Name = "label2";
             label2.Size = new Size(75, 15);
             label2.TabIndex = 2;
@@ -160,7 +160,7 @@
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(141, 648);
+            lblRegistros.Location = new Point(156, 664);
             lblRegistros.Name = "lblRegistros";
             lblRegistros.Size = new Size(107, 22);
             lblRegistros.TabIndex = 2;
@@ -184,10 +184,10 @@
             btnInsertar.BackColor = Color.Teal;
             btnInsertar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInsertar.ForeColor = Color.White;
-            btnInsertar.Location = new Point(726, 637);
+            btnInsertar.Location = new Point(749, 648);
             btnInsertar.Margin = new Padding(4, 3, 4, 3);
             btnInsertar.Name = "btnInsertar";
-            btnInsertar.Size = new Size(211, 45);
+            btnInsertar.Size = new Size(203, 45);
             btnInsertar.TabIndex = 52;
             btnInsertar.Text = "Actualizar Proveedor";
             btnInsertar.UseVisualStyleBackColor = false;
@@ -198,7 +198,7 @@
             btnCancelar.BackColor = Color.Tomato;
             btnCancelar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(979, 637);
+            btnCancelar.Location = new Point(979, 648);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(143, 45);
@@ -220,12 +220,28 @@
             btnFiltrar.UseVisualStyleBackColor = false;
             btnFiltrar.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button2.BackColor = Color.ForestGreen;
+            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(463, 648);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(247, 44);
+            button2.TabIndex = 68;
+            button2.Text = "Añadir Producto / Proveedor";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // frmListaProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
+            Controls.Add(button2);
             Controls.Add(btnFiltrar);
             Controls.Add(btnCancelar);
             Controls.Add(btnInsertar);
@@ -242,7 +258,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista de Proveedores";
             Load += frmListaUsuarios_Load;
-            TextChanged += frmListaProveedores_TextChanged;
+           
             ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -267,5 +283,6 @@
         private Button btnInsertar;
         internal Button btnCancelar;
         private Button btnFiltrar;
+        private Button button2;
     }
 }

@@ -142,8 +142,6 @@ namespace Minimarket_ADO
 
         }
 
-
-
         public DataTable ListarProveedorActivos()
         {
 
@@ -169,9 +167,6 @@ namespace Minimarket_ADO
             }
 
         }
-
-
-
 
         public ProveedorBE ConsultarProveedor(String strCodigo)
         {
@@ -233,8 +228,6 @@ namespace Minimarket_ADO
 
         }
 
-
-
         public DataTable ConsultarTransportistaxProveedor(String strIdCodigo)
         {
 
@@ -263,9 +256,6 @@ namespace Minimarket_ADO
 
 
         }
-
-
-
 
         public DataTable ConsultarProductoxProveedor(String strIdCodigo)
         {

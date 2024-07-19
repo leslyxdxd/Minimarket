@@ -20,6 +20,9 @@ namespace ProyVentas_BL
         {
             return objUnidadMedidaADO.ConsultarUMXRemision(strIdCodigo);
         }
-
+        public DataTable ListarUM_Pro()
+        {
+            return objUnidadMedidaADO.ListarUM_Pro();
+        }
     }
 }
