@@ -385,7 +385,7 @@ namespace Minimarket_GUI
 
                 if (registrado)
                 {
-                    MessageBox.Show("Factura registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Factura y Comprobante registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
                 }
                 else
@@ -658,24 +658,23 @@ namespace Minimarket_GUI
 
         private void rbtnTarjeta_CheckedChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (rbtnTarjeta.Checked)
-                {
-                    rtxtEfectivo.Enabled = false;
-                    lblDevolucion.Enabled = false;
-                }
-                else
+            
 
-                {
-                    rtxtEfectivo.Enabled = true;
-                    lblDevolucion.Enabled = true;
-                }
+            if (rbtnTarjeta.Checked)
+            {
+                rtxtEfectivo.Enabled = false;
+                lblDevolucion.Text = "Sin vuelto";
+                lblDevolucion.Enabled = false;
+                rtxtEfectivo.Text = String.Empty;
+
             }
-            catch (Exception)
+            else
+
             {
 
-                throw new Exception("Consulta con TI");
+                lblDevolucion.Text = String.Empty;
+                rtxtEfectivo.Enabled = true;
+                lblDevolucion.Enabled = true;
             }
         }
 

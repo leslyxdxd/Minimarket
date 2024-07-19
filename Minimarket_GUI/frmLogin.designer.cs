@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             label1 = new Label();
             txtLogin = new TextBox();
             label2 = new Label();
@@ -149,6 +150,7 @@
             Font = new Font("Century Gothic", 8F);
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;

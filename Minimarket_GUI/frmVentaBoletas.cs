@@ -369,7 +369,7 @@ namespace Minimarket_GUI
                 bool respuesta = new BoletaBL().RegistrarBoletaPrueba(BoletaBE, Detalle_Boleta, out mensaje);
                 if (respuesta)
                 {
-                    MessageBox.Show("El registro de la boleta se realizo con exito");
+                    MessageBox.Show("La Boleta y  el Comprobante  se registro correctamente");
                     txtDNI.Text = "";
                     lblApellidos.Text = "";
                     lblNombres.Text = "";
@@ -672,11 +672,16 @@ namespace Minimarket_GUI
                 if (radioButtonTarjeta.Checked)
                 {
                     rtxtbEfectivo.Enabled = false;
+                    lblDevolucion.Text = "Sin vuelto";
                     lblDevolucion.Enabled = false;
+                    rtxtbEfectivo.Text = String.Empty;
+
                 }
                 else
 
                 {
+                    
+                    lblDevolucion.Text = String.Empty;
                     rtxtbEfectivo.Enabled = true;
                     lblDevolucion.Enabled = true;
                 }
