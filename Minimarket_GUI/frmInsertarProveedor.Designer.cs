@@ -34,18 +34,16 @@
             label12 = new Label();
             label8 = new Label();
             groupBox1 = new GroupBox();
+            txtDireccion = new RichTextBox();
+            txtCorreo = new RichTextBox();
+            txtProveedor = new RichTextBox();
             txtProRUC = new MaskedTextBox();
             txtTelefono = new MaskedTextBox();
-            txtDireccion = new Label();
-            txtCorreo = new Label();
-            txtProveedor = new Label();
             groupBox3 = new GroupBox();
+            txtTraMarca = new RichTextBox();
+            txtTranDireccion = new RichTextBox();
+            txtTransporte = new RichTextBox();
             txtTransRUC = new MaskedTextBox();
-            txtLicencia = new Label();
-            txtTraMarca = new Label();
-            txtPlaca = new Label();
-            txtTranDireccion = new Label();
-            txtTransporte = new Label();
             label9 = new Label();
             Transporte = new Label();
             lblRucTrans = new Label();
@@ -55,6 +53,8 @@
             label23 = new Label();
             button1 = new Button();
             btnInsertar = new Button();
+            txtLicencia = new MaskedTextBox();
+            txtPlaca = new MaskedTextBox();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
@@ -111,11 +111,11 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtProRUC);
-            groupBox1.Controls.Add(txtTelefono);
             groupBox1.Controls.Add(txtDireccion);
             groupBox1.Controls.Add(txtCorreo);
             groupBox1.Controls.Add(txtProveedor);
+            groupBox1.Controls.Add(txtProRUC);
+            groupBox1.Controls.Add(txtTelefono);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label12);
@@ -129,13 +129,40 @@
             groupBox1.TabStop = false;
             groupBox1.Text = " PROVEEDOR";
             // 
+            // txtDireccion
+            // 
+            txtDireccion.Location = new Point(108, 161);
+            txtDireccion.Margin = new Padding(4, 3, 4, 3);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(174, 30);
+            txtDireccion.TabIndex = 65;
+            txtDireccion.Text = "";
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.Location = new Point(108, 104);
+            txtCorreo.Margin = new Padding(4, 3, 4, 3);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(174, 30);
+            txtCorreo.TabIndex = 64;
+            txtCorreo.Text = "";
+            // 
+            // txtProveedor
+            // 
+            txtProveedor.Location = new Point(112, 36);
+            txtProveedor.Margin = new Padding(4, 3, 4, 3);
+            txtProveedor.Name = "txtProveedor";
+            txtProveedor.Size = new Size(174, 30);
+            txtProveedor.TabIndex = 63;
+            txtProveedor.Text = "";
+            // 
             // txtProRUC
             // 
             txtProRUC.Location = new Point(364, 36);
             txtProRUC.Margin = new Padding(4, 3, 4, 3);
             txtProRUC.Mask = "99999999999";
             txtProRUC.Name = "txtProRUC";
-            txtProRUC.Size = new Size(150, 25);
+            txtProRUC.Size = new Size(175, 25);
             txtProRUC.TabIndex = 39;
             // 
             // txtTelefono
@@ -144,47 +171,17 @@
             txtTelefono.Margin = new Padding(4, 3, 4, 3);
             txtTelefono.Mask = "999999999";
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(185, 25);
+            txtTelefono.Size = new Size(175, 25);
             txtTelefono.TabIndex = 26;
-            // 
-            // txtDireccion
-            // 
-            txtDireccion.BorderStyle = BorderStyle.FixedSingle;
-            txtDireccion.Location = new Point(108, 169);
-            txtDireccion.Margin = new Padding(4, 0, 4, 0);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(187, 27);
-            txtDireccion.TabIndex = 24;
-            txtDireccion.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.BorderStyle = BorderStyle.FixedSingle;
-            txtCorreo.Location = new Point(108, 103);
-            txtCorreo.Margin = new Padding(4, 0, 4, 0);
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(187, 27);
-            txtCorreo.TabIndex = 23;
-            txtCorreo.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtProveedor
-            // 
-            txtProveedor.BorderStyle = BorderStyle.FixedSingle;
-            txtProveedor.Location = new Point(112, 41);
-            txtProveedor.Margin = new Padding(4, 0, 4, 0);
-            txtProveedor.Name = "txtProveedor";
-            txtProveedor.Size = new Size(187, 27);
-            txtProveedor.TabIndex = 22;
-            txtProveedor.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(txtTransRUC);
+            groupBox3.Controls.Add(txtPlaca);
             groupBox3.Controls.Add(txtLicencia);
             groupBox3.Controls.Add(txtTraMarca);
-            groupBox3.Controls.Add(txtPlaca);
             groupBox3.Controls.Add(txtTranDireccion);
             groupBox3.Controls.Add(txtTransporte);
+            groupBox3.Controls.Add(txtTransRUC);
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(Transporte);
             groupBox3.Controls.Add(lblRucTrans);
@@ -199,69 +196,46 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "INFORMACION TRANSPORTISTA";
             // 
-            // txtTransRUC
-            // 
-            txtTransRUC.Location = new Point(365, 41);
-            txtTransRUC.Margin = new Padding(4, 3, 4, 3);
-            txtTransRUC.Mask = "99999999999";
-            txtTransRUC.Name = "txtTransRUC";
-            txtTransRUC.Size = new Size(150, 25);
-            txtTransRUC.TabIndex = 38;
-            // 
-            // txtLicencia
-            // 
-            txtLicencia.BorderStyle = BorderStyle.FixedSingle;
-            txtLicencia.Location = new Point(353, 156);
-            txtLicencia.Margin = new Padding(4, 0, 4, 0);
-            txtLicencia.Name = "txtLicencia";
-            txtLicencia.Size = new Size(187, 27);
-            txtLicencia.TabIndex = 37;
-            txtLicencia.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // txtTraMarca
             // 
-            txtTraMarca.BorderStyle = BorderStyle.FixedSingle;
-            txtTraMarca.Location = new Point(353, 97);
-            txtTraMarca.Margin = new Padding(4, 0, 4, 0);
+            txtTraMarca.Location = new Point(356, 89);
+            txtTraMarca.Margin = new Padding(4, 3, 4, 3);
             txtTraMarca.Name = "txtTraMarca";
-            txtTraMarca.Size = new Size(187, 27);
-            txtTraMarca.TabIndex = 36;
-            txtTraMarca.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtPlaca
-            // 
-            txtPlaca.BorderStyle = BorderStyle.FixedSingle;
-            txtPlaca.Location = new Point(85, 159);
-            txtPlaca.Margin = new Padding(4, 0, 4, 0);
-            txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(187, 27);
-            txtPlaca.TabIndex = 34;
-            txtPlaca.TextAlign = ContentAlignment.MiddleLeft;
+            txtTraMarca.Size = new Size(174, 30);
+            txtTraMarca.TabIndex = 70;
+            txtTraMarca.Text = "";
             // 
             // txtTranDireccion
             // 
-            txtTranDireccion.BorderStyle = BorderStyle.FixedSingle;
-            txtTranDireccion.Location = new Point(99, 97);
-            txtTranDireccion.Margin = new Padding(4, 0, 4, 0);
+            txtTranDireccion.Location = new Point(97, 97);
+            txtTranDireccion.Margin = new Padding(4, 3, 4, 3);
             txtTranDireccion.Name = "txtTranDireccion";
-            txtTranDireccion.Size = new Size(187, 27);
-            txtTranDireccion.TabIndex = 33;
-            txtTranDireccion.TextAlign = ContentAlignment.MiddleLeft;
+            txtTranDireccion.Size = new Size(174, 30);
+            txtTranDireccion.TabIndex = 67;
+            txtTranDireccion.Text = "";
             // 
             // txtTransporte
             // 
-            txtTransporte.BorderStyle = BorderStyle.FixedSingle;
-            txtTransporte.Location = new Point(99, 36);
-            txtTransporte.Margin = new Padding(4, 0, 4, 0);
+            txtTransporte.Location = new Point(98, 36);
+            txtTransporte.Margin = new Padding(4, 3, 4, 3);
             txtTransporte.Name = "txtTransporte";
-            txtTransporte.Size = new Size(187, 27);
-            txtTransporte.TabIndex = 32;
-            txtTransporte.TextAlign = ContentAlignment.MiddleLeft;
+            txtTransporte.Size = new Size(174, 30);
+            txtTransporte.TabIndex = 66;
+            txtTransporte.Text = "";
+            // 
+            // txtTransRUC
+            // 
+            txtTransRUC.Location = new Point(356, 36);
+            txtTransRUC.Margin = new Padding(4, 3, 4, 3);
+            txtTransRUC.Mask = "99999999999";
+            txtTransRUC.Name = "txtTransRUC";
+            txtTransRUC.Size = new Size(177, 25);
+            txtTransRUC.TabIndex = 38;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(280, 156);
+            label9.Location = new Point(280, 164);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(70, 17);
@@ -359,6 +333,24 @@
             btnInsertar.UseVisualStyleBackColor = false;
             btnInsertar.Click += btnInsertar_Click;
             // 
+            // txtLicencia
+            // 
+            txtLicencia.Location = new Point(358, 161);
+            txtLicencia.Margin = new Padding(4, 3, 4, 3);
+            txtLicencia.Mask = "9999999";
+            txtLicencia.Name = "txtLicencia";
+            txtLicencia.Size = new Size(177, 25);
+            txtLicencia.TabIndex = 71;
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.Location = new Point(98, 161);
+            txtPlaca.Margin = new Padding(4, 3, 4, 3);
+            txtPlaca.Mask = "999999";
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(143, 25);
+            txtPlaca.TabIndex = 72;
+            // 
             // frmInsertarProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -404,16 +396,16 @@
         private Label label23;
         internal Button button1;
         private Button btnInsertar;
-        private Label txtProveedor;
-        private Label txtDireccion;
-        private Label txtCorreo;
-        private Label txtLicencia;
-        private Label txtTraMarca;
-        private Label txtPlaca;
-        private Label txtTranDireccion;
-        private Label txtTransporte;
         private MaskedTextBox txtProRUC;
         private MaskedTextBox txtTelefono;
         private MaskedTextBox txtTransRUC;
+        private RichTextBox txtProveedor;
+        private RichTextBox txtCorreo;
+        private RichTextBox txtDireccion;
+        private RichTextBox txtTraMarca;
+        private RichTextBox txtTranDireccion;
+        private RichTextBox txtTransporte;
+        private MaskedTextBox txtLicencia;
+        private MaskedTextBox txtPlaca;
     }
 }

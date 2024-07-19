@@ -181,7 +181,7 @@ namespace Minimarket_GUI
                 using (var pack = new ExcelPackage(new FileInfo(rutaarchivo)))
                 {
                     ExcelWorksheet ws = pack.Workbook.Worksheets["Hoja1"];
-                    ws.Cells["C2"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                    ws.Cells["C3"].Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                    
 
                     foreach (DataRow drRemisionG in dtRemision.Rows)
@@ -196,14 +196,14 @@ namespace Minimarket_GUI
                         ws.Cells[fila1, 9].Value = drRemisionG["Empresa_Transporte"].ToString() + "---" + drRemisionG["Placa_Trasporte"].ToString();
                         ws.Cells[fila1, 10].Value = drRemisionG["FechaIni"].ToString();
                         ws.Cells[fila1, 11].Value = drRemisionG["FechaFin"].ToString();
-                        ws.Cells[fila1, 12].Value = drRemisionG["Usu_Registro"].ToString();
-                        ws.Cells[fila1, 13].Value = drRemisionG["Usu_Ult_Mod"].ToString() + "---" + drRemisionG["Fec_Ult_Mod"].ToString();
+                       
+                        ws.Cells[fila1, 12].Value = drRemisionG["Usu_Ult_Mod"].ToString() + "---" + drRemisionG["Fec_Ult_Mod"].ToString();
 
                         fila1 += 1;
                     }
 
                     ws.Column(1).Width = 23;
-                    ws.Column(2).Width = 25;
+                    ws.Column(2).Width = 30;
                     ws.Column(3).Width = 21;
                     ws.Column(4).Width = 23;
                     ws.Column(5).Width = 23;
@@ -212,9 +212,8 @@ namespace Minimarket_GUI
                     ws.Column(8).Width = 32;
                     ws.Column(9).Width = 43;
                     ws.Column(10).Width = 29;
-                    ws.Column(11).Width = 29;
-                    ws.Column(12).Width = 29;
-                    ws.Column(13).Width = 32;
+                    ws.Column(11).Width = 29;     
+                    ws.Column(12).Width = 32;
 
                     String timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                     String filename = "Reporte_GuiasRemision_" + clsCredenciales.Login_Usuario + "_" + timestamp + ".xlsx";

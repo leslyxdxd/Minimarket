@@ -210,26 +210,29 @@ namespace Minimarket_GUI
                 else
                 {
                     // Si el producto no existe, agregar una nueva fila y restar stock
-                    DataGridViewRow file = new DataGridViewRow();
-                    file.CreateCells(dtgListaProductos);
-                    file.Cells[0].Value = lblCodigo.Text;
-                    file.Cells[1].Value = lblNombre.Text;
-                    file.Cells[2].Value = decimal.Parse(lblPrecio.Text).ToString("N2");
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dtgListaProductos);
+                    fila.Cells[0].Value = lblCodigo.Text;
+                    fila.Cells[1].Value = lblNombre.Text;
+                    fila.Cells[2].Value = decimal.Parse(lblPrecio.Text).ToString("N2");
 
-                    file.Cells[3].Value = txtCantidad.Text;
+                    fila.Cells[3].Value = txtCantidad.Text;
+
+                    float tasaIGV = 0.18f; // Tasa del 18%
 
                     // Calcular el subtotal, IGV y total
                     float precio = float.Parse(lblPrecio.Text);
-                    float subtotal = precio * cantidad;
-                    float tasaIGV = 0.18f; // Tasa del 18%
+                    int cantidad2 = int.Parse(txtCantidad.Text);
+                    float subtotal = precio * cantidad2;
                     float igv = subtotal * tasaIGV;
                     float total = subtotal + igv;
 
                     // Asignar los valores a las celdas correspondientes    
-                    file.Cells[4].Value = igv.ToString("F2");      // IGV
-                    file.Cells[5].Value = total.ToString("F2");    // Total con IGV
+                    fila.Cells[4].Value = igv.ToString("F2");      // IGV
+                    fila.Cells[5].Value = total.ToString("F2");    // Total con IGV
 
-                    dtgListaProductos.Rows.Add(file);
+                    dtgListaProductos.Rows.Add(fila);
+
 
                     // Restar el stock
                     bool respuesta = new BoletaADO().RestarStock(

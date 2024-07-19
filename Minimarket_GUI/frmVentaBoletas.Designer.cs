@@ -39,7 +39,6 @@
             label2 = new Label();
             button3 = new Button();
             groupBox1 = new GroupBox();
-            txtCantidad = new RichTextBox();
             label11 = new Label();
             lblStock = new Label();
             lblUM = new Label();
@@ -79,6 +78,7 @@
             btnInsertar = new Button();
             btnInhabilitar = new Button();
             button1 = new Button();
+            txtCantidad = new RichTextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgListaProductos).BeginInit();
             groupBox2.SuspendLayout();
@@ -146,16 +146,6 @@
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "DETALLE DE PRODUCTO";
-            // 
-            // txtCantidad
-            // 
-            txtCantidad.Location = new Point(853, 72);
-            txtCantidad.Margin = new Padding(4, 3, 4, 3);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(84, 35);
-            txtCantidad.TabIndex = 24;
-            txtCantidad.Text = "";
-            txtCantidad.TextChanged += txtCantidad_TextChanged;
             // 
             // label11
             // 
@@ -618,6 +608,16 @@
             button1.Text = "Registrar Comprobante";
             button1.UseVisualStyleBackColor = false;
             button1.Click += btnRegistrarBoleta_Click;
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(853, 72);
+            txtCantidad.Margin = new Padding(4, 3, 4, 3);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(84, 35);
+            txtCantidad.TabIndex = 24;
+            txtCantidad.Text = "";
+            txtCantidad.TextChanged += txtCantidad_TextChanged;
             // 
             // frmVentaBoletas
             // 
