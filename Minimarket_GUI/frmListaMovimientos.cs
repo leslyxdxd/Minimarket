@@ -111,13 +111,11 @@ namespace Minimarket_GUI
                 // Añadir opciones al ComboBox
                 cboTiempoPeriodo.Items.Add("--Seleccione--");
                 cboTiempoPeriodo.Items.Add("Esta semana");
-                cboTiempoPeriodo.Items.Add("Última semana");
+           
                 cboTiempoPeriodo.Items.Add("Este mes");
                 cboTiempoPeriodo.Items.Add("El mes anterior");
-                cboTiempoPeriodo.Items.Add("Hace dos meses");
+               
                 cboTiempoPeriodo.Items.Add("Este año");
-                cboTiempoPeriodo.Items.Add("El año anterior");
-       
 
                 // Establecer la opción predeterminada
                 cboTiempoPeriodo.SelectedIndex = 0;
@@ -174,10 +172,7 @@ namespace Minimarket_GUI
                     startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
                     endDate = startDate.AddDays(6).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
-                case "Última semana":
-                    startDate = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek - 7);
-                    endDate = startDate.AddDays(6).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                    break;
+              
                 case "Este mes":
                     startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                     endDate = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
@@ -186,24 +181,16 @@ namespace Minimarket_GUI
                     startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
                     endDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
-                case "Hace dos meses":
-                    var twoMonthsAgo = DateTime.Now.AddMonths(-2);
-                    startDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, 1);
-                    endDate = new DateTime(twoMonthsAgo.Year, twoMonthsAgo.Month, DateTime.DaysInMonth(twoMonthsAgo.Year, twoMonthsAgo.Month)).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                    break;
+                
                 case "Este año":
                     startDate = new DateTime(DateTime.Now.Year, 1, 1);
                     endDate = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                     break;
-                case "El año anterior":
-                    startDate = new DateTime(DateTime.Now.Year - 1, 1, 1);
-                    endDate = new DateTime(DateTime.Now.Year - 1, 12, 31).Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                    break;
+             
             }
 
             CargarDatosFiltrados(startDate, endDate);
         }
-
 
         private void CargarDatosFiltrados(DateTime startDate, DateTime endDate)
         {
