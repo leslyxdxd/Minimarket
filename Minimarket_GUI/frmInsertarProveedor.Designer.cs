@@ -363,7 +363,7 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Font = new Font("Century Gothic", 9F);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmInsertarProveedor";
