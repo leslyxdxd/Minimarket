@@ -16,7 +16,7 @@ namespace Minimarket_BE
 
 
         public int Id_Cat { get; set; }
-        public int Id_Proveedor { get; set; }
+        public String Id_Proveedor { get; set; }
         public int Id_UM{ get; set; }
         public String Marca { get; set; }
         public String Nom_Proveedor { get; set; }

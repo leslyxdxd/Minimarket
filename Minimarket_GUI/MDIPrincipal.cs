@@ -97,6 +97,9 @@ namespace ProyVentas_GUI
                 lblGuia.Visible = false;
                 guna2Button11.Visible = false;
                 guna2Button2.Visible = false;
+                guna2Button8.Visible = false;
+                
+
             }
             else if (clsCredenciales.Niv_Usuario == 3)
             {
@@ -109,6 +112,7 @@ namespace ProyVentas_GUI
                 lblVenta.Visible = false;
                 guna2Button3.Visible = false;
                 guna2Button4.Visible = false;
+                guna2Button8.Visible=false;
             }
         }
 

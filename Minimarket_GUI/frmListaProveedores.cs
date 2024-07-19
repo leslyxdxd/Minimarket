@@ -1,4 +1,5 @@
 ﻿// Agregar...
+using Guna.UI2.WinForms;
 using Minimarket_BL;
 using ProyVentas_GUI;
 using System.Data; // Para los objetos DataTable, DataRow y DataView
@@ -29,11 +30,34 @@ namespace Minimarket_GUI
 
         private void frmListaUsuarios_Load(object sender, EventArgs e)
         {
+
+
+
+
             try
             {
                 dtgDatos.AutoGenerateColumns = false;
                 CargarDatos("");
+               
 
+                if (clsCredenciales.Niv_Usuario == 1)
+                {
+                    // Lógica para nivel de usuario 1
+                }
+                else if (clsCredenciales.Niv_Usuario == 2)
+                {
+                    
+                  
+
+                }
+                else if (clsCredenciales.Niv_Usuario == 3)
+                {
+
+                    btnInsertar.Visible = false;
+                    btnAñadir.Visible = false;
+                    btnNuevo.Visible = false;
+                }
+            
             }
             catch (Exception ex)
 
@@ -96,13 +120,19 @@ namespace Minimarket_GUI
             }
         }
 
-    
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             frmInsertarProductoPro actualizarUsuario = new frmInsertarProductoPro();
             actualizarUsuario.Codigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
             actualizarUsuario.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmInsertarProveedor insertarProveedor = new frmInsertarProveedor();
+            insertarProveedor.ShowDialog();
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dtgDatos = new DataGridView();
             Id_Proveedor = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -46,7 +46,8 @@
             btnInsertar = new Button();
             btnCancelar = new Button();
             btnFiltrar = new Button();
-            button2 = new Button();
+            btnAñadir = new Button();
+            btnNuevo = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
@@ -65,12 +66,11 @@
             dtgDatos.Name = "dtgDatos";
             dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 192, 192);
-            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 192, 192);
+            dtgDatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(1089, 479);
             dtgDatos.TabIndex = 0;
-        
             // 
             // Id_Proveedor
             // 
@@ -184,7 +184,7 @@
             btnInsertar.BackColor = Color.Teal;
             btnInsertar.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInsertar.ForeColor = Color.White;
-            btnInsertar.Location = new Point(749, 648);
+            btnInsertar.Location = new Point(768, 648);
             btnInsertar.Margin = new Padding(4, 3, 4, 3);
             btnInsertar.Name = "btnInsertar";
             btnInsertar.Size = new Size(203, 45);
@@ -220,20 +220,33 @@
             btnFiltrar.UseVisualStyleBackColor = false;
             btnFiltrar.Click += button1_Click;
             // 
-            // button2
+            // btnAñadir
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.BackColor = Color.ForestGreen;
-            button2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(463, 648);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(247, 44);
-            button2.TabIndex = 68;
-            button2.Text = "Añadir Producto / Proveedor";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnAñadir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAñadir.BackColor = Color.ForestGreen;
+            btnAñadir.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAñadir.ForeColor = Color.White;
+            btnAñadir.Location = new Point(513, 649);
+            btnAñadir.Margin = new Padding(4, 3, 4, 3);
+            btnAñadir.Name = "btnAñadir";
+            btnAñadir.Size = new Size(247, 44);
+            btnAñadir.TabIndex = 68;
+            btnAñadir.Text = "Añadir Producto / Proveedor";
+            btnAñadir.UseVisualStyleBackColor = false;
+            btnAñadir.Click += button2_Click;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.BackColor = Color.SteelBlue;
+            btnNuevo.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNuevo.ForeColor = Color.White;
+            btnNuevo.Location = new Point(335, 649);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(171, 43);
+            btnNuevo.TabIndex = 69;
+            btnNuevo.Text = "Nuevo Proveedor";
+            btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += button1_Click_1;
             // 
             // frmListaProveedores
             // 
@@ -241,7 +254,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1157, 717);
-            Controls.Add(button2);
+            Controls.Add(btnNuevo);
+            Controls.Add(btnAñadir);
             Controls.Add(btnFiltrar);
             Controls.Add(btnCancelar);
             Controls.Add(btnInsertar);
@@ -258,7 +272,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista de Proveedores";
             Load += frmListaUsuarios_Load;
-           
             ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -283,6 +296,7 @@
         private Button btnInsertar;
         internal Button btnCancelar;
         private Button btnFiltrar;
-        private Button button2;
+        private Button btnAñadir;
+        private Button btnNuevo;
     }
 }
