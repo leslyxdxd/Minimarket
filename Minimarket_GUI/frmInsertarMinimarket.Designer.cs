@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             grpDatos = new GroupBox();
-            txtRuc = new TextBox();
+            txtRuc = new MaskedTextBox();
+            btnInhabilitar = new Button();
+            button1 = new Button();
             txtTelefono = new MaskedTextBox();
             label6 = new Label();
             txtDireccion = new TextBox();
@@ -37,16 +39,14 @@
             label1 = new Label();
             Label2 = new Label();
             Label3 = new Label();
-            btnInhabilitar = new Button();
-            button1 = new Button();
             grpDatos.SuspendLayout();
             SuspendLayout();
             // 
             // grpDatos
             // 
+            grpDatos.Controls.Add(txtRuc);
             grpDatos.Controls.Add(btnInhabilitar);
             grpDatos.Controls.Add(button1);
-            grpDatos.Controls.Add(txtRuc);
             grpDatos.Controls.Add(txtTelefono);
             grpDatos.Controls.Add(label6);
             grpDatos.Controls.Add(txtDireccion);
@@ -67,9 +67,40 @@
             // 
             txtRuc.Location = new Point(111, 175);
             txtRuc.Margin = new Padding(4, 3, 4, 3);
+            txtRuc.Mask = "99999999999";
             txtRuc.Name = "txtRuc";
-            txtRuc.Size = new Size(326, 23);
-            txtRuc.TabIndex = 9;
+            txtRuc.Size = new Size(150, 23);
+            txtRuc.TabIndex = 66;
+            // 
+            // btnInhabilitar
+            // 
+            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnInhabilitar.BackColor = Color.Firebrick;
+            btnInhabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInhabilitar.ForeColor = Color.White;
+            btnInhabilitar.Location = new Point(234, 235);
+            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(118, 37);
+            btnInhabilitar.TabIndex = 65;
+            btnInhabilitar.Text = "Cancelar";
+            btnInhabilitar.UseVisualStyleBackColor = false;
+            btnInhabilitar.Click += btnCancelar_Click;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.BackColor = Color.Teal;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(89, 235);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(122, 37);
+            button1.TabIndex = 64;
+            button1.Text = "Grabar";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnGrabar_Click;
             // 
             // txtTelefono
             // 
@@ -132,36 +163,6 @@
             Label3.TabIndex = 3;
             Label3.Text = "Telefono:";
             // 
-            // btnInhabilitar
-            // 
-            btnInhabilitar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnInhabilitar.BackColor = Color.Firebrick;
-            btnInhabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInhabilitar.ForeColor = Color.White;
-            btnInhabilitar.Location = new Point(234, 235);
-            btnInhabilitar.Margin = new Padding(4, 3, 4, 3);
-            btnInhabilitar.Name = "btnInhabilitar";
-            btnInhabilitar.Size = new Size(118, 37);
-            btnInhabilitar.TabIndex = 65;
-            btnInhabilitar.Text = "Cancelar";
-            btnInhabilitar.UseVisualStyleBackColor = false;
-            btnInhabilitar.Click += btnCancelar_Click;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.BackColor = Color.Teal;
-            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(89, 235);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(122, 37);
-            button1.TabIndex = 64;
-            button1.Text = "Grabar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnGrabar_Click;
-            // 
             // frmInsertarMinimarket
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -189,8 +190,8 @@
         internal Label label1;
         internal Label Label2;
         internal Label Label3;
-        internal TextBox txtRuc;
         private Button btnInhabilitar;
         private Button button1;
+        private MaskedTextBox txtRuc;
     }
 }

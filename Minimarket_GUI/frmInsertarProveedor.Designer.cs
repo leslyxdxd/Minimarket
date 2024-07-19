@@ -34,10 +34,13 @@
             label12 = new Label();
             label8 = new Label();
             groupBox1 = new GroupBox();
+            txtProRUC = new MaskedTextBox();
+            txtTelefono = new MaskedTextBox();
             txtDireccion = new Label();
             txtCorreo = new Label();
             txtProveedor = new Label();
             groupBox3 = new GroupBox();
+            txtTransRUC = new MaskedTextBox();
             txtLicencia = new Label();
             txtTraMarca = new Label();
             txtPlaca = new Label();
@@ -52,9 +55,6 @@
             label23 = new Label();
             button1 = new Button();
             btnInsertar = new Button();
-            txtTelefono = new MaskedTextBox();
-            txtTransRUC = new MaskedTextBox();
-            txtProRUC = new MaskedTextBox();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
@@ -129,6 +129,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = " PROVEEDOR";
             // 
+            // txtProRUC
+            // 
+            txtProRUC.Location = new Point(364, 36);
+            txtProRUC.Margin = new Padding(4, 3, 4, 3);
+            txtProRUC.Mask = "99999999999";
+            txtProRUC.Name = "txtProRUC";
+            txtProRUC.Size = new Size(150, 25);
+            txtProRUC.TabIndex = 39;
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(364, 100);
+            txtTelefono.Margin = new Padding(4, 3, 4, 3);
+            txtTelefono.Mask = "999999999";
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(185, 25);
+            txtTelefono.TabIndex = 26;
+            // 
             // txtDireccion
             // 
             txtDireccion.BorderStyle = BorderStyle.FixedSingle;
@@ -180,6 +198,15 @@
             groupBox3.TabIndex = 41;
             groupBox3.TabStop = false;
             groupBox3.Text = "INFORMACION TRANSPORTISTA";
+            // 
+            // txtTransRUC
+            // 
+            txtTransRUC.Location = new Point(365, 41);
+            txtTransRUC.Margin = new Padding(4, 3, 4, 3);
+            txtTransRUC.Mask = "99999999999";
+            txtTransRUC.Name = "txtTransRUC";
+            txtTransRUC.Size = new Size(150, 25);
+            txtTransRUC.TabIndex = 38;
             // 
             // txtLicencia
             // 
@@ -331,33 +358,6 @@
             btnInsertar.Text = "Guardar";
             btnInsertar.UseVisualStyleBackColor = false;
             btnInsertar.Click += btnInsertar_Click;
-            // 
-            // txtTelefono
-            // 
-            txtTelefono.Location = new Point(364, 100);
-            txtTelefono.Margin = new Padding(4, 3, 4, 3);
-            txtTelefono.Mask = "999999999";
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(185, 25);
-            txtTelefono.TabIndex = 26;
-            // 
-            // txtTransRUC
-            // 
-            txtTransRUC.Location = new Point(365, 41);
-            txtTransRUC.Margin = new Padding(4, 3, 4, 3);
-            txtTransRUC.Mask = "999999999";
-            txtTransRUC.Name = "txtTransRUC";
-            txtTransRUC.Size = new Size(150, 25);
-            txtTransRUC.TabIndex = 38;
-            // 
-            // txtProRUC
-            // 
-            txtProRUC.Location = new Point(364, 36);
-            txtProRUC.Margin = new Padding(4, 3, 4, 3);
-            txtProRUC.Mask = "999999999";
-            txtProRUC.Name = "txtProRUC";
-            txtProRUC.Size = new Size(150, 25);
-            txtProRUC.TabIndex = 39;
             // 
             // frmInsertarProveedor
             // 
