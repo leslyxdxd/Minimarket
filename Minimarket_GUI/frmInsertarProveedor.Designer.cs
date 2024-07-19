@@ -28,46 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTel = new Label();
             label10 = new Label();
-            lblRuc = new Label();
             label6 = new Label();
             label5 = new Label();
             label12 = new Label();
             label8 = new Label();
-            lblCorreo = new Label();
-            lblDireccion = new Label();
             groupBox1 = new GroupBox();
+            txtDireccion = new Label();
+            txtCorreo = new Label();
+            txtProveedor = new Label();
             groupBox3 = new GroupBox();
+            txtLicencia = new Label();
+            txtTraMarca = new Label();
+            txtPlaca = new Label();
+            txtTranDireccion = new Label();
+            txtTransporte = new Label();
             label9 = new Label();
-            lblLicencia = new Label();
             Transporte = new Label();
-            lblDirecTrans = new Label();
-            lblRucTra = new Label();
             lblRucTrans = new Label();
-            lblPlaca = new Label();
             label14 = new Label();
-            lblMarca = new Label();
             label16 = new Label();
             label17 = new Label();
             label23 = new Label();
             button1 = new Button();
             btnInsertar = new Button();
-            label3 = new Label();
-            label21 = new Label();
+            txtTelefono = new MaskedTextBox();
+            txtTransRUC = new MaskedTextBox();
+            txtProRUC = new MaskedTextBox();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblTel
-            // 
-            lblTel.BorderStyle = BorderStyle.FixedSingle;
-            lblTel.Font = new Font("Century Gothic", 9F);
-            lblTel.Location = new Point(388, 107);
-            lblTel.Margin = new Padding(4, 0, 4, 0);
-            lblTel.Name = "lblTel";
-            lblTel.Size = new Size(166, 29);
-            lblTel.TabIndex = 24;
             // 
             // label10
             // 
@@ -78,16 +68,6 @@
             label10.Size = new Size(61, 17);
             label10.TabIndex = 18;
             label10.Text = "Telefono:";
-            // 
-            // lblRuc
-            // 
-            lblRuc.BorderStyle = BorderStyle.FixedSingle;
-            lblRuc.Font = new Font("Century Gothic", 9F);
-            lblRuc.Location = new Point(381, 41);
-            lblRuc.Margin = new Padding(4, 0, 4, 0);
-            lblRuc.Name = "lblRuc";
-            lblRuc.Size = new Size(166, 29);
-            lblRuc.TabIndex = 25;
             // 
             // label6
             // 
@@ -129,36 +109,16 @@
             label8.TabIndex = 15;
             label8.Text = "Direccion:";
             // 
-            // lblCorreo
-            // 
-            lblCorreo.BorderStyle = BorderStyle.FixedSingle;
-            lblCorreo.Font = new Font("Century Gothic", 9F);
-            lblCorreo.Location = new Point(123, 101);
-            lblCorreo.Margin = new Padding(4, 0, 4, 0);
-            lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(157, 29);
-            lblCorreo.TabIndex = 22;
-            // 
-            // lblDireccion
-            // 
-            lblDireccion.BorderStyle = BorderStyle.FixedSingle;
-            lblDireccion.Font = new Font("Century Gothic", 9F);
-            lblDireccion.Location = new Point(123, 163);
-            lblDireccion.Margin = new Padding(4, 0, 4, 0);
-            lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(216, 29);
-            lblDireccion.TabIndex = 21;
-            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtProRUC);
+            groupBox1.Controls.Add(txtTelefono);
+            groupBox1.Controls.Add(txtDireccion);
+            groupBox1.Controls.Add(txtCorreo);
+            groupBox1.Controls.Add(txtProveedor);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(lblDireccion);
-            groupBox1.Controls.Add(lblRuc);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(lblCorreo);
             groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(lblTel);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label8);
             groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -169,18 +129,48 @@
             groupBox1.TabStop = false;
             groupBox1.Text = " PROVEEDOR";
             // 
+            // txtDireccion
+            // 
+            txtDireccion.BorderStyle = BorderStyle.FixedSingle;
+            txtDireccion.Location = new Point(108, 169);
+            txtDireccion.Margin = new Padding(4, 0, 4, 0);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(187, 27);
+            txtDireccion.TabIndex = 24;
+            txtDireccion.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.BorderStyle = BorderStyle.FixedSingle;
+            txtCorreo.Location = new Point(108, 103);
+            txtCorreo.Margin = new Padding(4, 0, 4, 0);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(187, 27);
+            txtCorreo.TabIndex = 23;
+            txtCorreo.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtProveedor
+            // 
+            txtProveedor.BorderStyle = BorderStyle.FixedSingle;
+            txtProveedor.Location = new Point(112, 41);
+            txtProveedor.Margin = new Padding(4, 0, 4, 0);
+            txtProveedor.Name = "txtProveedor";
+            txtProveedor.Size = new Size(187, 27);
+            txtProveedor.TabIndex = 22;
+            txtProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(label21);
+            groupBox3.Controls.Add(txtTransRUC);
+            groupBox3.Controls.Add(txtLicencia);
+            groupBox3.Controls.Add(txtTraMarca);
+            groupBox3.Controls.Add(txtPlaca);
+            groupBox3.Controls.Add(txtTranDireccion);
+            groupBox3.Controls.Add(txtTransporte);
             groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(lblLicencia);
             groupBox3.Controls.Add(Transporte);
-            groupBox3.Controls.Add(lblDirecTrans);
-            groupBox3.Controls.Add(lblRucTra);
             groupBox3.Controls.Add(lblRucTrans);
-            groupBox3.Controls.Add(lblPlaca);
             groupBox3.Controls.Add(label14);
-            groupBox3.Controls.Add(lblMarca);
             groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(label17);
             groupBox3.Font = new Font("Segoe UI", 9.75F);
@@ -190,6 +180,56 @@
             groupBox3.TabIndex = 41;
             groupBox3.TabStop = false;
             groupBox3.Text = "INFORMACION TRANSPORTISTA";
+            // 
+            // txtLicencia
+            // 
+            txtLicencia.BorderStyle = BorderStyle.FixedSingle;
+            txtLicencia.Location = new Point(353, 156);
+            txtLicencia.Margin = new Padding(4, 0, 4, 0);
+            txtLicencia.Name = "txtLicencia";
+            txtLicencia.Size = new Size(187, 27);
+            txtLicencia.TabIndex = 37;
+            txtLicencia.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtTraMarca
+            // 
+            txtTraMarca.BorderStyle = BorderStyle.FixedSingle;
+            txtTraMarca.Location = new Point(353, 97);
+            txtTraMarca.Margin = new Padding(4, 0, 4, 0);
+            txtTraMarca.Name = "txtTraMarca";
+            txtTraMarca.Size = new Size(187, 27);
+            txtTraMarca.TabIndex = 36;
+            txtTraMarca.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.BorderStyle = BorderStyle.FixedSingle;
+            txtPlaca.Location = new Point(85, 159);
+            txtPlaca.Margin = new Padding(4, 0, 4, 0);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(187, 27);
+            txtPlaca.TabIndex = 34;
+            txtPlaca.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtTranDireccion
+            // 
+            txtTranDireccion.BorderStyle = BorderStyle.FixedSingle;
+            txtTranDireccion.Location = new Point(99, 97);
+            txtTranDireccion.Margin = new Padding(4, 0, 4, 0);
+            txtTranDireccion.Name = "txtTranDireccion";
+            txtTranDireccion.Size = new Size(187, 27);
+            txtTranDireccion.TabIndex = 33;
+            txtTranDireccion.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtTransporte
+            // 
+            txtTransporte.BorderStyle = BorderStyle.FixedSingle;
+            txtTransporte.Location = new Point(99, 36);
+            txtTransporte.Margin = new Padding(4, 0, 4, 0);
+            txtTransporte.Name = "txtTransporte";
+            txtTransporte.Size = new Size(187, 27);
+            txtTransporte.TabIndex = 32;
+            txtTransporte.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -201,16 +241,6 @@
             label9.TabIndex = 31;
             label9.Text = "N. Licencia";
             // 
-            // lblLicencia
-            // 
-            lblLicencia.BorderStyle = BorderStyle.FixedSingle;
-            lblLicencia.Font = new Font("Century Gothic", 9F);
-            lblLicencia.Location = new Point(380, 149);
-            lblLicencia.Margin = new Padding(4, 0, 4, 0);
-            lblLicencia.Name = "lblLicencia";
-            lblLicencia.Size = new Size(157, 29);
-            lblLicencia.TabIndex = 30;
-            // 
             // Transporte
             // 
             Transporte.AutoSize = true;
@@ -220,26 +250,6 @@
             Transporte.Size = new Size(71, 17);
             Transporte.TabIndex = 20;
             Transporte.Text = "Transporte";
-            // 
-            // lblDirecTrans
-            // 
-            lblDirecTrans.BorderStyle = BorderStyle.FixedSingle;
-            lblDirecTrans.Font = new Font("Century Gothic", 9F);
-            lblDirecTrans.Location = new Point(110, 95);
-            lblDirecTrans.Margin = new Padding(4, 0, 4, 0);
-            lblDirecTrans.Name = "lblDirecTrans";
-            lblDirecTrans.Size = new Size(175, 29);
-            lblDirecTrans.TabIndex = 1;
-            // 
-            // lblRucTra
-            // 
-            lblRucTra.BorderStyle = BorderStyle.FixedSingle;
-            lblRucTra.Font = new Font("Century Gothic", 9F);
-            lblRucTra.Location = new Point(383, 38);
-            lblRucTra.Margin = new Padding(4, 0, 4, 0);
-            lblRucTra.Name = "lblRucTra";
-            lblRucTra.Size = new Size(163, 29);
-            lblRucTra.TabIndex = 25;
             // 
             // lblRucTrans
             // 
@@ -251,16 +261,6 @@
             lblRucTrans.TabIndex = 19;
             lblRucTrans.Text = "RUC:";
             // 
-            // lblPlaca
-            // 
-            lblPlaca.BorderStyle = BorderStyle.FixedSingle;
-            lblPlaca.Font = new Font("Century Gothic", 9F);
-            lblPlaca.Location = new Point(110, 155);
-            lblPlaca.Margin = new Padding(4, 0, 4, 0);
-            lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(135, 29);
-            lblPlaca.TabIndex = 22;
-            // 
             // label14
             // 
             label14.AutoSize = true;
@@ -270,16 +270,6 @@
             label14.Size = new Size(41, 17);
             label14.TabIndex = 17;
             label14.Text = "Placa:";
-            // 
-            // lblMarca
-            // 
-            lblMarca.BorderStyle = BorderStyle.FixedSingle;
-            lblMarca.Font = new Font("Century Gothic", 9F);
-            lblMarca.Location = new Point(383, 95);
-            lblMarca.Margin = new Padding(4, 0, 4, 0);
-            lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(159, 29);
-            lblMarca.TabIndex = 24;
             // 
             // label16
             // 
@@ -325,6 +315,7 @@
             button1.TabIndex = 61;
             button1.Text = "Salir";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // btnInsertar
             // 
@@ -339,26 +330,34 @@
             btnInsertar.TabIndex = 62;
             btnInsertar.Text = "Guardar";
             btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnInsertar_Click;
             // 
-            // label3
+            // txtTelefono
             // 
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Font = new Font("Century Gothic", 9F);
-            label3.Location = new Point(123, 32);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(157, 29);
-            label3.TabIndex = 30;
+            txtTelefono.Location = new Point(364, 100);
+            txtTelefono.Margin = new Padding(4, 3, 4, 3);
+            txtTelefono.Mask = "999999999";
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(185, 25);
+            txtTelefono.TabIndex = 26;
             // 
-            // label21
+            // txtTransRUC
             // 
-            label21.BorderStyle = BorderStyle.FixedSingle;
-            label21.Font = new Font("Century Gothic", 9F);
-            label21.Location = new Point(110, 32);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(175, 29);
-            label21.TabIndex = 32;
+            txtTransRUC.Location = new Point(365, 41);
+            txtTransRUC.Margin = new Padding(4, 3, 4, 3);
+            txtTransRUC.Mask = "999999999";
+            txtTransRUC.Name = "txtTransRUC";
+            txtTransRUC.Size = new Size(150, 25);
+            txtTransRUC.TabIndex = 38;
+            // 
+            // txtProRUC
+            // 
+            txtProRUC.Location = new Point(364, 36);
+            txtProRUC.Margin = new Padding(4, 3, 4, 3);
+            txtProRUC.Mask = "999999999";
+            txtProRUC.Name = "txtProRUC";
+            txtProRUC.Size = new Size(150, 25);
+            txtProRUC.TabIndex = 39;
             // 
             // frmInsertarProveedor
             // 
@@ -388,33 +387,33 @@
         }
 
         #endregion
-        private Label lblTel;
         private Label label10;
-        private Label lblRuc;
         private Label label6;
         private Label label5;
         private ComboBox cboProveeedor;
         private Label label12;
         private Label label8;
-        private Label lblCorreo;
-        private Label lblDireccion;
         private GroupBox groupBox1;
         private GroupBox groupBox3;
         private Label Transporte;
-        private Label lblDirecTrans;
-        private Label lblRucTra;
         private Label lblRucTrans;
-        private Label lblPlaca;
         private Label label14;
-        private Label lblMarca;
         private Label label16;
         private Label label17;
-        private Label lblLicencia;
         private Label label9;
         private Label label23;
         internal Button button1;
         private Button btnInsertar;
-        private Label label3;
-        private Label label21;
+        private Label txtProveedor;
+        private Label txtDireccion;
+        private Label txtCorreo;
+        private Label txtLicencia;
+        private Label txtTraMarca;
+        private Label txtPlaca;
+        private Label txtTranDireccion;
+        private Label txtTransporte;
+        private MaskedTextBox txtProRUC;
+        private MaskedTextBox txtTelefono;
+        private MaskedTextBox txtTransRUC;
     }
 }

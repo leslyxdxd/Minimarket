@@ -50,5 +50,13 @@ namespace Minimarket_BL
             return objProveedorADO.ActualizarProveedor(objProveedorBE);
         }
 
+
+
+        public Boolean InsertarProveedorTransporte(ProveedorBE objProveedorBE, TransportistaBE objTransporteBE)
+        {
+            return objProveedorADO.InsertarProveedorTransporte(objProveedorBE,objTransporteBE);
+        }
+
+
     }
 }

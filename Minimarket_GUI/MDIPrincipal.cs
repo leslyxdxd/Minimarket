@@ -29,7 +29,7 @@ namespace ProyVentas_GUI
                 // Verificar si se obtuvieron los datos del minimarket
                 if (minimarket != null)
                 {
-                    lblNombre.Text = minimarket.Nombre.ToString();
+                    lblNombre.Text = minimarket.Nombre ?? "Nombre no disponible";
                 }
                 else
                 {

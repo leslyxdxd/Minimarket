@@ -51,6 +51,70 @@ namespace Minimarket_ADO
 
         }
 
+
+
+
+        public Boolean InsertarProveedorTransporte(ProveedorBE objProveedorBE , TransportistaBE objTransporteBE)
+        {
+            try
+            {
+                //Codifique
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "sp_GuardarProveedorYTransporte";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Nom_Proveedor", objProveedorBE.Nom_Proveedor);
+                cmd.Parameters.AddWithValue("@Direc_Proveedor", objProveedorBE.Direc_Proveedor);
+                cmd.Parameters.AddWithValue("@RUC_Proveedor", objProveedorBE.RUC);
+                cmd.Parameters.AddWithValue("@Telefono", objProveedorBE.Telefono);
+                cmd.Parameters.AddWithValue("@Correo", objProveedorBE.Correo);
+                cmd.Parameters.AddWithValue("@Usu_Registro", objProveedorBE.Usu_Registro);
+                cmd.Parameters.AddWithValue("@Empresa_Transporte", objTransporteBE.Empresa_Transporte);
+                cmd.Parameters.AddWithValue("@Direccion_Empresa", objTransporteBE.Direccion_Empresa);
+                cmd.Parameters.AddWithValue("@Ruc_Transporte", objTransporteBE.Ruc_Transporte);
+                cmd.Parameters.AddWithValue("@Marca_Transporte", objTransporteBE.Marca_Transporte);
+                cmd.Parameters.AddWithValue("@Placa_Transporte", objTransporteBE.Placa_Transporte);
+                cmd.Parameters.AddWithValue("@Licencia_Transporte", objTransporteBE.Licencia_Transporte);
+                //Abrimos y ejecutamos
+
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException x)
+            {
+                throw new Exception(x.Message);
+                return false;
+            }
+            finally
+            {
+                if (cnx.State == ConnectionState.Open)
+                {
+                    cnx.Close();
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public DataTable ListarNombreProveedor()
         {
 
