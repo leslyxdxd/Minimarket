@@ -1,0 +1,2673 @@
+USE [master]
+GO
+/****** Object:  Database [Inventario]    Script Date: 19/07/2024 20:26:01 ******/
+CREATE DATABASE [Inventario]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Inventario', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\Inventario.mdf' , SIZE = 73728KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Inventario_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\Inventario_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [Inventario] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Inventario].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Inventario] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Inventario] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Inventario] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Inventario] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Inventario] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Inventario] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Inventario] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Inventario] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Inventario] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Inventario] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Inventario] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Inventario] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Inventario] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Inventario] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Inventario] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Inventario] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Inventario] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Inventario] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Inventario] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Inventario] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Inventario] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Inventario] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Inventario] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Inventario] SET  MULTI_USER 
+GO
+ALTER DATABASE [Inventario] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Inventario] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Inventario] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Inventario] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Inventario] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Inventario] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Inventario', N'ON'
+GO
+ALTER DATABASE [Inventario] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [Inventario] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [Inventario]
+GO
+/****** Object:  UserDefinedTableType [dbo].[EDetalle_Boleta]    Script Date: 19/07/2024 20:26:02 ******/
+CREATE TYPE [dbo].[EDetalle_Boleta] AS TABLE(
+	[Id_Producto] [varchar](4) NULL,
+	[Cantidad] [int] NULL
+)
+GO
+/****** Object:  UserDefinedTableType [dbo].[EDetalle_Factura]    Script Date: 19/07/2024 20:26:02 ******/
+CREATE TYPE [dbo].[EDetalle_Factura] AS TABLE(
+	[Id_Producto] [varchar](4) NULL,
+	[Cantidad] [int] NULL,
+	[Igv] [decimal](18, 0) NULL,
+	[Total] [decimal](18, 0) NULL
+)
+GO
+/****** Object:  Table [dbo].[Tb_Productos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Productos](
+	[Id_Producto] [varchar](4) NOT NULL,
+	[Nom_Producto] [varchar](255) NULL,
+	[Id_Cat] [int] NULL,
+	[Id_Proveedor] [nvarchar](4) NULL,
+	[Id_UM] [int] NULL,
+	[Fec_Registro] [datetime] NULL,
+	[Usu_Registro] [varchar](20) NULL,
+	[Fec_Ult_Mod] [datetime] NULL,
+	[Usu_Ult_Mod] [varchar](20) NULL,
+	[Estado] [int] NULL,
+	[Precio_Unitario] [decimal](10, 0) NULL,
+	[Marca] [varchar](20) NULL,
+ CONSTRAINT [PK__Tb_Produ__2085A9CFBDE7C977] PRIMARY KEY CLUSTERED 
+(
+	[Id_Producto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_Boleta]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Boleta](
+	[Id_Boleta] [varchar](4) NOT NULL,
+	[Fecha] [date] NOT NULL,
+	[Fec_Registro] [datetime] NULL,
+	[Usu_Registro] [varchar](20) NULL,
+	[Fec_Ult_Mod] [datetime] NULL,
+	[Usu_Ult_Mod] [varchar](20) NULL,
+	[Nro_boleta] [varchar](13) NULL,
+	[Nombres_Cliente] [varchar](50) NULL,
+	[Apellidos_Cliente] [varchar](50) NULL,
+	[Dni_Cliente] [varchar](8) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Boleta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_Detalle_Boleta]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Detalle_Boleta](
+	[Id_DetalleBoleta] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Boleta] [varchar](4) NULL,
+	[Id_Producto] [varchar](4) NULL,
+	[Total] [decimal](10, 2) NULL,
+	[Cantidad] [int] NULL,
+	[Igv] [money] NULL,
+	[subtotal] [money] NULL,
+	[MetodoPago] [int] NULL,
+	[EfectivoRecibido] [decimal](10, 2) NULL,
+	[Devolucion] [decimal](10, 2) NULL,
+ CONSTRAINT [PK_Tb_DetalleBoleta] PRIMARY KEY CLUSTERED 
+(
+	[Id_DetalleBoleta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_Boletas]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vw_Boletas] AS
+SELECT
+	  b.Id_Boleta,
+	  b.Nro_boleta,
+	 b.Nombres_Cliente,
+    b.Apellidos_Cliente,
+    b.Dni_Cliente,
+    b.Fecha,
+    dp.Id_DetalleBoleta,
+    p.Id_Producto,
+    p.Nom_Producto,
+    p.Estado,
+    p.Marca,
+    p.Precio_Unitario,
+    dp.Cantidad,
+    dp.Igv,
+    dp.subtotal,
+	 dp.Total,
+	 b.Fec_Registro,
+    b.Usu_Registro,
+    b.Fec_Ult_Mod,
+    b.Usu_Ult_Mod
+FROM 
+    dbo.Tb_Detalle_Boleta dp
+JOIN 
+    dbo.Tb_Boleta b ON dp.Id_Boleta = b.Id_Boleta
+JOIN 
+    dbo.Tb_Productos p ON dp.Id_Producto = p.Id_Producto;
+GO
+/****** Object:  Table [dbo].[Tb_Stock]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Stock](
+	[Id_Stock] [varchar](4) NOT NULL,
+	[Stk_Trastienda] [int] NULL,
+	[Stk_Tienda] [int] NULL,
+	[Id_Producto] [varchar](4) NULL,
+ CONSTRAINT [PK_Tb_Stock] PRIMARY KEY CLUSTERED 
+(
+	[Id_Stock] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_UnidadMedida]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_UnidadMedida](
+	[Id_UM] [int] IDENTITY(1,1) NOT NULL,
+	[Des_UM] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_UM] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_StockProductos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE VIEW [dbo].[vw_StockProductos] AS
+SELECT 
+    p.Id_Producto,
+    p.Nom_Producto,
+	P.Marca,
+    p.Id_UM,
+    u.Des_UM,
+    CASE 
+        WHEN p.Estado = 1 THEN 'Disponible'
+        ELSE 'No disponible'
+    END AS Estado,
+    p.Precio_Unitario,
+    s.Id_Stock,
+    s.Stk_Trastienda,
+    s.Stk_Tienda
+FROM 
+    dbo.Tb_Stock s
+INNER JOIN 
+    dbo.Tb_Productos p ON s.Id_Producto = p.Id_Producto
+INNER JOIN 
+    dbo.Tb_UnidadMedida u ON p.Id_UM = u.Id_UM;
+GO
+/****** Object:  Table [dbo].[Tb_Movimientos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Movimientos](
+	[Id_Movimiento] [int] IDENTITY(1,1) NOT NULL,
+	[Movimiento_Tienda] [int] NULL,
+	[Fec_Registro] [datetime] NULL,
+	[Id_Stock] [varchar](4) NULL,
+	[Usu_Registro] [varchar](20) NULL,
+ CONSTRAINT [PK_Tb_Movimientos] PRIMARY KEY CLUSTERED 
+(
+	[Id_Movimiento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_MovimientosConStock]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[vw_MovimientosConStock] AS
+SELECT 
+    m.Id_Movimiento,
+    m.Movimiento_Tienda,
+    m.Fec_Registro,
+    m.Usu_Registro,
+    m.Id_Stock,
+    sp.Id_Producto,
+    sp.Nom_Producto,
+    sp.Estado,
+    sp.Precio_Unitario,
+    sp.Stk_Trastienda,
+    sp.Stk_Tienda,
+    sp.Id_UM,
+    sp.Des_UM
+FROM 
+    dbo.Tb_Movimientos m
+INNER JOIN 
+    dbo.vw_StockProductos sp ON m.Id_Stock = sp.Id_Stock
+
+GO
+/****** Object:  Table [dbo].[Tb_Transporte]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Transporte](
+	[Id_Transporte] [varchar](4) NOT NULL,
+	[Empresa_Transporte] [varchar](50) NULL,
+	[Direccion_Empresa] [varchar](50) NULL,
+	[Ruc_Transporte] [varchar](11) NULL,
+	[Marca_Trasporte] [varchar](50) NULL,
+	[Placa_Trasporte] [varchar](6) NULL,
+	[Licencia_Transporte] [varchar](7) NULL,
+ CONSTRAINT [PK_Tb_Transporte] PRIMARY KEY CLUSTERED 
+(
+	[Id_Transporte] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_DetalleRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_DetalleRemision](
+	[Id_Detalle] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Remision] [nvarchar](6) NULL,
+	[Id_Proveedor] [nvarchar](4) NULL,
+	[Id_Producto] [varchar](4) NULL,
+	[PrecioUnitario] [decimal](10, 2) NULL,
+	[Cantidad] [int] NULL,
+	[Peso_Carga] [decimal](10, 0) NULL,
+	[Id_UM] [int] NULL,
+	[Id_Transporte] [varchar](4) NULL,
+	[Punto_Partida] [nchar](50) NULL,
+	[Punto_Llegada] [nchar](50) NULL,
+ CONSTRAINT [PK_Tb_DetalleRemision] PRIMARY KEY CLUSTERED 
+(
+	[Id_Detalle] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_Categoria]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Categoria](
+	[Id_Cat] [int] IDENTITY(1,1) NOT NULL,
+	[Des_Cat] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Cat] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_Proveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Proveedor](
+	[Id_Proveedor] [nvarchar](4) NOT NULL,
+	[Nom_Proveedor] [varchar](255) NULL,
+	[Direc_Proveedor] [varchar](255) NULL,
+	[RUC] [varchar](11) NULL,
+	[Telefono] [varchar](15) NULL,
+	[Correo] [varchar](255) NULL,
+	[Estado] [int] NULL,
+	[Fec_Registro] [datetime] NULL,
+	[Usu_Registro] [varchar](20) NULL,
+	[Fec_Ult_Mod] [datetime] NULL,
+	[Usu_Ult_Mod] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Proveedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_GuiasRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_GuiasRemision](
+	[Id_Remision] [nvarchar](6) NOT NULL,
+	[Observaciones] [varchar](50) NULL,
+	[FechaIni] [datetime] NULL,
+	[Fec_Registro] [datetime] NULL,
+	[Usu_Registro] [varchar](20) NULL,
+	[Fec_Ult_Mod] [datetime] NULL,
+	[Usu_Ult_Mod] [varchar](20) NULL,
+	[FechaFin] [datetime] NULL,
+	[estado] [int] NULL,
+	[Num_Guia] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Remision] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_VistaGuiasRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[vw_VistaGuiasRemision]
+AS 
+SELECT
+    dr.Id_Detalle,
+    dr.Id_Remision,
+    dr.Id_Proveedor,
+    prov.Nom_Proveedor,
+    prov.RUC,
+    prov.Direc_Proveedor,
+    prov.Telefono,
+    prov.Correo,
+    dr.Id_Producto,
+    p.Nom_Producto,
+    p.Marca,
+    p.Id_Cat,
+    cat.Des_Cat,
+    p.Id_UM AS Id_UM_Producto,
+    um.Des_UM AS Des_UM_Producto, -- Unidad de Medida del Producto
+    dr.Id_UM AS Id_UM_Remision,
+    ur.Des_UM AS Des_UM_Remision, -- Unidad de Medida de la Remisión
+    gr.Observaciones,
+    gr.FechaIni,
+    gr.Num_Guia,
+    gr.FechaFin,
+    tr.Id_Transporte,
+    tr.Empresa_Transporte,
+    tr.Direccion_Empresa,
+    tr.Marca_Trasporte,
+    tr.Licencia_Transporte,
+    tr.Placa_Trasporte,
+    tr.Ruc_Transporte,
+    dr.Peso_Carga,
+    dr.Punto_Llegada,
+    dr.Punto_Partida,
+    dr.Cantidad,
+    CASE 
+        WHEN gr.Estado = '1' THEN 'RECIBIDA'
+        WHEN gr.Estado = '2' THEN 'PENDIENTE'
+    END AS Estado,
+    gr.Fec_Registro,
+    gr.Fec_Ult_Mod,
+    gr.Usu_Registro,
+    gr.Usu_Ult_Mod
+FROM 
+    Tb_DetalleRemision dr
+JOIN 
+    Tb_GuiasRemision gr ON dr.Id_Remision = gr.Id_Remision
+JOIN 
+    Tb_Productos p ON dr.Id_Producto = p.Id_Producto
+JOIN 
+    Tb_Proveedor prov ON dr.Id_Proveedor = prov.Id_Proveedor
+JOIN 
+    Tb_Categoria cat ON p.Id_Cat = cat.Id_Cat
+JOIN 
+    Tb_UnidadMedida um ON p.Id_UM = um.Id_UM -- Unidad de Medida de Producto
+JOIN 
+    Tb_UnidadMedida ur ON dr.Id_UM = ur.Id_UM -- Unidad de Medida de Remisión
+JOIN 
+    Tb_Transporte tr ON dr.Id_Transporte = tr.Id_Transporte
+GO
+/****** Object:  Table [dbo].[Tb_Usuarios]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Usuarios](
+	[Login_Usuario] [varchar](20) NOT NULL,
+	[Pass_usuario] [varchar](20) NOT NULL,
+	[Niv_Usuario] [int] NULL,
+	[Est_Usuario] [int] NULL,
+	[Fec_Registro] [date] NULL,
+	[Usu_Registro] [varchar](20) NULL,
+	[Fec_Ult_Mod] [varchar](20) NULL,
+	[Usu_Ult_Mod] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Login_Usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_listaUsuario]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vw_listaUsuario]
+AS
+SELECT
+    U.Login_Usuario,
+    U.Pass_usuario,
+	U.Niv_Usuario,
+	CASE 
+	When U.Niv_Usuario = '1' THEN 'Administrador'
+	When U.Niv_Usuario = '2' THEN 'Gerente de almacen'
+	when U.Niv_Usuario = '3' THEN 'Gerente de tienda'
+	End As Credenciales,
+    U.Est_Usuario,
+	Case 
+	When U.Est_Usuario = '1' THEN 'ACTIVO'
+	When U.Est_Usuario = '2' THEN 'INACTIVO'
+	End As Estado,
+    U.Fec_Registro,
+    U.Usu_Registro,
+    U.Fec_Ult_Mod,
+    U.Usu_Ult_Mod
+FROM 
+    tb_Usuarios U;
+GO
+/****** Object:  View [dbo].[vw_Productos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+CREATE VIEW [dbo].[vw_Productos] AS
+SELECT
+    P.Id_Producto,
+    P.Nom_Producto,
+    P.Precio_unitario,
+	p.Marca,
+    P.Id_Cat,
+    P.Id_Proveedor,
+    P.Id_UM,
+    P.Fec_Registro,
+    P.Usu_Registro,
+    P.Fec_Ult_Mod,
+    P.Usu_Ult_Mod,
+
+	P.Estado,
+	
+    PR.Nom_Proveedor,
+    UM.Des_UM,
+    C.Des_Cat
+FROM 
+    [dbo].[Tb_Productos] P
+JOIN 
+    [dbo].[Tb_Proveedor] PR ON P.Id_Proveedor = PR.Id_Proveedor
+JOIN 
+    [dbo].[Tb_UnidadMedida] UM ON P.Id_UM = UM.Id_UM
+JOIN 
+    [dbo].[Tb_Categoria] C ON P.Id_Cat = C.Id_Cat;
+GO
+/****** Object:  View [dbo].[Vista_CompletaRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[Vista_CompletaRemision] AS
+SELECT 
+    gr.Id_Remision,
+    gr.Observaciones,
+    gr.FechaIni,
+    gr.Fec_Registro,
+    gr.Usu_Registro,
+    gr.Fec_Ult_Mod,
+    gr.Usu_Ult_Mod,
+    gr.FechaFin,
+    gr.estado,
+    dr.Id_Detalle,
+    dr.Id_Proveedor,
+    dr.Id_Producto,
+    dr.PrecioUnitario,
+    dr.Cantidad,
+    dr.Peso_Carga,
+    dr.Id_UM,
+    um.Des_UM, -- Agregar la descripción de UM desde la tabla de unidades de medida
+    dr.Id_Transporte,
+    dr.Punto_Partida, -- Agregar Punto_Partida
+    dr.Punto_Llegada, -- Agregar Puto_Llegada
+    p.Nom_Proveedor
+FROM 
+    [Inventario].[dbo].[Tb_GuiasRemision] gr
+JOIN 
+    [Inventario].[dbo].[Tb_DetalleRemision] dr ON gr.Id_Remision = dr.Id_Remision
+JOIN 
+    [Inventario].[dbo].[Tb_Proveedor] p ON dr.Id_Proveedor = p.Id_Proveedor
+JOIN 
+    [Inventario].[dbo].[Tb_UnidadMedida] um ON dr.Id_UM = um.Id_UM; -- Unir con la tabla de unidades de medida
+GO
+/****** Object:  Table [dbo].[Tb_Minimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Minimarket](
+	[Id_Empresa] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](100) NULL,
+	[Direccion] [varchar](200) NULL,
+	[Ruc] [varchar](11) NULL,
+	[estado] [int] NULL,
+	[telefono] [varchar](9) NULL,
+ CONSTRAINT [PK_Minimarket] PRIMARY KEY CLUSTERED 
+(
+	[Id_Empresa] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_Minimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE VIEW [dbo].[vw_Minimarket]
+AS
+SELECT 
+    Id_Empresa,
+	Nombre,
+	Direccion,
+	Ruc,
+	estado,
+	Telefono,
+    
+    CASE 
+        WHEN estado = 1 THEN 'Activo'
+        WHEN estado = 0 THEN 'Inactivo'
+        ELSE 'Desconocido'
+    END AS des_estado
+     
+FROM 
+    Tb_Minimarket
+
+GO
+/****** Object:  View [dbo].[vw_Vista_Proveedores_Productos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vw_Vista_Proveedores_Productos] AS
+SELECT Pr.Id_Proveedor, Pr.Nom_Proveedor, P.Id_Producto, P.Nom_Producto
+FROM Tb_Proveedor Pr
+INNER JOIN Tb_Productos P ON Pr.Id_Proveedor = P.Id_Proveedor;
+GO
+/****** Object:  Table [dbo].[Tb_Transporte_Proveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Transporte_Proveedor](
+	[Id_Transporte] [varchar](4) NULL,
+	[Id_Proveedor] [nvarchar](4) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[vw_Vista_Proveedor_Transporte]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[vw_Vista_Proveedor_Transporte] AS
+SELECT Pr.Id_Proveedor, Pr.Nom_Proveedor, Tr.Id_Transporte, Tr.Empresa_Transporte
+FROM Tb_Proveedor Pr
+INNER JOIN Tb_Transporte_Proveedor TP ON Pr.Id_Proveedor = TP.Id_Proveedor
+INNER JOIN Tb_Transporte Tr ON TP.Id_Transporte = Tr.Id_Transporte;
+GO
+/****** Object:  View [dbo].[vw_Proveedores]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Creación de la vista que muestra el estado de los proveedores como "Activo" o "Inactivo"
+CREATE VIEW [dbo].[vw_Proveedores] AS
+SELECT 
+    [Id_Proveedor],
+    [Nom_Proveedor],
+    [Direc_Proveedor],
+    [RUC],
+    [Telefono],
+    [Correo],
+	[Estado],
+    CASE 
+        WHEN [Estado] = 1 THEN 'Activo'
+        WHEN [Estado] = 0 THEN 'Inactivo'
+        ELSE 'Desconocido'  -- Manejo de otros posibles valores en Estado
+    END AS Estado_Proveedor,
+    [Fec_Registro],
+    [Usu_Registro],
+    [Fec_Ult_Mod],
+    [Usu_Ult_Mod]
+FROM [Inventario].[dbo].[Tb_Proveedor];
+
+
+GO
+/****** Object:  Table [dbo].[Tb_Detalle_Factura]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Detalle_Factura](
+	[Id_DetalleFactura] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Factura] [varchar](4) NULL,
+	[Id_Producto] [varchar](4) NULL,
+	[Total] [decimal](10, 2) NULL,
+	[Cantidad] [int] NULL,
+	[igv] [money] NULL,
+	[subtotal] [money] NULL,
+	[MetodoPago] [int] NULL,
+	[EfectivoRecibido] [decimal](10, 2) NULL,
+	[Devolucion] [decimal](10, 2) NULL,
+ CONSTRAINT [PK_Tb_Detalle_Factura] PRIMARY KEY CLUSTERED 
+(
+	[Id_DetalleFactura] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tb_Factura]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tb_Factura](
+	[Id_Factura] [varchar](4) NOT NULL,
+	[Numero_Factura] [varchar](13) NULL,
+	[Ruc] [varchar](11) NULL,
+	[RazonSocial] [varchar](90) NULL,
+	[Estado] [varchar](20) NULL,
+	[Direccion] [varchar](200) NULL,
+	[Fec_Factura] [date] NULL,
+	[Fec_Registro] [datetime] NULL,
+	[Usu_Registro] [varchar](50) NULL,
+	[Fec_Ult_Mod] [datetime] NULL,
+	[Usu_Ult_Mod] [varchar](50) NULL,
+ CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED 
+(
+	[Id_Factura] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Tb_Boleta] ([Id_Boleta], [Fecha], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Nro_boleta], [Nombres_Cliente], [Apellidos_Cliente], [Dni_Cliente]) VALUES (N'B001', CAST(N'2024-07-19' AS Date), CAST(N'2024-07-19T01:20:15.520' AS DateTime), N'sa', NULL, NULL, N'B024-00000001', N'JORDAN POLL', N'VELITO LIMAYLLA', N'75142042')
+INSERT [dbo].[Tb_Boleta] ([Id_Boleta], [Fecha], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Nro_boleta], [Nombres_Cliente], [Apellidos_Cliente], [Dni_Cliente]) VALUES (N'B002', CAST(N'2024-07-19' AS Date), CAST(N'2024-07-19T01:31:38.190' AS DateTime), N'sa', NULL, NULL, N'B024-00000002', N'JORDAN POLL', N'VELITO LIMAYLLA', N'75142042')
+INSERT [dbo].[Tb_Boleta] ([Id_Boleta], [Fecha], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Nro_boleta], [Nombres_Cliente], [Apellidos_Cliente], [Dni_Cliente]) VALUES (N'B003', CAST(N'2024-07-19' AS Date), CAST(N'2024-07-19T20:12:27.063' AS DateTime), N'sa', NULL, NULL, N'B024-00000003', N'ISABEL JUANA', N'GONZALES ASTO', N'06997321')
+GO
+SET IDENTITY_INSERT [dbo].[Tb_Categoria] ON 
+
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (1, N'HIGIENE PERSONAL')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (2, N'ELECTRÓNICA')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (3, N'ALIMENTOS')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (4, N'LIBROS')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (5, N'MUEBLES')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (6, N'JUGUETES')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (7, N'COSMÉTICOS')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (8, N'HERRAMIENTAS')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (9, N'OFICINA')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (10, N'HOGAR')
+INSERT [dbo].[Tb_Categoria] ([Id_Cat], [Des_Cat]) VALUES (11, N'ACCESORIOS')
+SET IDENTITY_INSERT [dbo].[Tb_Categoria] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tb_Detalle_Boleta] ON 
+
+INSERT [dbo].[Tb_Detalle_Boleta] ([Id_DetalleBoleta], [Id_Boleta], [Id_Producto], [Total], [Cantidad], [Igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (1, N'B001', N'PR01', CAST(260.00 AS Decimal(10, 2)), 10, 46.8000, 213.2000, 1, CAST(500.00 AS Decimal(10, 2)), CAST(240.00 AS Decimal(10, 2)))
+INSERT [dbo].[Tb_Detalle_Boleta] ([Id_DetalleBoleta], [Id_Boleta], [Id_Producto], [Total], [Cantidad], [Igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (2, N'B002', N'PR01', CAST(260.00 AS Decimal(10, 2)), 10, 46.8000, 213.2000, 0, CAST(260.00 AS Decimal(10, 2)), CAST(0.00 AS Decimal(10, 2)))
+INSERT [dbo].[Tb_Detalle_Boleta] ([Id_DetalleBoleta], [Id_Boleta], [Id_Producto], [Total], [Cantidad], [Igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (3, N'B003', N'PR03', CAST(700.00 AS Decimal(10, 2)), 10, 126.0000, 574.0000, 1, CAST(1000.00 AS Decimal(10, 2)), CAST(300.00 AS Decimal(10, 2)))
+INSERT [dbo].[Tb_Detalle_Boleta] ([Id_DetalleBoleta], [Id_Boleta], [Id_Producto], [Total], [Cantidad], [Igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (4, N'B003', N'PR01', CAST(130.00 AS Decimal(10, 2)), 5, 23.4000, 106.6000, 1, CAST(1000.00 AS Decimal(10, 2)), CAST(870.00 AS Decimal(10, 2)))
+SET IDENTITY_INSERT [dbo].[Tb_Detalle_Boleta] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tb_Detalle_Factura] ON 
+
+INSERT [dbo].[Tb_Detalle_Factura] ([Id_DetalleFactura], [Id_Factura], [Id_Producto], [Total], [Cantidad], [igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (1, N'F001', N'PR01', CAST(676.00 AS Decimal(10, 2)), 26, 121.6800, 121.6800, 0, CAST(676.00 AS Decimal(10, 2)), CAST(0.00 AS Decimal(10, 2)))
+INSERT [dbo].[Tb_Detalle_Factura] ([Id_DetalleFactura], [Id_Factura], [Id_Producto], [Total], [Cantidad], [igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (2, N'F002', N'PR01', CAST(676.00 AS Decimal(10, 2)), 26, 121.6800, 121.6800, 0, CAST(676.00 AS Decimal(10, 2)), CAST(0.00 AS Decimal(10, 2)))
+INSERT [dbo].[Tb_Detalle_Factura] ([Id_DetalleFactura], [Id_Factura], [Id_Producto], [Total], [Cantidad], [igv], [subtotal], [MetodoPago], [EfectivoRecibido], [Devolucion]) VALUES (3, N'F002', N'PR03', CAST(4900.00 AS Decimal(10, 2)), 70, 882.0000, 882.0000, 0, CAST(4900.00 AS Decimal(10, 2)), CAST(0.00 AS Decimal(10, 2)))
+SET IDENTITY_INSERT [dbo].[Tb_Detalle_Factura] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tb_DetalleRemision] ON 
+
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (1, N'R001', N'P003', N'PR01', NULL, 100, CAST(800 AS Decimal(10, 0)), 1, N'T003', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (2, N'R002', N'P003', N'PR01', NULL, 200, CAST(100 AS Decimal(10, 0)), 1, N'T018', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (3, N'R003', N'P003', N'PR01', NULL, 200, CAST(100 AS Decimal(10, 0)), 1, N'T018', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (4, N'R004', N'P005', N'PR02', NULL, 50, CAST(10 AS Decimal(10, 0)), 1, N'T002', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (5, N'R005', N'P007', N'PR04', NULL, 30, CAST(100 AS Decimal(10, 0)), 1, N'T014', N'CALLAO                                            ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (6, N'R006', N'P003', N'PR38', NULL, 10, CAST(40 AS Decimal(10, 0)), 1, N'T003', N'LIMA                                              ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (7, N'R007', N'P003', N'PR40', NULL, 10, CAST(300 AS Decimal(10, 0)), 1, N'T003', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (8, N'R008', N'P006', N'PR03', NULL, 50, CAST(800 AS Decimal(10, 0)), 1, N'T015', N'CALLAO                                            ', N'chorrillos                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (9, N'R009', N'P006', N'PR03', NULL, 20, CAST(800 AS Decimal(10, 0)), 1, N'T015', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (10, N'R010', N'P006', N'PR03', NULL, 50, CAST(800 AS Decimal(10, 0)), 1, N'T006', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (11, N'R011', N'P006', N'PR03', NULL, 50, CAST(800 AS Decimal(10, 0)), 1, N'T006', N'COMAS                                             ', N'CHORRILLOS                                        ')
+INSERT [dbo].[Tb_DetalleRemision] ([Id_Detalle], [Id_Remision], [Id_Proveedor], [Id_Producto], [PrecioUnitario], [Cantidad], [Peso_Carga], [Id_UM], [Id_Transporte], [Punto_Partida], [Punto_Llegada]) VALUES (12, N'R012', N'P003', N'PR41', NULL, 10, CAST(80 AS Decimal(10, 0)), 2, N'T003', N'gfgfgf                                            ', N'gfgf                                              ')
+SET IDENTITY_INSERT [dbo].[Tb_DetalleRemision] OFF
+GO
+INSERT [dbo].[Tb_Factura] ([Id_Factura], [Numero_Factura], [Ruc], [RazonSocial], [Estado], [Direccion], [Fec_Factura], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'F001', N'F024-0000001', N' 2010013445', N'INSTITUTO SUPERIOR SAN IGNACIO DE LOYOLA S.A.', N'ACTIVO', N'AV. LA FONTANA NRO. 955 URB. SANTA PATRICIA', CAST(N'2024-07-19' AS Date), CAST(N'2024-07-19T01:22:18.923' AS DateTime), N'sa', NULL, NULL)
+INSERT [dbo].[Tb_Factura] ([Id_Factura], [Numero_Factura], [Ruc], [RazonSocial], [Estado], [Direccion], [Fec_Factura], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'F002', N'F024-0000002', N'20133877615', N'TOP RANK PUBLICIDAD S.A.C.', N'ACTIVO', N'AV. BENAVIDES NRO. 4981 URB. LAS GARDENIAS', CAST(N'2024-07-19' AS Date), CAST(N'2024-07-19T20:17:20.950' AS DateTime), N'sa', NULL, NULL)
+GO
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R003', N'TODO BIEN', CAST(N'2024-01-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'SA', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'SA', CAST(N'2024-01-22T00:00:00.000' AS DateTime), 1, N'001-712318')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R004', N'Todo correcto', CAST(N'2024-07-18T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-712319')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R005', N'TODO OK', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-155464')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R006', N'Todo Bien', CAST(N'2024-07-18T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T02:52:30.260' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-545465')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R007', N'Todo OK', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-565656')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R008', N'Todo ok', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T04:18:20.673' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-564544')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R009', N'TODO OK', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-885411')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R010', N'TODO OK', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-252552')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R011', N'TODO OK', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'lesly', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-155455')
+INSERT [dbo].[Tb_GuiasRemision] ([Id_Remision], [Observaciones], [FechaIni], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [FechaFin], [estado], [Num_Guia]) VALUES (N'R012', N'gfdgdgd', CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'sa', CAST(N'2024-07-19T00:00:00.000' AS DateTime), N'sa', CAST(N'2024-07-19T00:00:00.000' AS DateTime), 1, N'001-545646')
+GO
+SET IDENTITY_INSERT [dbo].[Tb_Minimarket] ON 
+
+INSERT [dbo].[Tb_Minimarket] ([Id_Empresa], [Nombre], [Direccion], [Ruc], [estado], [telefono]) VALUES (1, N'FRESH MINIMARKET', N'AV-LOS PUMAS', N'1057854598', 0, N'982732363')
+INSERT [dbo].[Tb_Minimarket] ([Id_Empresa], [Nombre], [Direccion], [Ruc], [estado], [telefono]) VALUES (3, N'FRESH MINIMARKET', N'FRESHMINIMARKET@GMAIL.COM', N'77956555656', 1, N'989989565')
+SET IDENTITY_INSERT [dbo].[Tb_Minimarket] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tb_Movimientos] ON 
+
+INSERT [dbo].[Tb_Movimientos] ([Id_Movimiento], [Movimiento_Tienda], [Fec_Registro], [Id_Stock], [Usu_Registro]) VALUES (1, 100, CAST(N'2024-07-19T01:12:52.607' AS DateTime), N'S001', N'sa')
+INSERT [dbo].[Tb_Movimientos] ([Id_Movimiento], [Movimiento_Tienda], [Fec_Registro], [Id_Stock], [Usu_Registro]) VALUES (2, 70, CAST(N'2024-07-19T20:11:52.937' AS DateTime), N'S003', N'sa')
+SET IDENTITY_INSERT [dbo].[Tb_Movimientos] OFF
+GO
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR01', N'LÁPIZ ÓPTICO', 8, N'P003', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(26 AS Decimal(10, 0)), N'WACOM')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR02', N'MOUSE INALÁMBRICO', 1, N'P005', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(40 AS Decimal(10, 0)), N'LOGITECH')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR03', N'JUEGO DE DESTORNILLADORES', 7, N'P006', 7, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(70 AS Decimal(10, 0)), N'STANLEY')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR04', N'CREMA HIDRATANTE', 6, N'P007', 12, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(20 AS Decimal(10, 0)), N'NIVEA')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR05', N'LÁMPARA DE ESCRITORIO', 4, N'P010', 6, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(35 AS Decimal(10, 0)), N'PHILIPS')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR06', N'CARGADOR RÁPIDO USB-C', 1, N'P011', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(25 AS Decimal(10, 0)), N'ANKER')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR07', N'AURICULARES INALÁMBRICOS', 1, N'P012', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(80 AS Decimal(10, 0)), N'SONY')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR08', N'CABLE USB-C A USB-A', 1, N'P013', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(15 AS Decimal(10, 0)), N'BELKIN')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR09', N'AURICULARES CON MICRÓFONO', 1, N'P014', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(30 AS Decimal(10, 0)), N'LOGITECH')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR10', N'CARGADOR INALÁMBRICO', 1, N'P015', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(35 AS Decimal(10, 0)), N'SAMSUNG')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR11', N'CABLE LIGHTNING A USB', 1, N'P016', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(21 AS Decimal(10, 0)), N'APPLE')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR12', N'AURICULARES DEPORTIVOS', 1, N'P017', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(50 AS Decimal(10, 0)), N'JBL')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR13', N'CARGADOR DE COCHE USB', 1, N'P018', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(15 AS Decimal(10, 0)), N'AUKEY')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR14', N'CABLE HDMI 2.0', 1, N'P019', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(25 AS Decimal(10, 0)), N'AMAZONBASICS')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR15', N'AURICULARES GAMING', 1, N'P020', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(71 AS Decimal(10, 0)), N'RAZER')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR16', N'CARGADOR MULTIPUERTOS USB', 1, N'P021', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(40 AS Decimal(10, 0)), N'ANKER')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR17', N'PAQUETE DE PAPEL A4', 8, N'P011', 8, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(30 AS Decimal(10, 0)), N'HP')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR18', N'LÁPICES MECÁNICOS', 8, N'P012', 7, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(15 AS Decimal(10, 0)), N'PENTEL')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR19', N'RESALTADORES COLORES', 8, N'P013', 7, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(12 AS Decimal(10, 0)), N'STABILO')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR20', N'CARPETAS MANILA', 8, N'P014', 10, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(51 AS Decimal(10, 0)), N'ESSELTE')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR21', N'CAJA DE CLIPS', 8, N'P019', 17, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(4 AS Decimal(10, 0)), N'OFFICE DEPOT')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR22', N'BOLÍGRAFOS AZULES', 8, N'P020', 7, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(8 AS Decimal(10, 0)), N'BIC')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR23', N'POST-IT MULTICOLOR', 8, N'P021', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(10 AS Decimal(10, 0)), N'3M')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR24', N'MARCADOR PERMANENTE', 8, N'P022', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(6 AS Decimal(10, 0)), N'SHARPIE')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR25', N'REGLA DE 30 CM', 8, N'P023', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(3 AS Decimal(10, 0)), N'MAPED')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR26', N'CUADERNO A4', 8, N'P024', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(15 AS Decimal(10, 0)), N'NORMA')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR27', N'PERFORADORA DE PAPEL', 8, N'P025', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(18 AS Decimal(10, 0)), N'FELLOWES')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR28', N'TACO DE NOTAS', 8, N'P026', 10, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(7 AS Decimal(10, 0)), N'POST-IT')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR29', N'ROTULADOR BLANCO', 8, N'P027', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(5 AS Decimal(10, 0)), N'EXPO')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR30', N'CALCULADORA DE BOLSILLO', 8, N'P028', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(12 AS Decimal(10, 0)), N'CASIO')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR31', N'ARCHIVADOR AZUL', 8, N'P029', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(22 AS Decimal(10, 0)), N'ESSELTE')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR32', N'SOBRES BLANCOS', 8, N'P030', 17, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(8 AS Decimal(10, 0)), N'CARTA')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR33', N'FUNDA PARA TELÉFONO', 10, N'P011', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(15 AS Decimal(10, 0)), N'OTTERBOX')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR34', N'GAFAS DE SOL', 10, N'P012', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(120 AS Decimal(10, 0)), N'RAY-BAN')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR35', N'CINTURÓN DE CUERO', 10, N'P013', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(45 AS Decimal(10, 0)), N'LEVI\S')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR36', N'BOLSO DE MANO', 10, N'P014', 4, CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', CAST(N'2024-07-18T18:30:20.903' AS DateTime), N'sa', 1, CAST(80 AS Decimal(10, 0)), N'MICHAEL KORS')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR37', N'CELULAR', 2, N'P007', 4, CAST(N'2024-07-18T20:09:00.040' AS DateTime), N'SA', NULL, NULL, 1, CAST(4 AS Decimal(10, 0)), N'XIAOMI')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR38', N'MICROFONO', 2, N'P003', 4, CAST(N'2024-07-18T20:58:33.050' AS DateTime), N'sa', NULL, NULL, 1, CAST(21 AS Decimal(10, 0)), N'FIFINE')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR39', N'PARLANTE', 2, N'P003', 4, CAST(N'2024-07-18T21:03:21.427' AS DateTime), N'sa', NULL, NULL, 1, CAST(71 AS Decimal(10, 0)), N'MICRONICS')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR40', N'MOUSE', 2, N'P003', 4, CAST(N'2024-07-18T21:04:51.797' AS DateTime), N'sa', NULL, NULL, 1, CAST(70 AS Decimal(10, 0)), N'RAZER')
+INSERT [dbo].[Tb_Productos] ([Id_Producto], [Nom_Producto], [Id_Cat], [Id_Proveedor], [Id_UM], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod], [Estado], [Precio_Unitario], [Marca]) VALUES (N'PR41', N'JABONES', 1, N'P003', 4, CAST(N'2024-07-19T19:55:19.360' AS DateTime), N'sa', NULL, NULL, 1, CAST(300 AS Decimal(10, 0)), N'JONSON')
+GO
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P001', N'MARSCOLORS', N'AV MATELLINI 123', N'58969874598', N'985896895', N'MARSCOLOR@GMAIL.COM', 1, CAST(N'2024-07-18T17:51:33.870' AS DateTime), N'SA', NULL, NULL)
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P002', N'SUMINISTROS BETA', N'AVENIDA 456, LIMA', N'20234567890', N'876543210', N'INFO@SUMINISTROSBETA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P003', N'DISTRIBUCIONES GAMA', N'JR. 789, LIMA', N'20345678901', N'765432109', N'VENTAS@DISTRIBUCIONESGAMA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P004', N'LOGÍSTICA DELTA', N'PASAJE 101, LOS GORRIONES', N'20456789012', N'654321098', N'SERVICIO@LOGISTICADELTA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P005', N'IMPORTACIONES EPSILON', N'AV. PRINCIPAL 202, CRUCE CON MEXICO', N'20567890123', N'543210987', N'CONTACTO@IMPORTACIONESEPSILON.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P006', N'REPUESTOS ZETA', N'CALLE SECUNDARIA 303, MIRAFLORES', N'20678901234', N'432109876', N'INFO@REPUESTOSZETA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P007', N'INSUMOS ETA', N'JR. TERCIARIO 404, CALLAO', N'20789012345', N'321098765', N'VENTAS@INSUMOSETA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P008', N'SERVICIOS THETA', N'PASAJE CUATERNARIO 505, SURCO', N'20890123456', N'210987654', N'SERVICIO@SERVICIOSTHETA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P009', N'PROVEEDORES IOTA', N'AVENIDA QUINTA 606,  LOS LAURES', N'20901234567', N'109876543', N'CONTACTO@PROVEEDORESIOTA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P010', N'SUMINISTROS KAPPA', N'CALLE SEXTA 707, AV.BENAVIDES', N'21012345678', N'098765432', N'INFO@SUMINISTROSKAPPA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P011', N'DISTRIBUCIONES LAMBDA', N'JR. SÉPTIMA 808, LIMA', N'21123456789', N'987654321', N'VENTAS@DISTRIBUCIONESLAMBDA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P012', N'LOGÍSTICA MU', N'PASAJE OCTAVA 909, LIMA', N'21234567890', N'876543210', N'SERVICIO@LOGISTICAMU.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P013', N'IMPORTACIONES NU', N'AVENIDA NOVENA 1010, LIMA', N'21345678901', N'765432109', N'CONTACTO@IMPORTACIONESNU.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P014', N'REPUESTOS XI', N'CALLE DÉCIMA 1111, LIMA', N'21456789012', N'654321098', N'INFO@REPUESTOSXI.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P015', N'INSUMOS OMICRON', N'JR. UNDÉCIMA 1212, MIRAFLORES', N'21567890123', N'543210987', N'VENTAS@INSUMOSOMICRON.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P016', N'SERVICIOS PI', N'PASAJE DUODÉCIMA 1313, CHORRILLOS', N'21678901234', N'432109876', N'SERVICIO@SERVICIOSPI.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P017', N'PROVEEDORES RHO', N'AVENIDA DECIMOTERCERA 1414, SAN JUAN', N'21789012345', N'321098765', N'CONTACTO@PROVEEDORESRHO.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P018', N'SUMINISTROS SIGMA', N'CALLE DECIMOCUARTA 1515, MATELLINI', N'21890123456', N'210987654', N'INFO@SUMINISTROSSIGMA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P019', N'DISTRIBUCIONES TAU', N'JR. DECIMOQUINTA 1616, SURCO', N'21901234567', N'109876543', N'VENTAS@DISTRIBUCIONESTAU.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P020', N'LOGÍSTICA UPSILON', N'PASAJE DECIMOSEXTA 1717, LOS OLIVOS', N'22012345678', N'098765432', N'SERVICIO@LOGISTICAUPSILON.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P021', N'PROVEEDORES ALFA', N'CALLE 123, LIMA', N'20123456789', N'987654321', N'CONTACTO@PROVEEDORESALFA.COM', 1, CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN', CAST(N'2024-07-18T18:01:26.467' AS DateTime), N'ADMIN')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P022', N'proveedorPrueba', N'Av.Matellini123', N'12589687456', N'999999999', N'proveedor@gmail.com', 0, CAST(N'2024-07-19T03:56:25.187' AS DateTime), N'sa', CAST(N'2024-07-19T03:56:45.960' AS DateTime), N'sa')
+INSERT [dbo].[Tb_Proveedor] ([Id_Proveedor], [Nom_Proveedor], [Direc_Proveedor], [RUC], [Telefono], [Correo], [Estado], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'P023', N'GAMA S.A.C', N'Av. MEXICO 123', N'78787878787', N'464664646', N'GAMA123@GMAIL.COM', 1, CAST(N'2024-07-19T20:02:57.380' AS DateTime), N'sa', NULL, NULL)
+GO
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S001', 100, 90, N'PR01')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S002', 50, 0, N'PR02')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S003', 100, 40, N'PR03')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S004', 30, 0, N'PR04')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S005', 0, 0, N'PR05')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S006', 0, 0, N'PR06')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S007', 0, 0, N'PR07')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S008', 0, 0, N'PR08')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S009', 0, 0, N'PR09')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S010', 0, 0, N'PR10')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S011', 0, 0, N'PR11')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S012', 0, 0, N'PR12')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S013', 0, 0, N'PR13')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S014', 0, 0, N'PR14')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S015', 0, 0, N'PR15')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S016', 0, 0, N'PR16')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S017', 0, 0, N'PR17')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S018', 0, 0, N'PR18')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S019', 0, 0, N'PR19')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S020', 0, 0, N'PR20')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S021', 0, 0, N'PR21')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S022', 0, 0, N'PR22')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S023', 0, 0, N'PR23')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S024', 0, 0, N'PR24')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S025', 0, 0, N'PR25')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S026', 0, 0, N'PR26')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S027', 0, 0, N'PR27')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S028', 0, 0, N'PR28')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S029', 0, 0, N'PR29')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S030', 0, 0, N'PR30')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S031', 0, 0, N'PR31')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S032', 0, 0, N'PR32')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S033', 0, 0, N'PR33')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S034', 0, 0, N'PR34')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S035', 0, 0, N'PR35')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S036', 0, 0, N'PR36')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S037', 0, 0, N'PR37')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S038', 10, 0, N'PR38')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S039', 0, 0, N'PR39')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S040', 10, 0, N'PR40')
+INSERT [dbo].[Tb_Stock] ([Id_Stock], [Stk_Trastienda], [Stk_Tienda], [Id_Producto]) VALUES (N'S041', 10, 0, N'PR41')
+GO
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T001', N'TRANSPORTE SUR', N'AV LOS ARRIOLES 546 - CALLAO', N'15698745895', N'TOYOTA', N'VBA859', N'M000255')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T002', N'DLH SAC', N'AV.MATELLINI 561', N'59868974589', N'HYUNDAY', N'OIJ126', N'HKF1564')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T003', N'PACIFIC TRY', N'AV. CALLAO 554', N'45698523645', N'TOYOTA', N'KOI159', N'FHY1569')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T004', N'MIGRATRA SAC', N'AV CARABAYLLO 156', N'15874968559', N'HYUNDAY', N'FOK159', N'O015256')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T005', N'LOUSAC', N'AV.LAS CRUCES', N'45889885698', N'VOLVO', N'CKD156', N'F12SD63')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T006', N'LOUNSAC', N'AV.HUAYLAS 564', N'15988546587', N'VOLVO', N'SDC126', N'WER2545')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T007', N'TRANSPORTES CRUZ DEL SUR', N'AV. JAVIER PRADO 1109', N'20487952612', N'MERCEDES-BENZ', N'ABC123', N'B123456')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T008', N'OLTURSA', N'AV. PASEO DE LA REPÚBLICA 6200', N'20100856745', N'SCANIA', N'DEF456', N'C654321')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T009', N'CIVA', N'AV. 28 DE JULIO 1578', N'20235678901', N'VOLVO', N'GHI789', N'D789012')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T010', N'TEPSA', N'AV. MÉXICO 3330', N'20300456789', N'MAN', N'JKL012', N'E234567')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T011', N'EXCLUCIVA', N'AV. AREQUIPA 4520', N'20400987654', N'IRIZAR', N'MNO345', N'F345678')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T012', N'TRANSALTISA', N'AV. LA MARINA 1240', N'20512345678', N'VOLVO', N'PQR678', N'G456789')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T013', N'TRANSTOTAL', N'JR. SANTA ROSA 2345', N'20623456789', N'FREIGHTLINER', N'STU901', N'H567890')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T014', N'PERURAIL', N'AV. PACHACÚTEC 3344', N'20734567890', N'GE', N'VWX234', N'I678901')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T015', N'INCA RAIL', N'AV. PRIMAVERA 5678', N'20845678901', N'SIEMENS', N'YZA567', N'J789012')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T016', N'GRUPO TRANSMERIDIAN', N'AV. UNIVERSITARIA 6789', N'20956789012', N'KENWORTH', N'BCD890', N'K890123')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T017', N'CORPORACIÓN REGEYSSA', N'AV. BENAVIDES 8901', N'21067890123', N'MERCEDES-BENZ', N'EFG345', N'L901234')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T018', N'NAVIERA NEPTUNIA', N'JR. PUNO 4567', N'21178901234', N'SCANIA', N'HIJ678', N'M012345')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T019', N'SCHMIDT PERÚ', N'AV. LARCO 1234', N'21289012345', N'MAN', N'KLM901', N'N123456')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T020', N'RANSA', N'AV. SALAVERRY 567', N'21390123456', N'IRIZAR', N'NOP234', N'O234567')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T021', N'TRANSALTISA', N'AV.LA MARINA 123', N'20202458964', N'VOLVO', N'PQR697', N'M14D789')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T022', N'RAPIDO SAC', N'AV.MEXICO 155', N'15888888888', N'VOLVO', N'VGH156', N'VF14589')
+INSERT [dbo].[Tb_Transporte] ([Id_Transporte], [Empresa_Transporte], [Direccion_Empresa], [Ruc_Transporte], [Marca_Trasporte], [Placa_Trasporte], [Licencia_Transporte]) VALUES (N'T023', N'TRANSPORTE SAC', N'TRANSPORTE@GMAIL.COM', N'55555555555', N'VOLVO', N'454545', N'4654564')
+GO
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T021', N'P001')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T001', N'P021')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T002', N'P005')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T003', N'P003')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T004', N'P002')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T005', N'P001')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T006', N'P006')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T006', N'P009')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T007', N'P005')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T008', N'P008')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T009', N'P004')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T010', N'P002')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T011', N'P010')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T012', N'P009')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T013', N'P008')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T014', N'P007')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T015', N'P006')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T016', N'P005')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T017', N'P004')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T018', N'P003')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T019', N'P002')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T020', N'P001')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T022', N'P022')
+INSERT [dbo].[Tb_Transporte_Proveedor] ([Id_Transporte], [Id_Proveedor]) VALUES (N'T023', N'P023')
+GO
+SET IDENTITY_INSERT [dbo].[Tb_UnidadMedida] ON 
+
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (1, N'Kg')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (2, N'Tm')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (3, N'Lb')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (4, N'UNIDAD')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (5, N'KILOGRAMO')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (6, N'LITRO')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (7, N'DOCENA')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (8, N'MILLAR')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (9, N'CIENTO')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (10, N'CAJA POR 12')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (11, N'BOLSA POR 24')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (12, N'SACO POR 12')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (13, N'CAJA POR 6')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (14, N'CAJA POR 15')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (15, N'CAJA POR 20')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (16, N'CAJA POR 24')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (17, N'BOLSA POR 100')
+INSERT [dbo].[Tb_UnidadMedida] ([Id_UM], [Des_UM]) VALUES (18, N'BOLSA POR 200')
+SET IDENTITY_INSERT [dbo].[Tb_UnidadMedida] OFF
+GO
+INSERT [dbo].[Tb_Usuarios] ([Login_Usuario], [Pass_usuario], [Niv_Usuario], [Est_Usuario], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'jordan', N'jordan', 2, 1, CAST(N'2024-07-18' AS Date), N'admin', NULL, NULL)
+INSERT [dbo].[Tb_Usuarios] ([Login_Usuario], [Pass_usuario], [Niv_Usuario], [Est_Usuario], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'lesly', N'lesly', 3, 1, CAST(N'2024-07-18' AS Date), N'admin', NULL, NULL)
+INSERT [dbo].[Tb_Usuarios] ([Login_Usuario], [Pass_usuario], [Niv_Usuario], [Est_Usuario], [Fec_Registro], [Usu_Registro], [Fec_Ult_Mod], [Usu_Ult_Mod]) VALUES (N'sa', N'admin', 1, 1, CAST(N'2024-07-18' AS Date), N'admin', NULL, NULL)
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Boleta]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleBoleta_Tb_Boleta] FOREIGN KEY([Id_Boleta])
+REFERENCES [dbo].[Tb_Boleta] ([Id_Boleta])
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Boleta] NOCHECK CONSTRAINT [FK_Tb_DetalleBoleta_Tb_Boleta]
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Boleta]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleBoleta_Tb_Productos] FOREIGN KEY([Id_Producto])
+REFERENCES [dbo].[Tb_Productos] ([Id_Producto])
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Boleta] NOCHECK CONSTRAINT [FK_Tb_DetalleBoleta_Tb_Productos]
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Factura]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Detalle_Factura_Tb_Factura] FOREIGN KEY([Id_Factura])
+REFERENCES [dbo].[Tb_Factura] ([Id_Factura])
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Factura] NOCHECK CONSTRAINT [FK_Tb_Detalle_Factura_Tb_Factura]
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Factura]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Detalle_Factura_Tb_Productos] FOREIGN KEY([Id_Producto])
+REFERENCES [dbo].[Tb_Productos] ([Id_Producto])
+GO
+ALTER TABLE [dbo].[Tb_Detalle_Factura] NOCHECK CONSTRAINT [FK_Tb_Detalle_Factura_Tb_Productos]
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleRemision_Tb_GuiasRemision] FOREIGN KEY([Id_Remision])
+REFERENCES [dbo].[Tb_GuiasRemision] ([Id_Remision])
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision] NOCHECK CONSTRAINT [FK_Tb_DetalleRemision_Tb_GuiasRemision]
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleRemision_Tb_Productos] FOREIGN KEY([Id_Producto])
+REFERENCES [dbo].[Tb_Productos] ([Id_Producto])
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision] NOCHECK CONSTRAINT [FK_Tb_DetalleRemision_Tb_Productos]
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleRemision_Tb_Proveedor] FOREIGN KEY([Id_Proveedor])
+REFERENCES [dbo].[Tb_Proveedor] ([Id_Proveedor])
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision] NOCHECK CONSTRAINT [FK_Tb_DetalleRemision_Tb_Proveedor]
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleRemision_Tb_Transporte] FOREIGN KEY([Id_Transporte])
+REFERENCES [dbo].[Tb_Transporte] ([Id_Transporte])
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision] NOCHECK CONSTRAINT [FK_Tb_DetalleRemision_Tb_Transporte]
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_DetalleRemision_Tb_UnidadMedida] FOREIGN KEY([Id_UM])
+REFERENCES [dbo].[Tb_UnidadMedida] ([Id_UM])
+GO
+ALTER TABLE [dbo].[Tb_DetalleRemision] NOCHECK CONSTRAINT [FK_Tb_DetalleRemision_Tb_UnidadMedida]
+GO
+ALTER TABLE [dbo].[Tb_Movimientos]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Movimientos_Tb_Stock] FOREIGN KEY([Id_Stock])
+REFERENCES [dbo].[Tb_Stock] ([Id_Stock])
+GO
+ALTER TABLE [dbo].[Tb_Movimientos] NOCHECK CONSTRAINT [FK_Tb_Movimientos_Tb_Stock]
+GO
+ALTER TABLE [dbo].[Tb_Productos]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Productos_Tb_Categoria] FOREIGN KEY([Id_Cat])
+REFERENCES [dbo].[Tb_Categoria] ([Id_Cat])
+GO
+ALTER TABLE [dbo].[Tb_Productos] NOCHECK CONSTRAINT [FK_Tb_Productos_Tb_Categoria]
+GO
+ALTER TABLE [dbo].[Tb_Productos]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Productos_Tb_Proveedor] FOREIGN KEY([Id_Proveedor])
+REFERENCES [dbo].[Tb_Proveedor] ([Id_Proveedor])
+GO
+ALTER TABLE [dbo].[Tb_Productos] NOCHECK CONSTRAINT [FK_Tb_Productos_Tb_Proveedor]
+GO
+ALTER TABLE [dbo].[Tb_Productos]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Productos_Tb_UnidadMedida] FOREIGN KEY([Id_UM])
+REFERENCES [dbo].[Tb_UnidadMedida] ([Id_UM])
+GO
+ALTER TABLE [dbo].[Tb_Productos] NOCHECK CONSTRAINT [FK_Tb_Productos_Tb_UnidadMedida]
+GO
+ALTER TABLE [dbo].[Tb_Stock]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Stock_Tb_Productos] FOREIGN KEY([Id_Producto])
+REFERENCES [dbo].[Tb_Productos] ([Id_Producto])
+GO
+ALTER TABLE [dbo].[Tb_Stock] NOCHECK CONSTRAINT [FK_Tb_Stock_Tb_Productos]
+GO
+ALTER TABLE [dbo].[Tb_Transporte_Proveedor]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Transporte_Proveedor_Tb_Proveedor] FOREIGN KEY([Id_Proveedor])
+REFERENCES [dbo].[Tb_Proveedor] ([Id_Proveedor])
+GO
+ALTER TABLE [dbo].[Tb_Transporte_Proveedor] NOCHECK CONSTRAINT [FK_Tb_Transporte_Proveedor_Tb_Proveedor]
+GO
+ALTER TABLE [dbo].[Tb_Transporte_Proveedor]  WITH NOCHECK ADD  CONSTRAINT [FK_Tb_Transporte_Proveedor_Tb_Transporte] FOREIGN KEY([Id_Transporte])
+REFERENCES [dbo].[Tb_Transporte] ([Id_Transporte])
+GO
+ALTER TABLE [dbo].[Tb_Transporte_Proveedor] NOCHECK CONSTRAINT [FK_Tb_Transporte_Proveedor_Tb_Transporte]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ActualizarDetalleRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create PROCEDURE [dbo].[sp_ActualizarDetalleRemision]
+    @Id_Remision NVARCHAR(6),
+    @Id_Producto VARCHAR(4),
+    @Cantidad INT,
+    @Observaciones VARCHAR(50),
+    @Id_UM INT,
+    @Peso_Carga DECIMAL(10,2),
+    @Usu_Ult_Mod VARCHAR(20),
+    @FechaIni DATETIME,
+    @FechaFin DATETIME,
+    @Punto_Partida VARCHAR(100),
+    @Punto_Llegada VARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        -- Iniciar la transacción
+        BEGIN TRANSACTION;
+
+        -- Actualizar los campos específicos en la tabla Tb_DetalleRemision
+        UPDATE Tb_DetalleRemision
+        SET 
+            Id_Producto = @Id_Producto,
+            Cantidad = @Cantidad,
+            Id_UM = @Id_UM,
+            Peso_Carga = @Peso_Carga,
+            Punto_Partida = @Punto_Partida,
+            Punto_Llegada = @Punto_Llegada
+        WHERE Id_Remision = @Id_Remision;
+
+        -- Actualizar los campos específicos en la tabla Tb_GuiasRemision
+        UPDATE Tb_GuiasRemision
+        SET 
+            Observaciones = @Observaciones,
+            FechaIni = @FechaIni,
+            FechaFin = @FechaFin,
+            Usu_Ult_Mod = @Usu_Ult_Mod,
+            Fec_Ult_Mod = GETDATE()
+        WHERE Id_Remision = @Id_Remision;
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Revertir la transacción en caso de error
+        ROLLBACK TRANSACTION;
+
+        -- Manejar el error
+        DECLARE @ErrorMessage NVARCHAR(4000);
+        DECLARE @ErrorSeverity INT;
+        DECLARE @ErrorState INT;
+
+        SELECT @ErrorMessage = ERROR_MESSAGE(),
+               @ErrorSeverity = ERROR_SEVERITY(),
+               @ErrorState = ERROR_STATE();
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ActualizarProveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_ActualizarProveedor]
+    @Id_Proveedor NVARCHAR(4),
+    @Direc_Proveedor NVARCHAR(255),
+    @Telefono NVARCHAR(20),
+    @Correo NVARCHAR(100),
+    @Estado NVARCHAR(50),
+    @Usu_Ult_Mod NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Actualizar los datos del proveedor en Tb_Proveedor
+        UPDATE [Inventario].[dbo].[Tb_Proveedor]
+        SET      
+            [Direc_Proveedor] = @Direc_Proveedor,
+            [Telefono] = @Telefono,
+            [Correo] = @Correo,
+            [Estado] = @Estado,
+            [Fec_Ult_Mod] = GETDATE(),
+            [Usu_Ult_Mod] =  @Usu_Ult_Mod
+        WHERE [Id_Proveedor] = @Id_Proveedor;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ConsultarGuiaRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_ConsultarGuiaRemision]
+    @Id_Remision NVARCHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        SELECT *
+        FROM vw_vistaGuiasRemision
+        WHERE Id_Remision = @Id_Remision;
+    END TRY
+    BEGIN CATCH
+        -- Manejar el error
+        DECLARE @ErrorMessage NVARCHAR(4000);
+        DECLARE @ErrorSeverity INT;
+        DECLARE @ErrorState INT;
+
+        SELECT @ErrorMessage = ERROR_MESSAGE(),
+               @ErrorSeverity = ERROR_SEVERITY();
+       
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ConsultarMinimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ConsultarMinimarket]
+    @Id_Empresa INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+       *
+    FROM 
+       vw_Minimarket
+    WHERE 
+        [Id_Empresa] = @Id_Empresa;
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ConsultarProductoStock]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ConsultarProductoStock]
+    @Id_Stock varchar(4)
+AS
+BEGIN
+    SELECT 
+        sp.Nom_Producto,
+        sp.Des_UM,
+        sp.Id_UM,
+		sp.Id_Stock,
+        sp.Id_Producto,
+        sp.Stk_Trastienda
+    FROM 
+        dbo.vw_StockProductos sp
+    WHERE 
+        sp.Id_Stock = @Id_Stock
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ConsultarUsuarios]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_ConsultarUsuarios]
+  @Login_Usuario varchar(20)
+AS
+BEGIN
+ -- Obtiene la credenciales de un usuario por su Login
+Select Login_Usuario, Pass_Usuario, Niv_Usuario, Est_usuario ,Fec_Registro ,Usu_Registro 
+from Tb_Usuarios where Login_Usuario = @Login_Usuario 
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_CrearMinimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_CrearMinimarket]
+    @Nombre VARCHAR(100),
+    @Direccion VARCHAR(200),
+    @Ruc VARCHAR(11),
+    @Telefono VARCHAR(9)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Insertar el nuevo minimarket con estado 1
+    INSERT INTO [dbo].[Tb_Minimarket] ([Nombre], [estado], [Direccion], [Ruc], [Telefono])
+    VALUES (@Nombre, 1, @Direccion, @Ruc, @Telefono);
+    
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_GuardarProveedorYTransporte]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_GuardarProveedorYTransporte]
+    @Nom_Proveedor VARCHAR(255),
+    @Direc_Proveedor VARCHAR(255),
+    @RUC_Proveedor VARCHAR(11),
+    @Telefono VARCHAR(15),
+    @Correo VARCHAR(255),
+    @Usu_Registro VARCHAR(20),
+    @Empresa_Transporte VARCHAR(50),
+    @Direccion_Empresa VARCHAR(50),
+    @Ruc_Transporte VARCHAR(11),
+    @Marca_Transporte VARCHAR(50),
+    @Placa_Transporte VARCHAR(6),
+    @Licencia_Transporte VARCHAR(7)
+AS
+BEGIN
+    DECLARE @NewId_Proveedor VARCHAR(4)
+    DECLARE @NewId_Transporte VARCHAR(4)
+
+    -- Obtener el nuevo ID para Proveedor
+    SELECT @NewId_Proveedor = 'P' + RIGHT('000' + CAST(COALESCE(MAX(CAST(SUBSTRING(Id_Proveedor, 2, 3) AS INT)), 0) + 1 AS VARCHAR(3)), 3)
+    FROM Tb_Proveedor
+
+    -- Insertar en la tabla Proveedor
+    INSERT INTO Tb_Proveedor (Id_Proveedor, Nom_Proveedor, Direc_Proveedor, RUC, Telefono, Correo, Estado, Fec_Registro, Usu_Registro)
+    VALUES (@NewId_Proveedor, @Nom_Proveedor, @Direc_Proveedor, @RUC_Proveedor, @Telefono, @Correo, 1, GETDATE(), @Usu_Registro)
+
+    -- Obtener el nuevo ID para Transporte
+    SELECT @NewId_Transporte = 'T' + RIGHT('000' + CAST(COALESCE(MAX(CAST(SUBSTRING(Id_Transporte, 2, 3) AS INT)), 0) + 1 AS VARCHAR(3)), 3)
+    FROM Tb_Transporte
+
+    -- Insertar en la tabla Transporte
+    INSERT INTO Tb_Transporte (Id_Transporte, Empresa_Transporte, Direccion_Empresa, Ruc_Transporte, Marca_Trasporte, Placa_Trasporte, Licencia_Transporte)
+    VALUES (@NewId_Transporte, @Empresa_Transporte, @Direccion_Empresa, @Ruc_Transporte, @Marca_Transporte, @Placa_Transporte, @Licencia_Transporte)
+
+    -- Insertar en la tabla Tb_Transporte_Proveedor
+    INSERT INTO Tb_Transporte_Proveedor (Id_Transporte, Id_Proveedor)
+    VALUES (@NewId_Transporte, @NewId_Proveedor)
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_InsertarDetalleRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_InsertarDetalleRemision]
+    @Id_Proveedor NVARCHAR(4) = NULL,
+    @Id_Producto VARCHAR(4) = NULL,
+    @Id_Transporte VARCHAR(4) = NULL,
+    @Id_UM INT = NULL,
+    @Peso_Carga DECIMAL(10,2) = NULL,
+    @Cantidad INT,
+    @Observaciones VARCHAR(50),
+    @Usu_Registro VARCHAR(20),
+    @FechaIni DATETIME,
+    @FechaFin DATETIME,
+    @Num_Guia VARCHAR(20), -- Nuevo parámetro para el número de guía
+    @Punto_Partida VARCHAR(100), -- Nuevo parámetro para Punto_Partida
+    @Punto_Llegada VARCHAR(100)  -- Nuevo parámetro para Punto_Llegada
+AS
+BEGIN
+    -- Variables para los IDs generados
+    DECLARE @CurrentDate DATE; -- Usamos DATE para solo fecha sin hora
+    SET @CurrentDate = CAST(GETDATE() AS DATE);
+
+    -- Generar el Id_Remision si no se proporciona
+    DECLARE @Id_Remision NVARCHAR(6);
+    DECLARE @RemisionCount INT;
+
+    SET @RemisionCount = (SELECT COUNT(*) FROM Tb_GuiasRemision);
+
+    IF @RemisionCount = 0
+        SET @Id_Remision = 'R001';
+    ELSE
+        SET @Id_Remision = (
+            SELECT 'R' + RIGHT('000' + CAST(CAST(SUBSTRING(MAX(Id_Remision), 2, 3) AS INT) + 1 AS NVARCHAR), 3)
+            FROM Tb_GuiasRemision
+        );
+
+    -- Generar el Id_Transporte si no se proporciona
+    DECLARE @GeneratedId_Transporte NVARCHAR(6);
+    DECLARE @TransporteCount INT;
+
+    SET @TransporteCount = (SELECT COUNT(*) FROM Tb_Transporte_Proveedor);
+
+    IF @Id_Transporte IS NULL
+    BEGIN
+        IF @TransporteCount = 0
+            SET @GeneratedId_Transporte = 'T001';
+        ELSE
+            SET @GeneratedId_Transporte = (
+                SELECT 'T' + RIGHT('000' + CAST(CAST(SUBSTRING(MAX(Id_Transporte), 2, 3) AS INT) + 1 AS NVARCHAR), 3)
+                FROM Tb_Transporte_Proveedor
+            );
+    END
+    ELSE
+        SET @GeneratedId_Transporte = @Id_Transporte;
+
+    -- Iniciar la transacción
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Insertar en la tabla Tb_GuiasRemision si no existe
+        IF NOT EXISTS (SELECT 1 FROM Tb_GuiasRemision WHERE Id_Remision = @Id_Remision)
+        BEGIN
+            INSERT INTO Tb_GuiasRemision (Id_Remision, Observaciones, FechaIni, FechaFin, estado, Fec_Registro, Usu_Registro, Fec_Ult_Mod, Usu_Ult_Mod, Num_Guia)
+            VALUES (@Id_Remision, @Observaciones, @FechaIni, @FechaFin, 1, @CurrentDate, @Usu_Registro, @CurrentDate, @Usu_Registro, @Num_Guia);
+        END
+
+        -- Insertar en la tabla Tb_DetalleRemision
+        INSERT INTO Tb_DetalleRemision (Id_Remision, Id_Proveedor, Id_Producto, Id_Transporte, Cantidad, Id_UM, Peso_Carga, Punto_Partida, Punto_Llegada)
+        VALUES (@Id_Remision, @Id_Proveedor, @Id_Producto, @GeneratedId_Transporte, @Cantidad, @Id_UM, @Peso_Carga, @Punto_Partida, @Punto_Llegada);
+
+        -- Actualizar el stock en la tabla Tb_Stock
+        UPDATE Tb_Stock
+        SET Stk_Trastienda = Stk_Trastienda + @Cantidad
+        WHERE Id_Producto = @Id_Producto;
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Revertir la transacción en caso de error
+        ROLLBACK TRANSACTION;
+
+        -- Manejar el error
+        DECLARE @ErrorMessage NVARCHAR(4000);
+        DECLARE @ErrorSeverity INT;
+        DECLARE @ErrorState INT;
+
+        SELECT @ErrorMessage = ERROR_MESSAGE(),
+               @ErrorSeverity = ERROR_SEVERITY(),
+               @ErrorState = ERROR_STATE();
+
+        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_InsertarMovimientoStock]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_InsertarMovimientoStock]
+    @Id_Stock varchar(4),
+    @Movimiento_Tienda int,
+	@Usu_Registro varchar(20)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        -- Insertar el movimiento en Tb_Movimientos
+
+        INSERT INTO Tb_Movimientos (Movimiento_Tienda, Fec_Registro, Usu_Registro, Id_Stock)
+        VALUES (@Movimiento_Tienda, GETDATE(), @Usu_Registro, @Id_Stock);
+
+        -- Actualizar el stock en Tb_Stock
+        UPDATE Tb_Stock
+        SET Stk_Trastienda = Stk_Trastienda - @Movimiento_Tienda,
+            Stk_Tienda = Stk_Tienda + @Movimiento_Tienda
+        WHERE Id_Stock = @Id_Stock;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        -- Manejar errores, registrarlos, o devolver un código de error, según corresponda
+        THROW;
+    END CATCH;
+END;
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarBoletasDetalleProductos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ListarBoletasDetalleProductos]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM [dbo].[Tb_Boleta];
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarCategorias]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_ListarCategorias]
+AS
+BEGIN
+    SELECT Id_Cat, Des_Cat
+    FROM [dbo].[Tb_Categoria];
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarFacturasDetalleProductos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ListarFacturasDetalleProductos]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM [dbo].[Tb_Factura];
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarGuiasXRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE
+PROCEDURE [dbo].[sp_ListarGuiasXRemision]
+    @Id_Proveedor nvarchar(4) = NULL,
+    @Cantidad int = NULL
+AS
+BEGIN
+    SELECT
+        Id_Detalle,
+        Id_Remision,
+        Id_Proveedor,
+        Nom_Proveedor,
+        RUC,
+        Direc_Proveedor,
+        Telefono,
+        Correo,
+        Id_Producto,
+        Nom_Producto,
+        Marca,
+        Id_Cat,
+        Des_Cat,
+        Id_UM_Producto,
+        Des_UM_Producto,
+        Id_UM_Remision,
+        Des_UM_Remision,
+        Observaciones,
+        FechaIni,
+        Num_Guia,
+        FechaFin,
+        Id_Transporte,
+        Empresa_Transporte,
+        Direccion_Empresa,
+        Marca_Trasporte,
+        Licencia_Transporte,
+        Placa_Trasporte,
+        Ruc_Transporte,
+        Peso_Carga,
+        Punto_Llegada,
+        Punto_Partida,
+        Cantidad,
+        Estado,
+        Fec_Registro,
+        Fec_Ult_Mod,
+        Usu_Registro,
+        Usu_Ult_Mod
+    FROM 
+        [dbo].[vw_VistaGuiasRemision]
+    WHERE 
+        (@Id_Proveedor IS NULL OR Id_Proveedor = @Id_Proveedor)
+        AND (@Cantidad IS NULL OR Cantidad >= @Cantidad)
+    ORDER BY 
+        CASE 
+            WHEN @Cantidad IS NOT NULL THEN 
+                CASE 
+                    WHEN Cantidad = @Cantidad THEN 0 
+                    ELSE 1 
+                END 
+            ELSE 0 
+        END,
+        Cantidad;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarMinimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE PROCEDURE [dbo].[sp_ListarMinimarket]
+AS
+BEGIN
+    SELECT *
+    FROM vw_Minimarket
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarMinimarketsActivos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_ListarMinimarketsActivos]
+AS
+BEGIN
+    SELECT *
+    FROM vw_Minimarket
+    WHERE estado = 1;
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarMovimientosConStock]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_ListarMovimientosConStock]
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT *
+    FROM dbo.vw_MovimientosConStock;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarStockProductos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ListarStockProductos]
+AS
+BEGIN
+    -- Selecciona todos los registros de la vista vw_StockProductos
+    SELECT * 
+    FROM vw_StockProductos;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ListarStockProductosDispo]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_ListarStockProductosDispo]
+AS
+BEGIN
+    -- Selecciona todos los registros de la vista vw_StockProductos donde el estado sea 'Disponible'
+    SELECT * 
+    FROM vw_StockProductos
+    WHERE Estado = 'Disponible';
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ModificarMinimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[sp_ModificarMinimarket]
+    @Id_Empresa INT,
+    @Nombre VARCHAR(100),
+    @Estado INT,
+    @Direccion VARCHAR(200),
+	@Telefono Varchar(9)
+ 
+AS
+BEGIN
+    UPDATE [dbo].[Tb_Minimarket]
+    SET [Nombre] = @Nombre,
+        [estado] = @Estado,
+        [Direccion] = @Direccion,
+		 [Telefono] = @Telefono
+    WHERE [Id_Empresa] = @Id_Empresa;
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ObtenerDatosMinimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ObtenerDatosMinimarket]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+       
+        Nombre, 
+        Direccion, 
+        Ruc
+       
+    FROM 
+        vw_Minimarket
+    WHERE 
+        estado = 1;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ObtenerDetallesBoleta]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ObtenerDetallesBoleta]
+    @Id_Boleta VARCHAR(4)
+AS
+BEGIN
+    -- Seleccionar la información de la boleta y detalles con producto, unidad de medida y precio unitario
+    SELECT 
+        b.Id_Boleta,
+        b.Nro_boleta,
+        b.Nombres_Cliente,
+        b.Apellidos_Cliente,
+        b.Dni_Cliente,
+        b.Fecha,
+        b.Fec_Registro,
+        b.Usu_Registro,
+        b.Fec_Ult_Mod,
+        b.Usu_Ult_Mod,
+        db.Id_Producto,
+        p.Nom_Producto,
+        p.Marca,
+        p.Precio_Unitario,   -- Añadir esta línea para incluir el precio unitario
+        um.Des_UM,
+        db.Cantidad,
+        db.Total,
+        db.Igv,
+        db.Subtotal
+    FROM Tb_Detalle_Boleta db
+    INNER JOIN Tb_Productos p ON db.Id_Producto = p.Id_Producto
+    INNER JOIN Tb_UnidadMedida um ON p.Id_UM = um.Id_UM
+    INNER JOIN Tb_Boleta b ON db.Id_Boleta = b.Id_Boleta
+    WHERE db.Id_Boleta = @Id_Boleta;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ObtenerDetallesFactura]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_ObtenerDetallesFactura]
+    @Id_Factura VARCHAR(4)
+AS
+BEGIN
+    -- Seleccionar la información de la factura y detalles con producto, unidad de medida, y precio unitario
+    SELECT 
+        f.Id_Factura,
+        f.Numero_Factura,
+        f.Ruc,
+        f.RazonSocial,
+        f.Estado,
+        f.Direccion,
+        f.Fec_Factura,
+        f.Fec_Registro,
+        f.Usu_Registro,
+        f.Fec_Ult_Mod,
+        f.Usu_Ult_Mod,
+        df.Id_Producto,
+        p.Nom_Producto,
+        p.Marca,
+        p.Precio_Unitario,  -- Añadir esta línea para incluir el precio unitario
+        um.Des_UM,
+        df.Cantidad,
+        df.Total,
+        df.igv,
+        df.subtotal
+    FROM Tb_Factura f
+    INNER JOIN Tb_Detalle_Factura df ON f.Id_Factura = df.Id_Factura
+    INNER JOIN Tb_Productos p ON df.Id_Producto = p.Id_Producto
+    INNER JOIN Tb_UnidadMedida um ON p.Id_UM = um.Id_UM
+    WHERE f.Id_Factura = @Id_Factura;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_RestarStockTienda]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_RestarStockTienda]
+    @idproducto varchar(4),
+    @cantidad INT
+AS
+BEGIN
+    UPDATE Tb_Stock
+    SET Stk_Tienda = Stk_Tienda - @cantidad
+    WHERE Id_Producto = @idproducto;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[sp_SumarStockTienda]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_SumarStockTienda]
+    @idproducto Varchar(4),
+    @cantidad INT
+AS
+BEGIN
+    UPDATE Tb_Stock
+    SET Stk_Tienda = Stk_Tienda + @cantidad
+    WHERE Id_Producto = @idproducto;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ActualizarUsuario]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ActualizarUsuario]
+    @Login_Usuario varchar(20),
+    @Pass_Usuario varchar(20),
+    @Niv_Usuario int,
+    @Usu_Ult_Mod varchar(20)
+AS
+BEGIN
+    -- Actualiza un usuario existente
+    UPDATE Tb_Usuarios
+    SET Pass_Usuario = @Pass_Usuario,
+        Niv_Usuario = @Niv_Usuario,
+        Fec_Registro = GETDATE(),
+        Usu_Ult_Mod = @Usu_Ult_Mod
+    WHERE Login_Usuario = @Login_Usuario
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ConsultarProducto]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ConsultarProducto]
+    @Id_Producto varchar(4)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Consulta el producto por su ID
+    SELECT 
+        
+        Id_Producto, 
+		Nom_Producto,
+		Id_UM,
+		Des_UM,
+		Marca
+
+      
+        
+       
+    FROM 
+        vw_Productos
+    WHERE 
+        Id_Producto = @Id_Producto;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ConsultarProveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+--Proveedor sp 
+create PROCEDURE [dbo].[usp_ConsultarProveedor]
+  @Id_Proveedor nvarchar(4)
+AS
+BEGIN
+
+    SELECT 
+	Id_Proveedor,
+	
+	Nom_Proveedor,
+	Direc_Proveedor,
+	RUC,
+	Telefono,
+	Correo,
+	Estado
+	
+
+
+	
+	
+	FROM Tb_Proveedor 
+	WHERE Id_Proveedor = @Id_Proveedor;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ConsultarTransportista]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ConsultarTransportista]
+    @Id_Transporte varchar(4)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Consulta el producto por su ID
+    SELECT 
+        
+       
+		Empresa_Transporte,
+		Direccion_Empresa,
+		Ruc_Transporte,
+		Marca_Trasporte,
+		Placa_Trasporte,
+		Licencia_Transporte
+
+      
+        
+       
+    FROM 
+        Tb_Transporte
+    WHERE 
+        Id_Transporte = @Id_Transporte;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_HabilitarProducto]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[usp_HabilitarProducto]
+    @Id_Producto nchar(4)
+AS
+BEGIN
+    -- Inhabilita un usuario cambiando su estado a 2
+    UPDATE Tb_Productos
+    SET Estado = 1,
+        Fec_Registro = GETDATE()
+    WHERE Id_Producto = @Id_Producto
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_HabilitarUsuario]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_HabilitarUsuario]
+    @Login_Usuario varchar(20)
+AS
+BEGIN
+    -- Inhabilita un usuario cambiando su estado a 2
+    UPDATE Tb_Usuarios
+    SET Est_Usuario = 1,
+        Fec_Registro = GETDATE()
+    WHERE Login_Usuario = @Login_Usuario
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InhabilitarMinimarket]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_InhabilitarMinimarket]
+    @Id_Empresa int
+AS
+BEGIN
+    -- Inhabilita un usuario cambiando su estado a 2
+    UPDATE Tb_Minimarket
+    SET Estado = 0    
+    WHERE Id_Empresa = @Id_Empresa
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InhabilitarProducto]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[usp_InhabilitarProducto]
+    @Id_Producto nchar(4)
+AS
+BEGIN
+    -- Inhabilita un usuario cambiando su estado a 2
+    UPDATE Tb_Productos
+    SET Estado = 0,
+        Fec_Registro = GETDATE()
+    WHERE Id_Producto = @Id_Producto
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InhabilitarUsuario]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_InhabilitarUsuario]
+    @Login_Usuario varchar(20)
+AS
+BEGIN
+    -- Inhabilita un usuario cambiando su estado a 2
+    UPDATE Tb_Usuarios
+    SET Est_Usuario = 2,
+        Fec_Registro = GETDATE()
+    WHERE Login_Usuario = @Login_Usuario
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertarNuevoProducto]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Crear procedimiento almacenado para insertar un nuevo producto y su stock asociado
+CREATE PROCEDURE [dbo].[usp_InsertarNuevoProducto]
+    @Nom_Producto VARCHAR(255),
+    @Id_Cat INT,
+    @Id_Proveedor NVARCHAR(4),
+    @Id_UM INT,
+    @Precio_Unitario DECIMAL(10, 0),
+    @Marca VARCHAR(20),
+    @Usu_Registro VARCHAR(20)
+AS
+BEGIN
+    DECLARE @Id_Producto VARCHAR(4)
+    DECLARE @Id_Stock VARCHAR(4)
+    DECLARE @FechaActual DATETIME = GETDATE()
+    
+    -- Generar el nuevo Id_Producto siguiendo el patrón "PR00"
+    SELECT @Id_Producto = 'PR' + RIGHT('00' + CAST(ISNULL(MAX(CAST(SUBSTRING(Id_Producto, 3, LEN(Id_Producto) - 2) AS INT)), 0) + 1 AS VARCHAR), 2)
+    FROM Tb_Productos
+
+    -- Generar el nuevo Id_Stock siguiendo el patrón "S000"
+    SELECT @Id_Stock = 'S' + RIGHT('000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Id_Stock, 2, LEN(Id_Stock) - 1) AS INT)), 0) + 1 AS VARCHAR), 3)
+    FROM Tb_Stock
+
+    -- Insertar el nuevo producto en Tb_Productos
+    INSERT INTO Tb_Productos (
+        Id_Producto,
+        Nom_Producto,
+        Id_Cat,
+        Id_Proveedor,
+        Id_UM,
+        Fec_Registro,
+        Usu_Registro,
+        Estado,
+        Precio_Unitario,
+        Marca
+    ) VALUES (
+        @Id_Producto,
+        @Nom_Producto,
+        @Id_Cat,
+        @Id_Proveedor,
+        @Id_UM,
+        @FechaActual,
+        @Usu_Registro,
+        1,  -- Estado activo
+        @Precio_Unitario,
+        @Marca
+    )
+
+    -- Insertar el nuevo stock en Tb_Stock
+    INSERT INTO Tb_Stock (
+        Id_Stock,
+        Stk_Trastienda,
+        Stk_Tienda,
+        Id_Producto
+    ) VALUES (
+        @Id_Stock,
+        0,  -- Inicializar el stock en trastienda a 0
+        0,  -- Inicializar el stock en tienda a 0
+        @Id_Producto
+    )
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertarUsuario]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_InsertarUsuario]
+    @Login_Usuario varchar(20),
+    @Pass_Usuario varchar(20),
+    @Niv_Usuario int,
+    @Usu_Registro varchar(20)
+AS
+BEGIN
+    -- Inserta un nuevo usuario
+    INSERT INTO Tb_Usuarios (Login_Usuario, Pass_Usuario, Niv_Usuario, Est_Usuario, Fec_Registro, Usu_Registro)
+    VALUES (@Login_Usuario, @Pass_Usuario, @Niv_Usuario, 1, GETDATE(), @Usu_Registro)
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarGuiasProveedoresFechas]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarGuiasProveedoresFechas]
+@Id_Proveedor nchar(4),
+@fecini smalldatetime,
+@fecfin smalldatetime
+AS
+Select Id_Remision,FechaIni, FechaFin , Id_Proveedor, Nom_Proveedor,RUC,Telefono,Correo,Id_Producto,Nom_Producto,Id_Cat,Des_Cat,Cantidad,Observaciones,Estado
+from vw_VistaGuiasRemision
+where Id_Proveedor=@Id_Proveedor and FechaIni between @fecini and @fecfin
+order by Id_remision
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarNombreCantidad]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[usp_ListarNombreCantidad]
+AS
+SELECT Id_Detalle,Cantidad 
+FROM Tb_DetalleRemision
+ORDER BY Cantidad
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarNombreProveedores]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarNombreProveedores]
+AS
+SELECT Id_Proveedor,Nom_Proveedor 
+FROM Tb_Proveedor
+ORDER BY Nom_Proveedor
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarProductos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarProductos]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM [dbo].[vw_Productos];
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarProductoxProveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[usp_ListarProductoxProveedor]
+AS
+BEGIN
+    SELECT * FROM vista_ProductosProveedores;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarProveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarProveedor]
+AS
+BEGIN
+    -- Listar todos los estudiantes ordenados por apellido
+    SELECT *
+    FROM vw_Proveedores
+    ORDER BY Nom_Proveedor;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarProveedorActivos]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create PROCEDURE [dbo].[usp_ListarProveedorActivos]
+AS
+BEGIN
+    -- Listar todos los proveedores activos ordenados por nombre
+    SELECT *
+    FROM vw_Proveedores
+    WHERE Estado = 1
+    ORDER BY Nom_Proveedor;
+END;
+
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarRemision]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM [dbo].[vw_VistaGuiasRemision]
+    ORDER BY Fec_Registro ASC; -- Ordena las guías por la fecha de registro de forma ascendente
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarUM]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarUM]
+AS
+BEGIN
+    SELECT id_UM, Des_UM
+    FROM Tb_UnidadMedida
+    WHERE Id_UM IN (1, 2, 3)
+    ORDER BY Id_UM
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarUM_Pro]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_ListarUM_Pro]
+AS
+BEGIN
+    SELECT id_UM, Des_UM
+    FROM Tb_UnidadMedida
+    WHERE Id_UM NOT IN (1, 2, 3)
+    ORDER BY Id_UM;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ListarUsuarios]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ListarUsuarios]
+AS
+BEGIN
+    -- Selecciona todos los campos de la tabla Tb_Usuario
+    SELECT * FROM vw_listaUsuario
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ProveedoresProductosPorIdProveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_ProveedoresProductosPorIdProveedor]
+@IdProveedor nvarchar(4)
+AS
+BEGIN
+    SELECT Id_Producto, Nom_Producto
+    FROM vw_Vista_Proveedores_Productos
+    WHERE Id_Proveedor = @IdProveedor;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_ProveedoresTransportePorIdProveedor]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create PROCEDURE [dbo].[usp_ProveedoresTransportePorIdProveedor]
+@IdProveedor nvarchar(4)
+AS
+BEGIN
+    SELECT Id_Transporte, Empresa_Transporte
+    FROM vw_Vista_Proveedor_Transporte
+    WHERE Id_Proveedor = @IdProveedor;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[usp_RegistrarBoleta]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[usp_RegistrarBoleta](
+ 
+    @Usu_Registro varchar(20),
+    @Nombres_Cliente varchar(50),
+    @Apellidos_Cliente varchar(50),
+    @Dni_Cliente varchar(8),
+    @DetalleBoleta [EDetalle_Boleta] READONLY,  -- Tipo de tabla definido para detalle
+    @Resultado bit OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicialización de variables de resultado
+        SET @Resultado = 1
+        SET @Mensaje = ''
+
+        -- Iniciar la transacción
+        BEGIN TRANSACTION registro
+
+        -- Generar nuevo Id_Boleta
+        DECLARE @NuevoIdBoleta varchar(4)
+
+        -- Obtener el último Id_Boleta y calcular el nuevo
+        SELECT @NuevoIdBoleta = 'B' + RIGHT('000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Id_Boleta, 2, 3) AS int)), 0) + 1 AS varchar(3)), 3)
+        FROM [dbo].[Tb_Boleta]
+
+        -- Generar nuevo número de boleta
+        DECLARE @NuevoNroBoleta varchar(20)
+        SELECT @NuevoNroBoleta = 'B024-' + RIGHT('00000000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Nro_boleta, 6, 8) AS int)), 0) + 1 AS varchar(8)), 8)
+        FROM [dbo].[Tb_Boleta]
+
+        -- Insertar en Tb_Boleta
+        INSERT INTO [dbo].[Tb_Boleta] (
+            [Id_Boleta],
+            [Fecha],
+            [Fec_Registro],
+            [Usu_Registro],
+            [Nro_boleta],
+            [Nombres_Cliente],
+            [Apellidos_Cliente],
+            [Dni_Cliente]
+        ) VALUES (
+            @NuevoIdBoleta,
+            GETDATE(),
+            GETDATE(), -- Fecha de registro actual
+            @Usu_Registro,
+            @NuevoNroBoleta,
+            @Nombres_Cliente,
+            @Apellidos_Cliente,
+            @Dni_Cliente
+        )
+
+        -- Insertar en Tb_Detalle_Boleta
+        INSERT INTO [dbo].[Tb_Detalle_Boleta] (
+            [Id_Boleta],
+            [Id_Producto],
+            [Total],
+            [Cantidad],
+            [Igv],
+            [Subtotal]
+        )
+        SELECT 
+            @NuevoIdBoleta, -- Usar el nuevo Id_Boleta generado
+            Det.Id_Producto,
+            Prod.Precio_Unitario * Det.Cantidad AS Total,
+            Det.Cantidad,
+            (Prod.Precio_Unitario * Det.Cantidad) * 0.18 AS Igv, -- Calcular el IGV al 18% del Total
+            Prod.Precio_Unitario * Det.Cantidad - (Prod.Precio_Unitario * Det.Cantidad) * 0.18 AS Subtotal -- Calcular el Subtotal
+        FROM @DetalleBoleta Det
+        INNER JOIN [dbo].[Tb_Productos] Prod ON Det.Id_Producto = Prod.Id_Producto
+
+        -- Actualizar el stock en la tabla Tb_Stock
+        UPDATE [dbo].[Tb_Stock]
+        SET [Stk_Tienda] = [Stk_Tienda] - Det.Cantidad
+        FROM [dbo].[Tb_Stock] Stk
+        INNER JOIN @DetalleBoleta Det ON Stk.Id_Producto = Det.Id_Producto
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION registro
+
+    END TRY
+    BEGIN CATCH
+        -- En caso de error, establecer resultado y mensaje de error
+        SET @Resultado = 0
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION registro
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_RegistrarBoletaPrueba]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_RegistrarBoletaPrueba](
+ 
+    @Usu_Registro varchar(20),
+    @Nombres_Cliente varchar(50),
+    @Apellidos_Cliente varchar(50),
+    @Dni_Cliente varchar(8),
+    @DetalleBoleta [EDetalle_Boleta] READONLY,  -- Tipo de tabla definido para detalle
+    @MetodoPago int,  -- 1: Efectivo, 0: Tarjeta de crédito
+    @EfectivoRecibido decimal(18, 2) = 0,  -- Efectivo recibido (solo aplica si MetodoPago es 1)
+    @Resultado bit OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicialización de variables de resultado
+        SET @Resultado = 1
+        SET @Mensaje = ''
+
+        -- Iniciar la transacción
+        BEGIN TRANSACTION registro
+
+        -- Generar nuevo Id_Boleta
+        DECLARE @NuevoIdBoleta varchar(4)
+
+        -- Obtener el último Id_Boleta y calcular el nuevo
+        SELECT @NuevoIdBoleta = 'B' + RIGHT('000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Id_Boleta, 2, 3) AS int)), 0) + 1 AS varchar(3)), 3)
+        FROM [dbo].[Tb_Boleta]
+
+        -- Generar nuevo número de boleta
+        DECLARE @NuevoNroBoleta varchar(20)
+        SELECT @NuevoNroBoleta = 'B024-' + RIGHT('00000000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Nro_boleta, 6, 8) AS int)), 0) + 1 AS varchar(8)), 8)
+        FROM [dbo].[Tb_Boleta]
+
+        -- Insertar en Tb_Boleta
+        INSERT INTO [dbo].[Tb_Boleta] (
+            [Id_Boleta],
+            [Fecha],
+            [Fec_Registro],
+            [Usu_Registro],
+            [Nro_boleta],
+            [Nombres_Cliente],
+            [Apellidos_Cliente],
+            [Dni_Cliente]
+        ) VALUES (
+            @NuevoIdBoleta,
+            GETDATE(),
+            GETDATE(), -- Fecha de registro actual
+            @Usu_Registro,
+            @NuevoNroBoleta,
+            @Nombres_Cliente,
+            @Apellidos_Cliente,
+            @Dni_Cliente
+        )
+
+        -- Insertar en Tb_Detalle_Boleta
+        INSERT INTO [dbo].[Tb_Detalle_Boleta] (
+            [Id_Boleta],
+            [Id_Producto],
+            [Total],
+            [Cantidad],
+            [Igv],
+            [Subtotal],
+            [MetodoPago],
+            [EfectivoRecibido],
+            [Devolucion]
+        )
+        SELECT 
+            @NuevoIdBoleta, -- Usar el nuevo Id_Boleta generado
+            Det.Id_Producto,
+            Prod.Precio_Unitario * Det.Cantidad AS Total,
+            Det.Cantidad,
+            (Prod.Precio_Unitario * Det.Cantidad) * 0.18 AS Igv, -- Calcular el IGV al 18% del Total
+            Prod.Precio_Unitario * Det.Cantidad - (Prod.Precio_Unitario * Det.Cantidad) * 0.18 AS Subtotal, -- Calcular el Subtotal
+            @MetodoPago,
+            CASE WHEN @MetodoPago = 1 THEN @EfectivoRecibido ELSE Prod.Precio_Unitario * Det.Cantidad END AS EfectivoRecibido,
+            CASE WHEN @MetodoPago = 1 THEN @EfectivoRecibido - Prod.Precio_Unitario * Det.Cantidad ELSE 0 END AS Devolucion
+        FROM @DetalleBoleta Det
+        INNER JOIN [dbo].[Tb_Productos] Prod ON Det.Id_Producto = Prod.Id_Producto
+
+     
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION registro
+
+    END TRY
+    BEGIN CATCH
+        -- En caso de error, establecer resultado y mensaje de error
+        SET @Resultado = 0
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION registro
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_RegistrarFactura]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_RegistrarFactura](
+   
+    @Ruc varchar(11),
+    @RazonSocial varchar(90),
+    @Estado varchar(20),
+    @Direccion varchar(200),
+    @Usu_Registro varchar(50),
+    @DetalleFactura [EDetalle_Factura] READONLY,  -- Tipo de tabla definido para detalle
+    @Resultado bit OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicialización de variables de resultado
+        SET @Resultado = 1
+        SET @Mensaje = ''
+
+        -- Iniciar la transacción
+        BEGIN TRANSACTION registro
+
+        -- Generar nuevo Id_Factura
+        DECLARE @NuevoIdFactura varchar(4)
+
+        -- Obtener el último Id_Factura y calcular el nuevo
+        SELECT @NuevoIdFactura = 'F' + RIGHT('000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Id_Factura, 2, 3) AS int)), 0) + 1 AS varchar(3)), 3)
+        FROM [dbo].[Tb_Factura]
+
+        -- Generar nuevo número de factura
+        DECLARE @NuevoNumeroFactura varchar(13)
+        SELECT @NuevoNumeroFactura = 'F024-' + RIGHT('0000000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Numero_Factura, 6, 7) AS int)), 0) + 1 AS varchar(7)), 7)
+        FROM [dbo].[Tb_Factura]
+
+        -- Insertar en Tb_Factura
+        INSERT INTO [dbo].[Tb_Factura] (
+            [Id_Factura],
+            [Numero_Factura],
+            [Ruc],
+            [RazonSocial],
+            [Estado],
+            [Direccion],
+            [Fec_Factura],
+            [Fec_Registro],
+            [Usu_Registro]
+        ) VALUES (
+            @NuevoIdFactura,
+            @NuevoNumeroFactura,
+            @Ruc,
+            @RazonSocial,
+            @Estado,
+            @Direccion,
+			
+            GETDATE(),
+            GETDATE(), -- Fecha de registro actual
+            @Usu_Registro
+        )
+
+        -- Insertar en Tb_Detalle_Factura
+        INSERT INTO [dbo].[Tb_Detalle_Factura] (
+            [Id_Factura],
+            [Id_Producto],
+            [Total],
+            [Cantidad],
+            [igv],
+            [subtotal]
+        )
+        SELECT 
+            @NuevoIdFactura, -- Usar el nuevo Id_Factura generado
+            Det.Id_Producto,
+            Prod.Precio_Unitario * Det.Cantidad AS Total,
+            Det.Cantidad,
+            (Prod.Precio_Unitario * Det.Cantidad) * 0.18 AS igv, -- Calcular el IGV al 18% del Total
+            Prod.Precio_Unitario * Det.Cantidad * 0.82 AS subtotal -- Calcular el Subtotal
+        FROM @DetalleFactura Det
+        INNER JOIN [dbo].[Tb_Productos] Prod ON Det.Id_Producto = Prod.Id_Producto
+
+ 
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION registro
+
+    END TRY
+    BEGIN CATCH
+        -- En caso de error, establecer resultado y mensaje de error
+        SET @Resultado = 0
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION registro
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_RegistrarFacturaPrueba]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[usp_RegistrarFacturaPrueba](
+   
+    @Ruc varchar(11),
+    @RazonSocial varchar(90),
+    @Estado varchar(20),
+    @Direccion varchar(200),
+    @Usu_Registro varchar(50),
+    @DetalleFactura [EDetalle_Factura] READONLY,  -- Tipo de tabla definido para detalle
+    @MetodoPago int,  -- 1: Efectivo, 0: Tarjeta de crédito
+    @EfectivoRecibido decimal(18, 2) = 0,  -- Efectivo recibido (solo aplica si MetodoPago es 1)
+    @Resultado bit OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicialización de variables de resultado
+        SET @Resultado = 1
+        SET @Mensaje = ''
+
+        -- Iniciar la transacción
+        BEGIN TRANSACTION registro
+
+        -- Generar nuevo Id_Factura
+        DECLARE @NuevoIdFactura varchar(4)
+
+        -- Obtener el último Id_Factura y calcular el nuevo
+        SELECT @NuevoIdFactura = 'F' + RIGHT('000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Id_Factura, 2, 3) AS int)), 0) + 1 AS varchar(3)), 3)
+        FROM [dbo].[Tb_Factura]
+
+        -- Generar nuevo número de factura
+        DECLARE @NuevoNumeroFactura varchar(13)
+        SELECT @NuevoNumeroFactura = 'F024-' + RIGHT('0000000' + CAST(ISNULL(MAX(CAST(SUBSTRING(Numero_Factura, 6, 7) AS int)), 0) + 1 AS varchar(7)), 7)
+        FROM [dbo].[Tb_Factura]
+
+        -- Insertar en Tb_Factura
+        INSERT INTO [dbo].[Tb_Factura] (
+            [Id_Factura],
+            [Numero_Factura],
+            [Ruc],
+            [RazonSocial],
+            [Estado],
+            [Direccion],
+            [Fec_Factura],
+            [Fec_Registro],
+            [Usu_Registro]
+        ) VALUES (
+            @NuevoIdFactura,
+            @NuevoNumeroFactura,
+            @Ruc,
+            @RazonSocial,
+            @Estado,
+            @Direccion,
+            GETDATE(),
+            GETDATE(), -- Fecha de registro actual
+            @Usu_Registro
+        )
+
+        -- Insertar en Tb_Detalle_Factura
+        INSERT INTO [dbo].[Tb_Detalle_Factura] (
+            [Id_Factura],
+            [Id_Producto],
+            [Total],
+            [Cantidad],
+            [igv],
+            [subtotal],
+			[MetodoPago],
+            [EfectivoRecibido],
+            [Devolucion]
+        )
+         SELECT 
+            @NuevoIdFactura, -- Usar el nuevo Id_Factura generado
+            Det.Id_Producto,
+            Prod.Precio_Unitario * Det.Cantidad AS Total,
+            Det.Cantidad,
+            (Prod.Precio_Unitario * Det.Cantidad) * 0.18 AS Igv, -- Calcular el IGV al 18% del Total
+            Prod.Precio_Unitario * Det.Cantidad  * 0.18 AS Subtotal, -- Calcular el Subtotal
+            @MetodoPago,
+            CASE WHEN @MetodoPago = 1 THEN @EfectivoRecibido ELSE Prod.Precio_Unitario * Det.Cantidad END AS EfectivoRecibido,
+            CASE WHEN @MetodoPago = 1 THEN @EfectivoRecibido - Prod.Precio_Unitario * Det.Cantidad ELSE 0 END AS Devolucion
+        FROM @DetalleFactura Det
+        INNER JOIN [dbo].[Tb_Productos] Prod ON Det.Id_Producto = Prod.Id_Producto
+
+    
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION registro
+
+    END TRY
+    BEGIN CATCH
+        -- En caso de error, establecer resultado y mensaje de error
+        SET @Resultado = 0
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION registro
+    END CATCH
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_UMXRemision]    Script Date: 19/07/2024 20:26:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_UMXRemision]
+@IdRemision nvarchar(4)
+AS
+BEGIN
+    SELECT Id_UM_Remision, Des_UM_Remision
+    FROM vw_VistaGuiasRemision
+    WHERE Id_Remision = @IdRemision;
+END;
+GO
+USE [master]
+GO
+ALTER DATABASE [Inventario] SET  READ_WRITE 
+GO
