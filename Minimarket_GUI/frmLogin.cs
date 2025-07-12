@@ -78,7 +78,6 @@ namespace Minimarket_GUI
 
 
 
-
         private void ValidaAccesos()
         {
             if (intentos == 3)
@@ -91,7 +90,6 @@ namespace Minimarket_GUI
         }
 
 
-     
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
